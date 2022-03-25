@@ -1,0 +1,26 @@
+{
+  "sidebar.tutorialSidebar.category.Build": {
+    "message": "Build",
+    "description": "The label for category Build in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Release Notes": {
+    "message": "Release Notes",
+    "description": "The label for category Release Notes in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorials": {
+    "message": "Tutorials",
+    "description": "The label for category Tutorials in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Nodes and Staking": {
+    "message": "Nodes and Staking",
+    "description": "The label for category Nodes and Staking in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.CaminoGo APIs": {
+    "message": "CaminoGo APIs",
+    "description": "The label for category CaminoGo APIs in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.References": {
+    "message": "References",
+    "description": "The label for category References in sidebar tutorialSidebar"
+  }
+}
