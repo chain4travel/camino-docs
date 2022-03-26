@@ -87,19 +87,19 @@ The resulting folder, `caminogo-<VERSION>-linux`, contains the binaries.
 If you built from source:
 
 ```sh
-./build/caminogo --network=columbus
+./build/caminogo --network-id=columbus
 ```
 
 If you are using the pre-built binaries on MacOS:
 
 ```sh
-./caminogo-<VERSION>/build/caminogo --network=columbus
+./caminogo-<VERSION>/build/caminogo --network-id=columbus
 ```
 
 If you are using the pre-built binaries on Linux:
 
 ```sh
-./caminogo-<VERSION>-linux/caminogo --network=columbus
+./caminogo-<VERSION>-linux/caminogo --network-id=columbus
 ```
 
 When the node starts, it has to bootstrap (catch up with the rest of the network). You will see logs about bootstrapping. When a given chain is done bootstrapping, it will print a log like this:

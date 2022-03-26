@@ -55,7 +55,7 @@ Encoding specifies the encoding format to use for arbitrary bytes ie. the genesi
     {
         "assetAlias1": {               // Each object defines an asset
             "name": "human readable name",
-            "symbol":"AVAL",           // Symbol is between 0 and 4 characters
+            "symbol":"TOUR",           // Symbol is between 0 and 4 characters
             "initialState": {
                 "fixedCap" : [         // Choose the asset type.
                     {                  // Can be "fixedCap", "variableCap", "limitedTransfer", "nonFungible"
@@ -72,7 +72,7 @@ Encoding specifies the encoding format to use for arbitrary bytes ie. the genesi
         },
         "assetAliasCanBeAnythingUnique": { // Asset alias can be used in place of assetID in calls
             "name": "human readable name", // names need not be unique
-            "symbol": "AVAL",              // symbols need not be unique
+            "symbol": "TOUR",              // symbols need not be unique
             "initialState": {
                 "variableCap" : [          // No units of the asset exist at genesis
                     {
@@ -111,7 +111,7 @@ curl -X POST --data '{
         "genesisData": {
             "asset1": {
                 "name": "myFixedCapAsset",
-                "symbol":"MFCA",
+                "symbol":"TOUR",
                 "initialState": {
                     "fixedCap" : [
                         {
@@ -135,7 +135,7 @@ curl -X POST --data '{
             },
             "asset2": {
                 "name": "myVarCapAsset",
-                "symbol":"MVCA",
+                "symbol":"FLY",
                 "initialState": {
                     "variableCap" : [
                         {
@@ -258,7 +258,7 @@ curl -X POST --data '{
     "method" :"avm.createFixedCapAsset",
     "params" :{
         "name": "myFixedCapAsset",
-        "symbol":"MFCA",
+        "symbol":"TOUR",
         "initialHolders": [
             {
                 "address": "X-columbus1s65kep4smpr9cnf6uh9cuuud4ndm2z4jguj3gp",
@@ -396,7 +396,7 @@ curl -X POST --data '{
     "method" :"avm.createVariableCapAsset",
     "params" :{
         "name":"myVariableCapAsset",
-        "symbol":"MFCA",
+        "symbol":"TOUR",
         "minterSets":[
             {
                 "minters":[
@@ -477,7 +477,7 @@ curl -X POST --data '{
     "method" :"avm.createNFTAsset",
     "params" :{
         "name":"Coincert",
-        "symbol":"TIXX",
+        "symbol":"HOT",
         "minterSets":[
             {
                 "minters":[
@@ -614,7 +614,7 @@ curl -X POST --data '{
     "id"     :1,
     "method" :"avm.export",
     "params" :{
-        "to":"C-columbus1q9c6ltuxpsqz7ul8j0h0d0ha439qt70sr3x2m0",
+        "to":"0x0123456789012345678901234567890123456789",
         "amount": 10,
         "assetID": "CAM",
         "from":["X-columbus1s65kep4smpr9cnf6uh9cuuud4ndm2z4jguj3gp"],
@@ -747,7 +747,7 @@ avm.getAssetDescription({assetID: string}) -> {
 }
 ```
 
-* `assetID` is the id of the asset for which the information is requested.
+* `assetID` is the id of the asset for which the information is requested. If empty, the native asset is returned.
 * `name` is the asset’s human-readable, not necessarily unique name.
 * `symbol` is the asset’s symbol.
 * `denomination` determines how balances of this asset are displayed by user interfaces. If denomination is 0, 100 units of this asset are displayed as 100. If denomination is 1, 100 units of this asset are displayed as 10.0. If denomination is 2, 100 units of this asset are displays as .100, etc.
@@ -760,8 +760,19 @@ curl -X POST --data '{
     "id"     :1,
     "method" :"avm.getAssetDescription",
     "params" :{
-        "assetID" :"2fombhL7aGPwj3KH4bfrmJwW6PVnMobf9Y2fn9GwxiAAJyFDbe"
+        "assetID" :"o8seyjX6WupqJ1CE8CeaozK13kqVgc4DFvdvc4crfacLFBauW"
     }
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/X
+```
+
+or
+
+```sh
+curl -X POST --data '{
+    "jsonrpc":"2.0",
+    "id"     :1,
+    "method" :"avm.getAssetDescription",
+    "params": {},
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/X
 ```
 
@@ -771,7 +782,7 @@ curl -X POST --data '{
 {
     "jsonrpc": "2.0",
     "result": {
-        "assetID": "2fombhL7aGPwj3KH4bfrmJwW6PVnMobf9Y2fn9GwxiAAJyFDbe",
+        "assetID": "o8seyjX6WupqJ1CE8CeaozK13kqVgc4DFvdvc4crfacLFBauW",
         "name": "Camino",
         "symbol": "CAM",
         "denomination": "9"
@@ -805,7 +816,7 @@ curl -X POST --data '{
   "method" :"avm.getBalance",
   "params" :{
       "address":"X-columbus1ns3jzhqyk7parg29qan56k0fcxwstc76cjqq2s",
-      "assetID": "2pYGetDWyKdHxpFxh2LHeoLNCH6H5vxxCxHQtFnnFaYxLsqtHC"
+      "assetID": "o8seyjX6WupqJ1CE8CeaozK13kqVgc4DFvdvc4crfacLFBauW"
   }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/X
 ```

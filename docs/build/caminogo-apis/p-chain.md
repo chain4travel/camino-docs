@@ -821,46 +821,22 @@ curl -X POST --data '{
     "result": {
         "blockchains": [
             {
-                "id": "2oYMBNV4eNHyqk2fjjV5nVQLDbtmNJzq5s3qs3Lo6ftnC6FByM",
+                "id": "28Pp3JZJBABUmFQcC9ZXPjuDS6WVX8LeQP9y3DvpCXGiNiTQFV",
                 "name": "X-Chain",
                 "subnetID": "11111111111111111111111111111111LpoYY",
                 "vmID": "jvYyfQTxGMJLuGWa55kdP2p2zSUYsQ5Raupu4TW34ZAUBAbtq"
             },
             {
-                "id": "2q9e4r6Mu3U68nU1fYjgbR6JvwrRx36CohpAX5UQxse55x1Q5",
+                "id": "fnVV12Px5y6FGM5Ua8moqmTPCQT2im18SZEW2xgMDGurimFZg",
                 "name": "C-Chain",
                 "subnetID": "11111111111111111111111111111111LpoYY",
                 "vmID": "mgj786NP7uDwBCcq6YwThhaN8FLyybkCa4zBWTQbNgmK6k9A6"
             },
             {
-                "id": "CqhF97NNugqYLiGaQJ2xckfmkEr8uNeGG5TQbyGcgnZ5ahQwa",
-                "name": "Simple DAG Payments",
-                "subnetID": "11111111111111111111111111111111LpoYY",
-                "vmID": "sqjdyTKUSrQs1YmKDTUbdUhdstSdtRTGRbUn8sqK8B6pkZkz1"
-            },
-            {
-                "id": "VcqKNBJsYanhVFxGyQE5CyNVYxL3ZFD7cnKptKWeVikJKQkjv",
-                "name": "Simple Chain Payments",
-                "subnetID": "11111111111111111111111111111111LpoYY",
-                "vmID": "sqjchUjzDqDfBPGjfQq2tXW1UCwZTyvzAWHsNzF2cb1eVHt6w"
-            },
-            {
                 "id": "2SMYrx4Dj6QqCEA3WjnUTYEFSnpqVTwyV3GPNgQqQZbBbFgoJX",
-                "name": "Simple Timestamp Server",
+                "name": "Timestamp VM",
                 "subnetID": "11111111111111111111111111111111LpoYY",
                 "vmID": "tGas3T58KzdjLHhBDMnH2TvrddhqTji5iZAMZ3RXs2NLpSnhH"
-            },
-            {
-                "id": "KDYHHKjM4yTJTT8H8qPs5KXzE6gQH5TZrmP1qVr1P6qECj3XN",
-                "name": "My new timestamp",
-                "subnetID": "2bRCr6B4MiEfSjidDwxDpdCyviwnfUVqB2HGwhm947w9YYqb7r",
-                "vmID": "tGas3T58KzdjLHhBDMnH2TvrddhqTji5iZAMZ3RXs2NLpSnhH"
-            },
-            {
-                "id": "2TtHFqEAAJ6b33dromYMqfgavGPF3iCpdG3hwNMiart2aB5QHi",
-                "name": "My new AVM",
-                "subnetID": "2bRCr6B4MiEfSjidDwxDpdCyviwnfUVqB2HGwhm947w9YYqb7r",
-                "vmID": "jvYyfQTxGMJLuGWa55kdP2p2zSUYsQ5Raupu4TW34ZAUBAbtq"
             }
         ]
     },
@@ -897,7 +873,7 @@ curl -X POST --data '{
     "jsonrpc": "2.0",
     "method": "platform.getBlockchainStatus",
     "params":{
-        "blockchainID":"2NbS4dwGaf2p1MaXb65PrkZdXRwmSX4ZzGnUu7jm3aykgThuZE"
+        "blockchainID":"fnVV12Px5y6FGM5Ua8moqmTPCQT2im18SZEW2xgMDGurimFZg"
     },
     "id": 1
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
@@ -1385,7 +1361,7 @@ curl -X POST --data '{
 {
     "jsonrpc": "2.0",
     "result": {
-        "assetID": "2fombhL7aGPwj3KH4bfrmJwW6PVnMobf9Y2fn9GwxiAAJyFDbe"
+        "assetID": "o8seyjX6WupqJ1CE8CeaozK13kqVgc4DFvdvc4crfacLFBauW"
     },
     "id": 1
 }
