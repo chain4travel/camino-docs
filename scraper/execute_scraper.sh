@@ -5,7 +5,7 @@ if [ -z "${TYPESENSE_API_KEY}" ] ; then
 	exit 1
 fi
 
-ENV_FILE=$(readlink -f .env)
+ENV_FILE=$(readlink -f env-file)
 CONFIG=$(cat docsearch-config.json | jq -r tostring)
 
 docker pull typesense/docsearch-scraper
