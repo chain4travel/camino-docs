@@ -1,0 +1,14 @@
+diff --git a/node_modules/typesense-docsearch-react/dist/esm/utils/removeHighlightTags.js b/node_modules/typesense-docsearch-react/dist/esm/utils/removeHighlightTags.js
+index e41f96e..c74f56c 100644
+--- a/node_modules/typesense-docsearch-react/dist/esm/utils/removeHighlightTags.js
++++ b/node_modules/typesense-docsearch-react/dist/esm/utils/removeHighlightTags.js
+@@ -6,7 +6,7 @@ export function removeHighlightTags(hit) {
+   }
+ 
+   var _ref = hit._highlightResult ? hit._highlightResult['hierarchy.lvl0'] : hit.__docsearch_parent._highlightResult['hierarchy.lvl0'],
+-      value = _ref.value;
++      value = _ref?.value;
+ 
+   return value && regexHasHighlightTags.test(value) ? value.replace(regexHighlightTags, '') : value;
+ }
+\ No newline at end of file
