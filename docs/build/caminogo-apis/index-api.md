@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9
 ---
+
 # Index API
 
 CaminoGo can be configured to run with an indexer. That is, it saves (indexes) every container (a block, vertex or transaction) it accepts on the X-Chain, P-Chain and C-Chain. To run CaminoGo with indexing enabled, set command line flag [--index-enabled](../references/caminogo-config-flags.md#apis) to true. **CaminoGo will only index containers that are accepted when running with `--index-enabled` set to true.** To ensure your node has a complete index, run a node with a fresh database and `--index-enabled` set to true. The node will accept every block, vertex and transaction in the network history during bootstrapping, ensuring your index is complete. It is OK to turn off your node if it is running with indexing enabled. If it restarts with indexing still enabled, it will accept all containers that were accepted while it was offline. The indexer should never fail to index an accepted block, vertex or transaction.
@@ -9,7 +10,7 @@ Indexed containers (that is, accepted blocks, vertices and transactions) are tim
 
 Note that for DAGs (including the X-Chain), nodes may accept vertices and transactions in a different order from one another.
 
-If `--index-enabled` is changed to `false` from `true`,  CaminoGo won't start as doing so would cause a previously complete index to become incomplete, unless the user explicitly says to do so with `--index-allow-incomplete`. This protects you from accidentally running with indexing disabled, after previously running with it enabled, which would result in an incomplete index.
+If `--index-enabled` is changed to `false` from `true`, CaminoGo won't start as doing so would cause a previously complete index to become incomplete, unless the user explicitly says to do so with `--index-allow-incomplete`. This protects you from accidentally running with indexing disabled, after previously running with it enabled, which would result in an incomplete index.
 
 This document shows how to query data from CaminoGo's Index API. The Index API is only available when running with `--index-enabled`.
 
@@ -67,11 +68,11 @@ index.getLastAccepted({
 
 where:
 
-* `id` is the container's ID
-* `bytes` is the byte representation of the container
-* `timestamp` is the time at which this node accepted the container
-* `index` is how many containers were accepted in this index before this one
-* `encoding` is `"cb58"` or `"hex"`
+- `id` is the container's ID
+- `bytes` is the byte representation of the container
+- `timestamp` is the time at which this node accepted the container
+- `index` is how many containers were accepted in this index before this one
+- `encoding` is `"cb58"` or `"hex"`
 
 #### **Example Call**
 
@@ -92,14 +93,14 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 ```json
 {
-  "jsonrpc":"2.0",
-  "id"     :1,
-  "result" :{
-    "id":"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY",
-    "bytes":"111115HRzXVDSeonLBcv6QdJkQFjPzPEobMWy7PyGuoheggsMCx73MVXZo2hJMEXXvR5gFFasTRJH36aVkLiWHtTTFcghyFTqjaHnBhdXTRiLaYcro3jpseqLAFVn3ngnAB47nebQiBBKmg3nFWKzQUDxMuE6uDGXgnGouDSaEKZxfKreoLHYNUxH56rgi5c8gKFYSDi8AWBgy26siwAWj6V8EgFnPVgm9pmKCfXio6BP7Bua4vrupoX8jRGqdrdkN12dqGAibJ78Rf44SSUXhEvJtPxAzjEGfiTyAm5BWFqPdheKN72HyrBBtwC6y7wG6suHngZ1PMBh93Ubkbt8jjjGoEgs5NjpasJpE8YA9ZMLTPeNZ6ELFxV99zA46wvkjAwYHGzegBXvzGU5pGPbg28iW3iKhLoYAnReysY4x3fBhjPBsags37Z9P3SqioVifVX4wwzxYqbV72u1AWZ4JNmsnhVDP196Gu99QTzmySGTVGP5ABNdZrngTRfmGTFCRbt9CHsgNbhgetkxbsEG7tySi3gFxMzGuJ2Npk2gnSr68LgtYdSHf48Ns",
-    "timestamp":"2021-04-02T15:34:00.262979-07:00",
-    "encoding":"cb58",
-    "index":"0"
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "id": "6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY",
+    "bytes": "111115HRzXVDSeonLBcv6QdJkQFjPzPEobMWy7PyGuoheggsMCx73MVXZo2hJMEXXvR5gFFasTRJH36aVkLiWHtTTFcghyFTqjaHnBhdXTRiLaYcro3jpseqLAFVn3ngnAB47nebQiBBKmg3nFWKzQUDxMuE6uDGXgnGouDSaEKZxfKreoLHYNUxH56rgi5c8gKFYSDi8AWBgy26siwAWj6V8EgFnPVgm9pmKCfXio6BP7Bua4vrupoX8jRGqdrdkN12dqGAibJ78Rf44SSUXhEvJtPxAzjEGfiTyAm5BWFqPdheKN72HyrBBtwC6y7wG6suHngZ1PMBh93Ubkbt8jjjGoEgs5NjpasJpE8YA9ZMLTPeNZ6ELFxV99zA46wvkjAwYHGzegBXvzGU5pGPbg28iW3iKhLoYAnReysY4x3fBhjPBsags37Z9P3SqioVifVX4wwzxYqbV72u1AWZ4JNmsnhVDP196Gu99QTzmySGTVGP5ABNdZrngTRfmGTFCRbt9CHsgNbhgetkxbsEG7tySi3gFxMzGuJ2Npk2gnSr68LgtYdSHf48Ns",
+    "timestamp": "2021-04-02T15:34:00.262979-07:00",
+    "encoding": "cb58",
+    "index": "0"
   }
 }
 ```
@@ -123,11 +124,11 @@ index.getContainerByIndex({
 }
 ```
 
-* `id` is the container's ID
-* `bytes` is the byte representation of the container
-* `timestamp` is the time at which this node accepted the container
-* `index` is how many containers were accepted in this index before this one
-* `encoding` is `"cb58"` or `"hex"`
+- `id` is the container's ID
+- `bytes` is the byte representation of the container
+- `timestamp` is the time at which this node accepted the container
+- `index` is how many containers were accepted in this index before this one
+- `encoding` is `"cb58"` or `"hex"`
 
 #### **Example Call**
 
@@ -149,14 +150,14 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 ```json
 {
-  "jsonrpc":"2.0",
-  "id"     :1,
-  "result" :{
-    "id":"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY",
-    "bytes":"111115HRzXVDSeonLBcv6QdJkQFjPzPEobMWy7PyGuoheggsMCx73MVXZo2hJMEXXvR5gFFasTRJH36aVkLiWHtTTFcghyFTqjaHnBhdXTRiLaYcro3jpseqLAFVn3ngnAB47nebQiBBKmg3nFWKzQUDxMuE6uDGXgnGouDSaEKZxfKreoLHYNUxH56rgi5c8gKFYSDi8AWBgy26siwAWj6V8EgFnPVgm9pmKCfXio6BP7Bua4vrupoX8jRGqdrdkN12dqGAibJ78Rf44SSUXhEvJtPxAzjEGfiTyAm5BWFqPdheKN72HyrBBtwC6y7wG6suHngZ1PMBh93Ubkbt8jjjGoEgs5NjpasJpE8YA9ZMLTPeNZ6ELFxV99zA46wvkjAwYHGzegBXvzGU5pGPbg28iW3iKhLoYAnReysY4x3fBhjPBsags37Z9P3SqioVifVX4wwzxYqbV72u1AWZ4JNmsnhVDP196Gu99QTzmySGTVGP5ABNdZrngTRfmGTFCRbt9CHsgNbhgetkxbsEG7tySi3gFxMzGuJ2Npk2gnSr68LgtYdSHf48Ns",
-    "timestamp":"2021-04-02T15:34:00.262979-07:00",
-    "encoding":"cb58",
-    "index":"0"
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "id": "6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY",
+    "bytes": "111115HRzXVDSeonLBcv6QdJkQFjPzPEobMWy7PyGuoheggsMCx73MVXZo2hJMEXXvR5gFFasTRJH36aVkLiWHtTTFcghyFTqjaHnBhdXTRiLaYcro3jpseqLAFVn3ngnAB47nebQiBBKmg3nFWKzQUDxMuE6uDGXgnGouDSaEKZxfKreoLHYNUxH56rgi5c8gKFYSDi8AWBgy26siwAWj6V8EgFnPVgm9pmKCfXio6BP7Bua4vrupoX8jRGqdrdkN12dqGAibJ78Rf44SSUXhEvJtPxAzjEGfiTyAm5BWFqPdheKN72HyrBBtwC6y7wG6suHngZ1PMBh93Ubkbt8jjjGoEgs5NjpasJpE8YA9ZMLTPeNZ6ELFxV99zA46wvkjAwYHGzegBXvzGU5pGPbg28iW3iKhLoYAnReysY4x3fBhjPBsags37Z9P3SqioVifVX4wwzxYqbV72u1AWZ4JNmsnhVDP196Gu99QTzmySGTVGP5ABNdZrngTRfmGTFCRbt9CHsgNbhgetkxbsEG7tySi3gFxMzGuJ2Npk2gnSr68LgtYdSHf48Ns",
+    "timestamp": "2021-04-02T15:34:00.262979-07:00",
+    "encoding": "cb58",
+    "index": "0"
   }
 }
 ```
@@ -180,11 +181,11 @@ index.getContainerByID({
 }
 ```
 
-* `id` is the container's ID
-* `bytes` is the byte representation of the container
-* `timestamp` is the time at which this node accepted the container
-* `index` is how many containers were accepted in this index before this one
-* `encoding` is `"cb58"` or `"hex"`
+- `id` is the container's ID
+- `bytes` is the byte representation of the container
+- `timestamp` is the time at which this node accepted the container
+- `index` is how many containers were accepted in this index before this one
+- `encoding` is `"cb58"` or `"hex"`
 
 #### **Example Call**
 
@@ -206,15 +207,15 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 ```json
 {
-  "jsonrpc":"2.0",
-  "id"     :1,
-  "result" : {
-      "id":"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY",
-      "bytes":"111115HRzXVDSeonLBcv6QdJkQFjPzPEobMWy7PyGuoheggsMCx73MVXZo2hJMEXXvR5gFFasTRJH36aVkLiWHtTTFcghyFTqjaHnBhdXTRiLaYcro3jpseqLAFVn3ngnAB47nebQiBBKmg3nFWKzQUDxMuE6uDGXgnGouDSaEKZxfKreoLHYNUxH56rgi5c8gKFYSDi8AWBgy26siwAWj6V8EgFnPVgm9pmKCfXio6BP7Bua4vrupoX8jRGqdrdkN12dqGAibJ78Rf44SSUXhEvJtPxAzjEGfiTyAm5BWFqPdheKN72HyrBBtwC6y7wG6suHngZ1PMBh93Ubkbt8jjjGoEgs5NjpasJpE8YA9ZMLTPeNZ6ELFxV99zA46wvkjAwYHGzegBXvzGU5pGPbg28iW3iKhLoYAnReysY4x3fBhjPBsags37Z9P3SqioVifVX4wwzxYqbV72u1AWZ4JNmsnhVDP196Gu99QTzmySGTVGP5ABNdZrngTRfmGTFCRbt9CHsgNbhgetkxbsEG7tySi3gFxMzGuJ2Npk2gnSr68LgtYdSHf48Ns",
-      "timestamp":"2021-04-02T15:34:00.262979-07:00",
-      "encoding":"hex",
-      "index":"0"
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "id": "6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY",
+    "bytes": "111115HRzXVDSeonLBcv6QdJkQFjPzPEobMWy7PyGuoheggsMCx73MVXZo2hJMEXXvR5gFFasTRJH36aVkLiWHtTTFcghyFTqjaHnBhdXTRiLaYcro3jpseqLAFVn3ngnAB47nebQiBBKmg3nFWKzQUDxMuE6uDGXgnGouDSaEKZxfKreoLHYNUxH56rgi5c8gKFYSDi8AWBgy26siwAWj6V8EgFnPVgm9pmKCfXio6BP7Bua4vrupoX8jRGqdrdkN12dqGAibJ78Rf44SSUXhEvJtPxAzjEGfiTyAm5BWFqPdheKN72HyrBBtwC6y7wG6suHngZ1PMBh93Ubkbt8jjjGoEgs5NjpasJpE8YA9ZMLTPeNZ6ELFxV99zA46wvkjAwYHGzegBXvzGU5pGPbg28iW3iKhLoYAnReysY4x3fBhjPBsags37Z9P3SqioVifVX4wwzxYqbV72u1AWZ4JNmsnhVDP196Gu99QTzmySGTVGP5ABNdZrngTRfmGTFCRbt9CHsgNbhgetkxbsEG7tySi3gFxMzGuJ2Npk2gnSr68LgtYdSHf48Ns",
+    "timestamp": "2021-04-02T15:34:00.262979-07:00",
+    "encoding": "hex",
+    "index": "0"
+  }
 }
 ```
 
@@ -238,11 +239,11 @@ index.getContainerRange({
 }
 ```
 
-* `id` is the container's ID
-* `bytes` is the byte representation of the container
-* `timestamp` is the time at which this node accepted the container
-* `index` is how many containers were accepted in this index before this one
-* `encoding` is `"cb58"` or `"hex"`
+- `id` is the container's ID
+- `bytes` is the byte representation of the container
+- `timestamp` is the time at which this node accepted the container
+- `index` is how many containers were accepted in this index before this one
+- `encoding` is `"cb58"` or `"hex"`
 
 #### **Example Call**
 
@@ -265,15 +266,17 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 ```json
 {
-  "jsonrpc":"2.0",
-  "id"     :1,
-  "result" :[{
-    "id":"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY",
-    "bytes":"111115HRzXVDSeonLBcv6QdJkQFjPzPEobMWy7PyGuoheggsMCx73MVXZo2hJMEXXvR5gFFasTRJH36aVkLiWHtTTFcghyFTqjaHnBhdXTRiLaYcro3jpseqLAFVn3ngnAB47nebQiBBKmg3nFWKzQUDxMuE6uDGXgnGouDSaEKZxfKreoLHYNUxH56rgi5c8gKFYSDi8AWBgy26siwAWj6V8EgFnPVgm9pmKCfXio6BP7Bua4vrupoX8jRGqdrdkN12dqGAibJ78Rf44SSUXhEvJtPxAzjEGfiTyAm5BWFqPdheKN72HyrBBtwC6y7wG6suHngZ1PMBh93Ubkbt8jjjGoEgs5NjpasJpE8YA9ZMLTPeNZ6ELFxV99zA46wvkjAwYHGzegBXvzGU5pGPbg28iW3iKhLoYAnReysY4x3fBhjPBsags37Z9P3SqioVifVX4wwzxYqbV72u1AWZ4JNmsnhVDP196Gu99QTzmySGTVGP5ABNdZrngTRfmGTFCRbt9CHsgNbhgetkxbsEG7tySi3gFxMzGuJ2Npk2gnSr68LgtYdSHf48Ns",
-    "timestamp":"2021-04-02T15:34:00.262979-07:00",
-    "encoding":"cb58",
-    "index":"0"
-  }]
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "id": "6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY",
+      "bytes": "111115HRzXVDSeonLBcv6QdJkQFjPzPEobMWy7PyGuoheggsMCx73MVXZo2hJMEXXvR5gFFasTRJH36aVkLiWHtTTFcghyFTqjaHnBhdXTRiLaYcro3jpseqLAFVn3ngnAB47nebQiBBKmg3nFWKzQUDxMuE6uDGXgnGouDSaEKZxfKreoLHYNUxH56rgi5c8gKFYSDi8AWBgy26siwAWj6V8EgFnPVgm9pmKCfXio6BP7Bua4vrupoX8jRGqdrdkN12dqGAibJ78Rf44SSUXhEvJtPxAzjEGfiTyAm5BWFqPdheKN72HyrBBtwC6y7wG6suHngZ1PMBh93Ubkbt8jjjGoEgs5NjpasJpE8YA9ZMLTPeNZ6ELFxV99zA46wvkjAwYHGzegBXvzGU5pGPbg28iW3iKhLoYAnReysY4x3fBhjPBsags37Z9P3SqioVifVX4wwzxYqbV72u1AWZ4JNmsnhVDP196Gu99QTzmySGTVGP5ABNdZrngTRfmGTFCRbt9CHsgNbhgetkxbsEG7tySi3gFxMzGuJ2Npk2gnSr68LgtYdSHf48Ns",
+      "timestamp": "2021-04-02T15:34:00.262979-07:00",
+      "encoding": "cb58",
+      "index": "0"
+    }
+  ]
 }
 ```
 
@@ -314,12 +317,11 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 ```json
 {
-  "jsonrpc":"2.0",
-  "result":
-    {
-      "index":"0"
-    },
-  "id":1
+  "jsonrpc": "2.0",
+  "result": {
+    "index": "0"
+  },
+  "id": 1
 }
 ```
 
@@ -358,12 +360,11 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 ```json
 {
-  "jsonrpc":"2.0",
-  "result":
-    {
-      "isAccepted": true
-    },
-  "id":1
+  "jsonrpc": "2.0",
+  "result": {
+    "isAccepted": true
+  },
+  "id": 1
 }
 ```
 
@@ -379,7 +380,7 @@ You can use the Index API to get the ID of every transaction that has been accep
 
 To get an X-Chain transaction by its index (the order it was accepted in), use Index API method [index.getlastaccepted](#indexgetlastaccepted).
 
-For example, to get the *second* transaction (note that `"index":1`) accepted on the X-Chain, do:
+For example, to get the _second_ transaction (note that `"index":1`) accepted on the X-Chain, do:
 
 ```sh
 curl --location --request POST 'https://indexer-test.camino.foundation/ext/index/X/tx' \
@@ -395,7 +396,7 @@ curl --location --request POST 'https://indexer-test.camino.foundation/ext/index
 }'
 ```
 
-This returns the ID of the second transaction accepted in the X-Chain's history. To get the third transaction on the X-Chain, use `"index":2`, and so on. 
+This returns the ID of the second transaction accepted in the X-Chain's history. To get the third transaction on the X-Chain, use `"index":2`, and so on.
 
 The above API call gives the response below:
 
@@ -418,7 +419,7 @@ The ID of this transaction is `ZGYTSU8w3zUP6VFseGC798vA2Vnxnfj6fz1QPfA9N93bhjJvo
 To get the transaction by its ID, use API method `avm.getTx`:
 
 ```sh
-curl -X POST --data '{                           
+curl -X POST --data '{
     "jsonrpc":"2.0",
     "id"     :1,
     "method" :"avm.getTx",
@@ -473,9 +474,7 @@ Response:
             "fxID": "spdxUxVJQbX85MGxMHbKw1sHxMnSqJ3QBzDyDYEP3h6TLuxqQ",
             "input": {
               "amount": 2352999000000,
-              "signatureIndices": [
-                0
-              ]
+              "signatureIndices": [0]
             }
           }
         ],

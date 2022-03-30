@@ -2,7 +2,6 @@
 sidebar_position: 2
 ---
 
-
 # Camino Node Install Script
 
 We have a shell (bash) script that installs CaminoGo on your computer. This script sets up full, running node in a matter of minutes with minimal user input required.
@@ -11,15 +10,15 @@ We have a shell (bash) script that installs CaminoGo on your computer. This scri
 
 Camino is an incredibly lightweight protocol, so nodes can run on commodity hardware. Note that as network usage increases, hardware requirements may change.
 
-* CPU: Equivalent of 8 AWS vCPU
-* RAM: 16 GiB
-* Storage: 512 GiB
-* OS: Ubuntu 18.04/20.04 or MacOS &gt;= Catalina
+- CPU: Equivalent of 8 AWS vCPU
+- RAM: 16 GiB
+- Storage: 512 GiB
+- OS: Ubuntu 18.04/20.04 or MacOS &gt;= Catalina
 
 This install script assumes:
 
-* CaminoGo is not running and not already installed as a service
-* User running the script has superuser privileges (can run `sudo`)
+- CaminoGo is not running and not already installed as a service
+- User running the script has superuser privileges (can run `sudo`)
 
 ### Environment considerations
 
@@ -48,7 +47,7 @@ Look for line that doesn't have `grep` on it. In this example, that is the secon
 
 #### Node working files
 
-If you previously ran an CaminoGo node on this computer, you will have local node files stored in `$HOME/.caminogo` directory. Those files will not be disturbed, and node set up by the script will continue operation with the same identity and state it had before. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to. Check out this [tutorial](node-backup-and-restore.md) for backup and restore procedure.
+If you previously ran an CaminoGo node on this computer, you will have local node files stored in `$HOME/.caminogo` directory. Those files will not be disturbed, and node set up by the script will continue operation with the same identity and state it had before. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to.
 
 ### Networking considerations
 
@@ -305,6 +304,6 @@ If you're on a residential network (dynamic IP), don't forget to set up port for
 
 Now you can [interact with your node](../../caminogo-apis/issuing-api-calls.md).
 
-Finally, if you haven't already, it is a good idea to [back up](node-backup-and-restore.md) important files in case you ever need to restore your node to a different machine.
+Finally, if you haven't already, it is a good idea to back up important files in case you ever need to restore your node to a different machine.
 
 If you have any questions, or need help, feel free to contact us on our [Discord](https://discord.gg/K5THjAweFB) server.

@@ -118,7 +118,7 @@ const config = {
           ],
           apiKey: 'K3s7dltmYhPw0oqOepeOx8liLZPRAGH2',
         },
-        typesenseSearchParameters: {},
+        typesenseSearchParameters: {replaceSynonymsInHighlight:false},
         contextualSearch: true,
       },
     }),

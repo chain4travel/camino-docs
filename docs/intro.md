@@ -15,7 +15,7 @@ CAM is the native token of Camino. It’s a hard-capped, scarce asset that is us
 
 ## Camino Consensus Protocol
 
-Protocols in the Camino family operate through repeated sub-sampled voting. 
+Protocols in the Camino family operate through repeated sub-sampled voting.
 
 In the common case when a transaction has no conflicts, finalization happens very quickly. When conflicts exist, honest validators quickly cluster around conflicting transactions, entering a positive feedback loop until all correct validators prefer that transaction. This leads to the acceptance of non-conflicting transactions and the rejection of conflicting transactions.
 
@@ -54,4 +54,3 @@ Create your own public or private blockchains.
 ### Designed for the touristic market
 
 Native support for easily creating digital smart assets with complex, custom rulesets.
-

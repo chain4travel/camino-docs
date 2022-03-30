@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 ---
+
 # Camino Native Token / CRC-20
 
 ## What is an Camino Native Token?
@@ -27,13 +28,13 @@ The C-Chain keeps a mapping \[assetID -&gt; balance\] in each account's storage 
 
 An EVM Transaction is composed of the following fields:
 
-* **`nonce`** Scalar value equal to the number of transactions sent by the sender.
-* **`gasPrice`** Scalar value equal to the number of Wei (1 Wei = 10^-18 CAM) paid per unit of gas to execute this transaction.
-* **`gasLimit`** Scalar value equal to the maximum amount of gas that should be used in executing this transaction.
-* **`to`** The 20 byte address of the message call's recipient. If the transaction is creating a contract, `to` is left empty.
-* **`value`** Scalar value of native asset (CAM), in Wei (1 Wei = 10^-18 CAM), to be transferred to the message call's recipient or in the case of a contract creation, as an endowment to the newly created contract.
-* **`v, r, s`** Values corresponding to the signature of the transaction.
-* **`data`** Unlimited size byte array specifying the input data to a contract call or, if creating a contract, the EVM bytecode for the account initialization process.
+- **`nonce`** Scalar value equal to the number of transactions sent by the sender.
+- **`gasPrice`** Scalar value equal to the number of Wei (1 Wei = 10^-18 CAM) paid per unit of gas to execute this transaction.
+- **`gasLimit`** Scalar value equal to the maximum amount of gas that should be used in executing this transaction.
+- **`to`** The 20 byte address of the message call's recipient. If the transaction is creating a contract, `to` is left empty.
+- **`value`** Scalar value of native asset (CAM), in Wei (1 Wei = 10^-18 CAM), to be transferred to the message call's recipient or in the case of a contract creation, as an endowment to the newly created contract.
+- **`v, r, s`** Values corresponding to the signature of the transaction.
+- **`data`** Unlimited size byte array specifying the input data to a contract call or, if creating a contract, the EVM bytecode for the account initialization process.
 
 `nativeAssetCall` is a precompiled contract at address `0x0100000000000000000000000000000000000002`. `nativeAssetCall` allows users to atomically transfer a native asset to a given address and, optionally, make a contract call to that address. This is parallel to how a normal transaction can send value to an address and atomically call that address with some `data`.
 
@@ -181,13 +182,13 @@ In order to deposit funds into an CRC-20, we need to send the CRC-20 contract th
 
 For example:
 
-* **`nonce`**: 2
-* **`gasPrice`**: 225 gwei
-* **`gasLimit`**: 3000000
-* **`to`**: `0x0100000000000000000000000000000000000002`
-* **`value`**: 0
-* **`v, r, s`**: \[Transaction Signature\]
-* **`data`**: abi.encodePacked(arc20Address, assetID, assetAmount, abi.encodeWithSignature("deposit()"))
+- **`nonce`**: 2
+- **`gasPrice`**: 225 gwei
+- **`gasLimit`**: 3000000
+- **`to`**: `0x0100000000000000000000000000000000000002`
+- **`value`**: 0
+- **`v, r, s`**: \[Transaction Signature\]
+- **`data`**: abi.encodePacked(arc20Address, assetID, assetAmount, abi.encodeWithSignature("deposit()"))
 
 This transfers `assetAmount` of `assetID` to the address of the CRC-20 contract and then calls `deposit()` on the contract.
 
@@ -222,4 +223,3 @@ When an CRC-20 contract receives a withdrawal request, it simply verifies that t
         emit Withdrawal(msg.sender, value);
     }
 ```
-

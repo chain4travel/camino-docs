@@ -441,4 +441,3 @@ A node will send a `Chits` message in response to receiving a `PullQuery` or `Pu
         0x59, 0x5a, 0x5b, 0x5c, 0x5d, 0x5e, 0x5f, 0x60,
 ]
 ```
-

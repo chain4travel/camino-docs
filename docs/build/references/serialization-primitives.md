@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 ---
+
 # Serialization Primitives
 
 [Camino](../../#camino) uses a simple, uniform, and elegant representation for all internal data. This document describes how primitive types are encoded on the Camino platform. Transactions are encoded in terms of these basic primitive types.
@@ -143,4 +144,3 @@ Packing:
 Results in:
     [0x00, 0x03, 0x43, 0x41, 0x61]
 ```
-

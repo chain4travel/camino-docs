@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 ---
+
 # Admin API
 
 This API can be used for measuring node health and debugging. Note that the Admin API is disabled by default for security reasons. To run a node with the Admin API enabled, use [config flag](../references/caminogo-config-flags.md) `--api-admin-enabled=true`.
@@ -27,9 +28,9 @@ Assign an API endpoint an alias, a different endpoint for the API. The original 
 admin.alias({endpoint:string, alias:string}) -> {success:bool}
 ```
 
-* `endpoint` is the original endpoint of the API. `endpoint` should only include the part of the endpoint after `/ext/`.
-* The API being aliased can now be called at `ext/alias`.
-* `alias` can be at most 512 characters.
+- `endpoint` is the original endpoint of the API. `endpoint` should only include the part of the endpoint after `/ext/`.
+- The API being aliased can now be called at `ext/alias`.
+- `alias` can be at most 512 characters.
 
 #### **Example Call**
 
@@ -49,11 +50,11 @@ curl -X POST --data '{
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id"     :1,
-    "result" :{
-        "success":true
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "success": true
+  }
 }
 ```
 
@@ -74,8 +75,8 @@ admin.aliasChain(
 ) -> {success:bool}
 ```
 
-* `chain` is the blockchain’s ID.
-* `alias` can now be used in place of the blockchain’s ID (in API endpoints, for example.)
+- `chain` is the blockchain’s ID.
+- `alias` can now be used in place of the blockchain’s ID (in API endpoints, for example.)
 
 #### **Example Call**
 
@@ -95,11 +96,11 @@ curl -X POST --data '{
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id"     :1,
-    "result" :{
-        "success":true
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "success": true
+  }
 }
 ```
 
@@ -119,7 +120,7 @@ admin.getChainAliases(
 ) -> {aliases:string[]}
 ```
 
-* `chain` is the blockchain’s ID.
+- `chain` is the blockchain’s ID.
 
 #### **Example Call**
 
@@ -138,15 +139,15 @@ curl -X POST --data '{
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {
-        "aliases": [
-            "X",
-            "avm",
-            "2eNy1mUFdmaxXNj1eQHUe7Np4gju9sJsEtWQ4MX3ToiNKuADed"
-        ]
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {
+    "aliases": [
+      "X",
+      "avm",
+      "2eNy1mUFdmaxXNj1eQHUe7Np4gju9sJsEtWQ4MX3ToiNKuADed"
+    ]
+  },
+  "id": 1
 }
 ```
 
@@ -171,7 +172,7 @@ admin.getLoggerLevel(
     }
 ```
 
-* `loggerName` is the name of the logger to be returned. This is an optional argument. If not specified, it returns all possible loggers.
+- `loggerName` is the name of the logger to be returned. This is an optional argument. If not specified, it returns all possible loggers.
 
 #### **Example Call**
 
@@ -190,22 +191,22 @@ curl -X POST --data '{
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {
-        "loggerLevels": {
-            "C": {
-                "logLevel": "DEBUG",
-                "displayLevel": "INFO"
-            }
-        }
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {
+    "loggerLevels": {
+      "C": {
+        "logLevel": "DEBUG",
+        "displayLevel": "INFO"
+      }
+    }
+  },
+  "id": 1
 }
 ```
 
 ### admin.loadVMs
 
-Dynamically loads any virtual machines installed on the node as plugins. See [here](../tutorials/platform/subnets/create-a-virtual-machine-vm.md/#installing-a-vm) for more information on how to install a virtual machine on a node.
+Dynamically loads any virtual machines installed on the node as plugins.
 
 #### Signature
 
@@ -216,7 +217,7 @@ admin.loadVMs() -> {
 }
 ```
 
-* `failedVMs` is only included in the response if at least one virtual machine fails to be loaded.
+- `failedVMs` is only included in the response if at least one virtual machine fails to be loaded.
 
 #### **Example Call**
 
@@ -271,11 +272,11 @@ curl -X POST --data '{
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id"     :1,
-    "result" :{
-        "success":true
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "success": true
+  }
 }
 ```
 
@@ -304,11 +305,11 @@ curl -X POST --data '{
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id"     :1,
-    "result" :{
-        "success":true
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "success": true
+  }
 }
 ```
 
@@ -328,9 +329,9 @@ admin.setLoggerLevel(
 ) -> {success:bool}
 ```
 
-* `loggerName` is the logger's name to be changed. This is an optional parameter. If not specified, it changes all possible loggers.
-* `logLevel` is the log level of written logs, can be omitted.
-* `displayLevel` is the log level of displayed logs, can be omitted.
+- `loggerName` is the logger's name to be changed. This is an optional parameter. If not specified, it changes all possible loggers.
+- `logLevel` is the log level of written logs, can be omitted.
+- `displayLevel` is the log level of displayed logs, can be omitted.
 
 `logLevel` and `displayLevel` cannot be omited at the same time.
 
@@ -353,11 +354,11 @@ curl -X POST --data '{
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id"     :1,
-    "result" :{
-        "success":true
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "success": true
+  }
 }
 ```
 
@@ -386,11 +387,11 @@ curl -X POST --data '{
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id"     :1,
-    "result" :{
-        "success":true
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "success": true
+  }
 }
 ```
 
@@ -418,11 +419,10 @@ curl -X POST --data '{
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id"     :1,
-    "result" :{
-        "success":true
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "success": true
+  }
 }
 ```
-

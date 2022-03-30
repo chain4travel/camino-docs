@@ -9,10 +9,10 @@ The quickest way to learn about Camino is to run a node and interact with the ne
 
 In this tutorial, we will:
 
-* Install and run an Camino node
-* Connect to Camino
-* Send CAM
-* Add your node to the validator set
+- Install and run an Camino node
+- Connect to Camino
+- Send CAM
+- Add your node to the validator set
 
 This tutorial is primarily geared toward developers and people interested in how the Camino Platform works. If you're just interested in setting up a node for staking, you may want to follow the [Camino Node Install Script](set-up-node-with-installer.md) tutorial instead. The installer automates the installation process and sets it up as a system service, which is recommended for unattended operation. You may also try things out by following this tutorial first, and then later set up the node using the installer as a permanent solution.
 
@@ -20,10 +20,10 @@ This tutorial is primarily geared toward developers and people interested in how
 
 Camino is an incredibly lightweight protocol, so nodes can run on commodity hardware. Note that as network usage increases, hardware requirements may change.
 
-* CPU: Equivalent of 8 AWS vCPU
-* RAM: 16 GiB
-* Storage: 512 GiB
-* OS: Ubuntu 18.04/20.04 or MacOS &gt;= Catalina
+- CPU: Equivalent of 8 AWS vCPU
+- RAM: 16 GiB
+- Storage: 512 GiB
+- OS: Ubuntu 18.04/20.04 or MacOS &gt;= Catalina
 
 ## Run an Camino Node and Send Funds
 
