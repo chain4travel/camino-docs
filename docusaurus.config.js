@@ -15,7 +15,8 @@ const config = {
   tagline: 'Documentation and Tutorials for Camino',
   url: 'https://docs.camino.foundation',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  //onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
   organizationName: 'chain4travel', // Usually your GitHub org/user name.
@@ -31,7 +32,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           // Please change this to your repo.
-          editUrl: 'https://github.com/chain4travel/camino-docs/edit/master/',
+          editUrl: 'https://github.com/chain4travel/camino-docs/edit/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -70,7 +71,7 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discord.gg/2tt9KtCN',
+                href: 'https://discord.gg/K5THjAweFB',
               },
               {
                 label: 'Twitter',
@@ -110,7 +111,7 @@ const config = {
         typesenseServerConfig: {
           nodes: [
             {
-              host: '34.141.201.213',
+              host: 'docs.camino.foundation',
               port: 8108,
               protocol: 'https',
             },
