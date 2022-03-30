@@ -116,7 +116,7 @@ const config = {
               protocol: 'https',
             },
           ],
-          apiKey: 'pqJyOImBUj6Ey8rJSAGDbYXpF9nQfLOrdMjp5OxsxJsUolzx',
+          apiKey: 'K3s7dltmYhPw0oqOepeOx8liLZPRAGH2',
         },
         typesenseSearchParameters: {},
         contextualSearch: true,
