@@ -190,7 +190,7 @@ curl -X POST --data '{
 }
 ```
 
-For more information on dynamic fees see the [C-Chain section of the transaction fee documentation](https://docs.avax.network/learn/platform-overview/transaction-fees#c-chain-fees).
+For more information on dynamic fees see the [C-Chain section of the transaction fee documentation](../../learn/platform-overview/transaction-fees#c-chain-fees).
 
 ## Camino Specific APIs
 
@@ -296,7 +296,7 @@ curl -X POST --data '{
     "id"     :1,
     "method" :"avax.export",
     "params" :{
-        "to":"X-avax1q9c6ltuxpsqz7ul8j0h0d0ha439qt70sr3x2m0",
+        "to":"X-columbus1q9c6ltuxpsqz7ul8j0h0d0ha439qt70sr3x2m0",
         "amount": 500,
         "assetID": "2nzgmhZLuVq8jc7NNu2eahkKwoJcbFWXWJCxHBVWAJEZkhquoK",
         "username":"myUsername",
@@ -408,7 +408,7 @@ avax.getUTXOs(
 
 #### **Example**
 
-Suppose we want all UTXOs that reference at least one of `C-avax1yzt57wd8me6xmy3t42lz8m5lg6yruy79m6whsf`.
+Suppose we want all UTXOs that reference at least one of `C-columbus1yzt57wd8me6xmy3t42lz8m5lg6yruy79m6whsf`.
 
 ```sh
 curl -X POST --data '{
@@ -416,10 +416,10 @@ curl -X POST --data '{
     "id"     :1,
     "method" :"avax.getUTXOs",
     "params" :{
-        "addresses":["C-avax1yzt57wd8me6xmy3t42lz8m5lg6yruy79m6whsf"],
+        "addresses":["C-columbus1yzt57wd8me6xmy3t42lz8m5lg6yruy79m6whsf"],
         "sourceChain": "X",
         "startIndex": {
-            "address": "C-avax1yzt57wd8me6xmy3t42lz8m5lg6yruy79m6whsf",
+            "address": "C-columbus1yzt57wd8me6xmy3t42lz8m5lg6yruy79m6whsf",
             "utxo": "22RXW7SWjBrrxu2vzDkd8uza7fuEmNpgbj58CxBob9UbP37HSB"
         },
         "encoding": "cb58"
@@ -440,7 +440,7 @@ This gives response:
             "118mpEHsia5sYYvKUx4j56mA7i1yvmLNyynm7LcmehcJJwMVY65smT4kGQgyc9DULwuaLTrUcsqbQutCdajoJXBdPVqvHMkYBTYQKs7WSmTXH8v7iUVqZfphMnS7VxVjGU1zykeTnbuAoZt4cFMUJzd8JaZk5eC82zmLmT"
         ],
         "endIndex": {
-            "address": "C-avax1yzt57wd8me6xmy3t42lz8m5lg6yruy79m6whsf",
+            "address": "C-columbus1yzt57wd8me6xmy3t42lz8m5lg6yruy79m6whsf",
             "utxo": "27q6nsuvtyT4mvXVnQQAXw1YKoTxCow5Qm91GZ678TU1SvUiC2"
         },
         "encoding": "cb58"

@@ -13,9 +13,9 @@ Smart contract functionality requires a total ordering of state transitions (tra
 
 ## Tokens on the C-Chain
 
-### AVAX
+### CAM
 
-AVAX plays the same role on the C-Chain that ETH does on the Ethereum Network. When you create or call a smart contract, you pay the transaction fee (gas cost) with AVAX. You can transfer AVAX between accounts and send AVAX to a smart contract using native EVM tools and libraries.
+CAM plays the same role on the C-Chain that ETH does on the Ethereum Network. When you create or call a smart contract, you pay the transaction fee (gas cost) with CAM. You can transfer CAM between accounts and send CAM to a smart contract using native EVM tools and libraries.
 
 ### CNTs
 
@@ -28,10 +28,10 @@ The C-Chain keeps a mapping \[assetID -&gt; balance\] in each account's storage 
 An EVM Transaction is composed of the following fields:
 
 * **`nonce`** Scalar value equal to the number of transactions sent by the sender.
-* **`gasPrice`** Scalar value equal to the number of Wei (1 Wei = 10^-18 AVAX) paid per unit of gas to execute this transaction.
+* **`gasPrice`** Scalar value equal to the number of Wei (1 Wei = 10^-18 CAM) paid per unit of gas to execute this transaction.
 * **`gasLimit`** Scalar value equal to the maximum amount of gas that should be used in executing this transaction.
 * **`to`** The 20 byte address of the message call's recipient. If the transaction is creating a contract, `to` is left empty.
-* **`value`** Scalar value of native asset (AVAX), in Wei (1 Wei = 10^-18 AVAX), to be transferred to the message call's recipient or in the case of a contract creation, as an endowment to the newly created contract.
+* **`value`** Scalar value of native asset (CAM), in Wei (1 Wei = 10^-18 CAM), to be transferred to the message call's recipient or in the case of a contract creation, as an endowment to the newly created contract.
 * **`v, r, s`** Values corresponding to the signature of the transaction.
 * **`data`** Unlimited size byte array specifying the input data to a contract call or, if creating a contract, the EVM bytecode for the account initialization process.
 
@@ -64,7 +64,7 @@ These arguments can be packed by `abi.encodePacked(...)` in Solidity since there
 For example, to send an CNT with an assetID of `2nzgmhZLuVq8jc7NNu2eahkKwoJcbFWXWJCxHBVWAJEZkhquoK` from address `0x8db97C7cEcE249c2b98bDC0226Cc4C2A57BF52FC` to address `0xDd1749831fbF70d88AB7bB07ef7CD9c53D054a57`, first convert the assetID to hex, `0xec21e629d1252b3540e9d2fcd174a63af081417ea6826612e96815463b8a41d7`. Next concatenate the address which is receiving the CNT, assetID and assetAmount and POST the value as the `data` param to the `0x0100000000000000000000000000000000000002` address using the `eth_sendTransaction` RPC.
 
 ```text
-curl --location --request POST 'https://api.avax.network:443/ext/bc/C/rpc' \
+curl --location --request POST 'https://columbus.camino.foundation:443/ext/bc/C/rpc' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "id": 1,
@@ -90,7 +90,7 @@ curl --location --request POST 'https://api.avax.network:443/ext/bc/C/rpc' \
 
 #### nativeAssetBalance
 
-`nativeAssetBalance` is a precompiled contract at address `0x0100000000000000000000000000000000000001`. `nativeAssetBalance` is the CNT equivalent of using `balance` to get the AVAX balance.
+`nativeAssetBalance` is a precompiled contract at address `0x0100000000000000000000000000000000000001`. `nativeAssetBalance` is the CNT equivalent of using `balance` to get the CAM balance.
 
 ```text
 nativeAssetBalance(address addr, uint256 assetID) -> {balance: uint256}
@@ -113,7 +113,7 @@ These arguments can be packed by `abi.encodePacked(...)` in Solidity since all o
 For example, to get the balance of address `0x8db97C7cEcE249c2b98bDC0226Cc4C2A57BF52FC` and assetID `2nzgmhZLuVq8jc7NNu2eahkKwoJcbFWXWJCxHBVWAJEZkhquoK`, first convert the assetID to hex, `0xec21e629d1252b3540e9d2fcd174a63af081417ea6826612e96815463b8a41d7`. Next concatenate the address and assetID and POST the value as the `data` param to the `0x0100000000000000000000000000000000000001` address using the `eth_call` RPC.
 
 ```text
-curl --location --request POST 'https://api.avax.network:443/ext/bc/C/rpc' \
+curl --location --request POST 'https://columbus.camino.foundation:443/ext/bc/C/rpc' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "id": 1,
@@ -136,7 +136,7 @@ curl --location --request POST 'https://api.avax.network:443/ext/bc/C/rpc' \
 
 ## CRC-20s
 
-An CRC-20 is an ERC-20 token that wraps an underlying Camino Native Token, similar to how WAVAX wraps AVAX.
+An CRC-20 is an ERC-20 token that wraps an underlying Camino Native Token, similar to how WCAM wraps CAM.
 
 ### What is an ERC-20
 
@@ -177,7 +177,7 @@ For simplicity, we use total supply to indicate the total supply of the wrapped 
 
 #### CRC-20 Deposits
 
-In order to deposit funds into an CRC-20, we need to send the CRC-20 contract the deposit amount and then invoke the contract's deposit function so that the contract can acknowledge the deposit and update the caller's balance. This is similar to WETH (Wrapped ETH) on Ethereum. With WETH, this can be accomplished with a simple `call` because that method allows the caller to both send ETH and invoke a smart contract atomically. With non-AVAX CRC-20s, `nativeAssetCall` allows the same functionality for CNTs on the C-Chain.
+In order to deposit funds into an CRC-20, we need to send the CRC-20 contract the deposit amount and then invoke the contract's deposit function so that the contract can acknowledge the deposit and update the caller's balance. This is similar to WETH (Wrapped ETH) on Ethereum. With WETH, this can be accomplished with a simple `call` because that method allows the caller to both send ETH and invoke a smart contract atomically. With non-CAM CRC-20s, `nativeAssetCall` allows the same functionality for CNTs on the C-Chain.
 
 For example:
 

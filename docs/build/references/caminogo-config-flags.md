@@ -417,7 +417,7 @@ The maximum gas to be consumed by an RPC Call (used in `eth_estimateGas` and `et
 
 ##### `rpc-tx-fee-cap` (int):
 
-Global transaction fee (price \* gaslimit) cap (measured in AVAX) for send-transaction variants. Defaults to 100.
+Global transaction fee (price \* gaslimit) cap (measured in CAM) for send-transaction variants. Defaults to 100.
 
 ##### `api-max-duration` (duration):
 
@@ -921,13 +921,13 @@ Timeout before killing an unresponsive chain. Defaults to `5s`.
 
 #### `--creation-tx-fee` (int):
 
-Transaction fee, in nAVAX, for transactions that create new state. Defaults to `1000000` nAVAX (.001 AVAX) per transaction.
+Transaction fee, in nCAM, for transactions that create new state. Defaults to `1000000` nCAM (.001 CAM) per transaction.
 
 #### `--min-delegator-stake` (int):
 
-The minimum stake, in nAVAX, that can be delegated to a validator of the Primary Network.
+The minimum stake, in nCAM, that can be delegated to a validator of the Primary Network.
 
-Defaults to `25000000000` (25 AVAX) on Mainnet. Defaults to `5000000` (.005 AVAX) on Test Net.
+Defaults to `25000000000` (25 CAM) on Mainnet. Defaults to `5000000` (.005 CAM) on Test Net.
 
 #### `--min-delegation-fee` (int):
 
@@ -939,9 +939,9 @@ Minimum staking duration. The Default on Mainnet is `336h` (two weeks.)
 
 #### `--min-validator-stake` (int):
 
-The minimum stake, in nAVAX, required to validate the Primary Network.
+The minimum stake, in nCAM, required to validate the Primary Network.
 
-Defaults to `2000000000000` (2,000 AVAX) on Mainnet. Defaults to `5000000` (.005 AVAX) on Test Net.
+Defaults to `2000000000000` (2,000 CAM) on Mainnet. Defaults to `5000000` (.005 CAM) on Test Net.
 
 #### `--max-stake-duration` (duration):
 
@@ -949,7 +949,7 @@ The maximum staking duration, in hours. Defaults to `8760h` (365 days) on Mainne
 
 #### `--max-validator-stake` (int):
 
-The maximum stake, in nAVAX, that can be placed on a validator on the primary network. Defaults to `3000000000000000` (3,000,000 AVAX) on Mainnet. This includes stake provided by both the validator and by delegators to the validator.
+The maximum stake, in nCAM, that can be placed on a validator on the primary network. Defaults to `3000000000000000` (3,000,000 CAM) on Mainnet. This includes stake provided by both the validator and by delegators to the validator.
 
 #### `--stake-minting-period` (duration):
 
@@ -965,11 +965,11 @@ The minimum percentage of the consumption rate for the remaining token supply in
 
 #### `--stake-supply-cap` (uint):
 
-The maximum stake supply, in nAVAX, that can be placed on a validator. Defaults to `720,000,000,000,000,000` nAVAX.
+The maximum stake supply, in nCAM, that can be placed on a validator. Defaults to `720,000,000,000,000,000` nCAM.
 
 #### `--tx-fee` (int):
 
-The required amount of nAVAX to be burned for a transaction to be valid on the X-Chain, and for import/export transactions on the P-Chain. This parameter requires network agreement in its current form. Changing this value from the default should only be done on private networks. Defaults to `1,000,000` nAVAX per transaction.
+The required amount of nCAM to be burned for a transaction to be valid on the X-Chain, and for import/export transactions on the P-Chain. This parameter requires network agreement in its current form. Changing this value from the default should only be done on private networks. Defaults to `1,000,000` nCAM per transaction.
 
 #### `--uptime-requirement` (float):
 

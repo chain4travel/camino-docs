@@ -127,7 +127,7 @@ sudo systemctl status caminogo
 To follow the log use (ctrl+C to stop):
 sudo journalctl -u caminogo -f
 
-Reach us over on https://discord.gg/2tt9KtCN if you're having problems.
+Reach us over on https://discord.gg/K5THjAweFB if you're having problems.
 ```
 
 The script is finished, and you should see the system prompt again.
@@ -299,7 +299,7 @@ This will delete the existing service file, and run the installer from scratch, 
 
 ## What next?
 
-That's it, you're running an CaminoGo node! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/caminochain) or [Telegram](https://t.me/caminochain)!
+That's it, you're running an CaminoGo node! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 
@@ -307,4 +307,4 @@ Now you can [interact with your node](../../caminogo-apis/issuing-api-calls.md).
 
 Finally, if you haven't already, it is a good idea to [back up](node-backup-and-restore.md) important files in case you ever need to restore your node to a different machine.
 
-If you have any questions, or need help, feel free to contact us on our [Discord](https://discord.com/) server.
+If you have any questions, or need help, feel free to contact us on our [Discord](https://discord.gg/K5THjAweFB) server.

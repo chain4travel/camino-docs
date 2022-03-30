@@ -9,19 +9,19 @@
   },
   "link.item.label.Discord": {
     "message": "Discord",
-    "description": "The label of footer link with label=Discord linking to https://discord.com"
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/K5THjAweFB"
   },
   "link.item.label.Twitter": {
     "message": "Twitter",
-    "description": "The label of footer link with label=Twitter linking to https://twitter.com/caminochain"
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/CaminoFndtn"
   },
   "link.item.label.Telegram": {
     "message": "Telegram",
-    "description": "The label of footer link with label=Telegram linking to https://t.me/caminochain"
+    "description": "The label of footer link with label=Telegram linking to https://t.me/caminofoundation"
   },
   "link.item.label.Medium": {
     "message": "Medium",
-    "description": "The label of footer link with label=Medium linking to https://medium.com/caminochein"
+    "description": "The label of footer link with label=Medium linking to https://medium.com/@caminofoundation"
   },
   "link.item.label.GitHub": {
     "message": "GitHub",

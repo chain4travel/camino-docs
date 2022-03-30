@@ -37,7 +37,7 @@ Camino uses the convention `chainID-address` to specify which chain an address e
 
 Addresses on the X-Chain and P-Chain use the [Bech32](http://support.avalabs.org/en/articles/4587392-what-is-bech32) standard outlined in [BIP 0173](https://en.bitcoin.it/wiki/BIP_0173). There are four parts to a Bech32 address scheme. In order of appearance:
 
-* A human-readable part (HRP). On mainnet this is `avax`.
+* A human-readable part (HRP). On mainnet this is `camino`.
 * The number `1`, which separates the HRP from the address and error correction code.
 * A base-32 encoded string representing the 20 byte address.
 * A 6-character base-32 encoded error correction code.

@@ -945,7 +945,7 @@ curl -X POST --data '{
                 "blockchainID": "2oYMBNV4eNHyqk2fjjV5nVQLDbtmNJzq5s3qs3Lo6ftnC6FByM",
                 "outputs": [
                     {
-                        "assetID": "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z",
+                        "assetID": "o8seyjX6WupqJ1CE8CeaozK13kqVgc4DFvdvc4crfacLFBauW",
                         "fxID": "spdxUxVJQbX85MGxMHbKw1sHxMnSqJ3QBzDyDYEP3h6TLuxqQ",
                         "output": {
                             "addresses": [
@@ -964,7 +964,7 @@ curl -X POST --data '{
                     {
                         "txID": "28jfD1CViCz7CKawJBzmHCQRWtk6xwzcBjCVErH6dBo11JLvmw",
                         "outputIndex": 0,
-                        "assetID": "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z",
+                        "assetID": "o8seyjX6WupqJ1CE8CeaozK13kqVgc4DFvdvc4crfacLFBauW",
                         "fxID": "spdxUxVJQbX85MGxMHbKw1sHxMnSqJ3QBzDyDYEP3h6TLuxqQ",
                         "input": {
                             "amount": 1531084210,
@@ -1005,7 +1005,7 @@ Where:
 
 An output contains:
 
-* `assetID`: The ID of the asset being transferred. (The Mainnet Avax ID is `FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z`.)
+* `assetID`: The ID of the asset being transferred. (The Columbus CAM ID is `o8seyjX6WupqJ1CE8CeaozK13kqVgc4DFvdvc4crfacLFBauW`.)
 * `fxID`: The ID of the FX this output uses.
 * `output`: The FX-specific contents of this output.
 
@@ -1013,7 +1013,7 @@ Most outputs use the secp256k1 FX, look like this:
 
 ```json
 {
-    "assetID": "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z",
+    "assetID": "o8seyjX6WupqJ1CE8CeaozK13kqVgc4DFvdvc4crfacLFBauW",
     "fxID": "spdxUxVJQbX85MGxMHbKw1sHxMnSqJ3QBzDyDYEP3h6TLuxqQ",
     "output": {
         "addresses": [
@@ -1418,7 +1418,7 @@ avm.send({
 }) -> {txID: string, changeAddr: string}
 ```
 
-* Sends `amount` units of asset with ID `assetID` to address `to`. `amount` is denominated in the smallest increment of the asset. For CAM this is 1 nAVAX (one billionth of 1 CAM.)
+* Sends `amount` units of asset with ID `assetID` to address `to`. `amount` is denominated in the smallest increment of the asset. For CAM this is 1 nCAM (one billionth of 1 CAM.)
 * `to` is the X-Chain address the asset is sent to.
 * `from` are the addresses that you want to use for this operation. If omitted, uses any of your addresses as needed.
 * `changeAddr` is the address any change will be sent to. If omitted, change is sent to one of the addresses controlled by the user.
@@ -1651,7 +1651,7 @@ wallet.send({
 }) -> {txID: string, changeAddr: string}
 ```
 
-* Sends `amount` units of asset with ID `assetID` to address `to`. `amount` is denominated in the smallest increment of the asset. For CAM this is 1 nAVAX (one billionth of 1 CAM.)
+* Sends `amount` units of asset with ID `assetID` to address `to`. `amount` is denominated in the smallest increment of the asset. For CAM this is 1 nCAM (one billionth of 1 CAM.)
 * `to` is the X-Chain address the asset is sent to.
 * `from` are the addresses that you want to use for this operation. If omitted, uses any of your addresses as needed.
 * `changeAddr` is the address any change will be sent to. If omitted, change is sent to one of the addresses controlled by the user.

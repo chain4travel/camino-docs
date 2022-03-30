@@ -113,7 +113,7 @@ The validation period must be between 2 weeks and 1 year.
 
 There is a maximum total weight imposed on validators. This means that no validator will ever have more CAM staked and delegated to it than this value. This value will initially be set to `min(5 * amount staked, 3M CAM)`. The total value on a validator is 3 million CAM.
 
-Note that once you issue the transaction to add a node as a validator, there is no way to change the parameters. **You can’t remove stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, check out our [Developer FAQ](https://support.avalabs.org/en/collections/2618154-developer-faq) or ask for help on [Discord.](https://chat.avalabs.org/)
+Note that once you issue the transaction to add a node as a validator, there is no way to change the parameters. **You can’t remove stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, check out our [Developer FAQ](https://camino.foundation/developer-faq) or ask for help on [Discord.](https://discord.gg/K5THjAweFB)
 
 :::info
 
@@ -734,7 +734,7 @@ curl -X POST --data '{
                 {
                   "txID": "DTqiagiMFdqbNQ62V2Gt1GddTVLkKUk2caGr4pyza9hTtsfta",
                   "outputIndex": 0,
-                  "assetID": "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z",
+                  "assetID": "o8seyjX6WupqJ1CE8CeaozK13kqVgc4DFvdvc4crfacLFBauW",
                   "fxID": "spdxUxVJQbX85MGxMHbKw1sHxMnSqJ3QBzDyDYEP3h6TLuxqQ",
                   "input": {
                     "amount": 13839124063,
@@ -749,7 +749,7 @@ curl -X POST --data '{
             "destinationChain": "2q9e4r6Mu3U68nU1fYjgbR6JvwrRx36CohpAX5UQxse55x1Q5",
             "exportedOutputs": [
               {
-                "assetID": "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z",
+                "assetID": "o8seyjX6WupqJ1CE8CeaozK13kqVgc4DFvdvc4crfacLFBauW",
                 "fxID": "spdxUxVJQbX85MGxMHbKw1sHxMnSqJ3QBzDyDYEP3h6TLuxqQ",
                 "output": {
                   "addresses": [
