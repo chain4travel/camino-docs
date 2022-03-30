@@ -70,11 +70,11 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discord.com',
+                href: 'https://discord.gg/2tt9KtCN',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/caminochain',
+                href: 'https://twitter.com/CaminoFndtn',
               },
               {
                 label: 'Telegram',
@@ -82,7 +82,7 @@ const config = {
               },
               {
                 label: 'Medium',
-                href: 'https://medium.com/caminochain',
+                href: 'https://medium.com/@caminofoundation',
               }
             ],
           },

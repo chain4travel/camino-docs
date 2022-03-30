@@ -85,12 +85,12 @@ Preparing environment...
 Found arm64 architecture...
 Looking for the latest arm64 build...
 Will attempt to download:
- https://github.com/chain4travel/caminogo/releases/download/v1.7.7/caminogo-linux-arm64-v1.7.7.tar.gz
-caminogo-linux-arm64-v1.7.7.tar.gz 100%[=========================================================================>]  29.83M  75.8MB/s    in 0.4s
+ https://github.com/chain4travel/caminogo/releases/download/v0.1.0/caminogo-linux-arm64-v0.1.0.tar.gz
+caminogo-linux-arm64-v0.1.0.tar.gz 100%[=========================================================================>]  29.83M  75.8MB/s    in 0.4s
 Unpacking node files...
-caminogo-v1.1.1/plugins/
-caminogo-v1.1.1/plugins/evm
-caminogo-v1.1.1/caminogo
+caminogo-v0.1.0/plugins/
+caminogo-v0.1.0/plugins/evm
+caminogo-v0.1.0/caminogo
 Node files unpacked into /home/ubuntu/camino-node
 ```
 
@@ -107,7 +107,7 @@ Enter your connection type [1,2]:
 enter `1` if you have dynamic IP, and `2` if you have a static IP. If you are on a static IP, it will try to auto-detect the IP and ask for confirmation.
 
 ```text
-Detected '3.15.152.14' as your public IP. Is this correct? [y,n]:
+Detected '104.27.15.23' as your public IP. Is this correct? [y,n]:
 ```
 
 Confirm with `y`, or `n` if the detected IP is wrong (or empty), and then enter the correct IP at the next prompt.
@@ -115,7 +115,7 @@ Confirm with `y`, or `n` if the detected IP is wrong (or empty), and then enter 
 The script will then continue with system service creation and finish with starting the service.
 
 ```text
-Installing service with public IP: 3.15.152.14
+Installing service with public IP: 104.27.15.23
 Created symlink /etc/systemd/system/multi-user.target.wants/caminogo.service → /etc/systemd/system/caminogo.service.
 
 Done!
@@ -127,7 +127,7 @@ sudo systemctl status caminogo
 To follow the log use (ctrl+C to stop):
 sudo journalctl -u caminogo -f
 
-Reach us over on https://chat.avax.network if you're having problems.
+Reach us over on https://discord.gg/2tt9KtCN if you're having problems.
 ```
 
 The script is finished, and you should see the system prompt again.
@@ -152,16 +152,16 @@ Memory: 223.0M
 CGroup: /system.slice/caminogo.service
 └─2142 /home/ubuntu/camino-node/caminogo --dynamic-public-ip=opendns --http-host=
 
-Jan 05 10:38:45 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:38:45] <P Chain> caminogo/vms/platformvm/vm.go#322: initializing last accepted block as 2FUFPVPxbTpKNn39moGSzsmGroYES4NZRdw3mJgNvMkMiMHJ9e
-Jan 05 10:38:45 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:38:45] <P Chain> caminogo/snow/engine/snowman/transitive.go#58: initializing consensus engine
-Jan 05 10:38:45 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:38:45] caminogo/api/server.go#143: adding route /ext/bc/11111111111111111111111111111111LpoYY
-Jan 05 10:38:45 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:38:45] caminogo/api/server.go#88: HTTP API server listening on ":9650"
-Jan 05 10:38:58 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:38:58] <P Chain> caminogo/snow/engine/common/bootstrapper.go#185: Bootstrapping started syncing with 1 vertices in the accepted frontier
-Jan 05 10:39:02 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:39:02] <P Chain> caminogo/snow/engine/snowman/bootstrap/bootstrapper.go#210: fetched 2500 blocks
-Jan 05 10:39:04 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:39:04] <P Chain> caminogo/snow/engine/snowman/bootstrap/bootstrapper.go#210: fetched 5000 blocks
-Jan 05 10:39:06 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:39:06] <P Chain> caminogo/snow/engine/snowman/bootstrap/bootstrapper.go#210: fetched 7500 blocks
-Jan 05 10:39:09 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:39:09] <P Chain> caminogo/snow/engine/snowman/bootstrap/bootstrapper.go#210: fetched 10000 blocks
-Jan 05 10:39:11 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:39:11] <P Chain> caminogo/snow/engine/snowman/bootstrap/bootstrapper.go#210: fetched 12500 blocks
+Jan 05 10:38:45 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:38:45] <P Chain> caminogo/vms/platformvm/vm.go#322: initializing last accepted block as 2FUFPVPxbTpKNn39moGSzsmGroYES4NZRdw3mJgNvMkMiMHJ9e
+Jan 05 10:38:45 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:38:45] <P Chain> caminogo/snow/engine/snowman/transitive.go#58: initializing consensus engine
+Jan 05 10:38:45 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:38:45] caminogo/api/server.go#143: adding route /ext/bc/11111111111111111111111111111111LpoYY
+Jan 05 10:38:45 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:38:45] caminogo/api/server.go#88: HTTP API server listening on ":9650"
+Jan 05 10:38:58 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:38:58] <P Chain> caminogo/snow/engine/common/bootstrapper.go#185: Bootstrapping started syncing with 1 vertices in the accepted frontier
+Jan 05 10:39:02 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:39:02] <P Chain> caminogo/snow/engine/snowman/bootstrap/bootstrapper.go#210: fetched 2500 blocks
+Jan 05 10:39:04 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:39:04] <P Chain> caminogo/snow/engine/snowman/bootstrap/bootstrapper.go#210: fetched 5000 blocks
+Jan 05 10:39:06 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:39:06] <P Chain> caminogo/snow/engine/snowman/bootstrap/bootstrapper.go#210: fetched 7500 blocks
+Jan 05 10:39:09 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:39:09] <P Chain> caminogo/snow/engine/snowman/bootstrap/bootstrapper.go#210: fetched 10000 blocks
+Jan 05 10:39:11 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:39:11] <P Chain> caminogo/snow/engine/snowman/bootstrap/bootstrapper.go#210: fetched 12500 blocks
 ```
 
 Note the `active (running)` which indicates the service is running ok. You may need to press `q` to return to the command prompt.
@@ -175,7 +175,7 @@ sudo journalctl -u caminogo | grep "NodeID"
 It will produce output like:
 
 ```text
-Jan 05 10:38:38 ip-172-31-30-64 caminogo[2142]: INFO [01-05|10:38:38] caminogo/node/node.go#428: Set node's ID to 6seStrauyCnVV7NEVwRbfaT9B6EnXEzfY
+Jan 05 10:38:38 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:38:38] caminogo/node/node.go#428: Set node's ID to 6seStrauyCnVV7NEVwRbfaT9B6EnXEzfY
 ```
 
 Prepend `NodeID-` to the value to get, for example, `NodeID-6seStrauyCnVV7NEVwRbfaT9B6EnXEzfY`. Store that; it will be needed for staking or looking up your node.
@@ -207,7 +207,7 @@ sudo systemctl start caminogo
 CaminoGo is an ongoing project and there are regular version upgrades. Most upgrades are recommended but not required. Advance notice will be given for upgrades that are not backwards compatible. When a new version of the node is released, you will notice log lines like:
 
 ```text
-Jan 08 10:26:45 ip-172-31-16-229 caminogo[6335]: INFO [01-08|10:26:45] caminogo/network/peer.go#526: beacon 9CkG9MBNavnw7EVSRsuFr7ws9gascDQy3 attempting to connect with newer version camino/1.7.7. You may want to update your client
+Jan 08 10:26:45 ip-172-31-16-229 caminogo[6335]: INFO [01-08|10:26:45] caminogo/network/peer.go#526: beacon 9CkG9MBNavnw7EVSRsuFr7ws9gascDQy3 attempting to connect with newer version camino/0.1.0. You may want to update your client
 ```
 
 It is recommended to always upgrade to the latest version, because new versions bring bug fixes, new features and upgrades.
@@ -234,7 +234,7 @@ It will then upgrade your node to the latest version, and after it's done, start
 ```text
 Node upgraded, starting service...
 New node version:
-camino/1.7.7 [network=mainnet, database=v1.0.0, commit=f76f1fd5f99736cf468413bbac158d6626f712d2]
+camino/0.1.0 [network=mainnet, database=v1.0.0, commit=f76f1fd5f99736cf468413bbac158d6626f712d2]
 Done!
 ```
 
@@ -267,22 +267,14 @@ It will print out a list, something like:
 CaminoGo installer
 ---------------------
 Available versions:
-v1.3.2
-v1.3.1
-v1.3.0
-v1.2.4-arm-fix
-v1.2.4
-v1.2.3-signed
-v1.2.3
-v1.2.2
-v1.2.1
-v1.2.0
+v0.1.0
+v0.0.0
 ```
 
 To install a specific version, run the script with `--version` followed by the tag of the version. For example:
 
 ```bash
-./caminogo-installer.sh --version v1.3.1
+./caminogo-installer.sh --version v0.1.0
 ```
 
 :::danger
