@@ -31,6 +31,10 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   font-size: 14px;
 }
 
+.breadcrumbs__link {
+  font-family: 'Segoe UI', Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, 'Segoe UI Symbol', 'Segoe UI Emoji';
+}
+
 html[data-theme='light'] .DocSearch {
   /* --docsearch-primary-color: var(--ifm-color-primary); */
   /* --docsearch-text-color: var(--ifm-font-color-base); */

@@ -11,8 +11,6 @@ In this tutorial, we will:
 
 - Install and run an Camino node
 - Connect to Camino
-- Send CAM
-- Add your node to the validator set
 
 This tutorial is primarily geared toward developers and people interested in how the Camino Platform works. If you're just interested in setting up a node for staking, you may want to follow the [Camino Node Install Script](set-up-node-with-installer.md) tutorial instead. The installer automates the installation process and sets it up as a system service, which is recommended for unattended operation. You may also try things out by following this tutorial first, and then later set up the node using the installer as a permanent solution.
 
@@ -121,8 +119,6 @@ curl -X POST --data '{
 
 If this returns `true`, the chain is bootstrapped. If you make an API call to a chain that is not done bootstrapping, it will return `API call rejected because chain is not done bootstrapping`.
 
-Your node is running and connected now. If you want to use your node as a validator, head over to the [Camino Web Wallet](https://wallet.camino.foundation) and register your node in there.
-
 You can use `Ctrl + C` to kill the node.
 
 If you want to experiment and play with your node, read on.
@@ -130,3 +126,7 @@ If you want to experiment and play with your node, read on.
 To be able to make API calls to your node from other machines, when starting up the node include argument `--http-host=` (e.g. `./build/caminogo --http-host=`)
 
 When the mainnet (Camino) goes live, you can either omit `--network-id=columbus` parameter, or pass `--network-id=camino` which is the name of our mainnet.
+
+## What next?
+
+Your node is running and connected now. If you want to use your node as a validator, head over to the [Camino Web Wallet](https://wallet.camino.foundation) and register your node in there.

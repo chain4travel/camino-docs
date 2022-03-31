@@ -1,4 +1,12 @@
 {
+  "sidebar.tutorialSidebar.category.About": {
+    "message": "About",
+    "description": "The label for category About in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Platform": {
+    "message": "Platform",
+    "description": "The label for category Platform in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.Build": {
     "message": "Build",
     "description": "The label for category Build in sidebar tutorialSidebar"

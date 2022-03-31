@@ -22,6 +22,21 @@ const sidebars = {
     'intro',
     {
       type: 'category',
+      label: 'About',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          type: 'category',
+          label: 'Platform',
+          items: [
+            'about/platform-overview/README',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Build',
       collapsible: true,
       collapsed: false,
