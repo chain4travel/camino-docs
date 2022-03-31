@@ -118,7 +118,11 @@ const config = {
           ],
           apiKey: 'K3s7dltmYhPw0oqOepeOx8liLZPRAGH2',
         },
-        typesenseSearchParameters: {replaceSynonymsInHighlight:false},
+        typesenseSearchParameters: {
+          replaceSynonymsInHighlight:true,
+          group_limit:5,
+          group_by: 'hierarchy.lvl0',
+        },
         contextualSearch: true,
       },
     }),
