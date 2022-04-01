@@ -25,7 +25,7 @@ This API uses the `json 2.0` RPC format. For more information on making JSON RPC
 
 The node runs a set of health checks every 30 seconds, including a health check for each chain. This method returns the last set of health check results.
 
-#### **Signature**
+**Signature**
 
 ```sh
 health.health() -> {
@@ -56,7 +56,7 @@ health.health() -> {
 
 More information on these measurements can be found in the documentation for the [go-sundheit](https://github.com/AppsFlyer/go-sundheit) library.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -66,7 +66,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/health
 ```
 
-#### **Example Response**
+**Example Response**
 
 In this example response, the C-Chain’s health check is failing.
 

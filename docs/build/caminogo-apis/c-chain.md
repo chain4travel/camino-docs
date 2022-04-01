@@ -123,7 +123,7 @@ curl -X POST --data '{
 
 Get the base fee for the next block.
 
-#### **Signature**
+**Signature**
 
 ```sh
 eth_baseFee() -> {}
@@ -131,7 +131,7 @@ eth_baseFee() -> {}
 
 `result` is the hex value of the base fee for the next block.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -142,7 +142,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/rpc
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -156,7 +156,7 @@ curl -X POST --data '{
 
 Get the priority fee needed to be included in a block.
 
-#### **Signature**
+**Signature**
 
 ```sh
 eth_maxPriorityFeePerGas() -> {}
@@ -164,7 +164,7 @@ eth_maxPriorityFeePerGas() -> {}
 
 `result` is hex value of the priority fee needed to be included in a block.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -175,7 +175,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/rpc
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -201,11 +201,11 @@ To interact with other instances of the EVM avax endpoints:
 /ext/bc/blockchainID/avax
 ```
 
-### avax.getAtomicTx
+### avax&#46;getAtomicTx
 
 Gets a transaction by its ID. Optional encoding parameter to specify the format for the returned transaction. Can be either `cb58` or `hex`. Defaults to `cb58`.
 
-#### Signature
+**Signature**
 
 ```go
 avax.getAtomicTx({
@@ -229,7 +229,7 @@ avax.getAtomicTx({
 - `encoding` is the `encoding`.
 - `blockHeight` is the height of the block which the transaction was included in.
 
-#### Example Call
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -243,7 +243,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/avax
 ```
 
-#### Example Response
+**Example Response**
 
 ```json
 {
@@ -257,11 +257,11 @@ curl -X POST --data '{
 }
 ```
 
-### avax.export
+### avax&#46;export
 
 Export an asset from the C-Chain to the X-Chain. After calling this method, you must call [`avm.import`](x-chain.mdx#avmimport) on the X-Chain to complete the transfer.
 
-#### Signature
+**Signature**
 
 ```
 avax.export({
@@ -281,7 +281,7 @@ avax.export({
 - `username` is the user that controls the address that transaction will be sent from.
 - `password` is `username`‘s password.
 
-#### Example Call
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -298,7 +298,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/avax
 ```
 
-#### Example Response
+**Example Response**
 
 ```json
 {
@@ -310,11 +310,11 @@ curl -X POST --data '{
 }
 ```
 
-### avax.exportKey
+### avax&#46;exportKey
 
 Get the private key that controls a given address. The returned private key can be added to a user with `avax.importKey`.
 
-#### Signature
+**Signature**
 
 ```go
 avax.exportKey({
@@ -334,7 +334,7 @@ avax.exportKey({
 - `privateKey` is the CB58 endcoded string representation of the private key that controls `address`. It has a `PrivateKey-` prefix and can be used to import a key via `avax.importKey`.
 - `privateKeyHex` is the hex string representation of the private key that controls `address`. It can be used to import an account into Metamask.
 
-#### Example Call
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -349,7 +349,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/avax
 ```
 
-#### Example Response
+**Example Response**
 
 ```json
 {
@@ -362,11 +362,11 @@ curl -X POST --data '{
 }}
 ```
 
-### avax.getUTXOs
+### avax&#46;getUTXOs
 
 Gets the UTXOs that reference a given address.
 
-#### **Signature**
+**Signature**
 
 ```sh
 avax.getUTXOs(
@@ -442,11 +442,11 @@ This gives response:
 }
 ```
 
-### avax.import
+### avax&#46;import
 
 Finalize the transfer of a non-CAM or CAM from the X-Chain to the C-Chain. Before this method is called, you must call the X-Chain's [`avm.export`](x-chain.mdx#avmexport) method with assetID `CAM` to initiate the transfer.
 
-#### Signature
+**Signature**
 
 ```go
 avax.import({
@@ -470,7 +470,7 @@ avax.import({
 
 - `txID` is the ID of the completed ImportTx.
 
-#### Example Call
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -486,7 +486,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/avax
 ```
 
-#### Example Response
+**Example Response**
 
 ```json
 {
@@ -498,11 +498,11 @@ curl -X POST --data '{
 }
 ```
 
-### avax.importKey
+### avax&#46;importKey
 
 Give a user control over an address by providing the private key that controls the address.
 
-#### Signature
+**Signature**
 
 ```go
 avax.importKey({
@@ -520,7 +520,7 @@ avax.importKey({
 
 - `address` is the address `username` now controls with the private key. It will be in hex format.
 
-#### Example Call
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -535,7 +535,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/avax
 ```
 
-#### Example Response
+**Example Response**
 
 ```json
 {
@@ -547,11 +547,11 @@ curl -X POST --data '{
 }
 ```
 
-### avax.issueTx
+### avax&#46;issueTx
 
 Send a signed transaction to the network. `encoding` specifies the format of the signed transaction. Can be either "cb58" or "hex". Defaults to "cb58".
 
-#### **Signature**
+**Signature**
 
 ```sh
 avax.issueTx({
@@ -562,7 +562,7 @@ avax.issueTx({
 }
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -576,7 +576,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/avax
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -588,11 +588,11 @@ curl -X POST --data '{
 }
 ```
 
-### avax.getAtomicTxStatus
+### avax&#46;getAtomicTxStatus
 
 Get the status of an atomic transaction sent to the network.
 
-#### **Signature**
+**Signature**
 
 ```sh
 avax.getAtomicTxStatus({txID: string}) -> {
@@ -608,7 +608,7 @@ avax.getAtomicTxStatus({txID: string}) -> {
 - `Dropped`: The transaction was dropped by this node because it thought the transaction invalid
 - `Unknown`: The transaction hasn’t been seen by this node
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -621,7 +621,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/avax
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -646,11 +646,11 @@ This API can be used for debugging. Note that the Admin API is disabled by defau
 
 ### Methods
 
-#### admin.setLogLevel
+#### admin&#46;setLogLevel
 
 Sets the log level of the C-Chain.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.setLogLevel({level:string}) -> {success:bool}
@@ -658,7 +658,7 @@ admin.setLogLevel({level:string}) -> {success:bool}
 
 - `level` is the log level to be set.
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -671,7 +671,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -683,17 +683,17 @@ curl -X POST --data '{
 }
 ```
 
-#### admin.startCPUProfiler
+#### admin&#46;startCPUProfiler
 
 Starts a CPU profile.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.startCPUProfiler() -> {success:bool}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -704,7 +704,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -716,17 +716,17 @@ curl -X POST --data '{
 }
 ```
 
-#### admin.stopCPUProfiler
+#### admin&#46;stopCPUProfiler
 
 Stops and writes a CPU profile.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.stopCPUProfiler() -> {success:bool}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -737,7 +737,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -749,17 +749,17 @@ curl -X POST --data '{
 }
 ```
 
-#### admin.memoryProfile
+#### admin&#46;memoryProfile
 
 Runs and writes a memory profile.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.memoryProfile() -> {success:bool}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -770,7 +770,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -782,17 +782,17 @@ curl -X POST --data '{
 }
 ```
 
-#### admin.lockProfile
+#### admin&#46;lockProfile
 
 Runs a mutex profile writing to the `coreth_performance_c` directory.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.lockProfile() -> {success:bool}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -803,7 +803,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/C/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {

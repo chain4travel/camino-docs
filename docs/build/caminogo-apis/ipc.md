@@ -40,7 +40,7 @@ This API uses the `json 2.0` RPC format.
 
 Register a blockchain so it publishes accepted vertices to a Unix domain socket.
 
-#### **Signature**
+**Signature**
 
 ```sh
 ipcs.publishBlockchain({blockchainID: string}) -> {consensusURL: string, decisionsURL: string}
@@ -50,7 +50,7 @@ ipcs.publishBlockchain({blockchainID: string}) -> {consensusURL: string, decisio
 - `consensusURL` is the path of the Unix domain socket the vertices are published to.
 - `decisionsURL` is the path of the Unix domain socket the transactions are published to.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -63,7 +63,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/ipcs
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -80,7 +80,7 @@ curl -X POST --data '{
 
 Deregister a blockchain so that it no longer publishes to a Unix domain socket.
 
-#### **Signature**
+**Signature**
 
 ```sh
 ipcs.unpublishBlockchain({blockchainID: string}) -> {success: bool}
@@ -88,7 +88,7 @@ ipcs.unpublishBlockchain({blockchainID: string}) -> {success: bool}
 
 - `blockchainID` is the blockchain that will no longer publish to a Unix domain socket.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -101,7 +101,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/ipcs
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {

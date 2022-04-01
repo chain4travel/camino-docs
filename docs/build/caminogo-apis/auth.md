@@ -28,11 +28,11 @@ This API uses the `json 2.0` RPC format. For more information on making JSON RPC
 
 ## Methods
 
-### auth.newToken
+### auth&#46;newToken
 
 Creates a new authorization token that grants access to one or more API endpoints.
 
-#### **Signature**
+**Signature**
 
 ```sh
 auth.newToken(
@@ -47,7 +47,7 @@ auth.newToken(
 - `endpoints` is a list of endpoints that will be accessible using the generated token. If `endpoints` contains an element `"*"`, the generated token can access any API endpoint.
 - `token` is the authorization token.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -63,7 +63,7 @@ curl -X POST --data '{
 
 This call will generate an authorization token that allows access to API endpoints `/ext/bc/X` (ie the X-Chain) and `/ext/info` (ie the [info API](info.md).)
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -89,11 +89,11 @@ curl -X POST --data '{
 -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbmRwb2ludHMiOlsiKiJdLCJleHAiOjE1OTM0NzU4OTR9.Cqo7TraN_CFN13q3ae4GRJCMgd8ZOlQwBzyC29M6Aps'
 ```
 
-### auth.revokeToken
+### auth&#46;revokeToken
 
 Revoke a previously generated token. The given token will no longer grant access to any endpoint. If the token is invalid, does nothing.
 
-#### **Signature**
+**Signature**
 
 ```sh
 auth.revokeToken(
@@ -107,7 +107,7 @@ auth.revokeToken(
 - `password` is this node’s authorization token password.
 - `token` is the authorization token being revoked.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -121,7 +121,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/auth
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -133,11 +133,11 @@ curl -X POST --data '{
 }
 ```
 
-### auth.changePassword
+### auth&#46;changePassword
 
 Change this node’s authorization token password. Any authorization tokens created under an old password will become invalid.
 
-#### **Signature**
+**Signature**
 
 ```sh
 auth.changePassword(
@@ -151,7 +151,7 @@ auth.changePassword(
 - `oldPassword` is this node’s current authorization token password.
 - `newPassword` is the node’s new authorization token password after this API call. Must be between 1 and 1024 characters.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -165,7 +165,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/auth
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {

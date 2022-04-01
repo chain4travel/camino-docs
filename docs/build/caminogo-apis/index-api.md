@@ -52,7 +52,7 @@ Each chain has one or more index. To see if a C-Chain block is accepted, for exa
 
 Get the most recently accepted container.
 
-#### **Signature**
+**Signature**
 
 ```sh
 index.getLastAccepted({
@@ -74,7 +74,7 @@ where:
 - `index` is how many containers were accepted in this index before this one
 - `encoding` is `"cb58"` or `"hex"`
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl --location --request POST 'localhost:9650/ext/index/X/tx' \
@@ -89,7 +89,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }'
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -109,7 +109,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 Get container by index. The first container accepted is at index 0, the second is at index 1, etc.
 
-#### **Signature**
+**Signature**
 
 ```sh
 index.getContainerByIndex({
@@ -130,7 +130,7 @@ index.getContainerByIndex({
 - `index` is how many containers were accepted in this index before this one
 - `encoding` is `"cb58"` or `"hex"`
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl --location --request POST 'localhost:9650/ext/index/X/tx' \
@@ -146,7 +146,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }'
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -166,7 +166,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 Get container by ID.
 
-#### **Signature**
+**Signature**
 
 ```sh
 index.getContainerByID({
@@ -187,7 +187,7 @@ index.getContainerByID({
 - `index` is how many containers were accepted in this index before this one
 - `encoding` is `"cb58"` or `"hex"`
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl --location --request POST 'localhost:9650/ext/index/X/tx' \
@@ -203,7 +203,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }'
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -223,7 +223,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 Returns containers with indices in \[`startIndex`, `startIndex+1`, ... , `startIndex` + `numToFetch` - 1\]. `numToFetch` must be in `[0,1024]`.
 
-#### **Signature**
+**Signature**
 
 ```sh
 index.getContainerRange({
@@ -245,7 +245,7 @@ index.getContainerRange({
 - `index` is how many containers were accepted in this index before this one
 - `encoding` is `"cb58"` or `"hex"`
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl --location --request POST 'localhost:9650/ext/index/X/tx' \
@@ -262,7 +262,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }'
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -284,7 +284,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 Get a container's index.
 
-#### **Signature**
+**Signature**
 
 ```sh
 index.getIndex({
@@ -297,7 +297,7 @@ index.getIndex({
 
 where `encoding` is `"cb58"` or `"hex"`.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl --location --request POST 'localhost:9650/ext/index/X/tx' \
@@ -313,7 +313,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }'
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -329,7 +329,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 
 Returns true if the container is in this index.
 
-#### **Signature**
+**Signature**
 
 ```sh
 index.isAccepted({
@@ -340,7 +340,7 @@ index.isAccepted({
 }
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl --location --request POST 'localhost:9650/ext/index/X/tx' \
@@ -356,7 +356,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }'
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {

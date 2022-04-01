@@ -26,7 +26,7 @@ This API uses the `json 2.0` API format. For more information on making JSON RPC
 
 Create a new user with the specified username and password.
 
-#### **Signature**
+**Signature**
 
 ```sh
 keystore.createUser(
@@ -40,7 +40,7 @@ keystore.createUser(
 - `username` and `password` can be at most 1024 characters.
 - Your request will be rejected if `password` is too weak. `password` should be at least 8 characters and contain upper and lower case letters as well as numbers and symbols.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -54,7 +54,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/keystore
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -70,13 +70,13 @@ curl -X POST --data '{
 
 Delete a user.
 
-#### **Signature**
+**Signature**
 
 ```sh
 keystore.deleteUser({username: string, password:string}) -> {success: bool}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -90,7 +90,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/keystore
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -104,7 +104,7 @@ curl -X POST --data '{
 
 Export a user. The user can be imported to another node with [`keystore.importUser`](keystore.md#keystoreimportuser). The user’s password remains encrypted.
 
-#### **Signature**
+**Signature**
 
 ```sh
 keystore.exportUser(
@@ -121,7 +121,7 @@ keystore.exportUser(
 
 `encoding` specifies the format of the string encoding user data. Can be either "cb58" or "hex". Defaults to "cb58".
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -135,7 +135,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/keystore
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -152,7 +152,7 @@ curl -X POST --data '{
 
 Import a user. `password` must match the user’s password. `username` doesn’t have to match the username `user` had when it was exported.
 
-#### **Signature**
+**Signature**
 
 ```sh
 keystore.importUser(
@@ -167,7 +167,7 @@ keystore.importUser(
 
 `encoding` specifies the format of the string encoding user data . Can be either "cb58" or "hex". Defaults to "cb58".
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -182,7 +182,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/keystore
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -198,13 +198,13 @@ curl -X POST --data '{
 
 List the users in this keystore.
 
-#### **Signature**
+**Signature**
 
 ```sh
 keystore.ListUsers() -> {users:[]string}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -214,7 +214,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/keystore
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {

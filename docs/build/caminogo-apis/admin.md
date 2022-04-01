@@ -18,11 +18,11 @@ This API uses the `json 2.0` RPC format. For details, see [here](issuing-api-cal
 
 ## API Methods
 
-### admin.alias
+### admin&#46;alias
 
 Assign an API endpoint an alias, a different endpoint for the API. The original endpoint will still work. This change only affects this node; other nodes will not know about this alias.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.alias({endpoint:string, alias:string}) -> {success:bool}
@@ -32,7 +32,7 @@ admin.alias({endpoint:string, alias:string}) -> {success:bool}
 - The API being aliased can now be called at `ext/alias`.
 - `alias` can be at most 512 characters.
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -46,7 +46,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -60,11 +60,11 @@ curl -X POST --data '{
 
 Now, calls to the X-Chain can be made to either `/ext/bc/X` or, equivalently, to `/ext/myAlias`.
 
-### admin.aliasChain
+### admin&#46;aliasChain
 
 Give a blockchain an alias, a different name that can be used any place the blockchain’s ID is used.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.aliasChain(
@@ -78,7 +78,7 @@ admin.aliasChain(
 - `chain` is the blockchain’s ID.
 - `alias` can now be used in place of the blockchain’s ID (in API endpoints, for example.)
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -92,7 +92,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -106,11 +106,11 @@ curl -X POST --data '{
 
 Now, instead of interacting with the blockchain whose ID is `sV6o671RtkGBcno1FiaDbVcFv2sG5aVXMZYzKdP4VQAWmJQnM` by making API calls to `/ext/bc/sV6o671RtkGBcno1FiaDbVcFv2sG5aVXMZYzKdP4VQAWmJQnM`, one can also make calls to `ext/bc/myBlockchainAlias`.
 
-### admin.getChainAliases
+### admin&#46;getChainAliases
 
 Returns the aliases of the chain
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.getChainAliases(
@@ -122,7 +122,7 @@ admin.getChainAliases(
 
 - `chain` is the blockchain’s ID.
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -135,7 +135,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -151,11 +151,11 @@ curl -X POST --data '{
 }
 ```
 
-### admin.getLoggerLevel
+### admin&#46;getLoggerLevel
 
 Returns log and display levels of loggers.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.getLoggerLevel(
@@ -174,7 +174,7 @@ admin.getLoggerLevel(
 
 - `loggerName` is the name of the logger to be returned. This is an optional argument. If not specified, it returns all possible loggers.
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -187,7 +187,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -204,11 +204,11 @@ curl -X POST --data '{
 }
 ```
 
-### admin.loadVMs
+### admin&#46;loadVMs
 
 Dynamically loads any virtual machines installed on the node as plugins.
 
-#### Signature
+**Signature**
 
 ```sh
 admin.loadVMs() -> {
@@ -219,7 +219,7 @@ admin.loadVMs() -> {
 
 - `failedVMs` is only included in the response if at least one virtual machine fails to be loaded.
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -230,7 +230,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -247,17 +247,17 @@ curl -X POST --data '{
 }
 ```
 
-### admin.lockProfile
+### admin&#46;lockProfile
 
 Writes a profile of mutex statistics to `lock.profile`.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.lockProfile() -> {success:bool}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -268,7 +268,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -280,17 +280,17 @@ curl -X POST --data '{
 }
 ```
 
-### admin.memoryProfile
+### admin&#46;memoryProfile
 
 Writes a memory profile of the to `mem.profile`.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.memoryProfile() -> {success:bool}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -301,7 +301,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -313,11 +313,11 @@ curl -X POST --data '{
 }
 ```
 
-### admin.setLoggerLevel
+### admin&#46;setLoggerLevel
 
 Sets log and display levels of loggers.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.setLoggerLevel(
@@ -335,7 +335,7 @@ admin.setLoggerLevel(
 
 `logLevel` and `displayLevel` cannot be omited at the same time.
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -350,7 +350,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -362,17 +362,17 @@ curl -X POST --data '{
 }
 ```
 
-### admin.startCPUProfiler
+### admin&#46;startCPUProfiler
 
 Start profiling the CPU utilization of the node. To stop, call `admin.stopCPUProfiler`. On stop, writes the profile to `cpu.profile`.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.startCPUProfiler() -> {success:bool}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -383,7 +383,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -395,17 +395,17 @@ curl -X POST --data '{
 }
 ```
 
-### admin.stopCPUProfiler
+### admin&#46;stopCPUProfiler
 
 Stop the CPU profile that was previously started.
 
-#### **Signature**
+**Signature**
 
 ```text
 admin.stopCPUProfiler() -> {success:bool}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -415,7 +415,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {

@@ -18,7 +18,7 @@ This API uses the `json 2.0` RPC format.
 
 ## Methods
 
-### platform.addDelegator
+### platform&#46;addDelegator
 
 Add a delegator to the Primary Network.
 
@@ -30,7 +30,7 @@ The delegation period must be a subset of the period that the delegatee validate
 
 Note that once you issue the transaction to add a node as a delegator, there is no way to change the parameters. **You can’t remove a stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.addDelegator(
@@ -63,7 +63,7 @@ platform.addDelegator(
 - `password` is `username`‘s password.
 - `txID` is the transaction ID
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -84,7 +84,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -97,7 +97,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.addValidator
+### platform&#46;addValidator
 
 Add a validator to the Primary Network. You must stake CAM to do this. If the node is sufficiently correct and responsive while validating, you receive a reward when end of staking period is reached. The validator’s probability of being sampled by other validators during consensus is in proportion to the amount of CAM staked.
 
@@ -109,7 +109,7 @@ There is a maximum total weight imposed on validators. This means that no valida
 
 Note that once you issue the transaction to add a node as a validator, there is no way to change the parameters. **You can’t remove stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, check out our [Developer FAQ](https://camino.foundation/developer-faq) or ask for help on [Discord.](https://discord.gg/K5THjAweFB)
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.addValidator(
@@ -144,7 +144,7 @@ platform.addValidator(
 - `password` is `username`‘s password.
 - `txID` is the transaction ID
 
-#### **Example Call**
+**Example Call**
 
 In this example, we use shell command `date` to compute Unix times 10 minutes and 2 days in the future. (Note: If you’re on a Mac, replace `$(date` with `$(gdate`. If you don’t have `gdate` installed, do `brew install coreutils`.)
 
@@ -168,7 +168,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -181,11 +181,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.addSubnetValidator
+### platform&#46;addSubnetValidator
 
 Add a validator to a subnet other than the Primary Network. The Validator must validate the Primary Network for the entire duration they validate this subnet.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.addSubnetValidator(
@@ -218,7 +218,7 @@ platform.addSubnetValidator(
 - `password` is `username`‘s password.
 - `txID` is the transaction ID.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -239,7 +239,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -252,11 +252,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.createAddress
+### platform&#46;createAddress
 
 Create a new address controlled by the given user.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.createAddress({
@@ -265,7 +265,7 @@ platform.createAddress({
 }) -> {address: string}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -279,7 +279,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -291,11 +291,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.createBlockchain
+### platform&#46;createBlockchain
 
 Create a new blockchain. Currently only supports the creation of new instances of the AVM and the Timestamp VM.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.createBlockchain(
@@ -328,7 +328,7 @@ platform.createBlockchain(
 - `password` is `username`‘s password.
 - `txID` is the transaction ID.
 
-#### **Example Call**
+**Example Call**
 
 In this example we’re creating a new instance of the Timestamp Virtual Machine. `genesisData` came from calling `timestamp.buildGenesis`.
 
@@ -351,7 +351,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -364,13 +364,13 @@ curl -X POST --data '{
 }
 ```
 
-### platform.createSubnet
+### platform&#46;createSubnet
 
 Create a new subnet.
 
 The subnet’s ID is the same as this transaction’s ID.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.createSubnet(
@@ -395,7 +395,7 @@ platform.createSubnet(
 - `username` is the user that pays the transaction fee.
 - `password` is `username`‘s password.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -416,7 +416,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -428,11 +428,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.exportAVAX
+### platform&#46;exportAVAX
 
 Send CAM from an address on the P-Chain to an address on the X-Chain. After issuing this transaction, you must call the X-Chain’s [`avm.import`](x-chain.mdx#avmimport) method with assetID `CAM` to complete the transfer.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.exportAVAX(
@@ -459,7 +459,7 @@ platform.exportAVAX(
 - `password` is `username`‘s password.
 - `txID` is the ID of this transaction.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -477,7 +477,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -490,12 +490,12 @@ curl -X POST --data '{
 }
 ```
 
-### platform.exportKey
+### platform&#46;exportKey
 
 Get the private key that controls a given address.  
 The returned private key can be added to a user with [`platform.importKey`](p-chain.md#platformimportkey).
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.exportKey({
@@ -509,7 +509,7 @@ platform.exportKey({
 - `password` is `username`‘s password.
 - `privateKey` is the string representation of the private key that controls `address`.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -524,7 +524,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -536,11 +536,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getBalance
+### platform&#46;getBalance
 
 Get the balance of CAM controlled by a given address.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getBalance({
@@ -564,7 +564,7 @@ platform.getBalance({
 - `lockedNotStakeable` is the locked and not stakeable balance, in nCAM.
 - `utxoIDs` are the IDs of the UTXOs that reference `address`.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -577,7 +577,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -602,11 +602,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getBlock
+### platform&#46;getBlock
 
 Get a block by its ID.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getBlock({
@@ -630,7 +630,7 @@ platform.getBlock({
 
 #### CB58 Example
 
-##### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -644,7 +644,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-##### **Example Response**
+#**Example Response**
 
 ```json
 {
@@ -659,7 +659,7 @@ curl -X POST --data '{
 
 #### Hex Example
 
-##### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -673,7 +673,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-##### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -688,7 +688,7 @@ curl -X POST --data '{
 
 #### JSON Example
 
-##### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -702,7 +702,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-##### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -764,11 +764,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getBlockchains
+### platform&#46;getBlockchains
 
 Get all the blockchains that exist (excluding the P-Chain).
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getBlockchains() ->
@@ -788,7 +788,7 @@ platform.getBlockchains() ->
 - `subnetID` is the ID of the Subnet that validates this blockchain.
 - `vmID` is the ID of the Virtual Machine the blockchain runs.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -799,7 +799,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -830,11 +830,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getBlockchainStatus
+### platform&#46;getBlockchainStatus
 
 Get the status of a blockchain.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getBlockchainStatus(
@@ -852,7 +852,7 @@ platform.getBlockchainStatus(
 - `Syncing`: This node is participating in this blockchain as a non-validating node.
 - `Unknown`: The blockchain either wasn’t proposed or the proposal to create it isn’t preferred. The proposal may be resubmitted.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -865,7 +865,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -877,11 +877,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getCurrentSupply
+### platform&#46;getCurrentSupply
 
 Returns an upper bound on the number of CAM that exist. This is an upper bound because it does not account for burnt tokens, including transaction fees.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getCurrentSupply() -> {supply: int}
@@ -889,7 +889,7 @@ platform.getCurrentSupply() -> {supply: int}
 
 - `supply` is an upper bound on the number of CAM that exist, denominated in nCAM.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -900,7 +900,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -914,13 +914,13 @@ curl -X POST --data '{
 
 The response in this example indicates that CAM’s supply is at most 365.865 million.
 
-### platform.getCurrentValidators
+### platform&#46;getCurrentValidators
 
 List the current validators of the given Subnet.
 
 The top level field `delegators` was deprecated as of v1.0.1, and removed in v1.0.6. Instead, each element of `validators` now contains the list of delegators for that validator.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getCurrentValidators({
@@ -984,7 +984,7 @@ platform.getCurrentValidators({
     - `potentialReward` is the potential reward earned from staking
 - `delegators`: (**deprecated as of v1.0.1. See note at top of method documentation.**)
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -995,7 +995,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1039,11 +1039,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getHeight
+### platform&#46;getHeight
 
 Returns the height of the last accepted block.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getHeight() ->
@@ -1052,7 +1052,7 @@ platform.getHeight() ->
 }
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1063,7 +1063,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1075,11 +1075,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getMaxStakeAmount
+### platform&#46;getMaxStakeAmount
 
 Returns the maximum amount of nCAM staking to the named node during a particular time period.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getMaxStakeAmount(
@@ -1100,7 +1100,7 @@ platform.getMaxStakeAmount(
 - `startTime` is a big number denoting start time of the duration during which stake amount of the node is required.
 - `endTime` is a big number denoting end time of the duration during which stake amount of the node is required.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1116,7 +1116,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1128,11 +1128,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getMinStake
+### platform&#46;getMinStake
 
 Get the minimum amount of CAM required to validate the Primary Network and the minimum amount of CAM that can be delegated.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getMinStake() ->
@@ -1142,7 +1142,7 @@ platform.getMinStake() ->
 }
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1152,7 +1152,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1165,11 +1165,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getPendingValidators
+### platform&#46;getPendingValidators
 
 List the validators in the pending validator set of the specified Subnet. Each validator is not currently validating the Subnet but will in the future.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getPendingValidators({
@@ -1213,7 +1213,7 @@ platform.getPendingValidators({
   - `stakeAmount` is the amount of nCAM this delegator staked. Omitted if `subnetID` is not the Primary Network.
   - `nodeID` is the validating node’s node ID.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1224,7 +1224,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1255,11 +1255,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getRewardUTXOs
+### platform&#46;getRewardUTXOs
 
 Returns the UTXOs that were rewarded after the provided transaction's staking or delegation period ended.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getRewardUTXOs({
@@ -1277,7 +1277,7 @@ platform.getRewardUTXOs({
 - `utxos` is an array of encoded reward UTXOs
 - `encoding` specifies the format for the returned UTXOs. Can be either "cb58" or "hex" and defaults to "cb58".
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1290,7 +1290,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1307,11 +1307,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getStakingAssetID
+### platform&#46;getStakingAssetID
 
 Retrieve an assetID for a subnet’s staking asset. Currently, this only returns the Primary Network’s staking assetID.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getStakingAssetID({
@@ -1324,7 +1324,7 @@ platform.getStakingAssetID({
 - `subnetID` is the subnet whose assetID is requested.
 - `assetID` is the assetID for a subnet’s staking asset.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1337,7 +1337,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1349,11 +1349,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getSubnets
+### platform&#46;getSubnets
 
 Get info about the Subnets.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getSubnets(
@@ -1372,7 +1372,7 @@ platform.getSubnets(
 - `id` is the Subnet’s ID.
 - `threshold` signatures from addresses in `controlKeys` are needed to add a validator to the subnet.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1383,7 +1383,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1404,17 +1404,17 @@ curl -X POST --data '{
 }'
 ```
 
-### platform.getStake
+### platform&#46;getStake
 
 Get the amount of nCAM staked by a set of addresses. The amount returned does not include staking rewards.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getStake({addresses: []string}) -> {staked: int}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1431,7 +1431,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1443,17 +1443,17 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getTimestamp
+### platform&#46;getTimestamp
 
 Get the current P-Chain timestamp.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getTimestamp() -> {time: string}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1465,7 +1465,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1477,17 +1477,17 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getTotalStake
+### platform&#46;getTotalStake
 
 Get the total amount of nCAM staked on the Primary Network.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getTotalStake() -> {stake: int}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1499,7 +1499,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1511,13 +1511,13 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getTx
+### platform&#46;getTx
 
 Gets a transaction by its ID.
 
 Optional `encoding` parameter to specify the format for the returned transaction. Can be either "cb58", "hex", or "json". Defaults to "cb58".
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getTx({
@@ -1529,9 +1529,9 @@ platform.getTx({
 }
 ```
 
-#### CB58 Example
+**CB58 Example**
 
-##### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1545,7 +1545,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-##### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1558,9 +1558,9 @@ curl -X POST --data '{
 }
 ```
 
-#### JSON Example
+**JSON Example**
 
-##### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1574,7 +1574,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-##### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1628,11 +1628,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getTxStatus
+### platform&#46;getTxStatus
 
 Gets a transaction’s status by its ID. If the transaction was dropped, response will include a `reason` field with more information why the transaction was dropped.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getTxStatus({
@@ -1647,7 +1647,7 @@ platform.getTxStatus({
 - `Dropped`: The transaction will never be accepted by any node in the network, check `reason` field for more information
 - `Unknown`: The transaction hasn’t been seen by this node
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1660,7 +1660,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1672,11 +1672,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getUTXOs
+### platform&#46;getUTXOs
 
 Gets the UTXOs that reference a given set of addresses.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getUTXOs(
@@ -1830,11 +1830,11 @@ This gives response:
 }
 ```
 
-### platform.getValidatorsAt
+### platform&#46;getValidatorsAt
 
 Get the validators and their weights of a subnet or the Primary Network at a given P-Chain height.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.getValidatorsAt(
@@ -1848,7 +1848,7 @@ platform.getValidatorsAt(
 - `height` is the P-Chain height to get the validator set at.
 - `subnetID` is the subnet ID to get the validator set of. If not given, gets validator set of the Primary Network.
 
-#### **Example Call**
+**Example Call**
 
 ```bash
 curl -X POST --data '{
@@ -1861,7 +1861,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1879,13 +1879,13 @@ curl -X POST --data '{
 }
 ```
 
-### platform.importAVAX
+### platform&#46;importAVAX
 
 Complete a transfer of CAM from the X-Chain to the P-Chain.
 
 Before this method is called, you must call the X-Chain’s [`avm.export`](x-chain.mdx#avmexport) method with assetID `CAM` to initiate the transfer.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.importAVAX(
@@ -1909,7 +1909,7 @@ platform.importAVAX(
 - `username` is the user that controls from and change addresses.
 - `password` is `username`‘s password.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1926,7 +1926,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1939,11 +1939,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.importKey
+### platform&#46;importKey
 
 Give a user control over an address by providing the private key that controls the address.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.importKey({
@@ -1955,7 +1955,7 @@ platform.importKey({
 
 - Add `privateKey` to `username`‘s set of private keys. `address` is the address `username` now controls with the private key.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -1970,7 +1970,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -1982,11 +1982,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.issueTx
+### platform&#46;issueTx
 
 Issue a transaction to the Platform Chain.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.issueTx({
@@ -1999,7 +1999,7 @@ platform.issueTx({
 - `encoding` specifies the encoding format for the transaction bytes. Can be either "cb58" or "hex". Defaults to "cb58".
 - `txID` is the transaction’s ID.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -2013,7 +2013,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -2025,11 +2025,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.listAddresses
+### platform&#46;listAddresses
 
 List addresses controlled by the given user.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.listAddresses({
@@ -2038,7 +2038,7 @@ platform.listAddresses({
 }) -> {addresses: []string}
 ```
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -2052,7 +2052,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -2064,11 +2064,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.sampleValidators
+### platform&#46;sampleValidators
 
 Sample validators from the specified Subnet.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.sampleValidators(
@@ -2086,7 +2086,7 @@ platform.sampleValidators(
 - `subnetID` is the Subnet to sampled from. If omitted, defaults to the Primary Network.
 - Each element of `validators` is the ID of a validator.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -2099,7 +2099,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -2114,11 +2114,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.validatedBy
+### platform&#46;validatedBy
 
 Get the Subnet that validates a given blockchain.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.validatedBy(
@@ -2131,7 +2131,7 @@ platform.validatedBy(
 - `blockchainID` is the blockchain’s ID.
 - `subnetID` is the ID of the Subnet that validates the blockchain.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -2144,7 +2144,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
@@ -2156,11 +2156,11 @@ curl -X POST --data '{
 }
 ```
 
-### platform.validates
+### platform&#46;validates
 
 Get the IDs of the blockchains a Subnet validates.
 
-#### **Signature**
+**Signature**
 
 ```sh
 platform.validates(
@@ -2173,7 +2173,7 @@ platform.validates(
 - `subnetID` is the Subnet’s ID.
 - Each element of `blockchainIDs` is the ID of a blockchain the Subnet validates.
 
-#### **Example Call**
+**Example Call**
 
 ```sh
 curl -X POST --data '{
@@ -2186,7 +2186,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#### **Example Response**
+**Example Response**
 
 ```json
 {
