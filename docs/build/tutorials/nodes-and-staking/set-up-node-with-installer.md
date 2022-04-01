@@ -233,7 +233,7 @@ It will then upgrade your node to the latest version, and after it's done, start
 ```text
 Node upgraded, starting service...
 New node version:
-camino/0.1.0 [network=mainnet, database=v1.0.0, commit=f76f1fd5f99736cf468413bbac158d6626f712d2]
+camino/0.1.0 [network=camino, database=v1.0.0, commit=f76f1fd5f99736cf468413bbac158d6626f712d2]
 Done!
 ```
 

@@ -1606,7 +1606,9 @@ curl -X POST --data '{
             "assetID": "U8iRqJoiJm8xZHAacmvYyZVwqQx6uDNtQeP3CQ6fcgQk3JqnK",
             "fxID": "spdxUxVJQbX85MGxMHbKw1sHxMnSqJ3QBzDyDYEP3h6TLuxqQ",
             "output": {
-              "addresses": ["P-fuji1yhem6kev6gkfsyse3m5z09e6qsuxujz0arpw8v"],
+              "addresses": [
+                "P-columbus1yhem6kev6gkfsyse3m5z09e6qsuxujz0arpw8v"
+              ],
               "amount": 1997000000,
               "locktime": 0,
               "threshold": 1

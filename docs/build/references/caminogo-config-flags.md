@@ -641,7 +641,8 @@ Custom config is not yet supported for RocksDB.
 
 #### `--genesis` (string):
 
-Path to a JSON file containing the genesis data to use. Ignored when running standard networks (Mainnet, Fuji Testnet), or when `--genesis-content` is specified. If not given, uses default genesis data. For an example of a JSON representation of genesis data, see [here](https://github.com/ava-labs/caminogo/blob/master/genesis/genesis_local.go#L16).
+Path to a JSON file containing the genesis data to use. Ignored when running standard networks (Camino, Columbus or Testnet), or when `--genesis-content` is specified. If not given, uses default genesis data.
+For an example of a JSON representation of genesis data, see [here](https://github.com/chain4travel/caminogo/blob/columbus/genesis/genesis_local.go).
 
 #### `--genesis-content` (string):
 
@@ -727,9 +728,9 @@ Specifies the directory in which system logs are kept. Defaults to `"$HOME/.cami
 
 The identity of the network the node should connect to. Can be one of:
 
-- `--network-id=mainnet` -&gt; Connect to Mainnet (default).
-- `--network-id=fuji` -&gt; Connect to the Fuji test-network.
-- `--network-id=testnet` -&gt; Connect to the current test-network. (Right now, this is Fuji.)
+- `--network-id=camino` -&gt; Connect to Camino Mainnet (default).
+- `--network-id=columbus` -&gt; Connect to the Columbus test-network.
+- `--network-id=testnet` -&gt; Connect to the current test-network. (Columbus.)
 - `--network-id=local` -&gt; Connect to a local test-network.
 - `--network-id=network-{id}` -&gt; Connect to the network with the given ID. `id` must be in the range `[0, 2^32)`.
 
@@ -761,7 +762,7 @@ The port through which the network peers will connect to this node externally. H
 
 #### `--staking-enabled` (boolean):
 
-Camino uses Proof of Stake (PoS) as Sybil resistance to make it prohibitively expensive to attack the network. If false, sybil resistance is disabled and all peers will be sampled during consensus. Defaults to `true`. Note that this can not be specified on public networks (`Fuji` and `Mainnet`).
+Camino uses Proof of Stake (PoS) as Sybil resistance to make it prohibitively expensive to attack the network. If false, sybil resistance is disabled and all peers will be sampled during consensus. Defaults to `true`. Note that this can not be specified on public networks (`Camino` and `Columbus`).
 
 Setting this flag to `false` **does not** mean "this node is not a validator."
 It means that this node will sample all nodes, not just validators.
