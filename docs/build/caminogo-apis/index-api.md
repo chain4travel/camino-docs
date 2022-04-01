@@ -48,7 +48,7 @@ Each chain has one or more index. To see if a C-Chain block is accepted, for exa
 
 ## API Methods
 
-### index.getLastAccepted
+### index&#46;getLastAccepted
 
 Get the most recently accepted container.
 
@@ -105,7 +105,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }
 ```
 
-### index.getContainerByIndex
+### index&#46;getContainerByIndex
 
 Get container by index. The first container accepted is at index 0, the second is at index 1, etc.
 
@@ -162,7 +162,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }
 ```
 
-### index.getContainerByID
+### index&#46;getContainerByID
 
 Get container by ID.
 
@@ -219,7 +219,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }
 ```
 
-### index.getContainerRange
+### index&#46;getContainerRange
 
 Returns containers with indices in \[`startIndex`, `startIndex+1`, ... , `startIndex` + `numToFetch` - 1\]. `numToFetch` must be in `[0,1024]`.
 
@@ -280,7 +280,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }
 ```
 
-### index.getIndex
+### index&#46;getIndex
 
 Get a container's index.
 
@@ -325,7 +325,7 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 }
 ```
 
-### index.isAccepted
+### index&#46;isAccepted
 
 Returns true if the container is in this index.
 

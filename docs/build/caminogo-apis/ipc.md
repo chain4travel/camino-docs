@@ -36,7 +36,7 @@ This API uses the `json 2.0` RPC format.
 
 ## Methods
 
-### ipcs.publishBlockchain
+### ipcs&#46;publishBlockchain
 
 Register a blockchain so it publishes accepted vertices to a Unix domain socket.
 
@@ -76,7 +76,7 @@ curl -X POST --data '{
 }
 ```
 
-### ipcs.unpublishBlockchain
+### ipcs&#46;unpublishBlockchain
 
 Deregister a blockchain so that it no longer publishes to a Unix domain socket.
 

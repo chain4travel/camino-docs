@@ -22,7 +22,7 @@ This API uses the `json 2.0` API format. For more information on making JSON RPC
 
 ## Methods
 
-### keystore.createUser
+### keystore&#46;createUser
 
 Create a new user with the specified username and password.
 
@@ -66,7 +66,7 @@ curl -X POST --data '{
 }
 ```
 
-### keystore.deleteUser
+### keystore&#46;deleteUser
 
 Delete a user.
 
@@ -100,7 +100,7 @@ curl -X POST --data '{
 }
 ```
 
-### keystore.exportUser
+### keystore&#46;exportUser
 
 Export a user. The user can be imported to another node with [`keystore.importUser`](keystore.md#keystoreimportuser). The user’s password remains encrypted.
 
@@ -148,7 +148,7 @@ curl -X POST --data '{
 }
 ```
 
-### keystore.importUser
+### keystore&#46;importUser
 
 Import a user. `password` must match the user’s password. `username` doesn’t have to match the username `user` had when it was exported.
 
@@ -194,7 +194,7 @@ curl -X POST --data '{
 }
 ```
 
-### keystore.listUsers
+### keystore&#46;listUsers
 
 List the users in this keystore.
 

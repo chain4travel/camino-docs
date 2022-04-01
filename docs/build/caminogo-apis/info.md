@@ -18,7 +18,7 @@ This API uses the `json 2.0` RPC format. For more information on making JSON RPC
 
 ## API Methods
 
-### info.getBlockchainID
+### info&#46;getBlockchainID
 
 Given a blockchain’s alias, get its ID. (See [`admin.aliasChain`](admin.md#adminaliaschain).)
 
@@ -53,7 +53,7 @@ curl -X POST --data '{
 }
 ```
 
-### info.getNetworkID
+### info&#46;getNetworkID
 
 Get the ID of the network this node is participating in.
 
@@ -85,7 +85,7 @@ curl -X POST --data '{
 }
 ```
 
-### info.getNetworkName
+### info&#46;getNetworkName
 
 Get the name of the network this node is participating in.
 
@@ -117,7 +117,7 @@ curl -X POST --data '{
 }
 ```
 
-### info.getNodeID
+### info&#46;getNodeID
 
 Get the ID of this node.
 
@@ -149,7 +149,7 @@ curl -X POST --data '{
 }
 ```
 
-### info.getNodeIP
+### info&#46;getNodeIP
 
 Get the IP of this node.
 
@@ -181,7 +181,7 @@ curl -X POST --data '{
 }
 ```
 
-### info.getNodeVersion
+### info&#46;getNodeVersion
 
 Get the version of this node.
 
@@ -232,7 +232,7 @@ curl -X POST --data '{
 }
 ```
 
-### info.getVMs
+### info&#46;getVMs
 
 Get the virtual machines installed on this node.
 
@@ -274,7 +274,7 @@ curl -X POST --data '{
 }
 ```
 
-### info.isBootstrapped
+### info&#46;isBootstrapped
 
 Check whether a given chain is done bootstrapping
 
@@ -311,7 +311,7 @@ curl -X POST --data '{
 }
 ```
 
-### info.peers
+### info&#46;peers
 
 Get a description of peer connections.
 
@@ -403,7 +403,7 @@ curl -X POST --data '{
 }
 ```
 
-### info.getTxFee
+### info&#46;getTxFee
 
 Get the fees of the network.
 
@@ -443,7 +443,7 @@ curl -X POST --data '{
 }
 ```
 
-### info.uptime
+### info&#46;uptime
 
 Returns the network's observed uptime of this node.
 
