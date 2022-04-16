@@ -70,7 +70,7 @@ So, now that you prepared your system and have the info ready, let's get to it.
 To download and run the script, enter the following in the terminal:
 
 ```bash
-wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/master/scripts/caminogo-installer.sh;\
+wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/caminogo-installer.sh;\
 chmod 755 caminogo-installer.sh;\
 ./caminogo-installer.sh
 ```
