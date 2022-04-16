@@ -285,7 +285,7 @@ Note that not all CaminoGo versions are compatible. You should generally run the
 Installer script gets updated from time to time, with new features and capabilities added. To take advantage of new features or to recover from modifications that made the node fail, you may want to reinstall the node. To do that, fetch the latest version of the script from the web with:
 
 ```bash
-wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/master/scripts/caminogo-installer.sh
+wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/caminogo-installer.sh
 ```
 
 After the script has updated, run it again with the `--reinstall` config flag:
