@@ -8,7 +8,7 @@ We have a shell (bash) script that installs CaminoGo on your computer. This scri
 
 ## Before you start
 
-Camino is an incredibly lightweight protocol, so nodes can run on commodity hardware. Note that as network usage increases, hardware requirements may change.
+Camino is a lightweight protocol which let nodes run on commodity hardware. Note that as network usage increases, hardware requirements may change.
 
 - CPU: Equivalent of 8 AWS vCPU
 - RAM: 16 GiB

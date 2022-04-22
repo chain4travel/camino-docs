@@ -4,11 +4,11 @@ sidebar_position: 3
 
 # Camino Node Docker Setup 
 
-We have a docker registry containing the releases of CaminoGo hosted on [DockerHub](https://hub.docker.com/repository/docker/c4tplatform/caminogo). The docker images are ready-to-go precompiled versions of CaminoGo which is hosted on [GitHub](https://github.com/chain4travel/caminogo).
+We have a docker registry containing the releases of CaminoGo hosted on [DockerHub](https://hub.docker.com/r/c4tplatform/caminogo). The docker images are ready-to-go precompiled versions of CaminoGo which is hosted on [GitHub](https://github.com/chain4travel/caminogo).
 
 # Before you start
 
-Camino is an incredibly lightweight protocol, so nodes can run on commodity hardware. Note that as network usage increases, hardware requirements may change.
+Camino is a lightweight protocol which let nodes run on commodity hardware. Note that as network usage increases, hardware requirements may change.
 
 - CPU: Equivalent of 8 AWS vCPU
 - RAM: 16 GiB
