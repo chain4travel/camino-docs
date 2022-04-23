@@ -6,7 +6,7 @@ sidebar_position: 3
 
 We have a docker registry containing the releases of CaminoGo hosted on [DockerHub](https://hub.docker.com/r/c4tplatform/caminogo). The docker images are ready-to-go precompiled versions of CaminoGo which is hosted on [GitHub](https://github.com/chain4travel/caminogo).
 
-# Before you start
+## Before you start
 
 Camino is a lightweight protocol which let nodes run on commodity hardware. Note that as network usage increases, hardware requirements may change.
 
@@ -22,7 +22,7 @@ The docker container assumes in the default configuration:
 - A mount-point will be used to mount the directory `/root/.caminogo` to a persistent storage
 - The port 9651 is accessible from the internet
 
-### Configuration
+## Configuration
 
 To change the configuration you have to pass another set of config-flags to the execution of CaminoGo. The list of config-flags can be found [here](../../references/caminogo-config-flags).
 
@@ -32,7 +32,7 @@ Examples:
 
 Please note that it's highly recommended to leave all other APIs except the staking-API deactivated for Nodes which shall be used as a Validator-Node!
 
-#### Configuration with docker-compose
+### Configuration with docker-compose
 
 To make the configuration easier and more straightforward you can also use docker-compose to configure the Node to your needs:
 
@@ -54,25 +54,25 @@ With this docker-compose config a CaminoGo Node is started as part of the Public
 
 The reference how to use docker-compose can be found [here](https://docs.docker.com/compose/reference/) and the possible content of a docker-compose file can be found [here](https://docs.docker.com/compose/compose-file/).
 
-### Node working files
+## Node working files
 
 The local node files are stored inside of the container in the `$HOME/.caminogo` directory. Those files should be located on a persistent storage and the directory should be mounted to not loose the key-files and logs when the container is being shut down. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to.
 
-### Networking considerations
+## Networking considerations
 
 To run successfully, CaminoGo needs to accept connections from the Internet on the network port `9651`. Before you proceed with the installation, you need to determine the networking environment your node will run in.
 
-#### Running on a cloud provider
+### Running on a cloud provider
 
 If your node is running on a cloud provider computer instance, it will have a static IP. Find out what that static IP is, or set it up if you didn't already.
 
-#### Running on a home connection
+### Running on a home connection
 
 If you're running a node on a computer that is on a residential internet connection, you have a dynamic IP; that is, your IP will change periodically. For a home connection, you will need to set up inbound port forwarding of port `9651` from the internet to the computer the node is installed on.
 
 As there are too many models and router configurations, we cannot provide instructions on what exactly to do, but there are online guides to be found (like [this](https://www.noip.com/support/knowledgebase/general-port-forwarding-guide/), or [this](https://www.howtogeek.com/66214/how-to-forward-ports-on-your-router/) ), and your service provider support might help too.
 
-#### Node ID
+### Node ID
 
 To find out your NodeID, which is used to identify your node to the network, you can look up the log-line in your docker log or you can run the following command inside of a shell attached to the container:
 
