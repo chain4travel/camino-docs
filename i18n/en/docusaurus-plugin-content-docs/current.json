@@ -30,5 +30,9 @@
   "sidebar.tutorialSidebar.category.References": {
     "message": "References",
     "description": "The label for category References in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tools": {
+    "message": "Tools",
+    "description": "The label for category Tools in sidebar tutorialSidebar"
   }
 }

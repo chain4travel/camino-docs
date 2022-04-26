@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Camino Node Docker Setup 
+# Camino Node Docker Setup
 
 We have a docker registry containing the releases of CaminoGo hosted on [DockerHub](https://hub.docker.com/r/c4tplatform/caminogo). The docker images are ready-to-go precompiled versions of CaminoGo which is hosted on [GitHub](https://github.com/chain4travel/caminogo).
 
@@ -26,7 +26,8 @@ The docker container assumes in the default configuration:
 
 To change the configuration you have to pass another set of config-flags to the execution of CaminoGo. The list of config-flags can be found [here](../../references/caminogo-config-flags).
 
-Examples: 
+Examples:
+
 - To connect to the Public Testnet `Columbus` you have to pass the `--network-id=columbus` flag
 - To enable the HTTP/RPC API of the node (which is required for example for a MetaMask access) you have to pass the `--http-host=<IP/Host>`
 
@@ -37,6 +38,7 @@ Please note that it's highly recommended to leave all other APIs except the stak
 To make the configuration easier and more straightforward you can also use docker-compose to configure the Node to your needs:
 
 Example docker-compose.yml file:
+
 ```
 version: '3.1'
 
@@ -50,6 +52,7 @@ services:
       - ./caminogo-data:/root/.caminogo
     command: [ "./caminogo", "--network-id=columbus" , "--http-host=0.0.0.0" ]
 ```
+
 With this docker-compose config a CaminoGo Node is started as part of the Public Testnet Columbus and will have the HTTP/RPC API reachable not only from localhost but also from the outside with its standard-port `9650`.
 
 The reference how to use docker-compose can be found [here](https://docs.docker.com/compose/reference/) and the possible content of a docker-compose file can be found [here](https://docs.docker.com/compose/compose-file/).
@@ -77,11 +80,13 @@ As there are too many models and router configurations, we cannot provide instru
 To find out your NodeID, which is used to identify your node to the network, you can look up the log-line in your docker log or you can run the following command inside of a shell attached to the container:
 
 Docker logs:
+
 ```bash
 docker logs <container-id> | grep -oP "node ID is:.*" | cut -d" " -f4 | sort -u
 ```
 
 Command-line inside of the container:
+
 ```bash
 grep -oP "node ID is:.*" /root/.caminogo/logs/main.log | cut -d" " -f4 | sort -u
 ```

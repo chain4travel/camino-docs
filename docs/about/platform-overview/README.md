@@ -12,11 +12,11 @@ One asset traded on the X-Chain is CAM. When you issue a transaction to a blockc
 
 The X-Chain is an instance of the Avalanche Virtual Machine (AVM). The [X-Chain API](../../build/caminogo-apis/x-chain.mdx) allows clients to create and trade assets on the X-Chain and other instances of the AVM.
 
-This is a highly specialized and performance-optimized Chain and since it's kept at a very simple complexity level  the overall network load for transactions is lower compared to other Chains. This is also part of the transaction fee computation as simple and fast operations don't put much of a load on the network.
+This is a highly specialized and performance-optimized Chain and since it's kept at a very simple complexity level the overall network load for transactions is lower compared to other Chains. This is also part of the transaction fee computation as simple and fast operations don't put much of a load on the network.
 
 ## Platform Chain (P-Chain)
 
-The **P-Chain** is the metadata blockchain on Camino and coordinates validators, keeps track of active subnets, and enables the creation of new subnets. The P-Chain implements the **Snowman consensus protocol**. 
+The **P-Chain** is the metadata blockchain on Camino and coordinates validators, keeps track of active subnets, and enables the creation of new subnets. The P-Chain implements the **Snowman consensus protocol**.
 
 The [P-Chain API](../../build/caminogo-apis/p-chain.md) allows clients to create subnets, add validators to subnets, and create blockchains.
 
@@ -29,7 +29,7 @@ The **C-Chain** allows for the creation smart contracts using the [C-Chain’s A
 The C-Chain is an instance of the Ethereum Virtual Machine powered by [Camino](../../).
 
 This chain is where probably 95% of the total load is transacted. Here the smart contracts (e.g. based on Solidity via Remix) are deployed and used by the users of the chain (mostly via apps). The addresses used on this chain are also identical in structure to what one is used to from EVM/Ethereum and, in addition, one can also connect to this chain quite easily with existing applications (such as Meta-Mask).
-From the maximum flexibility and compatibility the largest negative point arises: It is *potentially* slow in the execution of (complex) operations. In order to prevent an overload of the network by inefficient smart contracts, there are corresponding transaction fees measured by the complexity.
+From the maximum flexibility and compatibility the largest negative point arises: It is _potentially_ slow in the execution of (complex) operations. In order to prevent an overload of the network by inefficient smart contracts, there are corresponding transaction fees measured by the complexity.
 
 ## Why 3 chains?
 
@@ -37,15 +37,17 @@ One should always use the tool that is best suited for a job. This is exactly th
 This can seem a bit overwhelming at first, but there are good reasons why these application areas should be split into different chains. And at the end of the day, it's not that complicated anymore, because you only use the Chains you really need.
 
 The chains are to be considered completely separate from each other and the interaction between the chains is exclusively the transfer of CAM between them. Who needs to work with which chain effectively is determined by the requirement and role of the entity/person who wants to work with it:
-* Validators/Delegates must work with the P-Chain.
-* App developers can decide, depending on their requirements, whether integration via the X-chain would be useful in order to save on fees for many small transactions. As soon as it comes to more complex application scenarios, which requires the use of smart contracts, one ends up on the C-Chain anyway.
-* App users should not notice this at all, as the apps should handle this accordingly in the background.
+
+- Validators/Delegates must work with the P-Chain.
+- App developers can decide, depending on their requirements, whether integration via the X-chain would be useful in order to save on fees for many small transactions. As soon as it comes to more complex application scenarios, which requires the use of smart contracts, one ends up on the C-Chain anyway.
+- App users should not notice this at all, as the apps should handle this accordingly in the background.
 
 So, in summary and in a nutshell:
-* Anyone can very easily transfer CAM between Chains in the Camino wallet.
-* Network operators/validators and anyone who wants to delegate must (also) deal with the P-Chain.
-* Advanced app developers have the choice to deal with the limitations but also advantages of the simple and fast X-Chain.
-* All others are on the C-Chain anyway as they use the widely known and EVM compatible techniques.
+
+- Anyone can very easily transfer CAM between Chains in the Camino wallet.
+- Network operators/validators and anyone who wants to delegate must (also) deal with the P-Chain.
+- Advanced app developers have the choice to deal with the limitations but also advantages of the simple and fast X-Chain.
+- All others are on the C-Chain anyway as they use the widely known and EVM compatible techniques.
 
 ## Virtual Machines
 
