@@ -302,7 +302,7 @@ That's it, you're running an CaminoGo node! Congratulations! Let us know you did
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 
-Now you can [interact with your node](../../caminogo-apis/issuing-api-calls.md).
+Now you can [interact with your node](../../../apis/caminogo-apis/issuing-api-calls.md).
 
 Finally, if you haven't already, it is a good idea to back up important files in case you ever need to restore your node to a different machine.
 

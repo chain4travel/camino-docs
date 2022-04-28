@@ -1,9 +1,9 @@
 ---
-description: "This API allows clients to interact with Ortelius, the Camino indexer."
+description: "This API allows clients to interact with Magellan, the Camino indexer."
 sidebar_position: 1
 ---
 
-# Ortelius API
+# Magellan API
 
 ### Format
 
@@ -11,9 +11,9 @@ This API uses GET HTTP requests using URL query parameters and returns JSON data
 
 ### Versioning
 
-Starting with version 2, the API paths will be prefixed by a version tag, e.g. `http://localhost:8080/v2`.
+Starting with API version 2, the request paths will be prefixed by a version tag, e.g. `http://localhost:8080/v2`.
 
-The current version of the API is version 2. The [Legacy API](ortelius.md#legacy-api) documentation has information about using the v1 API.
+The current version of the API is version 2. The [Legacy API](magellan.md#legacy-api) documentation has information about using the v1 API.
 
 ### Data Types
 

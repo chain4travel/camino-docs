@@ -10,7 +10,7 @@ The **X-Chain** acts as a decentralized platform for creating and trading digita
 
 One asset traded on the X-Chain is CAM. When you issue a transaction to a blockchain on Camino, you pay a fee denominated in CAM.
 
-The X-Chain is an instance of the Avalanche Virtual Machine (AVM). The [X-Chain API](../../build/caminogo-apis/x-chain.mdx) allows clients to create and trade assets on the X-Chain and other instances of the AVM.
+The X-Chain is an instance of the Avalanche Virtual Machine (AVM). The [X-Chain API](../../apis/caminogo-apis/x-chain.mdx) allows clients to create and trade assets on the X-Chain and other instances of the AVM.
 
 This is a highly specialized and performance-optimized Chain and since it's kept at a very simple complexity level the overall network load for transactions is lower compared to other Chains. This is also part of the transaction fee computation as simple and fast operations don't put much of a load on the network.
 
@@ -18,13 +18,13 @@ This is a highly specialized and performance-optimized Chain and since it's kept
 
 The **P-Chain** is the metadata blockchain on Camino and coordinates validators, keeps track of active subnets, and enables the creation of new subnets. The P-Chain implements the **Snowman consensus protocol**.
 
-The [P-Chain API](../../build/caminogo-apis/p-chain.md) allows clients to create subnets, add validators to subnets, and create blockchains.
+The [P-Chain API](../../apis/caminogo-apis/p-chain.md) allows clients to create subnets, add validators to subnets, and create blockchains.
 
 Not only coordination but also creation of validators and also delegation of stake is part of the P-Chain. Conceptually, we are in an ongoing process to change the way how stake/delegate is bound to validators, but fundamentally it still be handled on the P-Chain.
 
 ## Contract Chain (C-Chain)
 
-The **C-Chain** allows for the creation smart contracts using the [C-Chain’s API](../../build/caminogo-apis/c-chain.md).
+The **C-Chain** allows for the creation smart contracts using the [C-Chain’s API](../../apis/caminogo-apis/c-chain.md).
 
 The C-Chain is an instance of the Ethereum Virtual Machine powered by [Camino](../../).
 
