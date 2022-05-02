@@ -730,8 +730,8 @@ curl "http://localhost:8080/v2/cblocks?limit=1&limit=1"
       "baseFeePerGas": "0x5d21dba00",
       "extDataGasUsed": "0x0",
       "blockGasCost": "0x0",
-      "EvmTx": 1,
-      "AtomicTx": 0
+      "evmTx": 1,
+      "atomicTx": 0
     }
   ],
   "transactions": [{
