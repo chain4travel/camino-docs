@@ -710,7 +710,7 @@ Get informatial lists of latest blocks and transaction on C-Chain
 **Example Call**
 
 ```text
-curl "http://localhost:8080/v2/cblocks?limit=1&limit=1"
+curl "http://localhost:8080/v2/cblocks?limit=1&limit=2"
 ```
 
 **Example Response**
@@ -730,8 +730,7 @@ curl "http://localhost:8080/v2/cblocks?limit=1&limit=1"
       "baseFeePerGas": "0x5d21dba00",
       "extDataGasUsed": "0x0",
       "blockGasCost": "0x0",
-      "evmTx": 1,
-      "atomicTx": 0
+      "evmTx": 1
     }
   ],
   "transactions": [{
@@ -743,10 +742,26 @@ curl "http://localhost:8080/v2/cblocks?limit=1&limit=1"
       "gasPrice": "0x746a52880",
       "gas": "0xfa05",
       "value": "0x0",
-      "fromAddr": "",
+      "from": "0x0e455a324ea5eed5b08d477c9ab7b18c6ab8715c",
+      "to": "0xb364f7079f08443c17624f3155f726f630a1ce45",
       "timestamp": "0x624dca9b",
       "status": "0x1",
       "gasUsed": "0xe34a"
+    }, {
+      "type": "0x2",
+      "block": "0x4",
+      "index": "0x0",
+      "hash": "0x3af9fc482f216c1ca316f7c307c852a93391c326909b38fa7e9df1e9025d1563",
+      "nonce": "0x2",
+      "maxFeePerGas": "0xc393e6d00",
+      "maxPriorityFeePerGas": "0x9502f900",
+      "gas": "0xba48",
+      "value": "0x0",
+      "from": "0x0e455a324ea5eed5b08d477c9ab7b18c6ab8715c",
+      "to": "0xb364f7079f08443c17624f3155f726f630a1ce45",
+      "timestamp": "0x624d9c2e",
+      "status": "0x1",
+      "gasUsed": "0xba48"
     }
   ]
 }
