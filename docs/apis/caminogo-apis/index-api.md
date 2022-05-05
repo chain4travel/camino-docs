@@ -46,6 +46,17 @@ Each chain has one or more index. To see if a C-Chain block is accepted, for exa
 /ext/index/C/block
 ```
 
+## Serialization of P/C Blocks
+
+In general block container are stored in the index storage in the binary
+representation of a [proposer block](https://github.com/chain4travel/caminogo/blob/chain4travel/vms/proposervm/block/block.go#L32-L39).  
+block.Block() bytes can then be unmarshalled into platformVM.Block for the P-Chain or RLP decoded into types.Block from caminoethvm for C-Chain.  
+Implementation can be found in magellan stream indexers.
+
+:::info
+The container with index 0 on C-Chain is not wrapped into a proposer Block. You can directly RLP decode the container into a types.Block struct
+:::
+
 ## API Methods
 
 ### index&#46;getLastAccepted

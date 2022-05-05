@@ -611,9 +611,9 @@ Find a single block by its number.
 
 **Params**
 
-| Name          | Type       | Description                     | Default | Max  |
-| :------------ | :--------- | :------------------------------ | :------ | :--- |
-| - | `number`   | blockHeight                     | Latest  | None |
+| Name | Type     | Description | Default | Max  |
+| :--- | :------- | :---------- | :------ | :--- |
+| -    | `number` | blockHeight | Latest  | None |
 
 **Example Call**
 
@@ -647,7 +647,8 @@ curl "http://localhost:8080/v2/ctxdata/3"
     "blockGasCost": "0x0",
     "hash": "0x211284bb27f7a4868e2de120b4893f10ed676050ddb6c18ea6a53da11ae01184"
   },
-  "transactions": [{
+  "transactions": [
+    {
       "type": 2,
       "block": "3",
       "hash": "0x0067ce3412147150da6080ca84c0fff7f80684214a41c931c647434081817087",
@@ -670,9 +671,15 @@ curl "http://localhost:8080/v2/ctxdata/3"
         "status": "0x1",
         "cumulativeGasUsed": "0xcafb",
         "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000010002000000000000000000000000000000000000000000000000000000000000000000000000800020000000000000000000800000000000000000000000000000000000000100000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000008000000000000000020000000000000000000000000000000000000000000000000000000080000000000",
-        "logs": [{
+        "logs": [
+          {
             "address": "0xb364f7079f08443c17624f3155f726f630a1ce45",
-            "topics": ["0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62", "0x0000000000000000000000000e455a324ea5eed5b08d477c9ab7b18c6ab8715c", "0x0000000000000000000000000000000000000000000000000000000000000000", "0x0000000000000000000000000e455a324ea5eed5b08d477c9ab7b18c6ab8715c"],
+            "topics": [
+              "0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62",
+              "0x0000000000000000000000000e455a324ea5eed5b08d477c9ab7b18c6ab8715c",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000e455a324ea5eed5b08d477c9ab7b18c6ab8715c"
+            ],
             "data": "0x0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000a",
             "blockNumber": "0x3",
             "transactionHash": "0x0067ce3412147150da6080ca84c0fff7f80684214a41c931c647434081817087",
@@ -700,12 +707,12 @@ Get informatial lists of latest blocks and transaction on C-Chain
 
 **Params**
 
-| Name          | Type       | Description                     | Default | Max   |
-| :------------ | :--------- | :------------------------------ | :------ | :---- |
-| `limit`       | `number`   | limit of blocks                 | 0       | 10000 |
-| `limit`       | `number`   | limit of transactions           | 0       | 10000 |
-| `offset`      | `number`   | offset of blocks                | 0       | None |
-| `offset`      | `number`   | offset of transaction           | 0       | None |
+| Name     | Type     | Description           | Default | Max   |
+| :------- | :------- | :-------------------- | :------ | :---- |
+| `limit`  | `number` | limit of blocks       | 0       | 10000 |
+| `limit`  | `number` | limit of transactions | 0       | 10000 |
+| `offset` | `number` | offset of blocks      | 0       | None  |
+| `offset` | `number` | offset of transaction | 0       | None  |
 
 **Example Call**
 
@@ -719,7 +726,8 @@ curl "http://localhost:8080/v2/cblocks?limit=1&limit=2"
 {
   "blockCount": 6,
   "transactionCount": 4,
-  "blocks": [{
+  "blocks": [
+    {
       "hash": "0x5250dbfb39fa3d6b7ef8c7eb9ef2917396c0c3627a63cb55d15ccc1cb5b73347",
       "miner": "0x0100000000000000000000000000000000000000",
       "difficulty": "0x1",
@@ -733,7 +741,8 @@ curl "http://localhost:8080/v2/cblocks?limit=1&limit=2"
       "evmTx": 1
     }
   ],
-  "transactions": [{
+  "transactions": [
+    {
       "type": "0x0",
       "block": "0x5",
       "index": "0x0",
@@ -747,7 +756,8 @@ curl "http://localhost:8080/v2/cblocks?limit=1&limit=2"
       "timestamp": "0x624dca9b",
       "status": "0x1",
       "gasUsed": "0xe34a"
-    }, {
+    },
+    {
       "type": "0x2",
       "block": "0x4",
       "index": "0x0",
@@ -816,9 +826,15 @@ curl "http://localhost:8080/v2/ctransactions?toAddress=0x34ec164fd085ae43906eab6
         "status": "0x1",
         "cumulativeGasUsed": "0xcafb",
         "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000010002000000000000000000000000000000000000000000000000000000000000000000000000800020000000000000000000800000000000000000000000000000000000000100000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000008000000000000000020000000000000000000000000000000000000000000000000000000080000000000",
-        "logs": [{
+        "logs": [
+          {
             "address": "0xb364f7079f08443c17624f3155f726f630a1ce45",
-            "topics": ["0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62", "0x0000000000000000000000000e455a324ea5eed5b08d477c9ab7b18c6ab8715c", "0x0000000000000000000000000000000000000000000000000000000000000000", "0x0000000000000000000000000e455a324ea5eed5b08d477c9ab7b18c6ab8715c"],
+            "topics": [
+              "0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62",
+              "0x0000000000000000000000000e455a324ea5eed5b08d477c9ab7b18c6ab8715c",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000e455a324ea5eed5b08d477c9ab7b18c6ab8715c"
+            ],
             "data": "0x0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000a",
             "blockNumber": "0x3",
             "transactionHash": "0x0067ce3412147150da6080ca84c0fff7f80684214a41c931c647434081817087",
@@ -839,24 +855,6 @@ curl "http://localhost:8080/v2/ctransactions?toAddress=0x34ec164fd085ae43906eab6
   ],
   "startTime": "0001-01-01T00:00:00Z",
   "endTime": "2022-04-30T09:21:07Z"
-}
-```
-
-### Get a Raw C-Chain Transaction
-
-Get an accepted C-Chain transaction by its ID.
-
-**Example Call**
-
-```text
-curl "http://localhost:8080/v2/rawtransaction/pxiBJkwnaKhaJdYkkfAVRZXrJj47jJF3QAvsasbYF2Rfweoog"
-```
-
-**Example Response**
-
-```json
-{
-  "tx": "0x00000000000000000001ed5f38341..."
 }
 ```
 
@@ -881,4 +879,5 @@ curl "http://localhost:8080/x"
   "avaxAssetID": "2KGdt2HpFKpTH5CtGZjYt5XPWs6Pv9DLoRBhiFfntbezdRvZWP"
 }
 ```
+
 The legacy API supports the same endpoints and parameters as version 2, except the chainID parameter for all endpoints defaults to the X-chain ID.
