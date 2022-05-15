@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Camino Node Docker Setup
 
-We have a docker registry containing the releases of CaminoGo hosted on [DockerHub](https://hub.docker.com/r/c4tplatform/caminogo). The docker images are ready-to-go precompiled versions of CaminoGo which is hosted on [GitHub](https://github.com/chain4travel/caminogo).
+We have a docker registry containing the releases of Camino-Node hosted on [DockerHub](https://hub.docker.com/r/c4tplatform/camino-node). The docker images are ready-to-go precompiled versions of Camino-Node which is hosted on [GitHub](https://github.com/chain4travel/camino-node).
 
 ## Before you start
 
@@ -17,14 +17,14 @@ Camino is a lightweight protocol which let nodes run on commodity hardware. Note
 
 The docker container assumes in the default configuration:
 
-- CaminoGo will connect and integrate itself in the `Main-Net` which is not launched yet
+- Camino-Node will connect and integrate itself in the `Main-Net` which is not launched yet
 - No API except the staking-API for peer-to-peer communication between the nodes is enabled
 - A mount-point will be used to mount the directory `/root/.caminogo` to a persistent storage
 - The port 9651 is accessible from the internet
 
 ## Configuration
 
-To change the configuration you have to pass another set of config-flags to the execution of CaminoGo. The list of config-flags can be found [here](../../references/caminogo-config-flags).
+To change the configuration you have to pass another set of config-flags to the execution of Camino-Node. The list of config-flags can be found [here](./camino-node-config-flags).
 
 Examples:
 
@@ -44,16 +44,16 @@ version: '3.1'
 
 services:
   camino-columbus:
-    image: c4tplatform/caminogo:v0.1.0
+    image: c4tplatform/camino-node:v0.1.0
     ports:
       - 9650:9650
       - 9651:9651
     volumes:
-      - ./caminogo-data:/root/.caminogo
-    command: [ "./caminogo", "--network-id=columbus" , "--http-host=0.0.0.0" ]
+      - ./camino-data:/root/.caminogo
+    command: [ "./camino-node", "--network-id=columbus" , "--http-host=0.0.0.0" ]
 ```
 
-With this docker-compose config a CaminoGo Node is started as part of the Public Testnet Columbus and will have the HTTP/RPC API reachable not only from localhost but also from the outside with its standard-port `9650`.
+With this docker-compose config a Camino-Node Node is started as part of the Public Testnet Columbus and will have the HTTP/RPC API reachable not only from localhost but also from the outside with its standard-port `9650`.
 
 The reference how to use docker-compose can be found [here](https://docs.docker.com/compose/reference/) and the possible content of a docker-compose file can be found [here](https://docs.docker.com/compose/compose-file/).
 
@@ -63,7 +63,7 @@ The local node files are stored inside of the container in the `$HOME/.caminogo`
 
 ## Networking considerations
 
-To run successfully, CaminoGo needs to accept connections from the Internet on the network port `9651`. Before you proceed with the installation, you need to determine the networking environment your node will run in.
+To run successfully, Camino-Node needs to accept connections from the Internet on the network port `9651`. Before you proceed with the installation, you need to determine the networking environment your node will run in.
 
 ### Running on a cloud provider
 
@@ -101,7 +101,7 @@ This is the ID to your Node. Store that; it will be needed for staking or lookin
 
 ## Node upgrade
 
-CaminoGo is an ongoing project and there are regular version upgrades. Most upgrades are recommended but not required. Advance notice will be given for upgrades that are not backwards compatible. When a new version of the node is released, you will notice log lines like:
+Camino-Node is an ongoing project and there are regular version upgrades. Most upgrades are recommended but not required. Advance notice will be given for upgrades that are not backwards compatible. When a new version of the node is released, you will notice log lines like:
 
 ```text
 Jan 08 10:26:45 ip-172-31-16-229 caminogo[6335]: INFO [01-08|10:26:45] caminogo/network/peer.go#526: beacon 9CkG9MBNavnw7EVSRsuFr7ws9gascDQy3 attempting to connect with newer version camino/0.1.0. You may want to update your client
@@ -113,7 +113,7 @@ To upgrade your node, simply change the tag of the docker container obtained fro
 
 ## Advanced Node configuration
 
-File that configures node operation is `~/.caminogo/configs/node.json`. You can edit it to add or change configuration options. The documentation of configuration options can be found [here](../../references/caminogo-config-flags.md). Default configuration may look like this:
+File that configures node operation is `~/.caminogo/configs/node.json`. You can edit it to add or change configuration options. The documentation of configuration options can be found [here](camino-node-config-flags.md). Default configuration may look like this:
 
 ```json
 {
@@ -126,11 +126,11 @@ Note that configuration file needs to be a properly formatted `JSON` file, so sw
 
 ## What next?
 
-That's it, you're running an CaminoGo node on docker! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
+That's it, you're running an Camino-Node node on docker! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 
-Now you can [interact with your node](../../../apis/caminogo-apis/issuing-api-calls.md).
+Now you can [interact with your node](../../developer/apis/camino-node-apis/issuing-api-calls.md).
 
 Finally, if you haven't already, it is a good idea to back up important files in case you ever need to restore your node to a different machine.
 

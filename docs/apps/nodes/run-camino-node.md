@@ -25,9 +25,9 @@ Camino is a lightweight protocol which let nodes run on commodity hardware. Note
 
 ## Run an Camino Node and Send Funds
 
-Let’s install CaminoGo, the Go implementation of an Camino node, and connect to the Camino Public Testnet (Columbus).
+Let’s install Camino-Node, the Go implementation of an Camino node, and connect to the Camino Public Testnet (Columbus).
 
-### Download CaminoGo
+### Download Camino-Node
 
 The node is a binary program. You can either download the source code and then build the binary program, or you can download the pre-built binary. You don’t need to do both.
 
@@ -41,70 +41,70 @@ If you want to build the node from source, you're first going to need to install
 
 Run `go version`. **It should be 1.16.8 or above.** Run `echo $GOPATH`. **It should not be empty.**
 
-Download the CaminoGo repository:
+Download the Camino-Node repository:
 
 ```sh
-git clone git@github.com:chain4travel/caminogo.git
+git clone git@github.com:chain4travel/camino-node.git
 ```
 
-Note: This checkouts to master branch. For the latest stable version, checkout to the latest tag.
+Note: This checkouts to chain4travel branch. For the latest stable version, checkout to the latest tag.
 
-Change to the `caminogo` directory:
+Change to the `camino-node` directory:
 
 ```sh
-cd caminogo
+cd camino-node
 ```
 
-Build CaminoGo:
+Build Camino-Node:
 
 ```sh
 ./scripts/build.sh
 ```
 
-The binary, named `caminogo`, is in `caminogo/build`.
+The binary, named `camino-node`, is in `camino-node/build`.
 
 #### **Binary**
 
-If you want to download a pre-built binary instead of building it yourself, go to our [releases page](https://github.com/chain4travel/caminogo/releases), and select the release you want (probably the latest one.)
+If you want to download a pre-built binary instead of building it yourself, go to our [releases page](https://github.com/chain4travel/camino-node/releases), and select the release you want (probably the latest one.)
 
 Under `Assets`, select the appropriate file.
 
-For MacOS: Download: `caminogo-macos-<VERSION>.zip`
-Unzip: `unzip caminogo-macos-<VERSION>.zip` The resulting folder, `caminogo-<VERSION>`, contains the binaries.
+For MacOS: Download: `camino-node-macos-<VERSION>.zip`
+Unzip: `unzip camino-node-macos-<VERSION>.zip` The resulting folder, `camino-node-<VERSION>`, contains the binaries.
 
-For Linux on PCs or cloud providers: Download: `caminogo-linux-amd64-<VERSION>.tar.gz`
-Unzip: `tar -xvf caminogo-linux-amd64-<VERSION>.tar.gz`
-The resulting folder, `caminogo-<VERSION>-linux`, contains the binaries.
+For Linux on PCs or cloud providers: Download: `camino-node-linux-amd64-<VERSION>.tar.gz`
+Unzip: `tar -xvf camino-node-linux-amd64-<VERSION>.tar.gz`
+The resulting folder, `camino-node-<VERSION>-linux`, contains the binaries.
 
-For Linux on RaspberryPi4 or similar Arm64-based computers: Download: `caminogo-linux-arm64-<VERSION>.tar.gz`
-Unzip: `tar -xvf caminogo-linux-arm64-<VERSION>.tar.gz`
-The resulting folder, `caminogo-<VERSION>-linux`, contains the binaries.
+For Linux on RaspberryPi4 or similar Arm64-based computers: Download: `camino-node-linux-arm64-<VERSION>.tar.gz`
+Unzip: `tar -xvf camino-node-linux-arm64-<VERSION>.tar.gz`
+The resulting folder, `camino-node-<VERSION>-linux`, contains the binaries.
 
 ### Start a Node, and Connect to Camino
 
 If you built from source:
 
 ```sh
-./build/caminogo --network-id=columbus
+./build/camino-node --network-id=columbus
 ```
 
 If you are using the pre-built binaries on MacOS:
 
 ```sh
-./caminogo-<VERSION>/build/caminogo --network-id=columbus
+./camino-node-<VERSION>/build/camino-node --network-id=columbus
 ```
 
 If you are using the pre-built binaries on Linux:
 
 ```sh
-./caminogo-<VERSION>-linux/caminogo --network-id=columbus
+./camino-node-<VERSION>-linux/camino-node --network-id=columbus
 ```
 
 When the node starts, it has to bootstrap (catch up with the rest of the network). You will see logs about bootstrapping. When a given chain is done bootstrapping, it will print a log like this:
 
 `INFO [06-07|19:54:06] <X Chain> /snow/engine/avalanche/transitive.go#80: bootstrapping finished with 1 vertices in the accepted frontier`
 
-To check if a given chain is done bootstrapping, in another terminal window call [`info.isBootstrapped`](../../../apis/caminogo-apis/info.md#infoisbootstrapped) by copying and pasting the following command:
+To check if a given chain is done bootstrapping, in another terminal window call [`info.isBootstrapped`](../../developer/apis/camino-node-apis/info.md#infoisbootstrapped) by copying and pasting the following command:
 
 ```sh
 curl -X POST --data '{
@@ -123,7 +123,7 @@ You can use `Ctrl + C` to kill the node.
 
 If you want to experiment and play with your node, read on.
 
-To be able to make API calls to your node from other machines, when starting up the node include argument `--http-host=` (e.g. `./build/caminogo --http-host=`)
+To be able to make API calls to your node from other machines, when starting up the node include argument `--http-host=` (e.g. `./build/camino-node --http-host=`)
 
 When the mainnet (Camino) goes live, you can either omit `--network-id=columbus` parameter, or pass `--network-id=camino` which is the name of our mainnet.
 

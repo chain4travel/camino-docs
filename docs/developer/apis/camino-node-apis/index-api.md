@@ -4,15 +4,15 @@ sidebar_position: 9
 
 # Index API
 
-CaminoGo can be configured to run with an indexer. That is, it saves (indexes) every container (a block, vertex or transaction) it accepts on the X-Chain, P-Chain and C-Chain. To run CaminoGo with indexing enabled, set command line flag [--index-enabled](../../build/references/caminogo-config-flags.md#apis) to true. **CaminoGo will only index containers that are accepted when running with `--index-enabled` set to true.** To ensure your node has a complete index, run a node with a fresh database and `--index-enabled` set to true. The node will accept every block, vertex and transaction in the network history during bootstrapping, ensuring your index is complete. It is OK to turn off your node if it is running with indexing enabled. If it restarts with indexing still enabled, it will accept all containers that were accepted while it was offline. The indexer should never fail to index an accepted block, vertex or transaction.
+Camino-Node can be configured to run with an indexer. That is, it saves (indexes) every container (a block, vertex or transaction) it accepts on the X-Chain, P-Chain and C-Chain. To run CaminoNode with indexing enabled, set command line flag [--index-enabled](/apps/nodes/camino-node-config-flags.md#apis) to true. **Camino-Node will only index containers that are accepted when running with `--index-enabled` set to true.** To ensure your node has a complete index, run a node with a fresh database and `--index-enabled` set to true. The node will accept every block, vertex and transaction in the network history during bootstrapping, ensuring your index is complete. It is OK to turn off your node if it is running with indexing enabled. If it restarts with indexing still enabled, it will accept all containers that were accepted while it was offline. The indexer should never fail to index an accepted block, vertex or transaction.
 
 Indexed containers (that is, accepted blocks, vertices and transactions) are timestamped with the time at which the node accepted that container. Note that if the container was indexed during bootstrapping, other nodes may have accepted the container much earlier. Every container indexed during bootstrapping will be timestamped with the time at which the node bootstrapped, not when it was first accepted by the network.
 
 Note that for DAGs (including the X-Chain), nodes may accept vertices and transactions in a different order from one another.
 
-If `--index-enabled` is changed to `false` from `true`, CaminoGo won't start as doing so would cause a previously complete index to become incomplete, unless the user explicitly says to do so with `--index-allow-incomplete`. This protects you from accidentally running with indexing disabled, after previously running with it enabled, which would result in an incomplete index.
+If `--index-enabled` is changed to `false` from `true`, Camino-Node won't start as doing so would cause a previously complete index to become incomplete, unless the user explicitly says to do so with `--index-allow-incomplete`. This protects you from accidentally running with indexing disabled, after previously running with it enabled, which would result in an incomplete index.
 
-This document shows how to query data from CaminoGo's Index API. The Index API is only available when running with `--index-enabled`.
+This document shows how to query data from Camino-Node's Index API. The Index API is only available when running with `--index-enabled`.
 
 ## Format
 

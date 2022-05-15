@@ -11,23 +11,23 @@ if ((EUID == 0)); then
     exit
 fi
 
-#helper function to create caminogo.service file
+#helper function to create camino-node.service file
 create_service_file () {
-  rm -f caminogo.service
-  echo "[Unit]">>caminogo.service
-  echo "Description=caminogo systemd service">>caminogo.service
-  echo "StartLimitIntervalSec=0">>caminogo.service
-  echo "[Service]">>caminogo.service
-  echo "Type=simple">>caminogo.service
-  echo "User=$(whoami)">>caminogo.service
-  echo "WorkingDirectory=$HOME">>caminogo.service
-  echo "ExecStart=$HOME/camino-node/caminogo --config-file=$HOME/.caminogo/configs/node.json">>caminogo.service
-  echo "LimitNOFILE=32768">>caminogo.service
-  echo "Restart=always">>caminogo.service
-  echo "RestartSec=1">>caminogo.service
-  echo "[Install]">>caminogo.service
-  echo "WantedBy=multi-user.target">>caminogo.service
-  echo "">>caminogo.service
+  rm -f camino-node.service
+  echo "[Unit]">>camino-node.service
+  echo "Description=camino-node systemd service">>camino-node.service
+  echo "StartLimitIntervalSec=0">>camino-node.service
+  echo "[Service]">>camino-node.service
+  echo "Type=simple">>camino-node.service
+  echo "User=$(whoami)">>camino-node.service
+  echo "WorkingDirectory=$HOME">>camino-node.service
+  echo "ExecStart=$HOME/camino-node/camino-node --config-file=$HOME/.caminogo/configs/node.json">>camino-node.service
+  echo "LimitNOFILE=32768">>camino-node.service
+  echo "Restart=always">>camino-node.service
+  echo "RestartSec=1">>camino-node.service
+  echo "[Install]">>camino-node.service
+  echo "WantedBy=multi-user.target">>camino-node.service
+  echo "">>camino-node.service
 }
 
 create_config_file () {
@@ -45,10 +45,10 @@ create_config_file () {
 }
 
 remove_service_file () {
-  if test -f "/etc/systemd/system/caminogo.service"; then
-    sudo systemctl stop caminogo
-    sudo systemctl disable caminogo
-    sudo rm /etc/systemd/system/caminogo.service
+  if test -f "/etc/systemd/system/camino-node.service"; then
+    sudo systemctl stop camino-node
+    sudo systemctl disable camino-node
+    sudo rm /etc/systemd/system/camino-node.service
   fi
 }
 
@@ -81,11 +81,11 @@ usage () {
   echo "   --version <tag>   Installs <tag> version"
   echo "   --reinstall       Run the installer from scratch, overwriting the old service file"
   echo ""
-  echo "Run without any options, script will install or upgrade caminogo to latest available version."
+  echo "Run without any options, script will install or upgrade camino-node to latest available version."
   exit 0
 }
 
-echo "caminogo installer"
+echo "camino-node installer"
 echo "---------------------"
 
 if [ $# -ne 0 ] #arguments check
@@ -93,7 +93,7 @@ then
   case $1 in
     --list) #print version list and exit (last 10 versions)
       echo "Available versions:"
-      wget -q -O - https://api.github.com/repos/chain4travel/caminogo/releases \
+      wget -q -O - https://api.github.com/repos/chain4travel/camino-node/releases \
       | grep tag_name \
       | sed 's/.*: "\(.*\)".*/\1/' \
       | head
@@ -140,33 +140,33 @@ else
   echo "Exiting."
   exit
 fi
-if test -f "/etc/systemd/system/caminogo.service"; then
-  foundcaminogo=true
-  echo "Found caminogo systemd service already installed, switching to upgrade mode."
+if test -f "/etc/systemd/system/camino-node.service"; then
+  foundCaminoNode=true
+  echo "Found camino-node systemd service already installed, switching to upgrade mode."
   echo "Stopping service..."
-  sudo systemctl stop caminogo
+  sudo systemctl stop camino-node
 else
-  foundcaminogo=false
+  foundCaminoNode=false
 fi
 # download and copy node files
-mkdir -p /tmp/caminogo-install               #make a directory to work in
-rm -rf /tmp/caminogo-install/*               #clean up in case previous install didn't
-cd /tmp/caminogo-install
+mkdir -p /tmp/camino-node-install               #make a directory to work in
+rm -rf /tmp/camino-node-install/*               #clean up in case previous install didn't
+cd /tmp/camino-node-install
 
 version=${version:-latest}
 echo "Looking for $getArch version $version..."
 if [ "$version" = "latest" ]; then
-  fileName="$(curl -s https://api.github.com/repos/chain4travel/caminogo/releases/latest | grep "caminogo-linux-$getArch.*tar\(.gz\)*\"" | cut -d : -f 2,3 | tr -d \" | cut -d , -f 2)"
+  fileName="$(curl -s https://api.github.com/repos/chain4travel/camino-node/releases/latest | grep "camino-node-linux-$getArch.*tar\(.gz\)*\"" | cut -d : -f 2,3 | tr -d \" | cut -d , -f 2)"
 else
-  fileName="https://github.com/chain4travel/caminogo/releases/download/$version/caminogo-linux-$getArch-$version.tar.gz"
+  fileName="https://github.com/chain4travel/camino-node/releases/download/$version/camino-node-linux-$getArch-$version.tar.gz"
 fi
 if [[ `wget -S --spider $fileName  2>&1 | grep 'HTTP/1.1 200 OK'` ]]; then
   echo "Node version found."
 else
-  echo "Unable to find caminogo version $version. Exiting."
-  if [ "$foundcaminogo" = "true" ]; then
+  echo "Unable to find camino-node version $version. Exiting."
+  if [ "$foundCaminoNode" = "true" ]; then
     echo "Restarting service..."
-    sudo systemctl start caminogo
+    sudo systemctl start camino-node
   fi
   exit
 fi
@@ -174,15 +174,15 @@ echo "Attempting to download: $fileName"
 wget -nv --show-progress $fileName
 echo "Unpacking node files..."
 mkdir -p $HOME/camino-node
-tar xvf caminogo-linux*.tar.gz -C $HOME/camino-node --strip-components=1;
-rm caminogo-linux-*.tar.gz
+tar xvf camino-node-linux*.tar.gz -C $HOME/camino-node --strip-components=1;
+rm camino-node-linux-*.tar.gz
 echo "Node files unpacked into $HOME/camino-node"
 echo
-if [ "$foundcaminogo" = "true" ]; then
+if [ "$foundCaminoNode" = "true" ]; then
   echo "Node upgraded, starting service..."
-  sudo systemctl start caminogo
+  sudo systemctl start camino-node
   echo "New node version:"
-  $HOME/camino-node/caminogo --version
+  $HOME/camino-node/camino-node --version
   echo "Done!"
   exit
 fi
@@ -214,19 +214,19 @@ else
 fi
 create_config_file
 create_service_file
-chmod 644 caminogo.service
-sudo cp -f caminogo.service /etc/systemd/system/caminogo.service
+chmod 644 camino-node.service
+sudo cp -f camino-node.service /etc/systemd/system/camino-node.service
 sudo systemctl daemon-reload
-sudo systemctl start caminogo
-sudo systemctl enable caminogo
+sudo systemctl start camino-node
+sudo systemctl enable camino-node
 echo
 echo "Done!"
 echo
 echo "Your node should now be bootstrapping on the main net."
 echo "Node configuration file is $HOME/.caminogo/configs/node.json"
 echo "To check that the service is running use the following command (q to exit):"
-echo "sudo systemctl status caminogo"
+echo "sudo systemctl status camino-node"
 echo "To follow the log use (ctrl-c to stop):"
-echo "sudo journalctl -u caminogo -f"
+echo "sudo journalctl -u camino-node -f"
 echo
 echo "Reach us over on https://contact.chain4travel.com if you're having problems."

@@ -1,9 +1,9 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 description: All about the Columbus testnet, how to participate and what to expect.
 ---
 
-# About Columbus
+# Columbus Test Network
 
 The Columbus testnet is a full-fledged ready-to-use platform to both learn how to participate in the network and to develop and test on-chain applications.
 
@@ -33,7 +33,7 @@ Requesting tokens from the `Camino` Discord bot is both limited in amount per re
 
 To be able to receive tokens via the faucet you'll need a valid X-Chain address for the Columbus network. There are multiple ways to create a X-Address where the easiest would be to simply create a wallet in the [Camino Wallet](https://wallet.camino.foundation). Please keep in mind to double-check that the Columbus network is selected in the top-right.
 
-Another way to create a new X-Address would be to directly use the [X-Chain JSON API](../../../apis/caminogo-apis/x-chain.mdx) which is now recommended for normal users or as long as you're not planning to fully use the API without any user-interaction.
+Another way to create a new X-Address would be to directly use the [X-Chain JSON API](../developer/apis/camino-node-apis/x-chain.mdx) which is now recommended for normal users or as long as you're not planning to fully use the API without any user-interaction.
 
 #### But I need more tokens
 
@@ -47,7 +47,7 @@ When receiving tokens via the Discord bot they'll always be sent to the X-Addres
 
 ## Running a RPC/HTTP node
 
-To setup a node which acts as a RPC/HTTP node, simply follow the tutorial on [How to set up a node with docker](../nodes-and-staking/set-up-node-with-docker.md).
+To setup a node which acts as a RPC/HTTP node, simply follow the tutorial on [How to set up a node with docker](../apps/nodes/set-up-node-with-docker.md).
 
 ## Running a validator node
 

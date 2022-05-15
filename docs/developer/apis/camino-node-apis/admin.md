@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Admin API
 
-This API can be used for measuring node health and debugging. Note that the Admin API is disabled by default for security reasons. To run a node with the Admin API enabled, use [config flag](../../build/references/caminogo-config-flags.md) `--api-admin-enabled=true`.
+This API can be used for measuring node health and debugging. Note that the Admin API is disabled by default for security reasons. To run a node with the Admin API enabled, use [config flag](/apps/nodes/camino-node-config-flags.md) `--api-admin-enabled=true`.
 
 ## Format
 

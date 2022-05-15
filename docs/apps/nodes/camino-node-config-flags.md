@@ -1,9 +1,9 @@
 ---
-sidebar_position: 3
-description: This documents list all available configuration and flags for CaminoGo.
+sidebar_position: 10
+description: This documents list all available configuration and flags for Camino-Node.
 ---
 
-# CaminoGo Config and Flags
+# Camino-Node Config and Flags
 
 You can specify the configuration of a node with the arguments below.
 
@@ -33,39 +33,39 @@ Specifies the format of the base64 encoded config content. JSON, TOML, YAML are 
 
 #### `--api-admin-enabled` (boolean):
 
-If set to `false`, this node will not expose the Admin API. Defaults to `false`. See [here](../../apis/caminogo-apis/admin.md) for more information.
+If set to `false`, this node will not expose the Admin API. Defaults to `false`. See [here](../../developer/apis/camino-node-apis/admin.md) for more information.
 
 #### `--api-auth-required` (boolean):
 
-If set to `true`, API calls require an authorization token. Defaults to `false`. See [here](../../apis/caminogo-apis/auth.md) for more information.
+If set to `true`, API calls require an authorization token. Defaults to `false`. See [here](../../developer/apis/camino-node-apis/auth.md) for more information.
 
 #### `--api-auth-password` (string):
 
-The password needed to create/revoke authorization tokens. If `--api-auth-required=true`, must be specified; otherwise ignored. See [here](../../apis/caminogo-apis/auth.md) for more information.
+The password needed to create/revoke authorization tokens. If `--api-auth-required=true`, must be specified; otherwise ignored. See [here](../../developer/apis/camino-node-apis/auth.md) for more information.
 
 #### `--api-health-enabled` (boolean):
 
-If set to `true`, this node will expose the Health API. Defaults to `true`. See [here](../../apis/caminogo-apis/health.md) for more information.
+If set to `true`, this node will expose the Health API. Defaults to `true`. See [here](../../developer/apis/camino-node-apis/health.md) for more information.
 
 #### `--index-enabled` (boolean): {#index-enabled}
 
-If `false`, this node will not enable the indexer and the Index API will not be available. Defaults to `false`. See [here](../../apis/caminogo-apis/index-api.md) for more information.
+If `false`, this node will not enable the indexer and the Index API will not be available. Defaults to `false`. See [here](../../developer/apis/camino-node-apis/index-api.md) for more information.
 
 #### `--api-info-enabled` (boolean):
 
-If set to `true`, this node will expose the Info API. Defaults to `true`. See [here](../../apis/caminogo-apis/info.md) for more information.
+If set to `true`, this node will expose the Info API. Defaults to `true`. See [here](../../developer/apis/camino-node-apis/info.md) for more information.
 
 #### `--api-ipcs-enabled` (boolean):
 
-If set to `true`, this node will expose the IPCs API. Defaults to `false`. See [here](../../apis/caminogo-apis/ipc.md) for more information.
+If set to `true`, this node will expose the IPCs API. Defaults to `false`. See [here](../../developer/apis/camino-node-apis/ipc.md) for more information.
 
 #### `--api-keystore-enabled` (boolean):
 
-If set to `false`, this node will not expose the Keystore API. Defaults to `true`. See [here](../../apis/caminogo-apis/keystore.md) for more information.
+If set to `false`, this node will not expose the Keystore API. Defaults to `true`. See [here](../../developer/apis/camino-node-apis/keystore.md) for more information.
 
 #### `--api-metrics-enabled` (boolean):
 
-If set to `false`, this node will not expose the Metrics API. Defaults to `true`. See [here](../../apis/caminogo-apis/metrics.md) for more information.
+If set to `false`, this node will not expose the Metrics API. Defaults to `true`. See [here](../../developer/apis/camino-node-apis/metrics.md) for more information.
 
 #### `--http-shutdown-wait` (duration):
 
@@ -113,19 +113,19 @@ This node reads at most this many containers from an incoming Ancestors message.
 
 ## Chain Configs
 
-Some chains allow the node operator to provide a custom configuration. CaminoGo can read chain configurations from files and pass them to the corresponding chains on initialization.
+Some chains allow the node operator to provide a custom configuration. Camino-Node can read chain configurations from files and pass them to the corresponding chains on initialization.
 
-CaminoGo looks for these files in the directory specified by `--chain-config-dir`. This directory can have sub-directories whose names are chain IDs or chain aliases. Each sub-directory contains the configuration for the chain specified in the directory name. Each sub-directory should contain a file named `config`, whose value is passed in when the corresponding chain is initialized (see below for extension). For example, the config for the C-Chain should be at: `{chain-config-dir}/C/config.json`.
+Camino-Node looks for these files in the directory specified by `--chain-config-dir`. This directory can have sub-directories whose names are chain IDs or chain aliases. Each sub-directory contains the configuration for the chain specified in the directory name. Each sub-directory should contain a file named `config`, whose value is passed in when the corresponding chain is initialized (see below for extension). For example, the config for the C-Chain should be at: `{chain-config-dir}/C/config.json`.
 
-The filename extension that these files should have, and the contents of these files, is VM-dependent. For example, some chains may expect `config.txt` while others expect `config.json`. If multiple files are provided with the same name but different extensions (e.g. `config.json` and `config.txt`) in the same sub-directory, CaminoGo will exit with an error.
+The filename extension that these files should have, and the contents of these files, is VM-dependent. For example, some chains may expect `config.txt` while others expect `config.json`. If multiple files are provided with the same name but different extensions (e.g. `config.json` and `config.txt`) in the same sub-directory, Camino-Node will exit with an error.
 
-For a given chain, CaminoGo will look first for a config sub-directory whose name is the chain ID. If it isn't found, it looks for a config sub-directory whose name is the chain's primary alias. If it's not found, it looks for a config sub-directory whose name is another alias for the chain. All folder and file names are case sensitive.
+For a given chain, Camino-Node will look first for a config sub-directory whose name is the chain ID. If it isn't found, it looks for a config sub-directory whose name is the chain's primary alias. If it's not found, it looks for a config sub-directory whose name is another alias for the chain. All folder and file names are case sensitive.
 
 It is not required to provide these custom configurations. If they are not provided, a VM-specific default config will be used.
 
 #### `--chain-config-dir` (string):
 
-Specifies the directory that contains chain configs, as described above. Defaults to `$HOME/.caminogo/configs/chains`. If this flag is not provided and the default directory does not exist, CaminoGo will not exit since custom configs are optional. However, if the flag is set, the specified folder must exist, or CaminoGo will exit with an error. This flag is ignored if `--chain-config-content` is specified.
+Specifies the directory that contains chain configs, as described above. Defaults to `$HOME/.caminogo/configs/chains`. If this flag is not provided and the default directory does not exist, Camino-Node will not exit since custom configs are optional. However, if the flag is set, the specified folder must exist, or Camino-Node will exit with an error. This flag is ignored if `--chain-config-content` is specified.
 
 #### `--chain-config-content` (string):
 
@@ -283,7 +283,7 @@ Adds the following RPC calls to the `net_*` namespace. Defaults to true.
 - `net_peerCount`
 - `net_version`
 
-Note: Coreth is a virtual machine and does not have direct access to the networking layer, so `net_listening` always returns true and `net_peerCount` always returns 0. For accurate metrics on the network layer, users should use the CaminoGo APIs.
+Note: Coreth is a virtual machine and does not have direct access to the networking layer, so `net_listening` always returns true and `net_peerCount` always returns 0. For accurate metrics on the network layer, users should use the Camino-Node APIs.
 
 ##### `debug-tracer`:
 
@@ -553,7 +553,7 @@ The parameters are as follows:
 
 #### `index-transactions` (boolean):
 
-Enables AVM transaction indexing if set to `true`. Default value is `false`. When set to `true`, AVM transactions are indexed against the `address` and `assetID` involved. This data is available via `avm.getAddressTxs` [API](../../apis/caminogo-apis/x-chain.mdx#avmgetaddresstxs).
+Enables AVM transaction indexing if set to `true`. Default value is `false`. When set to `true`, AVM transactions are indexed against the `address` and `assetID` involved. This data is available via `avm.getAddressTxs` [API](../../developer/apis/camino-node-apis/x-chain.mdx#avmgetaddresstxs).
 
 Please note that if `index-transactions` is set to true, it must always be set to true for the node's lifetime. If set to `false` after having been set to `true`, the node will refuse to start unless `index-allow-incomplete` is also set to `true` (see below).
 
@@ -575,7 +575,7 @@ Specifies the type of database to use. Must be one of `leveldb`, `rocksdb`, `mem
 
 Note that when running with `leveldb`, the node can't read data that was persisted when running with `rocksdb`, and vice-versa.
 
-**Two important notes about RocksDB**: First, RocksDB does not work on all computers. Second, RocksDB is not built by default and is not included in publicly released binaries. To build CaminoGo with RocksDB, run `export ROCKSDBALLOWED=1` in your terminal and then `scripts/build.sh`. You must do this before you can use `--db-type=rocksdb`.
+**Two important notes about RocksDB**: First, RocksDB does not work on all computers. Second, RocksDB is not built by default and is not included in publicly released binaries. To build Camino-Node with RocksDB, run `export ROCKSDBALLOWED=1` in your terminal and then `scripts/build.sh`. You must do this before you can use `--db-type=rocksdb`.
 
 ### Database Config
 
@@ -798,11 +798,11 @@ Comma separated list of subnet IDs that this node would validate if added to. De
 
 ### Subnet Configs
 
-It is possible to provide parameters for subnets. Parameters here apply to all chains in the specified subnets. Parameters must be specified with a `{subnetID}.json` config file under `--subnet-config-dir`. CaminoGo loads configs for subnets specified in `--whitelisted-subnet` parameter.
+It is possible to provide parameters for subnets. Parameters here apply to all chains in the specified subnets. Parameters must be specified with a `{subnetID}.json` config file under `--subnet-config-dir`. Camino-Node loads configs for subnets specified in `--whitelisted-subnet` parameter.
 
 #### `--subnet-config-dir` (string):
 
-Specifies the directory that contains subnet configs, as described above. Defaults to `$HOME/.caminogo/configs/subnets`. If the flag is set explicitly, the specified folder must exist, or CaminoGo will exit with an error. This flag is ignored if `--subnet-config-content` is specified.
+Specifies the directory that contains subnet configs, as described above. Defaults to `$HOME/.caminogo/configs/subnets`. If the flag is set explicitly, the specified folder must exist, or Camino-Node will exit with an error. This flag is ignored if `--subnet-config-content` is specified.
 
 Example: Let's say we have a subnet with ID `p4jUwqZsA2LuSftroCd3zb4ytH8W99oXKuKVZdsty7eQ3rXD6`. We can create a config file under the default `subnet-config-dir` at `$HOME/.caminogo/configs/subnets/p4jUwqZsA2LuSftroCd3zb4ytH8W99oXKuKVZdsty7eQ3rXD6.json`. An example config file is:
 
@@ -829,7 +829,7 @@ If `true` this node does not expose subnet blockchain contents to non-validators
 
 ##### Consensus Parameters
 
-Subnet configs supports loading new consensus parameters. JSON keys are different from their matching `CLI` keys. These parameters must be grouped under `consensusParameters` key. The consensus parameters of a subnet default to the same values used for the Primary Network, which are given [CLI Snow Parameters](caminogo-config-flags.md#snow-parameters).
+Subnet configs supports loading new consensus parameters. JSON keys are different from their matching `CLI` keys. These parameters must be grouped under `consensusParameters` key. The consensus parameters of a subnet default to the same values used for the Primary Network, which are given [CLI Snow Parameters](#snow-parameters).
 
 | CLI Key                          | JSON Key              |
 | :------------------------------- | :-------------------- |
@@ -846,7 +846,7 @@ Subnet configs supports loading new consensus parameters. JSON keys are differen
 
 ##### Gossip Configs
 
-It's possible to define different Gossip configurations for each subnet without changing values for Primary Network. For example in Primary Network transaction mempools are not gossipped to non-validators (`--consensus-app-gossip-validator-size` is `0`). You can change this for your subnet and share mempool with non-validators as well. JSON keys of these parameters are different from their matching `CLI` keys. These parameters default to the same values used for the Primary Network. For more information see [CLI Gossip Configs](caminogo-config-flags.md#gossiping).
+It's possible to define different Gossip configurations for each subnet without changing values for Primary Network. For example in Primary Network transaction mempools are not gossipped to non-validators (`--consensus-app-gossip-validator-size` is `0`). You can change this for your subnet and share mempool with non-validators as well. JSON keys of these parameters are different from their matching `CLI` keys. These parameters default to the same values used for the Primary Network. For more information see [CLI Gossip Configs](#gossiping).
 
 | CLI Key                                   | JSON Key                   |
 | :---------------------------------------- | :------------------------- |
@@ -901,13 +901,12 @@ Minimum amount of time queries to a peer must be failing before the peer is benc
 
 #### `--build-dir` (string):
 
-Specifies where to find CaminoGo & plugin binaries. Defaults to the path of executed CaminoGo binary. The structure of this directory must be as follows:
+Specifies where to find Camino-Node & plugin binaries. Defaults to the path of executed Camino-Node binary. The structure of this directory must be as follows:
 
 ```text
 build-dir
-|_caminogo
+|_camino-node
     |_plugins
-      |_evm
 ```
 
 ### Consensus Parameters
@@ -1124,7 +1123,7 @@ Timeout while dialing a peer.
 
 ### Message Rate-Limiting
 
-These flags govern rate-limiting of inbound and outbound messages. For more information on rate-limiting and the flags below, see package `throttling` in CaminoGo.
+These flags govern rate-limiting of inbound and outbound messages. For more information on rate-limiting and the flags below, see package `throttling` in Camino-Node.
 
 #### `--throttler-inbound-bandwidth-refill-rate` (uint):
 

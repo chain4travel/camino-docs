@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Camino Platform Overview
 
 Camino features 3 built-in blockchains: [**Exchange Chain (X-Chain)**](#exchange-chain-x-chain), [**Platform Chain (P-Chain)**](#platform-chain-p-chain), and [**Contract Chain (C-Chain**)](#contract-chain-c-chain). All 3 blockchains are validated and secured by the **Primary Network**. The Primary Network is a special subnet, and all members of all custom subnets must also be a member of the Primary Network.
@@ -10,7 +14,7 @@ The **X-Chain** acts as a decentralized platform for creating and trading digita
 
 One asset traded on the X-Chain is CAM. When you issue a transaction to a blockchain on Camino, you pay a fee denominated in CAM.
 
-The X-Chain is an instance of the Avalanche Virtual Machine (AVM). The [X-Chain API](../../apis/caminogo-apis/x-chain.mdx) allows clients to create and trade assets on the X-Chain and other instances of the AVM.
+The X-Chain is an instance of the Avalanche Virtual Machine (AVM). The [X-Chain API](../developer/apis/camino-node-apis/x-chain.mdx) allows clients to create and trade assets on the X-Chain and other instances of the AVM.
 
 This is a highly specialized and performance-optimized Chain and since it's kept at a very simple complexity level the overall network load for transactions is lower compared to other Chains. This is also part of the transaction fee computation as simple and fast operations don't put much of a load on the network.
 
@@ -18,15 +22,15 @@ This is a highly specialized and performance-optimized Chain and since it's kept
 
 The **P-Chain** is the metadata blockchain on Camino and coordinates validators, keeps track of active subnets, and enables the creation of new subnets. The P-Chain implements the **Snowman consensus protocol**.
 
-The [P-Chain API](../../apis/caminogo-apis/p-chain.md) allows clients to create subnets, add validators to subnets, and create blockchains.
+The [P-Chain API](../developer/apis/camino-node-apis/p-chain.md) allows clients to create subnets, add validators to subnets, and create blockchains.
 
 Not only coordination but also creation of validators and also delegation of stake is part of the P-Chain. Conceptually, we are in an ongoing process to change the way how stake/delegate is bound to validators, but fundamentally it still be handled on the P-Chain.
 
 ## Contract Chain (C-Chain)
 
-The **C-Chain** allows for the creation smart contracts using the [C-Chain’s API](../../apis/caminogo-apis/c-chain.md).
+The **C-Chain** allows for the creation smart contracts using the [C-Chain’s API](../developer/apis/camino-node-apis/c-chain.md).
 
-The C-Chain is an instance of the Ethereum Virtual Machine powered by [Camino](../../).
+The C-Chain is an instance of the Ethereum Virtual Machine powered by [Camino](../).
 
 This chain is where probably 95% of the total load is transacted. Here the smart contracts (e.g. based on Solidity via Remix) are deployed and used by the users of the chain (mostly via apps). The addresses used on this chain are also identical in structure to what one is used to from EVM/Ethereum and, in addition, one can also connect to this chain quite easily with existing applications (such as Meta-Mask).
 From the maximum flexibility and compatibility the largest negative point arises: It is _potentially_ slow in the execution of (complex) operations. In order to prevent an overload of the network by inefficient smart contracts, there are corresponding transaction fees measured by the complexity.

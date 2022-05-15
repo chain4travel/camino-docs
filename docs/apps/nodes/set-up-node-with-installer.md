@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Camino Node Install Script
 
-We have a shell (bash) script that installs CaminoGo on your computer. This script sets up full, running node in a matter of minutes with minimal user input required.
+We have a [shell (bash) script](https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/camino-node-installer.sh) that installs Camino-Node on your computer. This script sets up full, running node in a matter of minutes with minimal user input required.
 
 ## Before you start
 
@@ -17,7 +17,7 @@ Camino is a lightweight protocol which let nodes run on commodity hardware. Note
 
 This install script assumes:
 
-- CaminoGo is not running and not already installed as a service
+- Camino-Node is not running and not already installed as a service
 - User running the script has superuser privileges (can run `sudo`)
 
 ### Environment considerations
@@ -36,22 +36,22 @@ If your node is already running as a service, then you probably don't need this 
 
 #### Node running in the background
 
-If your node is running in the background (by running with `nohup`, for example) then find the process running the node by running `ps aux | grep caminogo`. This will produce output like:
+If your node is running in the background (by running with `nohup`, for example) then find the process running the node by running `ps aux | grep camino-node`. This will produce output like:
 
 ```text
-ubuntu  6834  0.0  0.0   2828   676 pts/1    S+   19:54   0:00 grep caminogo
-ubuntu  2630 26.1  9.4 2459236 753316 ?      Sl   Dec02 1220:52 /home/ubuntu/build/caminogo
+ubuntu  6834  0.0  0.0   2828   676 pts/1    S+   19:54   0:00 grep camino-node
+ubuntu  2630 26.1  9.4 2459236 753316 ?      Sl   Dec02 1220:52 /home/ubuntu/build/camino-node
 ```
 
 Look for line that doesn't have `grep` on it. In this example, that is the second line. It shows information about your node. Note the process id, in this case, `2630`. Stop the node by running `kill -2 2630`.
 
 #### Node working files
 
-If you previously ran an CaminoGo node on this computer, you will have local node files stored in `$HOME/.caminogo` directory. Those files will not be disturbed, and node set up by the script will continue operation with the same identity and state it had before. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to.
+If you previously ran an Camino-Node node on this computer, you will have local node files stored in `$HOME/.caminogo` directory. Those files will not be disturbed, and node set up by the script will continue operation with the same identity and state it had before. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to.
 
 ### Networking considerations
 
-To run successfully, CaminoGo needs to accept connections from the Internet on the network port `9651`. Before you proceed with the installation, you need to determine the networking environment your node will run in.
+To run successfully, Camino-Node needs to accept connections from the Internet on the network port `9651`. Before you proceed with the installation, you need to determine the networking environment your node will run in.
 
 #### Running on a cloud provider
 
@@ -70,26 +70,25 @@ So, now that you prepared your system and have the info ready, let's get to it.
 To download and run the script, enter the following in the terminal:
 
 ```bash
-wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/caminogo-installer.sh;\
-chmod 755 caminogo-installer.sh;\
-./caminogo-installer.sh
+wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/camino-node-installer.sh;\
+chmod 755 camino-node-installer.sh;\
+./camino-node-installer.sh
 ```
 
 And we're off! The output should look something like this:
 
 ```text
-CaminoGo installer
+Camino-Node installer
 ---------------------
 Preparing environment...
 Found arm64 architecture...
 Looking for the latest arm64 build...
 Will attempt to download:
- https://github.com/chain4travel/caminogo/releases/download/v0.1.0/caminogo-linux-arm64-v0.1.0.tar.gz
-caminogo-linux-arm64-v0.1.0.tar.gz 100%[=========================================================================>]  29.83M  75.8MB/s    in 0.4s
+ https://github.com/chain4travel/camino-node/releases/download/v0.1.0/camino-node-linux-arm64-v0.1.0.tar.gz
+camino-node-linux-arm64-v0.1.0.tar.gz 100%[=========================================================================>]  29.83M  75.8MB/s    in 0.4s
 Unpacking node files...
-caminogo-v0.1.0/plugins/
-caminogo-v0.1.0/plugins/evm
-caminogo-v0.1.0/caminogo
+camino-node-v0.1.0/plugins/
+camino-node-v0.1.0/camino-node
 Node files unpacked into /home/ubuntu/camino-node
 ```
 
@@ -115,16 +114,16 @@ The script will then continue with system service creation and finish with start
 
 ```text
 Installing service with public IP: 104.27.15.23
-Created symlink /etc/systemd/system/multi-user.target.wants/caminogo.service → /etc/systemd/system/caminogo.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/camino-node.service → /etc/systemd/system/camino-node.service.
 
 Done!
 
 Your node should now be bootstrapping on the main net.
 Node configuration file is /home/ubuntu/.caminogo/configs/node.json
 To check that the service is running use the following command (q to exit):
-sudo systemctl status caminogo
+sudo systemctl status camino-node
 To follow the log use (ctrl+C to stop):
-sudo journalctl -u caminogo -f
+sudo journalctl -u camino-node -f
 
 Reach us over on https://discord.gg/K5THjAweFB if you're having problems.
 ```
@@ -133,25 +132,25 @@ The script is finished, and you should see the system prompt again.
 
 ## Post installation
 
-CaminoGo should be running in the background as a service. You can check that it's running with:
+Camino-Node should be running in the background as a service. You can check that it's running with:
 
 ```bash
-sudo systemctl status caminogo
+sudo systemctl status camino-node
 ```
 
 This will print the node's latest logs, which should look like this:
 
 ```text
-● caminogo.service - CaminoGo systemd service
-Loaded: loaded (/etc/systemd/system/caminogo.service; enabled; vendor preset: enabled)
+● camino-node.service - Camino-Node systemd service
+Loaded: loaded (/etc/systemd/system/camino-node.service; enabled; vendor preset: enabled)
 Active: active (running) since Tue 2021-01-05 10:38:21 UTC; 51s ago
-Main PID: 2142 (caminogo)
+Main PID: 2142 (camino-node)
 Tasks: 8 (limit: 4495)
 Memory: 223.0M
-CGroup: /system.slice/caminogo.service
-└─2142 /home/ubuntu/camino-node/caminogo --dynamic-public-ip=opendns --http-host=
+CGroup: /system.slice/camino-node.service
+└─2142 /home/ubuntu/camino-node/camino-node --dynamic-public-ip=opendns --http-host=
 
-Jan 05 10:38:45 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:38:45] <P Chain> caminogo/vms/platformvm/vm.go#322: initializing last accepted block as 2FUFPVPxbTpKNn39moGSzsmGroYES4NZRdw3mJgNvMkMiMHJ9e
+Jan 05 10:38:45 ip-11-11-11-11 camino-node[2142]: INFO [01-05|10:38:45] <P Chain> caminogo/vms/platformvm/vm.go#322: initializing last accepted block as 2FUFPVPxbTpKNn39moGSzsmGroYES4NZRdw3mJgNvMkMiMHJ9e
 Jan 05 10:38:45 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:38:45] <P Chain> caminogo/snow/engine/snowman/transitive.go#58: initializing consensus engine
 Jan 05 10:38:45 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:38:45] caminogo/api/server.go#143: adding route /ext/bc/11111111111111111111111111111111LpoYY
 Jan 05 10:38:45 ip-11-11-11-11 caminogo[2142]: INFO [01-05|10:38:45] caminogo/api/server.go#88: HTTP API server listening on ":9650"
@@ -168,7 +167,7 @@ Note the `active (running)` which indicates the service is running ok. You may n
 To find out your NodeID, which is used to identify your node to the network, run the following command:
 
 ```bash
-sudo journalctl -u caminogo | grep "NodeID"
+sudo journalctl -u camino-node | grep "NodeID"
 ```
 
 It will produce output like:
@@ -182,17 +181,17 @@ Prepend `NodeID-` to the value to get, for example, `NodeID-6seStrauyCnVV7NEVwRb
 Your node should be in the process of bootstrapping now. You can monitor the progress by issuing the following command:
 
 ```bash
-sudo journalctl -u caminogo -f
+sudo journalctl -u camino-node -f
 ```
 
 Press `ctrl+C` when you wish to stop reading node output.
 
 ## Stopping the node
 
-To stop CaminoGo, run:
+To stop Camino-Node, run:
 
 ```bash
-sudo systemctl stop caminogo
+sudo systemctl stop camino-node
 ```
 
 To start it again, run:
@@ -203,7 +202,7 @@ sudo systemctl start caminogo
 
 ## Node upgrade
 
-CaminoGo is an ongoing project and there are regular version upgrades. Most upgrades are recommended but not required. Advance notice will be given for upgrades that are not backwards compatible. When a new version of the node is released, you will notice log lines like:
+Camino-Node is an ongoing project and there are regular version upgrades. Most upgrades are recommended but not required. Advance notice will be given for upgrades that are not backwards compatible. When a new version of the node is released, you will notice log lines like:
 
 ```text
 Jan 08 10:26:45 ip-172-31-16-229 caminogo[6335]: INFO [01-08|10:26:45] caminogo/network/peer.go#526: beacon 9CkG9MBNavnw7EVSRsuFr7ws9gascDQy3 attempting to connect with newer version camino/0.1.0. You may want to update your client
@@ -214,17 +213,17 @@ It is recommended to always upgrade to the latest version, because new versions 
 To upgrade your node, just run the installer script again:
 
 ```bash
-./caminogo-installer.sh
+./camino-node-installer.sh
 ```
 
-It will detect that you already have CaminoGo installed:
+It will detect that you already have Camino-Node installed:
 
 ```text
-CaminoGo installer
+Camino-Node installer
 ---------------------
 Preparing environment...
 Found 64bit Intel/AMD architecture...
-Found CaminoGo systemd service already installed, switching to upgrade mode.
+Found Camino-Node systemd service already installed, switching to upgrade mode.
 Stopping service...
 ```
 
@@ -239,7 +238,7 @@ Done!
 
 ## Node configuration
 
-File that configures node operation is `~/.caminogo/configs/node.json`. You can edit it to add or change configuration options. The documentation of configuration options can be found [here](../../references/caminogo-config-flags.md). Default configuration may look like this:
+File that configures node operation is `~/.caminogo/configs/node.json`. You can edit it to add or change configuration options. The documentation of configuration options can be found [here](camino-node-config-flags.md). Default configuration may look like this:
 
 ```json
 {
@@ -252,18 +251,18 @@ Note that configuration file needs to be a properly formatted `JSON` file, so sw
 
 ## Using a previous version
 
-The installer script can also be used to install a version of CaminoGo other than the latest version.
+The installer script can also be used to install a version of Camino-Node other than the latest version.
 
 To see a list of available versions for installation, run:
 
 ```bash
-./caminogo-installer.sh --list
+./camino-node-installer.sh --list
 ```
 
 It will print out a list, something like:
 
 ```text
-CaminoGo installer
+Camino-Node installer
 ---------------------
 Available versions:
 v0.1.0
@@ -273,11 +272,11 @@ v0.0.0
 To install a specific version, run the script with `--version` followed by the tag of the version. For example:
 
 ```bash
-./caminogo-installer.sh --version v0.1.0
+./camino-node-installer.sh --version v0.1.0
 ```
 
 :::danger
-Note that not all CaminoGo versions are compatible. You should generally run the latest version. Running a version other than latest may lead to your node not working properly and, for validators, not receiving a staking reward.
+Note that not all Camino-Node versions are compatible. You should generally run the latest version. Running a version other than latest may lead to your node not working properly and, for validators, not receiving a staking reward.
 :::
 
 ## Reinstall and script update
@@ -285,24 +284,24 @@ Note that not all CaminoGo versions are compatible. You should generally run the
 Installer script gets updated from time to time, with new features and capabilities added. To take advantage of new features or to recover from modifications that made the node fail, you may want to reinstall the node. To do that, fetch the latest version of the script from the web with:
 
 ```bash
-wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/caminogo-installer.sh
+wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/camino-node-installer.sh
 ```
 
 After the script has updated, run it again with the `--reinstall` config flag:
 
 ```bash
-./caminogo-installer.sh --reinstall
+./camino-node-installer.sh --reinstall
 ```
 
 This will delete the existing service file, and run the installer from scratch, like it was started for the first time. Note that the database and NodeID will be left intact.
 
 ## What next?
 
-That's it, you're running an CaminoGo node! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
+That's it, you're running an Camino-Node node! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 
-Now you can [interact with your node](../../../apis/caminogo-apis/issuing-api-calls.md).
+Now you can [interact with your node](../../developer/apis/camino-node-apis/issuing-api-calls.md).
 
 Finally, if you haven't already, it is a good idea to back up important files in case you ever need to restore your node to a different machine.
 

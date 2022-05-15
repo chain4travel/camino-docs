@@ -23,9 +23,9 @@
     "message": "Nodes and Staking",
     "description": "The label for category Nodes and Staking in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.CaminoGo APIs": {
-    "message": "CaminoGo APIs",
-    "description": "The label for category CaminoGo APIs in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Camino-Node APIs": {
+    "message": "Camino-Node APIs",
+    "description": "The label for category Camino-Node APIs in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.References": {
     "message": "References",
