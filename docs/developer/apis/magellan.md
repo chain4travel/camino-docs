@@ -88,6 +88,24 @@ Find an address or a transaction by its ID.
 | :------ | :------- | :------------------------------ | :------ | :--- |
 | `query` | `string` | An ID prefix to filter items by | None    | None |
 
+:::info
+There is no prefix search implemented for cBlock and cTransaction result types.
+The search can still be used to verify existance or to solve ambiguous input.
+For example block hash and transaction hash look similiar, search can help
+to figure out the type of the hash.
+:::
+
+**Result Types**
+
+| Name           | Description             |
+| :------------- | :---------------------- |
+| `transaction`  | `X/P-chain transaction` |
+| `asset`        | `X-chain asset`         |
+| `address`      | `X/P-chain address`     |
+| `output`       | `X/P-chain UTXO`        |
+| `cBlock`       | `C-chain block`         |
+| `cTransaction` | `C-chain transaction`   |
+
 **Example Call**
 
 ```text
@@ -156,6 +174,31 @@ curl "http://localhost:8080/v2/search?query=2jEugPDFN89KXLEXtf5"
         "timestamp": "2022-01-10T07:09:44Z",
         "txFee": 0,
         "genesis": false
+      },
+      "score": 0
+    }
+  ]
+}
+```
+
+**Example Call**
+
+```text
+curl "http://localhost:8080/v2/search?query=123"
+curl "http://localhost:8080/v2/search?query=0x9f6bb7e15af9a07818c938679e9782c3afc0a0016968565c338d44f705fd0fd6"
+```
+
+**Example Response**
+
+```json
+{
+  "count": 1,
+  "results": [
+    {
+      "type": "cBlock",
+      "data": {
+        "number": 123,
+        "hash": "0x9f6bb7e15af9a07818c938679e9782c3afc0a0016968565c338d44f705fd0fd6"
       },
       "score": 0
     }
@@ -648,7 +691,8 @@ curl "http://localhost:8080/v2/ctxdata/64927"
     "blockGasCost": "0x0",
     "hash": "0xc52ba5ec8481518c448c26620b7e3859d913ad08b09eb022ea3c8be08e03a232"
   },
-  "transactions": [{
+  "transactions": [
+    {
       "type": 2,
       "block": "64927",
       "hash": "0xa8652e2af318b8f5874f4fe3ac8593430c9c802ed196184c081b4779b155c713",
@@ -670,9 +714,15 @@ curl "http://localhost:8080/v2/ctxdata/64927"
         "status": 1,
         "cumulativeGasUsed": 227632,
         "logsBloom": "0x00000000000000000000000000000000000000000000000000001000010000000000000000004000000000000000000000000000020000000000000000000000200000000000000000000008000000000000000000000000000000000000000000000000020000000000000000000800000020000000010000000010000000000000000000012000000000000000000000100000000008000000000000000000000000000000040000000000000000000000000000800010000000000000400000000002000000000000000000000000000000000000000000080000000020000000000000000000000000000000000000000000000080000000000000000000",
-        "logs": [{
+        "logs": [
+          {
             "address": "0x60c677d61f8bf986911f75df1ee824d3199f6c15",
-            "topics": ["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef", "0x0000000000000000000000000000000000000000000000000000000000000000", "0x0000000000000000000000000ef715db81323d3a88c42c5e19a7f6a4c5b5c613", "0x000000000000000000000000000000000000000000000000000000000000051b"],
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000ef715db81323d3a88c42c5e19a7f6a4c5b5c613",
+              "0x000000000000000000000000000000000000000000000000000000000000051b"
+            ],
             "data": "0x",
             "blockNumber": "0xfd9f",
             "transactionHash": "0xa8652e2af318b8f5874f4fe3ac8593430c9c802ed196184c081b4779b155c713",
@@ -680,9 +730,14 @@ curl "http://localhost:8080/v2/ctxdata/64927"
             "blockHash": "0xc52ba5ec8481518c448c26620b7e3859d913ad08b09eb022ea3c8be08e03a232",
             "logIndex": "0x0",
             "removed": false
-          }, {
+          },
+          {
             "address": "0x60c677d61f8bf986911f75df1ee824d3199f6c15",
-            "topics": ["0x0904f4a3954ceeb5cebd9485aff873d11ad136ad3ccf08a1e77b36d2c24016f0", "0x000000000000000000000000000000000000000000000000000000000002b2a9", "0x0000000000000000000000000000000000000000000000000000000000000003"],
+            "topics": [
+              "0x0904f4a3954ceeb5cebd9485aff873d11ad136ad3ccf08a1e77b36d2c24016f0",
+              "0x000000000000000000000000000000000000000000000000000000000002b2a9",
+              "0x0000000000000000000000000000000000000000000000000000000000000003"
+            ],
             "data": "0x000000000000000000000000000000000000000000000000000000000000051b00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000035697066733a2f2f516d55507a5a79313155687855446448793854503454653477786f6f7678717a565848687645756852637a545a470000000000000000000000",
             "blockNumber": "0xfd9f",
             "transactionHash": "0xa8652e2af318b8f5874f4fe3ac8593430c9c802ed196184c081b4779b155c713",
@@ -712,26 +767,28 @@ Get informatial lists of latest blocks and transaction on C-Chain
 
 **Params**
 
-| Name     | Type     | Description           | Default | Max   |
-| :------- | :------- | :-------------------- | :------ | :---- |
-| `limit`  | `number` | limit of blocks       | 0       | 10000 |
-| `limit`  | `number` | limit of transactions | 0       | 10000 |
-| `blockStart` | `number` | first block      | 0       | None  |
-| `blockEnd` | `number` | last block | 0       | None  |
-| `transactionId` | `number` | start / end TxID | 0       | None  |
+| Name            | Type       | Description           | Default | Max   |
+| :-------------- | :--------- | :-------------------- | :------ | :---- |
+| `limit`         | `number`   | limit of blocks       | 0       | 10000 |
+| `limit`         | `number`   | limit of transactions | 0       | 10000 |
+| `blockStart`    | `number`   | first block           | 0       | None  |
+| `blockEnd`      | `number`   | last block            | 0       | None  |
+| `transactionId` | `number`   | start / end TxID      | 0       | None  |
+| `address`       | `caddress` | address (to or from)  | None    | None  |
 
 `blockStart` and `blockEnd` are exclusive and can be used for requesting either
 older results (`blockStart`) or newer results (`blockEnd`) based on a given block number.
+`address` can be passed multiple times, but only affects transaction results
 
 Because one block usually contains multiple Transactions, you can additional specify the starting
 transactionId inside a block with transactionId.
-
 
 **Example Call**
 
 ```text
 curl "http://localhost:8080/v2/cblocks?limit=10&limit=10&startBlock=100&transactionId=1"
 ```
+
 Queries 10 blocks starting from block-height 100, and 100 transactions starting at block-height and
 transactionId 1. You'll get blocks 100, 99,....,91 and respective 10 transactions.
 

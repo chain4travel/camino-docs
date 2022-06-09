@@ -197,7 +197,7 @@ sudo systemctl stop camino-node
 To start it again, run:
 
 ```bash
-sudo systemctl start caminogo
+sudo systemctl start camino-node
 ```
 
 ## Node upgrade
