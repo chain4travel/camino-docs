@@ -29,7 +29,7 @@ Yes, you will be able to stake locked Camino (CAM) tokens in order to create a v
 No. On Camino, validators secure the network and democratically govern the Camino ecosystem. Therefore, it is not possible to run more than one validator as this would jeopardize the democratic voting process.
 
 ## Do I need to keep my private keys on my validator?
-No, you don’t need to keep your private keys on your validator (and, we strongly advise you not to).
+No, you don’t need to keep your private keys on your validator (and we strongly advise you not to).
 
 ## Is my validating node uptime important?
 Yes. A validator will receive a staking reward if they are online and respond for more than 90% of their validation period. You should aim for your validator to be online and responsive 100% of the time.
