@@ -15,8 +15,7 @@ The last condition is omitted for Validators who secure the network from the sta
 ## Staking Parameters on Camino
 When a validator is done validating the Camino Mainnet, it receives back the Camino tokens it staked. It may receive a reward for helping to secure the network. A validator only receives a validation reward if it is sufficiently responsive and correct during the validation period.
 - The exact amount that a validator must stake is 200,000 CAM
-- The minimum amount of time one can stake funds for validation is 2 weeks
-- The maximum amount of time one can stake funds for validation is 1 year
+- The time period one can stake funds for validation is 1 year
 
 ## Can I add more Camino (CAM) tokens to my validator while the staking period is in progress?
 No. The exact amount that must be staked to run a validator is 200,000 CAM.
