@@ -40,8 +40,6 @@ In a heterogeneous network of blockchains, some validators will not want to vali
 
 Different blockchain-based applications may require validators to have certain properties. Suppose there is an application that requires large amounts of RAM or CPU power. A Subnet could require that validators meet certain [hardware requirements](../apps/nodes/run-camino-node.md#requirements) so that the application doesn’t suffer from low performance due to slow validators.
 
-Subnets can have their own token economy with their own native tokens and fee markets. They can launch their own blockchains with customized virtual machines. See [Customize a Subnet](https://docs.avax.network/subnets/customize-a-subnet) for more details.
-
 ## Validators
 
 Camino validators are incentivized by Subnet owners to validate their Subnet. The incentive can be customized by each Subnet. Validators needs to take consideration of security and resource concerns before joining a Subnet.

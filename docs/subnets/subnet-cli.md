@@ -297,7 +297,7 @@ To add a validator to the local network:
 
 ```bash
 subnet-cli add validator \
---public-uri=http://localhost:9650NodeID-Nj5C7NdpS3p8hZvu6b5HBREKi8hA1qbDD \  
+--public-uri=http://localhost:9650 \  
 --node-ids="NodeID-Nj5C7NdpS3p8hZvu6b5HBREKi8hA1qbDD" \  
 --stake-amount=100000000000 \  
 --validate-reward-fee-percent=3
@@ -327,39 +327,38 @@ To add a Subnet validator to the local network:
 
 ```text
 > subnet-cli add subnet-validator \
---private-key-path=.insecure.ewoq.key \
---public-uri=http://127.0.0.1:12913 \
---node-ids="NodeID-P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5" \
---subnet-id="24tZhrm8j8GCJRE9PomW8FaeqbgGS4UAQjJnqqn8pq5NwYSYV1"
+--public-uri=http://127.0.0.1:9650 \
+--node-ids="NodeID-Nj5C7NdpS3p8hZvu6b5HBREKi8hA1qbDD" \
+--subnet-id="2dwibTuU3YxvTe7Lc5X4PsmCeC5JiBr1PGJVpCm8T1nec7zUSx"
 ```
 
 And its console log:
 
 ```text
-2022-05-20T16:10:22.980-0600	info	client/client.go:81	fetching X-Chain id
-2022-05-20T16:10:22.981-0600	info	client/client.go:87	fetched X-Chain id	{"id": "qzfF3A11KzpcHkkqznEyQgupQrCNS6WV6fTUTwZpEKqhj1QE7"}
-2022-05-20T16:10:22.981-0600	info	client/client.go:96	fetching AVAX asset id	{"uri": "http://127.0.0.1:12913"}
-2022-05-20T16:10:22.981-0600	info	client/client.go:105	fetched AVAX asset id	{"id": "BUuypiq2wyuLMvyhzFXcPyxPMCgSp7eeDohhQRqTChoBjKziC"}
-2022-05-20T16:10:22.981-0600	info	client/client.go:107	fetching network information
-2022-05-20T16:10:22.982-0600	info	client/client.go:116	fetched network information	{"networkId": 1337, "networkName": "network-1337"}
+2022-07-18T11:15:20.843+0200	info	client/client.go:81	fetching X-Chain id
+2022-07-18T11:15:20.854+0200	info	client/client.go:87	fetched X-Chain id	{"id": "pgk8Re3MCEbQu62orC1ebw7YKzpX1Yk4iS7vTxZReAm9Pjp6m"}
+2022-07-18T11:15:20.854+0200	info	client/client.go:96	fetching CAM asset id	{"uri": "http://127.0.0.1:9650"}
+2022-07-18T11:15:20.855+0200	info	client/client.go:105	fetched CAM asset id	{"id": "23MDJv6nhwCGnEer4GsEQWwDURk42ZQBoc444eosZ4BVgH87EW"}
+2022-07-18T11:15:20.855+0200	info	client/client.go:107	fetching network information
+2022-07-18T11:15:20.856+0200	info	client/client.go:116	fetched network information	{"networkId": 1001, "networkName": "columbus"}
 
 Ready to add subnet validator, should we continue?
 *-------------------------*----------------------------------------------------*
-| PRIMARY P-CHAIN ADDRESS | P-custom18jma8ppw3nhx5r4ap8clazz0dps7rv5u9xde7p    |
+| PRIMARY P-CHAIN ADDRESS | P-columbus17pysyr6av4n2gf6teqv3kjd5ewdkmncwrhq6qk  |
 *-------------------------*----------------------------------------------------*
-| TOTAL P-CHAIN BALANCE   | 29,999,999.9000000 $AVAX                           |
+| TOTAL P-CHAIN BALANCE   | 2,499.8990000 $CAM                                 |
 *-------------------------*----------------------------------------------------*
-| TX FEE                  | 0.001 $AVAX                                        |
+| TX FEE                  | 0.001 $CAM                                         |
 *-------------------------*----------------------------------------------------*
-| REQUIRED BALANCE        | 0.001 $AVAX                                        |
+| REQUIRED BALANCE        | 0.001 $CAM                                         |
 *-------------------------*----------------------------------------------------*
-| URI                     | http://127.0.0.1:12913                             |
+| URI                     | http://127.0.0.1:9650                              |
 *-------------------------*----------------------------------------------------*
-| NETWORK NAME            | network-1337                                       |
+| NETWORK NAME            | columbus                                           |
 *-------------------------*----------------------------------------------------*
-| NODE IDs                | [P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5]                |
+| NODE IDs                | [Nj5C7NdpS3p8hZvu6b5HBREKi8hA1qbDD]                |
 *-------------------------*----------------------------------------------------*
-| SUBNET ID               | 24tZhrm8j8GCJRE9PomW8FaeqbgGS4UAQjJnqqn8pq5NwYSYV1 |
+| SUBNET ID               | 2dwibTuU3YxvTe7Lc5X4PsmCeC5JiBr1PGJVpCm8T1nec7zUSx |
 *-------------------------*----------------------------------------------------*
 | VALIDATE WEIGHT         | 1,000                                              |
 *-------------------------*----------------------------------------------------*
@@ -367,29 +366,29 @@ Ready to add subnet validator, should we continue?
 
 
 
-2022-05-20T16:10:28.853-0600	info	client/p.go:299	adding subnet validator	{"subnetId": "24tZhrm8j8GCJRE9PomW8FaeqbgGS4UAQjJnqqn8pq5NwYSYV1", "txFee": 1000000, "start": "2022-05-20T16:10:58.852-0600", "end": "2022-09-06T16:00:00.000-0600", "weight": 1000}
-2022-05-20T16:10:28.857-0600	info	platformvm/checker.go:48	polling P-Chain tx	{"txId": "gmrRTRK6671pBVopxHoPRx77hcvEvc5UKER1fFNgaRiFPY5Qh", "expectedStatus": "Committed"}
-2022-05-20T16:10:28.859-0600	info	poll/poll.go:42	start polling	{"internal": "1s"}
-2022-05-20T16:10:29.861-0600	info	poll/poll.go:66	poll confirmed	{"took": "1.002120951s"}
-added P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5 to subnet 24tZhrm8j8GCJRE9PomW8FaeqbgGS4UAQjJnqqn8pq5NwYSYV1 validator set (took 1.002120951s)
+2022-07-18T11:15:24.619+0200	info	client/p.go:299	adding subnet validator	{"subnetId": "2dwibTuU3YxvTe7Lc5X4PsmCeC5JiBr1PGJVpCm8T1nec7zUSx", "txFee": 1000000, "start": "2022-07-18T11:15:54.618+0200", "end": "2023-03-16T01:00:00.000+0100", "weight": 1000}
+2022-07-18T11:15:24.650+0200	info	platformvm/checker.go:48	polling P-Chain tx	{"txId": "22QGLfQh9o3baW56nr96pGPF977sXgkLYV15wp7j87YwTE1YdN", "expectedStatus": "Committed"}
+2022-07-18T11:15:24.650+0200	info	poll/poll.go:42	start polling	{"internal": "1s"}
+2022-07-18T11:15:25.652+0200	info	poll/poll.go:66	poll confirmed	{"took": "1.001411893s"}
+added Nj5C7NdpS3p8hZvu6b5HBREKi8hA1qbDD to subnet 2dwibTuU3YxvTe7Lc5X4PsmCeC5JiBr1PGJVpCm8T1nec7zUSx validator set (took 1.001411893s)
 
-waiting for validator P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5 to start validating 24tZhrm8j8GCJRE9PomW8FaeqbgGS4UAQjJnqqn8pq5NwYSYV1...(could take a few minutes)
+waiting for validator Nj5C7NdpS3p8hZvu6b5HBREKi8hA1qbDD to start validating 2dwibTuU3YxvTe7Lc5X4PsmCeC5JiBr1PGJVpCm8T1nec7zUSx...(could take a few minutes)
 *-------------------------*----------------------------------------------------*
-| PRIMARY P-CHAIN ADDRESS | P-custom18jma8ppw3nhx5r4ap8clazz0dps7rv5u9xde7p    |
+| PRIMARY P-CHAIN ADDRESS | P-columbus17pysyr6av4n2gf6teqv3kjd5ewdkmncwrhq6qk  |
 *-------------------------*----------------------------------------------------*
-| TOTAL P-CHAIN BALANCE   | 29,999,999.8990000 $AVAX                           |
+| TOTAL P-CHAIN BALANCE   | 2,499.8980000 $CAM                                 |
 *-------------------------*----------------------------------------------------*
-| URI                     | http://127.0.0.1:12913                             |
+| URI                     | http://127.0.0.1:9650                              |
 *-------------------------*----------------------------------------------------*
-| NETWORK NAME            | network-1337                                       |
+| NETWORK NAME            | columbus                                           |
 *-------------------------*----------------------------------------------------*
-| NODE IDs                | [P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5]                |
+| NODE IDs                | [Nj5C7NdpS3p8hZvu6b5HBREKi8hA1qbDD]                |
 *-------------------------*----------------------------------------------------*
-| SUBNET ID               | 24tZhrm8j8GCJRE9PomW8FaeqbgGS4UAQjJnqqn8pq5NwYSYV1 |
+| SUBNET ID               | 2dwibTuU3YxvTe7Lc5X4PsmCeC5JiBr1PGJVpCm8T1nec7zUSx |
 *-------------------------*----------------------------------------------------*
-| VALIDATE START          | 2022-05-20T16:10:58-06:00                          |
+| VALIDATE START          | 2022-07-18T11:15:54+02:00                          |
 *-------------------------*----------------------------------------------------*
-| VALIDATE END            | 2022-09-06T16:00:00-06:00                          |
+| VALIDATE END            | 2023-03-16T01:00:00+01:00                          |
 *-------------------------*----------------------------------------------------*
 | VALIDATE WEIGHT         | 1,000                                              |
 *-------------------------*----------------------------------------------------*
