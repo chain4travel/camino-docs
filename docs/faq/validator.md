@@ -7,7 +7,7 @@ description: Frequently asked questions about validation on the camino and colum
 
 ## Who can be an Camino validator?
 Any travel industry market participant who fulfills the following conditions can be a validator on the Camino Mainnet:
-- Have at least 200,000 Camino (CAM) tokens locked in their wallet
+- Have at least 100,000 Camino (CAM) tokens locked in their wallet
 - Is KYC / KYB verified
 - Has been admitted as a validator by the validator consortia via a vote
 The last condition is omitted for Validators who secure the network from the start. To secure the Columbus Testnet, one must only be a market participant in the travel industry.
