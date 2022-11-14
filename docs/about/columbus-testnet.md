@@ -43,7 +43,7 @@ As the tokens are provided for free we are sure you'll understand, that we have 
 
 ### But I need the tokens on the C-Chain
 
-When receiving tokens via the Discord bot they'll always be sent to the X-Address provided in the `/faucet` command. To transfer tokens between the X- and C-Chain just login into the [Camino Wallet](https://wallet.camino.foundation) and transfer the tokens with the `Cross Chain` function.
+When receiving tokens via the Discord bot they'll always be sent to the X-Address provided in the `/faucet` command. To transfer tokens between the X- and C-Chain, just login into the [Camino Wallet](https://wallet.camino.foundation) and transfer the tokens with the `Cross Chain` function.
 
 ## Running a RPC/HTTP node
 
@@ -51,12 +51,12 @@ To setup a node which acts as a RPC/HTTP node, simply follow the tutorial on [Ho
 
 ## Running a validator node
 
-We're always happy to welcome more partners, which also want to provide more network security by running validator nodes. At the moment the process of becoming a validator is Proof-Of-Stake based, therefore you'll need a minimum amount of `2000 CAM` on the P-Chain to register your node as a validator within the [wallet](https://wallet.camino.foundation). Please contact us in the support channel on the [Discord](https://discord.gg/K5THjAweFB) server to receive the tokens necessary to reach the minimum stake amount.
+We're always happy to welcome more partners who want to provide more network security by running validator nodes. At the moment the process of becoming a validator is Proof-Of-Stake based, therefore you'll need a minimum amount of `2000 CAM` on the P-Chain to register your node as a validator within the [wallet](https://wallet.camino.foundation). Please contact us in the support channel on the [Discord](https://discord.gg/K5THjAweFB) server to receive the tokens necessary to reach the minimum stake amount.
 
-Running a validator node is as simple as running a RPC/HTTP node. As a matter of fact all nodes can become validator nodes but we strongly recommend to not expose any API of a node which acts as a validator, except the staking API running on port `9651` used by the nodes to communicate with each other.
+Running a validator node is as simple as running a RPC/HTTP node. As a matter of fact all nodes can become validator nodes, but we strongly recommend not to expose any API of a node which acts as a validator, except for the staking API running on port `9651`, used by the nodes to communicate with each other.
 
 ## What next?
 
-That's it, you're now familiar with the Columbus testnet and can at any time start to develop on-chain or participate in the network! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
+That's it, you're now familiar with the Columbus testnet, and can at any time start to develop on-chain or participate in the network! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
 
 If you have any questions, or need help, feel free to contact us on our [Discord](https://discord.gg/K5THjAweFB) server.
