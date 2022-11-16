@@ -47,7 +47,7 @@ Look for line that doesn't have `grep` on it. In this example, that is the secon
 
 #### Node working files
 
-If you previously ran an Camino-Node node on this computer, you will have local node files stored in `$HOME/.caminogo` directory. Those files will not be disturbed, and node set up by the script will continue operation with the same identity and state it had before. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to.
+If you previously ran a Camino-Node node on this computer, you will have local node files stored in `$HOME/.caminogo` directory. Those files will not be disturbed, and node set up by the script will continue operation with the same identity and state it had before. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to.
 
 ### Networking considerations
 
@@ -297,7 +297,7 @@ This will delete the existing service file, and run the installer from scratch, 
 
 ## What next?
 
-That's it, you're running an Camino-Node node! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
+That's it, you're running a Camino-Node node! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 
