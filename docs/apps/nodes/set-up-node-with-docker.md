@@ -13,7 +13,7 @@ Camino is a lightweight protocol which let nodes run on commodity hardware. Note
 - CPU: Equivalent of 8 AWS vCPU
 - RAM: 16 GiB
 - Storage: 512 GiB
-- OS: Ubuntu 18.04/20.04 or MacOS &gt;= Catalina
+- OS: Ubuntu 18.04/20.04/22.04 or MacOS &gt;= Catalina
 
 The docker container assumes in the default configuration:
 

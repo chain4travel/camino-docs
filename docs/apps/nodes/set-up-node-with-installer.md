@@ -13,7 +13,7 @@ Camino is a lightweight protocol which let nodes run on commodity hardware. Note
 - CPU: Equivalent of 8 AWS vCPU
 - RAM: 16 GiB
 - Storage: 512 GiB
-- OS: Ubuntu 18.04/20.04 or MacOS &gt;= Catalina
+- OS: Ubuntu 18.04/20.04/22.04 or MacOS &gt;= Catalina
 
 This install script assumes:
 
@@ -72,7 +72,7 @@ To download and run the script, enter the following in the terminal:
 ```bash
 wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/camino-node-installer.sh;\
 chmod 755 camino-node-installer.sh;\
-./camino-node-installer.sh
+./camino-node-installer.sh ## if you run the node on testnet(columbus) please use ./camino-node-installer.sh --version v0.2.1-rc2
 ```
 
 And we're off! The output should look something like this:
@@ -129,6 +129,20 @@ Reach us over on https://discord.gg/K5THjAweFB if you're having problems.
 ```
 
 The script is finished, and you should see the system prompt again.
+
+## Running on Testnet (columbus)
+
+By default the generated configuration file doesn't have `network-id` option which means it will run on the mainnet (camino). To run the node on testnet, you need to edit the configuaration file located in `.caminogo/configs/node.json` and add `"network-id": "columbus"`. It should look like the following:
+
+```json
+{
+  "public-ip": "111.111.111.111",
+  "network-id": "columbus",
+  "http-host": ""
+}
+```
+You need to stop the node and start it again if you change the config file. [**Stopping the node**](#stopping-the-node)
+
 
 ## Post installation
 
