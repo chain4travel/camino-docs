@@ -12,7 +12,7 @@ In this tutorial, we’ll create a very simple VM. The blockchain defined by the
 
 Such a server is useful because it can be used to prove a piece of data existed at the time the block was created. Suppose you have a book manuscript, and you want to be able to prove in the future that the manuscript exists today. You can add a block to the blockchain where the block’s payload is a hash of your manuscript. In the future, you can prove that the manuscript existed today by showing that the block has the hash of your manuscript in its payload (this follows from the fact that finding the pre-image of a hash is impossible).
 
-A blockchain can run as a separate process from Camino-Node and can communicate with Camino-Node over gRPC. This is enabled by `rpcchainvm`, a special VM that uses [`go-plugin`](https://pkg.go.dev/github.com/hashicorp/go-plugin) and wraps another VM implementation. 
+A blockchain can run as a separate process from Camino-Node and can communicate with Camino-Node over gRPC. This is enabled by `rpcchainvm`, a special VM that uses [`go-plugin`](https://pkg.go.dev/github.com/hashicorp/go-plugin) and wraps another VM implementation.
 
 Before we get to the implementation of a VM, we’ll look at the interface that a VM must implement to be compatible with CaminoGo's consensus engine. We’ll show and explain all the code in snippets. If you want to see all the code in one place, see [this repository.](https://github.com/chain4travel/camino-timestampvm/)
 
