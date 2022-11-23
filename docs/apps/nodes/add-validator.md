@@ -12,14 +12,14 @@ Here is a step by step guide to set a running node as a Validator
 #### **Camino Mainnet**
 
 - Get the NODE-ID from a running camino node.
-- Have at least 100,000 Camino (CAM) tokens in their wallet on P-Chain balance to be staked
+- Have at least 100,000 Camino (CAM) tokens in your wallet on P-Chain balance to be staked
 - Is KYC / KYB verified
-- Has been admitted as a validator by the validator consortia via a vote The last condition is omitted for Validators who secure the network from the start.
+- Has been admitted as a validator by the validator consortium via a vote. The last condition is omitted for Validators who secure the network from the start.
 
 #### **Columbus Testnet**
 
 - Get the NODE-ID from a running camino node.
-- Have at least 2,000 Camino (CAM) tokens in their wallet on P-Chain balance to be staked
+- Have at least 2,000 Camino (CAM) tokens in your wallet on P-Chain balance to be staked
 - You can request CAM tokens on testnet by sending us your X-Address of your wallet via [Discord](https://discord.gg/K5THjAweFB) or Email
 
 

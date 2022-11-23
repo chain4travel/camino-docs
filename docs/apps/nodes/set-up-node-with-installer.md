@@ -13,7 +13,7 @@ Camino is a lightweight protocol which let nodes run on commodity hardware. Note
 - CPU: Equivalent of 8 AWS vCPU
 - RAM: 16 GiB
 - Storage: 512 GiB
-- OS: Ubuntu 18.04/20.04/22.04 or MacOS &gt;= Catalina
+- OS: Ubuntu 18.04/20.04/22.04
 
 This install script assumes:
 
@@ -47,7 +47,7 @@ Look for line that doesn't have `grep` on it. In this example, that is the secon
 
 #### Node working files
 
-If you previously ran a Camino-Node node on this computer, you will have local node files stored in `$HOME/.caminogo` directory. Those files will not be disturbed, and node set up by the script will continue operation with the same identity and state it had before. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to.
+If you previously ran a Camino-Node node on this computer, you will have the local node files stored in `$HOME/.caminogo` directory. Those files will not be disturbed and the node set up by the script will continue its operation with the same identity and state it had before. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to.
 
 ### Networking considerations
 

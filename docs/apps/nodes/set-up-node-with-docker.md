@@ -13,7 +13,7 @@ Camino is a lightweight protocol which let nodes run on commodity hardware. Note
 - CPU: Equivalent of 8 AWS vCPU
 - RAM: 16 GiB
 - Storage: 512 GiB
-- OS: Ubuntu 18.04/20.04/22.04 or MacOS &gt;= Catalina
+- OS: Ubuntu 18.04/20.04/22.04
 
 The docker container assumes in the default configuration:
 
@@ -126,7 +126,7 @@ Note that configuration file needs to be a properly formatted `JSON` file, so sw
 
 ## What next?
 
-That's it, you're running a Camino-Node node on docker! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
+That's it, you're running a Camino-Node node on docker! Congratulations! Share it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 
