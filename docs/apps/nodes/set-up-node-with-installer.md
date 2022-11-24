@@ -13,7 +13,7 @@ Camino is a lightweight protocol which let nodes run on commodity hardware. Note
 - CPU: Equivalent of 8 AWS vCPU
 - RAM: 16 GiB
 - Storage: 512 GiB
-- OS: Ubuntu 18.04/20.04 or MacOS &gt;= Catalina
+- OS: Ubuntu 18.04/20.04/22.04
 
 This install script assumes:
 
@@ -47,7 +47,7 @@ Look for line that doesn't have `grep` on it. In this example, that is the secon
 
 #### Node working files
 
-If you previously ran an Camino-Node node on this computer, you will have local node files stored in `$HOME/.caminogo` directory. Those files will not be disturbed, and node set up by the script will continue operation with the same identity and state it had before. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to.
+If you previously ran a Camino-Node node on this computer, you will have the local node files stored in `$HOME/.caminogo` directory. Those files will not be disturbed and the node set up by the script will continue its operation with the same identity and state it had before. That being said, for your node's security, back up `staker.crt` and `staker.key` files, found in `$HOME/.caminogo/staking` and store them somewhere secure. You can use those files to recreate your node on a different computer if you ever need to.
 
 ### Networking considerations
 
@@ -72,7 +72,7 @@ To download and run the script, enter the following in the terminal:
 ```bash
 wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/camino-node-installer.sh;\
 chmod 755 camino-node-installer.sh;\
-./camino-node-installer.sh
+./camino-node-installer.sh ## if you run the node on testnet(columbus) please use ./camino-node-installer.sh --version v0.2.1-rc2
 ```
 
 And we're off! The output should look something like this:
@@ -129,6 +129,20 @@ Reach us over on https://discord.gg/K5THjAweFB if you're having problems.
 ```
 
 The script is finished, and you should see the system prompt again.
+
+## Running on Testnet (columbus)
+
+By default the generated configuration file doesn't have `network-id` option which means it will run on the mainnet (camino). To run the node on testnet, you need to edit the configuaration file located in `.caminogo/configs/node.json` and add `"network-id": "columbus"`. It should look like the following:
+
+```json
+{
+  "public-ip": "111.111.111.111",
+  "network-id": "columbus",
+  "http-host": ""
+}
+```
+You need to stop the node and start it again if you change the config file. [**Stopping the node**](#stopping-the-node)
+
 
 ## Post installation
 
@@ -297,7 +311,7 @@ This will delete the existing service file, and run the installer from scratch, 
 
 ## What next?
 
-That's it, you're running an Camino-Node node! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
+That's it, you're running a Camino-Node node! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 
