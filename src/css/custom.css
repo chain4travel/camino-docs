@@ -16,6 +16,42 @@
   --ifm-code-font-size: 95%;
 }
 
+@font-face {
+  font-family: 'ClashDisplay-Variable';
+  src: url('../../static/fonts/ClashDisplay-Variable.woff2') format('woff2'),
+    url('../../static/fonts/ClashDisplay-Variable.woff') format('woff');
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('../../static/fonts/inter-v12-latin-regular.woff2') format('woff2'),
+    url('../../static/fonts/inter-v12-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+    url('../../static/fonts/inter-v12-latin-500.woff2') format('woff2'),
+    url('../../static/fonts/inter-v12-latin-500.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+    url('../../static/fonts/inter-v12-latin-700.woff2') format('woff2'),
+    url('../../static/fonts/inter-v12-latin-700.woff') format('woff');
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
@@ -32,7 +68,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .breadcrumbs__link {
-  font-family: 'Segoe UI', Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, 'Segoe UI Symbol', 'Segoe UI Emoji';
+  font-family: 'Inter', sans-serif;
 }
 
 html[data-theme='light'] .DocSearch {
