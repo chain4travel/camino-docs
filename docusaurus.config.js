@@ -71,15 +71,15 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discord.gg/K5THjAweFB',
+                href: 'https://discord.gg/camino',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/CaminoFndtn',
+                href: 'https://twitter.com/caminonetwork',
               },
               {
                 label: 'Telegram',
-                href: 'https://t.me/caminochain',
+                href: 'https://t.me/camino_network',
               },
               {
                 label: 'Medium',

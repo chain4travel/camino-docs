@@ -20,7 +20,7 @@ Here is a step by step guide to set a running node as a Validator
 
 - Get the NODE-ID from a running camino node.
 - Have at least 2,000 Camino (CAM) tokens in your wallet on P-Chain balance to be staked
-- You can request CAM tokens on testnet by sending us your X-Address of your wallet via [Discord](https://discord.gg/K5THjAweFB) or Email
+- You can request CAM tokens on testnet by sending us your X-Address of your wallet via [Discord](https://discord.gg/camino) or Email
 
 
 ## Transferring Tokens from X-Chain to P-Chain

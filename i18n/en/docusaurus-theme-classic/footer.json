@@ -9,11 +9,11 @@
   },
   "link.item.label.Discord": {
     "message": "Discord",
-    "description": "The label of footer link with label=Discord linking to https://discord.gg/K5THjAweFB"
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/camino"
   },
   "link.item.label.Twitter": {
     "message": "Twitter",
-    "description": "The label of footer link with label=Twitter linking to https://twitter.com/CaminoFndtn"
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/caminonetwork"
   },
   "link.item.label.Telegram": {
     "message": "Telegram",
