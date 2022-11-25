@@ -17,7 +17,7 @@
   },
   "link.item.label.Telegram": {
     "message": "Telegram",
-    "description": "The label of footer link with label=Telegram linking to https://t.me/caminofoundation"
+    "description": "The label of footer link with label=Telegram linking to https://t.me/camino_network"
   },
   "link.item.label.Medium": {
     "message": "Medium",
