@@ -49,4 +49,4 @@ No, your stake is locked for the pre-defined staking period. Your stake is autom
 
 ## Any further question not answered here?
 
-If you have any further questions, or need help, feel free to contact us on our [Discord](https://discord.gg/K5THjAweFB) server.
+If you have any further questions, or need help, feel free to contact us on our [Discord](https://discord.gg/camino) server.

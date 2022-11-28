@@ -126,7 +126,7 @@ Note that configuration file needs to be a properly formatted `JSON` file, so sw
 
 ## What next?
 
-That's it, you're running a Camino-Node node on docker! Congratulations! Share it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
+That's it, you're running a Camino-Node node on docker! Congratulations! Share it on our [Twitter](https://twitter.com/caminonetwork) or [Discord](https://discord.gg/camino)!
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 
@@ -134,4 +134,4 @@ Now you can [interact with your node](../../developer/apis/camino-node-apis/issu
 
 Finally, if you haven't already, it is a good idea to back up important files in case you ever need to restore your node to a different machine.
 
-If you have any questions, or need help, feel free to contact us on our [Discord](https://discord.gg/K5THjAweFB) server.
+If you have any questions, or need help, feel free to contact us on our [Discord](https://discord.gg/camino) server.
