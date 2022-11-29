@@ -4,9 +4,9 @@ sidebar_position: 4
 
 # Camino Native Token / CRC-20
 
-## What is an Camino Native Token?
+## What is a Camino Native Token?
 
-An Camino Native Token (CNT) is a fixed-cap or variable-cap token created on the X-Chain. These tokens can be exchanged at lightning fast speeds on the X-Chain, which takes advantage of the superior performance of a DAG over a linear chain. In this document, Camino Native Tokens do not include non-fungible tokens (NFTs) created on the X-Chain.
+A Camino Native Token (CNT) is a fixed-cap or variable-cap token created on the X-Chain. These tokens can be exchanged at lightning fast speeds on the X-Chain, which takes advantage of the superior performance of a DAG over a linear chain. In this document, Camino Native Tokens do not include non-fungible tokens (NFTs) created on the X-Chain.
 
 ## Why move an CNT from the X-Chain to the C-Chain?
 

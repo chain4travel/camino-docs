@@ -6,14 +6,50 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #e84142;
-  --ifm-color-primary-dark: #e52728;
-  --ifm-color-primary-darker: #e11b1c;
-  --ifm-color-primary-darkest: #b91617;
-  --ifm-color-primary-light: #eb5b5c;
-  --ifm-color-primary-lighter: #ed696a;
-  --ifm-color-primary-lightest: #f29091;
+  --ifm-color-primary: #4BA6EE;
+  --ifm-color-primary-dark: #0E6FA6;
+  --ifm-color-primary-darker: #0E6FA6;
+  --ifm-color-primary-darkest: #0E6FA6;
+  --ifm-color-primary-light: #5ABBF2;
+  --ifm-color-primary-lighter: #5ABBF2;
+  --ifm-color-primary-lightest: #5ABBF2;
   --ifm-code-font-size: 95%;
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Variable';
+  src: url('../../static/fonts/ClashDisplay-Variable.woff2') format('woff2'),
+    url('../../static/fonts/ClashDisplay-Variable.woff') format('woff');
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('../../static/fonts/inter-v12-latin-regular.woff2') format('woff2'),
+    url('../../static/fonts/inter-v12-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+    url('../../static/fonts/inter-v12-latin-500.woff2') format('woff2'),
+    url('../../static/fonts/inter-v12-latin-500.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+    url('../../static/fonts/inter-v12-latin-700.woff2') format('woff2'),
+    url('../../static/fonts/inter-v12-latin-700.woff') format('woff');
 }
 
 .docusaurus-highlight-code-line {
@@ -32,7 +68,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .breadcrumbs__link {
-  font-family: 'Segoe UI', Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, 'Segoe UI Symbol', 'Segoe UI Emoji';
+  font-family: 'Inter', sans-serif;
 }
 
 html[data-theme='light'] .DocSearch {
