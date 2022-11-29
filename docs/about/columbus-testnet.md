@@ -57,6 +57,6 @@ Running a validator node is as simple as running a RPC/HTTP node. As a matter of
 
 ## What next?
 
-That's it, you're now familiar with the Columbus testnet, and can at any time start to develop on-chain or participate in the network! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
+That's it, you're now familiar with the Columbus testnet, and can at any time start to develop on-chain or participate in the network! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/caminonetwork) or [Discord](https://discord.gg/camino)!
 
 If you have any questions, or need help, feel free to contact us on our [Discord](https://discord.gg/camino) server.
