@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# How to create a wallet from the beginning by using the wallet API
+# How to create a wallet from the beginning by using the wallet UI
 1. Follow this link: [Camino Wallet](https://wallet.camino.foundation/)
 
     **TIP:** The language can be changed in the upper right corner.
@@ -92,4 +92,4 @@ If you only use wallet, you have ability to see the C-chain Private Key.
 2. Save the string in a secure place on your device.
    ![image](/img/wallet/create_wallet14.png)
 
-**TIP:** Please, be aware of using it if you are going not to use only private key to log in later. Using the private key will enter the HD wallet, and you may not see correct balance on X and P-chain if you had used another authorizations previous times.
+**TIP:** Please, be aware of using it if you are going to use another ways to log in too. Using the private key will enter the derived wallet, and you may not see correct balance on X and P-chain if you had used another authorizations previous times.

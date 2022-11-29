@@ -129,7 +129,7 @@ const sidebars = {
         },
         {
           type: "category",
-          label: "How to log in to the wallet?",
+          label: "Wallet creation and how to log in",
           collapsible: true,
           collapsed: false,
           items: [
