@@ -16,7 +16,7 @@ To be verified, the user has to share an id document and pass a liveness check t
  1. Testnet Columbus: `0xcE2b8Ad41a4Cd4B3B718B4fAf2dad4351a015541`
  2. Mainnet Camino: `0x010000000000000000000000000000000000000a`
 
-> **_PLEASE NOTE:_**  No personal information will be saved to the Camino Blockchain or any other public ledger when using the Camino KYC verification.
+> No personal information will be saved to the Camino Blockchain or any other public ledger when using the Camino KYC verification.
 
 ## Who does the verification?
 
