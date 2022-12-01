@@ -37,17 +37,21 @@ Different ID documents may be used to verify a user, this includes the ID card, 
 ## KYC verification process
 
 1. The verification process starts by clicking the verification button on the left bottom of the Camino wallet
+ 
 ![Verify KYC](/img/kyc/verify-kyc.png)
 
 2. A modal from the KYC verification provider will appear that firstly asks for a phone number and email address. The phone number and email is used for any communication regarding the KYC process only.
+
 ![KYC Modal](/img/kyc/kyc-modal.png)
 
 3. In the next step of the verification process, the user is asked to select his nationality, the type of ID to be used for verifcation and to upload images of ID's back and front.
+
 ![id-types](/img/kyc/id-types.png)
 
 4. In the following steps, the id is checked for validity, integrity. The user is checked against AML databases.
 
 5. After verification, the update KYC status will be displayed in the wallet:
+
 ![KYC Verified](/img/kyc/kyc-verified.png)
 
 6. In case of a negative verification result, the user will be informed via the email address that was entered at the beginning of the verification process.
@@ -59,12 +63,3 @@ While being KYC-verified is not mandatory for individuals who want to use smart 
 Moreover, the verification of users in accordance with the provisions in the local jurisdiction will ensure everyone’s protection against unforeseen problems related to verification and compliance regulations, as well as provide safety from penalties for not meeting regulatory requirements.
 
 Eventually, the verified status will enable the user to exist in a self-sovereign identity system, allowing him to access services in a streamlined and secure manner, while also maintaining control over the information associated with their identity.
-
-
-
-
-
-
-
-
-
