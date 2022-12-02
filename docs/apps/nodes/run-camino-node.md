@@ -9,7 +9,7 @@ The quickest way to learn about Camino is to run a node and interact with the ne
 
 In this tutorial, we will:
 
-- Install and run an Camino node
+- Install and run a Camino node
 - Connect to Camino
 
 This tutorial is primarily geared toward developers and people interested in how the Camino Platform works. If you're just interested in setting up a node for staking, you may want to follow the [Camino Node Install Script](set-up-node-with-installer.md) tutorial instead. The installer automates the installation process and sets it up as a system service, which is recommended for unattended operation. You may also try things out by following this tutorial first, and then later set up the node using the installer as a permanent solution.
@@ -21,11 +21,11 @@ Camino is a lightweight protocol which let nodes run on commodity hardware. Note
 - CPU: Equivalent of 8 AWS vCPU
 - RAM: 16 GiB
 - Storage: 512 GiB
-- OS: Ubuntu 18.04/20.04 or MacOS &gt;= Catalina
+- OS: Ubuntu 18.04/20.04/22.04
 
-## Run an Camino Node and Send Funds
+## Run a Camino Node and Send Funds
 
-Let’s install Camino-Node, the Go implementation of an Camino node, and connect to the Camino Public Testnet (Columbus).
+Let’s install the Camino-Node, the Go implementation of a Camino node, and connect to the Camino Public Testnet (Columbus).
 
 ### Download Camino-Node
 
@@ -44,10 +44,10 @@ Run `go version`. **It should be 1.16.8 or above.** Run `echo $GOPATH`. **It sho
 Download the Camino-Node repository:
 
 ```sh
-git clone git@github.com:chain4travel/camino-node.git
+git clone https://github.com/chain4travel/camino-node.git
 ```
 
-Note: This checkouts to chain4travel branch. For the latest stable version, checkout to the latest tag.
+Note: This checkouts to chain4travel branch. For the latest stable version, checkout to the latest tag. The latest version that is compatible with testnet (columbus) is v0.2.1-rc2
 
 Change to the `camino-node` directory:
 
@@ -126,6 +126,8 @@ If you want to experiment and play with your node, read on.
 To be able to make API calls to your node from other machines, when starting up the node include argument `--http-host=` (e.g. `./build/camino-node --http-host=`)
 
 When the mainnet (Camino) goes live, you can either omit `--network-id=columbus` parameter, or pass `--network-id=camino` which is the name of our mainnet.
+
+Validators must know their public facing IP addresses so they can let other nodes know how to connect to them. So If your node will run as a validator, you need to use the `--public-ip` option. For more info check [public-ip flag](camino-node-config-flags.md#public-ip)
 
 ## What next?
 

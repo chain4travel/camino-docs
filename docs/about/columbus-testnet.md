@@ -25,7 +25,7 @@ As this network is only for testing purposes the tokens (CAM) needed to test can
 
 ### Columbus faucet Discord bot
 
-You'll need tokens (CAM) to start testing on Columbus. To request them please join our [Discord](https://discord.gg/K5THjAweFB) and use the `/faucet <X-Address> <Amount>` command.
+You'll need tokens (CAM) to start testing on Columbus. To request them please join our [Discord](https://discord.gg/camino) and use the `/faucet <X-Address> <Amount>` command.
 
 Requesting tokens from the `Camino` Discord bot is both limited in amount per request and per time. The current limits are provided with the help text Discord automatically displays when using the command.
 
@@ -39,7 +39,7 @@ Another way to create a new X-Address would be to directly use the [X-Chain JSON
 
 Don't panic!
 
-As the tokens are provided for free we are sure you'll understand, that we have to restrict the number of tokens a user can request in a specific time frame, to prevent that someone can run the faucet dry and claim a huge amount of tokens leaving everyone else without the chance to test properly. If you for some reason need more tokens, please contact us in the support channel on the [Discord](https://discord.gg/K5THjAweFB) server.
+As the tokens are provided for free we are sure you'll understand, that we have to restrict the number of tokens a user can request in a specific time frame, to prevent that someone can run the faucet dry and claim a huge amount of tokens leaving everyone else without the chance to test properly. If you for some reason need more tokens, please contact us in the support channel on the [Discord](https://discord.gg/camino) server.
 
 ### But I need the tokens on the C-Chain
 
@@ -51,12 +51,12 @@ To setup a node which acts as a RPC/HTTP node, simply follow the tutorial on [Ho
 
 ## Running a validator node
 
-We're always happy to welcome more partners who want to provide more network security by running validator nodes. At the moment the process of becoming a validator is Proof-Of-Stake based, therefore you'll need a minimum amount of `2000 CAM` on the P-Chain to register your node as a validator within the [wallet](https://wallet.camino.foundation). Please contact us in the support channel on the [Discord](https://discord.gg/K5THjAweFB) server to receive the tokens necessary to reach the minimum stake amount.
+We're always happy to welcome more partners who want to provide more network security by running validator nodes. At the moment the process of becoming a validator is Proof-Of-Stake based, therefore you'll need a minimum amount of `2000 CAM` on the P-Chain to register your node as a validator within the [wallet](https://wallet.camino.foundation). Please contact us in the support channel on the [Discord](https://discord.gg/camino) server to receive the tokens necessary to reach the minimum stake amount.
 
 Running a validator node is as simple as running a RPC/HTTP node. As a matter of fact all nodes can become validator nodes, but we strongly recommend not to expose any API of a node which acts as a validator, except for the staking API running on port `9651`, used by the nodes to communicate with each other.
 
 ## What next?
 
-That's it, you're now familiar with the Columbus testnet, and can at any time start to develop on-chain or participate in the network! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/CaminoFndtn) or [Discord](https://discord.gg/K5THjAweFB)!
+That's it, you're now familiar with the Columbus testnet, and can at any time start to develop on-chain or participate in the network! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/caminonetwork) or [Discord](https://discord.gg/camino)!
 
-If you have any questions, or need help, feel free to contact us on our [Discord](https://discord.gg/K5THjAweFB) server.
+If you have any questions, or need help, feel free to contact us on our [Discord](https://discord.gg/camino) server.

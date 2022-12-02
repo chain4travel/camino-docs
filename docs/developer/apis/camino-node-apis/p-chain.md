@@ -107,7 +107,7 @@ The validation period must be between 2 weeks and 1 year.
 
 There is a maximum total weight imposed on validators. This means that no validator will ever have more CAM staked and delegated to it than this value. This value will initially be set to `min(5 * amount staked, 3M CAM)`. The total value on a validator is 3 million CAM.
 
-Note that once you issue the transaction to add a node as a validator, there is no way to change the parameters. **You can’t remove stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, check out our [Developer FAQ](https://camino.foundation/developer-faq) or ask for help on [Discord.](https://discord.gg/K5THjAweFB)
+Note that once you issue the transaction to add a node as a validator, there is no way to change the parameters. **You can’t remove stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, check out our [Developer FAQ](https://camino.foundation/developer-faq) or ask for help on [Discord.](https://discord.gg/camino)
 
 **Signature**
 
@@ -533,6 +533,75 @@ curl -X POST --data '{
   "result": {
     "privateKey": "PrivateKey-Lf49kAJw3CbaL783vmbeAJvhscJqC7vi5yBYLxw2XfbzNS5RS"
   }
+}
+```
+
+### platform&#46;getAddressStateTx
+
+Get an unsigned AddressStateTx transaction.
+
+**Signature**
+
+```sh
+platform.getAddressStateTx({
+    from: []string,
+    changeAddr: string, //optional
+    address: string,
+    state: int,
+    remove: bool,
+    encoding: string // optional
+}) -> {
+    tx: string
+}
+```
+
+- `from` are the addresses that you want to use for this operation.
+- `changeAddr` is the address any change will be sent to. If omitted, UTXO's owner is not changed.
+- `address` is the address to change state for.
+- `state` is the to set or unset (see remove).
+- `remove` specifies if the state should be set or unset.
+- `encoding` is the encoding format to use. Can be either `cb58` or `hex`. Defaults to `hex`.
+
+**Possible values for `state`**
+
+```sh
+	AddressStateRoleAdmin    = 0
+	AddressStateRoleKyc      = 1
+
+	AddressStateKycVerified = 32
+	AddressStateKycExpired  = 33
+```
+
+:::info
+Only signers with `AddressStateRoleAdmin` state are allowed to grant / revoke new roles.  
+Only signers with `AddressStateRoleKyc` state are allowed to change KYC state flags
+:::
+
+**Example Call**
+
+```sh
+curl -X POST --data '{
+  "jsonrpc":"2.0",
+  "id"     : 1,
+  "method" :"platform.getAddressStateTx",
+  "params" :{
+      "from":["P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf"],
+      "address":"P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf",
+      "state": 1,
+      "remove": false
+  }
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
+```
+
+**Example Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "tx": "0x0000000003ea000000000000000000000000000000000000000000000000000000000000000000000001e379844de84a0dd7461e7d9a6b8a347caf691a788eb0fc9c395af7557cc7e1c800000007002386f26fb1bdc0000000000000000000000001000000012de7aa29c0408faa8e34b1d917fda37e9c6d23c600000001000000000000000000000000000000000000000000000000000000000000000000000000e379844de84a0dd7461e7d9a6b8a347caf691a788eb0fc9c395af7557cc7e1c800000005002386f26fc100000000000100000000000000002de7aa29c0408faa8e34b1d917fda37e9c6d23c60100ab1e887d"
+  },
+  "id": 1
 }
 ```
 
@@ -2113,6 +2182,81 @@ curl -X POST --data '{
       "NodeID-NFBbbJ4qCmNaCzeW7sxErhvWqvEQMnYcN"
     ]
   }
+}
+```
+
+### platform&#46;setAddressState
+
+Issues an AddressStateTx transaction which assigns state to an address
+
+**Signature**
+
+```sh
+platform.setAddressStateTx({
+    from: []string, //optional
+    changeAddr: string, //optional
+    username: string,
+    password: string
+
+
+    address: string,
+    state: int,
+    remove: bool,
+}) -> {
+    txID: string
+}
+```
+
+- `from` are the addresses that you want to use for this operation. If omitted, uses any of your addresses as needed.
+- `changeAddr` is the address any change will be sent to. If omitted, UTXO's owner is not changed.
+- `username` is the keystore user where `from` signing keys are fetched from.
+- `password` is `username`‘s password.
+- `address` is the address to change state for.
+- `state` is the to set or unset (see remove).
+- `remove` specifies if the state should be set or unset.
+
+**Possible values for `state`**
+
+```sh
+	AddressStateRoleAdmin    = uint8(0)
+	AddressStateRoleKyc      = uint8(1)
+
+	AddressStateKycVerified = 32
+	AddressStateKycExpired  = 33
+```
+
+:::info
+Only signers with `AddressStateRoleAdmin` state are allowed to grant / revoke new roles.  
+Only signers with `AddressStateRoleKyc` state are allowed to change KYC state flags
+:::
+
+**Example Call**
+
+```sh
+curl -X POST --data '{
+  "jsonrpc":"2.0",
+  "id"     : 1,
+  "method" :"platform.setAddressState",
+  "params" :{
+      "from":["P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf"],
+      "username":"myUsername",
+      "password":"myPassword"
+      "address":"P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf",
+      "state": 1,
+      "remove": false
+  }
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
+```
+
+**Example Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "txID": "2Kz69TNBSeABuaVjKa6ZJCTLobbe5xo9c5eU8QwdUSvPo2dBk3"
+  },
+  "id": 1
 }
 ```
 
