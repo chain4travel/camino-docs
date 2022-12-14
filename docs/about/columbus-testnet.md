@@ -9,7 +9,7 @@ The Columbus testnet is a full-fledged ready-to-use platform to both learn how t
 
 ## What to expect
 
-The Columbus testnet is undergoing constant improvement and despite the fact that the development is always striving to have a working network at all time it's highly unlikely but in extreme cases it can happen that the testnet must be build up from scratch. So please be aware of the fact that everything on the testnet can be reset at any given time and no productive environment is dependent on the state of the network.
+The Columbus testnet is undergoing constant improvement and despite the fact that the development is always striving to have a working network at all time it's highly unlikely but in extreme cases it can happen that the testnet must be built up from scratch. So please be aware of the fact that everything on the testnet can be reset at any given time and no productive environment is dependent on the state of the network.
 
 ## On-Chain Development
 
