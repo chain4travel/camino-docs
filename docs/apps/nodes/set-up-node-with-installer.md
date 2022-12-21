@@ -141,8 +141,8 @@ By default the generated configuration file doesn't have `network-id` option whi
   "http-host": ""
 }
 ```
-You need to stop the node and start it again if you change the config file. [**Stopping the node**](#stopping-the-node)
 
+You need to stop the node and start it again if you change the config file. [**Stopping the node**](#stopping-the-node)
 
 ## Post installation
 
