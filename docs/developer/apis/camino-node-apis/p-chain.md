@@ -565,16 +565,21 @@ platform.getAddressStateTx({
 **Possible values for `state`**
 
 ```sh
-	AddressStateRoleAdmin    = 0
-	AddressStateRoleKyc      = 1
+	AddressStateRoleAdmin     = uint8(0)
+	AddressStateRoleKyc       = uint8(1)
+	AddressStateRoleValidator = uint8(2)
 
-	AddressStateKycVerified = 32
-	AddressStateKycExpired  = 33
+	AddressStateKycVerified   = uint8(32)
+	AddressStateKycExpired    = uint8(33)
+	AddressStateConsortium    = uint8(34)
+
+	AddressStateValidator     = uint8(38)
 ```
 
 :::info
 Only signers with `AddressStateRoleAdmin` state are allowed to grant / revoke new roles.  
 Only signers with `AddressStateRoleKyc` state are allowed to change KYC state flags
+Only signers with `AddressStateRoleValidator` state are allowed to change Validator state flags
 :::
 
 **Example Call**
@@ -2218,16 +2223,21 @@ platform.setAddressStateTx({
 **Possible values for `state`**
 
 ```sh
-	AddressStateRoleAdmin    = uint8(0)
-	AddressStateRoleKyc      = uint8(1)
+	AddressStateRoleAdmin     = uint8(0)
+	AddressStateRoleKyc       = uint8(1)
+	AddressStateRoleValidator = uint8(2)
 
-	AddressStateKycVerified = 32
-	AddressStateKycExpired  = 33
+	AddressStateKycVerified   = uint8(32)
+	AddressStateKycExpired    = uint8(33)
+	AddressStateConsortium    = uint8(34)
+
+	AddressStateValidator     = uint8(38)
 ```
 
 :::info
 Only signers with `AddressStateRoleAdmin` state are allowed to grant / revoke new roles.  
 Only signers with `AddressStateRoleKyc` state are allowed to change KYC state flags
+Only signers with `AddressStateRoleValidator` state are allowed to change Validator state flags
 :::
 
 **Example Call**
