@@ -578,8 +578,8 @@ platform.getAddressStateTx({
 
 :::info
 Only signers with `AddressStateRoleAdmin` state are allowed to grant / revoke new roles.  
-Only signers with `AddressStateRoleKyc` state are allowed to change KYC state flags
-Only signers with `AddressStateRoleValidator` state are allowed to change Validator state flags
+Only signers with `AddressStateRoleKyc` state are allowed to change KYC state flags.  
+Only signers with `AddressStateRoleValidator` state are allowed to change Validator state flags.
 :::
 
 **Example Call**
@@ -2236,8 +2236,8 @@ platform.setAddressStateTx({
 
 :::info
 Only signers with `AddressStateRoleAdmin` state are allowed to grant / revoke new roles.  
-Only signers with `AddressStateRoleKyc` state are allowed to change KYC state flags
-Only signers with `AddressStateRoleValidator` state are allowed to change Validator state flags
+Only signers with `AddressStateRoleKyc` state are allowed to change KYC state flags.  
+Only signers with `AddressStateRoleValidator` state are allowed to change Validator state flags.
 :::
 
 **Example Call**
