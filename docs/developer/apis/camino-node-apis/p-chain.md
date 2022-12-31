@@ -573,7 +573,7 @@ platform.getAddressStateTx({
 	AddressStateKycExpired    = uint8(33)
 	AddressStateConsortium    = uint8(34)
 
-	AddressStateValidator     = uint8(38)
+	AddressStateRegisterNode  = uint8(38)
 ```
 
 :::info
@@ -2231,7 +2231,7 @@ platform.setAddressStateTx({
 	AddressStateKycExpired    = uint8(33)
 	AddressStateConsortium    = uint8(34)
 
-	AddressStateValidator     = uint8(38)
+	AddressStateRegisterNode  = uint8(38)
 ```
 
 :::info
@@ -2250,7 +2250,7 @@ curl -X POST --data '{
   "params" :{
       "from":["P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf"],
       "username":"myUsername",
-      "password":"myPassword"
+      "password":"myPassword",
       "address":"P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf",
       "state": 1,
       "remove": false
