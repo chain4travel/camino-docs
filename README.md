@@ -12,16 +12,17 @@ The website is built using [Docusaurus 2](https://docusaurus.io/).
 
 ## Contributing
 
-Contributing to the docs site is a great way to get involved with the Camino dev community! Here's some things you need to know to get started.
+Contributing to the docs site is a great way to get involved with the Camino dev community! Here are some things you need to know to get started.
 
 ### Contents
 * All the docs are located in the [docs](docs) directory.
-* The left side-bar of the page is controlled by [sidebars.js](sidebars.js).
+* The left sidebar of the page is controlled by [sidebars.js](sidebars.js).
 * Extensive docs for Docusaurus can be found [here](https://docusaurus.io/docs).
 
 ### Pull Request (PR)
-* All PRs should be made against the `master` branch.
-* Once your PR is merged into `master`, [docs](https://docs.camino.foundation/) will be updated with your changes.
+* All PRs should be made against the `dev` branch.
+* Once your PR is merged into `dev`, [docs (testing)](https://playground.docs.camino.foundation/) will be updated with your changes.
+* After review from our staff, we merge `dev` regularly into `main`. Then it's updated on the [production site](https://docs.camino.foundation/).
 
 ### Installation
 
