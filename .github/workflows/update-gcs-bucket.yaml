@@ -31,7 +31,7 @@ jobs:
           if [[ "${{ github.ref_name }}" == "main" ]]; then
               echo "bucket=docs.camino.network" >> $GITHUB_OUTPUT
           elif [[ "${{ github.ref_name }}" == "dev" ]]; then
-              echo "bucket=playground.docs.camino.network" >> $GITHUB_OUTPUT
+              echo "bucket=dev.docs.camino.network" >> $GITHUB_OUTPUT
           fi
 
       - name: 'gcloud authentication'
@@ -44,4 +44,4 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v1'
 
       - name: update bucket files
-        run: gsutil rsync -R -d dist gs://${{ steps.setBucketNames.outputs.bucket }}
+        run: gsutil rsync -R -d build gs://${{ steps.setBucketNames.outputs.bucket }}
