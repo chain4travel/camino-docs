@@ -1,0 +1,47 @@
+name: update-gcs-bucket
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+        - main
+        - dev
+
+env:
+  node_version: 16
+
+jobs:
+  BuildAndDeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
+          
+      - name: install yarn dependencies        
+        run: yarn install
+
+      - name: build
+        run: yarn build
+
+      - name: set bucket names
+        id: setBucketNames
+        run: |
+          if [[ "${{ github.ref_name }}" == "main" ]]; then
+              echo "bucket=docs.camino.network" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref_name }}" == "dev" ]]; then
+              echo "bucket=playground.docs.camino.network" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 'gcloud authentication'
+        id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+
+      - name: update bucket files
+        run: gsutil rsync -R -d dist gs://${{ steps.setBucketNames.outputs.bucket }}
