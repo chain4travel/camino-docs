@@ -150,7 +150,7 @@ Please keep in mind that Camino has fixed `stakeAmount` for validators.<br/>
 **mainnet**: `100000000000000` nCAM (100k CAM)
 :::
 
-:::caution YOU NEED REGISTER YOUR NODE
+:::caution YOU NEED TO REGISTER YOUR NODE
 `platform.addValidator` method will fail if you did not register your node with your wallet address. Please see [platform.registerNode](#platformregisternode)
 :::
 
