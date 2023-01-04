@@ -18,7 +18,7 @@ This API uses the `json 2.0` RPC format.
 
 ## Methods
 
-### platform&#46;addDelegator
+### platform.addDelegator
 
 Add a delegator to the Primary Network.
 
@@ -97,7 +97,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;addValidator
+### platform.addValidator
 
 Add a validator to the Primary Network. You must stake CAM to do this. If the node is sufficiently correct and responsive while validating, you receive a reward when end of staking period is reached. The validator’s probability of being sampled by other validators during consensus is in proportion to the amount of CAM staked.
 
@@ -107,7 +107,7 @@ The validation period must be between 2 weeks and 1 year.
 
 There is a maximum total weight imposed on validators. This means that no validator will ever have more CAM staked and delegated to it than this value. This value will initially be set to `min(5 * amount staked, 3M CAM)`. The total value on a validator is 3 million CAM.
 
-Note that once you issue the transaction to add a node as a validator, there is no way to change the parameters. **You can’t remove stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, check out our [Developer FAQ](https://camino.foundation/developer-faq) or ask for help on [Discord.](https://discord.gg/camino)
+Note that once you issue the transaction to add a node as a validator, there is no way to change the parameters. **You can’t remove stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, ask for help on [Discord.](https://discord.gg/camino)
 
 **Signature**
 
@@ -143,6 +143,16 @@ platform.addValidator(
 - `username` is the user that pays the transaction fee.
 - `password` is `username`‘s password.
 - `txID` is the transaction ID
+
+:::info Stake Amount is Fixed
+Please keep in mind that Camino has fixed `stakeAmount` for validators.<br/>
+**testnet**: `2000000000000` nCAM (2000 CAM)<br/>
+**mainnet**: `100000000000000` nCAM (100k CAM)
+:::
+
+:::caution YOU NEED REGISTER YOUR NODE
+`platform.addValidator` method will fail if you did not register your node with your wallet address. Please see [platform.registerNode](#platformregisternode)
+:::
 
 **Example Call**
 
@@ -181,7 +191,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;addSubnetValidator
+### platform.addSubnetValidator
 
 Add a validator to a subnet other than the Primary Network. The Validator must validate the Primary Network for the entire duration they validate this subnet.
 
@@ -252,7 +262,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;createAddress
+### platform.createAddress
 
 Create a new address controlled by the given user.
 
@@ -291,7 +301,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;createBlockchain
+### platform.createBlockchain
 
 Create a new blockchain. Currently only supports the creation of new instances of the AVM and the Timestamp VM.
 
@@ -364,7 +374,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;createSubnet
+### platform.createSubnet
 
 Create a new subnet.
 
@@ -428,7 +438,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;exportAVAX
+### platform.exportAVAX
 
 Send CAM from an address on the P-Chain to an address on the X-Chain. After issuing this transaction, you must call the X-Chain’s [`avm.import`](x-chain.mdx#avmimport) method with assetID `CAM` to complete the transfer.
 
@@ -490,7 +500,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;exportKey
+### platform.exportKey
 
 Get the private key that controls a given address.  
 The returned private key can be added to a user with [`platform.importKey`](p-chain.md#platformimportkey).
@@ -536,7 +546,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getAddressStateTx
+### platform.getAddressStateTx
 
 Get an unsigned AddressStateTx transaction.
 
@@ -610,7 +620,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getBalance
+### platform.getBalance
 
 Get the balance of CAM controlled by a given address.
 
@@ -676,7 +686,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getBlock
+### platform.getBlock
 
 Get a block by its ID.
 
@@ -838,7 +848,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getBlockchains
+### platform.getBlockchains
 
 Get all the blockchains that exist (excluding the P-Chain).
 
@@ -904,7 +914,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getBlockchainStatus
+### platform.getBlockchainStatus
 
 Get the status of a blockchain.
 
@@ -951,7 +961,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getCurrentSupply
+### platform.getCurrentSupply
 
 Returns an upper bound on the number of CAM that exist. This is an upper bound because it does not account for burnt tokens, including transaction fees.
 
@@ -988,7 +998,7 @@ curl -X POST --data '{
 
 The response in this example indicates that CAM’s supply is at most 365.865 million.
 
-### platform&#46;getCurrentValidators
+### platform.getCurrentValidators
 
 List the current validators of the given Subnet.
 
@@ -1113,7 +1123,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getHeight
+### platform.getHeight
 
 Returns the height of the last accepted block.
 
@@ -1149,7 +1159,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getMaxStakeAmount
+### platform.getMaxStakeAmount
 
 Returns the maximum amount of nCAM staking to the named node during a particular time period.
 
@@ -1202,7 +1212,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getMinStake
+### platform.getMinStake
 
 Get the minimum amount of CAM required to validate the Primary Network and the minimum amount of CAM that can be delegated.
 
@@ -1239,7 +1249,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getPendingValidators
+### platform.getPendingValidators
 
 List the validators in the pending validator set of the specified Subnet. Each validator is not currently validating the Subnet but will in the future.
 
@@ -1329,7 +1339,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getRewardUTXOs
+### platform.getRewardUTXOs
 
 Returns the UTXOs that were rewarded after the provided transaction's staking or delegation period ended.
 
@@ -1381,7 +1391,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getStakingAssetID
+### platform.getStakingAssetID
 
 Retrieve an assetID for a subnet’s staking asset. Currently, this only returns the Primary Network’s staking assetID.
 
@@ -1423,7 +1433,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getSubnets
+### platform.getSubnets
 
 Get info about the Subnets.
 
@@ -1478,7 +1488,7 @@ curl -X POST --data '{
 }'
 ```
 
-### platform&#46;getStake
+### platform.getStake
 
 Get the amount of nCAM staked by a set of addresses. The amount returned does not include staking rewards.
 
@@ -1517,7 +1527,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getTimestamp
+### platform.getTimestamp
 
 Get the current P-Chain timestamp.
 
@@ -1551,7 +1561,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getTotalStake
+### platform.getTotalStake
 
 Get the total amount of nCAM staked on the Primary Network.
 
@@ -1585,7 +1595,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getTx
+### platform.getTx
 
 Gets a transaction by its ID.
 
@@ -1704,7 +1714,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getTxStatus
+### platform.getTxStatus
 
 Gets a transaction’s status by its ID. If the transaction was dropped, response will include a `reason` field with more information why the transaction was dropped.
 
@@ -1748,7 +1758,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getUTXOs
+### platform.getUTXOs
 
 Gets the UTXOs that reference a given set of addresses.
 
@@ -1906,7 +1916,7 @@ This gives response:
 }
 ```
 
-### platform&#46;getValidatorsAt
+### platform.getValidatorsAt
 
 Get the validators and their weights of a subnet or the Primary Network at a given P-Chain height.
 
@@ -1955,7 +1965,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;importAVAX
+### platform.importAVAX
 
 Complete a transfer of CAM from the X-Chain to the P-Chain.
 
@@ -2015,7 +2025,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;importKey
+### platform.importKey
 
 Give a user control over an address by providing the private key that controls the address.
 
@@ -2058,7 +2068,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;issueTx
+### platform.issueTx
 
 Issue a transaction to the Platform Chain.
 
@@ -2101,7 +2111,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;listAddresses
+### platform.listAddresses
 
 List addresses controlled by the given user.
 
@@ -2140,7 +2150,72 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;sampleValidators
+### platform.registerNode
+
+Register a node with the consortium member address. So it can be used in other methods. (ex: [platform.addValidator](#platformaddvalidator)) 
+
+**Signature**
+
+```sh
+platform.registerNode(
+    {
+        oldNodeID: string,
+        newNodeID: string,
+        consortiumMemberAddress: string,
+        username: string,
+        password: string    
+    }
+) ->
+{
+    txID: string,
+    changeAddr: string
+}
+```
+
+- `oldNodeID` is node ID to change from `oldNodeID` to `newNodeID`. If there is none, same node ID can be provided as the new one.
+- `newNodeID` is the node ID to be resgistered with the address. 
+- `consortiumMemberAddress` is the address of consortium member.
+- `username` is the user name from keystore of the `camino-node`.
+- `password` is the password of the user in the keystore.
+
+:::info ONLY ONE NODE PER CONSORTIUM MEMBER
+Please note that one Consortium Member (address) can be registered with **one and only one** `NodeID`.
+:::
+
+:::caution YOU NEED TO ADD PRIVATE KEYS
+Please keep in mind that you need to import **private keys** of `consortiumMemberAddress` and `newNodeID` to your API node's keystore. Please see: [platform.importKey](#platformimportkey)
+:::
+
+**Example Call**
+
+```sh
+curl -X POST --data '{
+    "jsonrpc": "2.0",
+    "method": "platform.registerNode",
+    "params": {
+        "oldNodeID": "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
+        "newNodeID": "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
+        "consortiumMemberAddress": "P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68",
+        "username": "username",
+        "password": "passw0rd"
+    },
+    "id": 1
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
+```
+
+**Example Response**
+```json
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "txID": "krj1ix5PEeHmd2C7son7uTDGMTr4DGFfCdzMdCbZfUstT3Fk2",
+        "changeAddr": "P-kopernikus1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv3qzan"
+    },
+    "id": 1
+}
+```
+
+### platform.sampleValidators
 
 Sample validators from the specified Subnet.
 
@@ -2190,7 +2265,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;setAddressState
+### platform.setAddressState
 
 Issues an AddressStateTx transaction which assigns state to an address
 
@@ -2270,7 +2345,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;validatedBy
+### platform.validatedBy
 
 Get the Subnet that validates a given blockchain.
 
@@ -2312,7 +2387,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;validates
+### platform.validates
 
 Get the IDs of the blockchains a Subnet validates.
 
