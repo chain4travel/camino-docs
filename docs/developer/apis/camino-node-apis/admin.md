@@ -4,7 +4,13 @@ sidebar_position: 6
 
 # Admin API
 
-This API can be used for measuring node health and debugging. Note that the Admin API is disabled by default for security reasons. To run a node with the Admin API enabled, use [config flag](/apps/nodes/camino-node-config-flags.md) `--api-admin-enabled=true`.
+This API can be used for measuring node health and debugging.
+
+:::info DISABLED BY DEFAULT
+
+Note that the Admin API is disabled by default for security reasons. To run a node with the Admin API enabled, use [config flag](/apps/nodes/camino-node-config-flags.md) **`--api-admin-enabled=true`**
+
+:::
 
 ## Format
 
@@ -18,7 +24,7 @@ This API uses the `json 2.0` RPC format. For details, see [here](issuing-api-cal
 
 ## API Methods
 
-### admin&#46;alias
+### admin.alias
 
 Assign an API endpoint an alias, a different endpoint for the API. The original endpoint will still work. This change only affects this node; other nodes will not know about this alias.
 
@@ -60,7 +66,7 @@ curl -X POST --data '{
 
 Now, calls to the X-Chain can be made to either `/ext/bc/X` or, equivalently, to `/ext/myAlias`.
 
-### admin&#46;aliasChain
+### admin.aliasChain
 
 Give a blockchain an alias, a different name that can be used any place the blockchain’s ID is used.
 
@@ -106,7 +112,7 @@ curl -X POST --data '{
 
 Now, instead of interacting with the blockchain whose ID is `sV6o671RtkGBcno1FiaDbVcFv2sG5aVXMZYzKdP4VQAWmJQnM` by making API calls to `/ext/bc/sV6o671RtkGBcno1FiaDbVcFv2sG5aVXMZYzKdP4VQAWmJQnM`, one can also make calls to `ext/bc/myBlockchainAlias`.
 
-### admin&#46;getChainAliases
+### admin.getChainAliases
 
 Returns the aliases of the chain
 
@@ -151,7 +157,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin&#46;getLoggerLevel
+### admin.getLoggerLevel
 
 Returns log and display levels of loggers.
 
@@ -204,16 +210,54 @@ curl -X POST --data '{
 }
 ```
 
-### admin&#46;loadVMs
+### admin.getNodeSigner
+
+Returns node's private & public key
+
+**Signature**
+
+```text
+admin.getNodeSigner() -> {
+        privateKey: string,
+        publicKey: string
+    }
+```
+
+**Example Call**
+
+```sh
+curl -X POST --data '{
+    "jsonrpc":"2.0",
+    "id"     :1,
+    "method" :"admin.getNodeSigner",
+    "params": {
+    }
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
+```
+
+**Example Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "privateKey": "PrivateKey-2ZW6HUePBW2dP7dBGa5stjXe1uvK9LwEgrjebDwXEyL5bDMWWS",
+    "publicKey": "D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ"
+  },
+  "id": 1
+}
+```
+
+### admin.loadVMs
 
 Dynamically loads any virtual machines installed on the node as plugins.
 
 **Signature**
 
-```sh
+```text
 admin.loadVMs() -> {
-    newVMs: map[string][]string
-    failedVMs: map[string]string,
+    newVMs: map[string][]string,
+    failedVMs: map[string]string
 }
 ```
 
@@ -247,7 +291,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin&#46;lockProfile
+### admin.lockProfile
 
 Writes a profile of mutex statistics to `lock.profile`.
 
@@ -280,7 +324,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin&#46;memoryProfile
+### admin.memoryProfile
 
 Writes a memory profile of the to `mem.profile`.
 
@@ -313,7 +357,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin&#46;setLoggerLevel
+### admin.setLoggerLevel
 
 Sets log and display levels of loggers.
 
@@ -362,7 +406,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin&#46;startCPUProfiler
+### admin.startCPUProfiler
 
 Start profiling the CPU utilization of the node. To stop, call `admin.stopCPUProfiler`. On stop, writes the profile to `cpu.profile`.
 
@@ -395,7 +439,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin&#46;stopCPUProfiler
+### admin.stopCPUProfiler
 
 Stop the CPU profile that was previously started.
 
