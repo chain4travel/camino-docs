@@ -10,11 +10,11 @@ as a validator.
 
 :::info Assumptions
 
-This guide assumes you have a running `camino-node` on your local machine that you run the given commands on. 
+This guide assumes you have a running `camino-node` on your local machine that you run the given commands on.
 
 | CAMINO-NODE IP |  PORT  |
-|  :-----------: | :----: |
-| `127.0.0.1`    | `9650` |
+| :------------: | :----: |
+|  `127.0.0.1`   | `9650` |
 
 This machine may also be located on the cloud or on a remote server. In that situation, you need to login to that
 machine with SSH and run the commands from the shell.
@@ -23,8 +23,8 @@ machine with SSH and run the commands from the shell.
 
 ## Requirements
 
-There are a few requirements you have to satisfy before you can start the process of adding a validator node. 
-Below is a list of these requirements for Camino Mainnet (`mainnet`) and Camino Testnet (`columbus`). 
+There are a few requirements you have to satisfy before you can start the process of adding a validator node.
+Below is a list of these requirements for Camino Mainnet (`mainnet`) and Camino Testnet (`columbus`).
 
 If you got stuck or have any questions about any of the steps, feel free to ask us at our [Discord](https://discord.gg/camino) server.
 
@@ -33,6 +33,7 @@ You will find instructions about how to get these information with querying your
 ### Requirements: **Camino Mainnet**
 
 You will need:
+
 - **NodeID** of your node. <br/>
   Note that this actually an address, just like a reqular wallet address.
 - **PrivateKey** of your node. <br/>
@@ -66,6 +67,7 @@ You will need:
 :::note PRE-SALE PARTICIPANTS
 
 Pre-sale participants may already be marked as Consortium Member on the `mainnet` and `testnet`. But you may need to do KYC/KYB process.
+
 <!-- TODO: Find a way to query the network to if a given address is a member & kyc verified -->
 
 :::
@@ -81,7 +83,7 @@ just use it. If you didn't, we can request that information from the `camino-nod
 curl -s -X POST --data '{
     "jsonrpc":"2.0",
     "id"     :1,
-    "method" :"info.getNodeID" 
+    "method" :"info.getNodeID"
 }' -H 'content-type:application/json;' http://127.0.0.1:9650/ext/info
 ```
 
@@ -91,12 +93,12 @@ curl -s -X POST --data '{
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {
-        "nodeID": "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
-        "nodePOP": {}
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {
+    "nodeID": "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
+    "nodePOP": {}
+  },
+  "id": 1
 }
 ```
 
@@ -128,16 +130,16 @@ curl -s -X POST --data '{
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {
-        "privateKey": "PrivateKey-2ZW6HUePBW2dP7dBGa5stjXe1uvK9LwEgrjebDwXEyL5bDMWWS",
-        "publicKey": "D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ"
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {
+    "privateKey": "PrivateKey-2ZW6HUePBW2dP7dBGa5stjXe1uvK9LwEgrjebDwXEyL5bDMWWS",
+    "publicKey": "D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ"
+  },
+  "id": 1
 }
 ```
 
-In this example your **Node**'s **PrivateKey** is `PrivateKey-2ZW6HUePBW2dP7dBGa5stjXe1uvK9LwEgrjebDwXEyL5bDMWWS`. 
+In this example your **Node**'s **PrivateKey** is `PrivateKey-2ZW6HUePBW2dP7dBGa5stjXe1uvK9LwEgrjebDwXEyL5bDMWWS`.
 
 And you can also see your public key (your node's address, also known as `NodeID`)
 
@@ -151,11 +153,11 @@ For this you can use [Camino Wallet](https://wallet.camino.network) and click on
 
 ### Wallet Address & Private Key
 
-This you probably already have. When you created your wallet on [Camino Wallet](https://wallet.camino.network) it prompts you to write down your key phrase. 
+This you probably already have. When you created your wallet on [Camino Wallet](https://wallet.camino.network) it prompts you to write down your key phrase.
 
-Using this key phrase you can recover your wallet and also extract your private key. 
+Using this key phrase you can recover your wallet and also extract your private key.
 
-Login to your wallet. From the left panel click **Manage Keys**. Under **My Keys** you will see your wallet address. 
+Login to your wallet. From the left panel click **Manage Keys**. Under **My Keys** you will see your wallet address.
 Right side of your address there will be button named **Export Keys**.
 
 :::caution ON-GOING DEVELOPMENT
@@ -172,7 +174,7 @@ This part is under development. Until then, please ask at [Discord](https://disc
 
 ### Consortium Member
 
-If you participated to the pre-sale and provided a wallet address, you are probably already a **Consortium Member**. 
+If you participated to the pre-sale and provided a wallet address, you are probably already a **Consortium Member**.
 
 If you are not or you want to be added as one for Camino Testnet `columbus`, please get in touch with us through [Discord](https://discord.gg/camino).
 
@@ -182,7 +184,7 @@ KYC/KYB process is in the development stage. Documentation will be updated, chec
 
 :::tip KYC/KYB Process & Privacy
 
-Please note that KYC/KYB process **is not going** to expose your private information on the blockchain. 
+Please note that KYC/KYB process **is not going** to expose your private information on the blockchain.
 Process is finalized off-chain and your wallet address is only marked as "kyc-verified" on the blockchain.
 
 No private information is saved on the network.
@@ -192,14 +194,14 @@ No private information is saved on the network.
 ## Becoming a Validator
 
 Until now, you should have all the requirements & information to become a Validator. Now we need to commit these information to the blockchain.
-To do that, we need to follow some steps. 
+To do that, we need to follow some steps.
 
 Below is a summary of the steps we will follow. They will be explained with examples through the document.
 
-1. **Create user** on our node's *keystore* 
-2. **Import** our wallet and node's private key 
-3. **Register our node** with our wallet address 
-4. **Add** our node **as a validator** 
+1. **Create user** on our node's _keystore_
+2. **Import** our wallet and node's private key
+3. **Register our node** with our wallet address
+4. **Add** our node **as a validator**
 5. **Check the status** of the validator
 
 Now let's see how we can do these steps with `cURL` API requests.
@@ -213,7 +215,7 @@ Users are stored in our node's **keystore**.
 For validation and delegation on the mainnet, you should issue transactions through [the wallet](https://wallet.camino.network).
 That way private keys for your funds won't be stored on your node, which significantly lowers the risk, should a computer running a node be compromised.
 
-:::note 
+:::note
 
 If you already have a user, that you have created before, you can skip this step.
 
@@ -239,15 +241,16 @@ curl -s -X POST --data '{
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "error": {
-        "code": -32000,
-        "message": "password is too weak",
-        "data": null
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "error": {
+    "code": -32000,
+    "message": "password is too weak",
+    "data": null
+  },
+  "id": 1
 }
 ```
+
 :::
 
 As you can see, the password we provided is too weak to be acceptable. We need to provide a stronger password:
@@ -265,7 +268,8 @@ curl -s -X POST --data '{
     }
 }' -H 'content-type:application/json;' http://127.0.0.1:9650/ext/keystore
 ```
-* Please don't use the password you see here. :)
+
+- Please don't use the password you see here. :)
 
 :::
 
@@ -273,12 +277,13 @@ curl -s -X POST --data '{
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {},
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {},
+  "id": 1
 }
 ```
-* Now we have a successful response. Keep your password in a safe place. Ideally, use a password manager that does encryption.
+
+- Now we have a successful response. Keep your password in a safe place. Ideally, use a password manager that does encryption.
 
 :::
 
@@ -286,10 +291,10 @@ curl -s -X POST --data '{
 
 :::tip WHAT IS A KEYSTORE
 
-Every node has a *built-in* keystore. Clients create users on the keystore, which act as identities to be used when interacting with the node's API methods.
+Every node has a _built-in_ keystore. Clients create users on the keystore, which act as identities to be used when interacting with the node's API methods.
 Which interacts with blockchains.
 
-::: 
+:::
 
 :::caution KEYSTORE ARE PRIVATE TO YOUR NODE
 
@@ -330,15 +335,15 @@ Enter the private key of your wallet address into the `privateKey` field.
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {
-        "address": "P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {
+    "address": "P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"
+  },
+  "id": 1
 }
 ```
 
-This is a successful response. Note the result field contains an `address`. This is the address that the private key we provided controls. 
+This is a successful response. Note the result field contains an `address`. This is the address that the private key we provided controls.
 You can use this to verify that private key is correct. This should be your wallet address.
 
 :::
@@ -347,9 +352,9 @@ You can use this to verify that private key is correct. This should be your wall
 
 The addresses you see here will start with one of strings below depending on the network you are using.
 
-* **mainnet**: `P-camino` 
-* **testnet**: `P-columbus` 
-* **devnet**: `P-kopernikus` 
+- **mainnet**: `P-camino`
+- **testnet**: `P-columbus`
+- **devnet**: `P-kopernikus`
 
 :::
 
@@ -378,15 +383,15 @@ Enter the private key of your node into the `privateKey` field.
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {
-        "address": "P-kopernikus1swcam4a3vmd7vvzuytldtavsv4f9cnj3lynmrf"
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {
+    "address": "P-kopernikus1swcam4a3vmd7vvzuytldtavsv4f9cnj3lynmrf"
+  },
+  "id": 1
 }
 ```
 
-Note that __again__, the result field contains an `address`. In Camino, node's also has addresses that can be used to send & receive funds. 
+Note that **again**, the result field contains an `address`. In Camino, node's also has addresses that can be used to send & receive funds.
 Users can also use their (node's) private keys to control these addresses.
 
 :::
@@ -423,16 +428,16 @@ curl -s -X POST --data '{
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {
-        "txID": "dkcfLECeCiEDwidaWeXBkfB3ea6bYupcrReqbDg3cKrHy3MC1",
-        "changeAddr": "P-kopernikus1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv3qzan"
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {
+    "txID": "dkcfLECeCiEDwidaWeXBkfB3ea6bYupcrReqbDg3cKrHy3MC1",
+    "changeAddr": "P-kopernikus1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv3qzan"
+  },
+  "id": 1
 }
 ```
 
-The response will have two fields. **txID** is the submited transaction that will register the node. 
+The response will have two fields. **txID** is the submited transaction that will register the node.
 You can use this ID to check the status of the transaction from [Camino Explorer](https://explorer.camino.network/)
 
 **changeAddr** is the address used to return unspend tokens. In this situation it is not important.
@@ -488,7 +493,7 @@ curl -s -X POST --data '{
   Change this as you like. Just be sure that it has to be at least _20 seconds_ in the future.<br/>
   (Note: If you’re on a Mac, replace `date` with `gdate`. If you don’t have `gdate` installed, do `brew install coreutils`.)
 
-- **endTime**: The time that the validation period ends. It is the same format as `startTime`. In this example we used _2 days_ in the future. 
+- **endTime**: The time that the validation period ends. It is the same format as `startTime`. In this example we used _2 days_ in the future.
   For Camino mainnet, you need minimum **2 weeks** and maximum **365 days** for the `endTime`.
 
 - **stakeAmount**: This is the _**fixed**_ amount of tokens to stake. For Camino testnet `columbus` it is `2000000000000` nCAMs (2000 CAMs). For mainnet it is `100000000000000` nCAMs (100k CAMs).
@@ -503,12 +508,12 @@ curl -s -X POST --data '{
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {
-        "txID": "2m47Hp59WiqeYGvWcjgkB5a2Gz4PNJCyQZbuMQTCjJ6xVV85oo",
-        "changeAddr": "P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {
+    "txID": "2m47Hp59WiqeYGvWcjgkB5a2Gz4PNJCyQZbuMQTCjJ6xVV85oo",
+    "changeAddr": "P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"
+  },
+  "id": 1
 }
 ```
 
@@ -539,50 +544,43 @@ curl -s -X POST --data '{
 
 :::
 
-
 :::info Response
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {
-        "validators": [
-            {
-                "txID": "2m47Hp59WiqeYGvWcjgkB5a2Gz4PNJCyQZbuMQTCjJ6xVV85oo",
-                "startTime": "1672836683",
-                "endTime": "1678009764",
-                "stakeAmount": "2000000000000",
-                "nodeID": "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
-                "rewardOwner": {
-                    "locktime": "0",
-                    "threshold": "1",
-                    "addresses": [
-                        "P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"
-                    ]
-                },
-                "validationRewardOwner": {
-                    "locktime": "0",
-                    "threshold": "1",
-                    "addresses": [
-                        "P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"
-                    ]
-                },
-                "delegationRewardOwner": {
-                    "locktime": "0",
-                    "threshold": "1",
-                    "addresses": [
-                        "P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"
-                    ]
-                },
-                "potentialReward": "0",
-                "delegationFee": "0.0000",
-                "uptime": "1.0000",
-                "connected": true,
-                "delegators": null
-            }
-        ]
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {
+    "validators": [
+      {
+        "txID": "2m47Hp59WiqeYGvWcjgkB5a2Gz4PNJCyQZbuMQTCjJ6xVV85oo",
+        "startTime": "1672836683",
+        "endTime": "1678009764",
+        "stakeAmount": "2000000000000",
+        "nodeID": "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
+        "rewardOwner": {
+          "locktime": "0",
+          "threshold": "1",
+          "addresses": ["P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"]
+        },
+        "validationRewardOwner": {
+          "locktime": "0",
+          "threshold": "1",
+          "addresses": ["P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"]
+        },
+        "delegationRewardOwner": {
+          "locktime": "0",
+          "threshold": "1",
+          "addresses": ["P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"]
+        },
+        "potentialReward": "0",
+        "delegationFee": "0.0000",
+        "uptime": "1.0000",
+        "connected": true,
+        "delegators": null
+      }
+    ]
+  },
+  "id": 1
 }
 ```
 
@@ -600,11 +598,11 @@ If you get and empty response like this:
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "result": {
-        "validators": []
-    },
-    "id": 1
+  "jsonrpc": "2.0",
+  "result": {
+    "validators": []
+  },
+  "id": 1
 }
 ```
 
@@ -636,20 +634,23 @@ curl -s -X POST --data '{
 
 ```json
 {
-   "jsonrpc":"2.0",
-   "result":{
-      "validators":[{
-         "txID":"2m47Hp59WiqeYGvWcjgkB5a2Gz4PNJCyQZbuMQTCjJ6xVV85oo",
-         "startTime":"1672836683",
-         "endTime":"1678009764",
-         "stakeAmount":"2000000000000",
-         "nodeID":"NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
-         "delegationFee":"0.0000",
-         "connected":true,
-         "delegators":null
-      }],
-   "delegators":[]},
-   "id":1
+  "jsonrpc": "2.0",
+  "result": {
+    "validators": [
+      {
+        "txID": "2m47Hp59WiqeYGvWcjgkB5a2Gz4PNJCyQZbuMQTCjJ6xVV85oo",
+        "startTime": "1672836683",
+        "endTime": "1678009764",
+        "stakeAmount": "2000000000000",
+        "nodeID": "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
+        "delegationFee": "0.0000",
+        "connected": true,
+        "delegators": null
+      }
+    ],
+    "delegators": []
+  },
+  "id": 1
 }
 ```
 

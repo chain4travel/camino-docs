@@ -19,4 +19,5 @@ jobs:
           cache: yarn
           node-version: ${{ env.node_version }}
       - run: yarn install --frozen-lockfile
+      - run: yarn prettier-check
       - run: yarn build
