@@ -4,7 +4,13 @@ sidebar_position: 6
 
 # Admin API
 
-This API can be used for measuring node health and debugging. Note that the Admin API is disabled by default for security reasons. To run a node with the Admin API enabled, use [config flag](/apps/nodes/camino-node-config-flags.md) `--api-admin-enabled=true`.
+This API can be used for measuring node health and debugging.
+
+:::info DISABLED BY DEFAULT
+
+Note that the Admin API is disabled by default for security reasons. To run a node with the Admin API enabled, use [config flag](/apps/nodes/camino-node-config-flags.md) **`--api-admin-enabled=true`**
+
+:::
 
 ## Format
 
@@ -204,16 +210,54 @@ curl -X POST --data '{
 }
 ```
 
+### admin&#46;getNodeSigner
+
+Returns node's private & public key
+
+**Signature**
+
+```text
+admin.getNodeSigner() -> {
+        privateKey: string,
+        publicKey: string
+    }
+```
+
+**Example Call**
+
+```sh
+curl -X POST --data '{
+    "jsonrpc":"2.0",
+    "id"     :1,
+    "method" :"admin.getNodeSigner",
+    "params": {
+    }
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
+```
+
+**Example Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "privateKey": "PrivateKey-2ZW6HUePBW2dP7dBGa5stjXe1uvK9LwEgrjebDwXEyL5bDMWWS",
+    "publicKey": "D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ"
+  },
+  "id": 1
+}
+```
+
 ### admin&#46;loadVMs
 
 Dynamically loads any virtual machines installed on the node as plugins.
 
 **Signature**
 
-```sh
+```text
 admin.loadVMs() -> {
-    newVMs: map[string][]string
-    failedVMs: map[string]string,
+    newVMs: map[string][]string,
+    failedVMs: map[string]string
 }
 ```
 
