@@ -24,7 +24,7 @@ This API uses the `json 2.0` RPC format. For details, see [here](issuing-api-cal
 
 ## API Methods
 
-### admin.alias
+### admin&#46;alias
 
 Assign an API endpoint an alias, a different endpoint for the API. The original endpoint will still work. This change only affects this node; other nodes will not know about this alias.
 
@@ -66,7 +66,7 @@ curl -X POST --data '{
 
 Now, calls to the X-Chain can be made to either `/ext/bc/X` or, equivalently, to `/ext/myAlias`.
 
-### admin.aliasChain
+### admin&#46;aliasChain
 
 Give a blockchain an alias, a different name that can be used any place the blockchain’s ID is used.
 
@@ -112,7 +112,7 @@ curl -X POST --data '{
 
 Now, instead of interacting with the blockchain whose ID is `sV6o671RtkGBcno1FiaDbVcFv2sG5aVXMZYzKdP4VQAWmJQnM` by making API calls to `/ext/bc/sV6o671RtkGBcno1FiaDbVcFv2sG5aVXMZYzKdP4VQAWmJQnM`, one can also make calls to `ext/bc/myBlockchainAlias`.
 
-### admin.getChainAliases
+### admin&#46;getChainAliases
 
 Returns the aliases of the chain
 
@@ -157,7 +157,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin.getLoggerLevel
+### admin&#46;getLoggerLevel
 
 Returns log and display levels of loggers.
 
@@ -210,7 +210,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin.getNodeSigner
+### admin&#46;getNodeSigner
 
 Returns node's private & public key
 
@@ -248,7 +248,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin.loadVMs
+### admin&#46;loadVMs
 
 Dynamically loads any virtual machines installed on the node as plugins.
 
@@ -291,7 +291,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin.lockProfile
+### admin&#46;lockProfile
 
 Writes a profile of mutex statistics to `lock.profile`.
 
@@ -324,7 +324,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin.memoryProfile
+### admin&#46;memoryProfile
 
 Writes a memory profile of the to `mem.profile`.
 
@@ -357,7 +357,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin.setLoggerLevel
+### admin&#46;setLoggerLevel
 
 Sets log and display levels of loggers.
 
@@ -406,7 +406,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin.startCPUProfiler
+### admin&#46;startCPUProfiler
 
 Start profiling the CPU utilization of the node. To stop, call `admin.stopCPUProfiler`. On stop, writes the profile to `cpu.profile`.
 
@@ -439,7 +439,7 @@ curl -X POST --data '{
 }
 ```
 
-### admin.stopCPUProfiler
+### admin&#46;stopCPUProfiler
 
 Stop the CPU profile that was previously started.
 

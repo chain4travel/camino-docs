@@ -18,7 +18,7 @@ This API uses the `json 2.0` RPC format.
 
 ## Methods
 
-### platform.addDelegator
+### platform&#46;addDelegator
 
 Add a delegator to the Primary Network.
 
@@ -97,7 +97,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.addValidator
+### platform&#46;addValidator
 
 Add a validator to the Primary Network. You must stake CAM to do this. If the node is sufficiently correct and responsive while validating, you receive a reward when end of staking period is reached. The validator’s probability of being sampled by other validators during consensus is in proportion to the amount of CAM staked.
 
@@ -191,7 +191,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.addSubnetValidator
+### platform&#46;addSubnetValidator
 
 Add a validator to a subnet other than the Primary Network. The Validator must validate the Primary Network for the entire duration they validate this subnet.
 
@@ -262,7 +262,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.createAddress
+### platform&#46;createAddress
 
 Create a new address controlled by the given user.
 
@@ -301,7 +301,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.createBlockchain
+### platform&#46;createBlockchain
 
 Create a new blockchain. Currently only supports the creation of new instances of the AVM and the Timestamp VM.
 
@@ -374,7 +374,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.createSubnet
+### platform&#46;createSubnet
 
 Create a new subnet.
 
@@ -438,7 +438,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.exportAVAX
+### platform&#46;exportAVAX
 
 Send CAM from an address on the P-Chain to an address on the X-Chain. After issuing this transaction, you must call the X-Chain’s [`avm.import`](x-chain.mdx#avmimport) method with assetID `CAM` to complete the transfer.
 
@@ -500,7 +500,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.exportKey
+### platform&#46;exportKey
 
 Get the private key that controls a given address.  
 The returned private key can be added to a user with [`platform.importKey`](p-chain.md#platformimportkey).
@@ -546,7 +546,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getAddressStates
+### platform&#46;getAddressStates
 
 Get the states bitmask applied to an address.
 
@@ -597,7 +597,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getBalance
+### platform&#46;getBalance
 
 Get the balance of CAM controlled by a given address.
 
@@ -663,7 +663,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getBlock
+### platform&#46;getBlock
 
 Get a block by its ID.
 
@@ -825,7 +825,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getBlockchains
+### platform&#46;getBlockchains
 
 Get all the blockchains that exist (excluding the P-Chain).
 
@@ -891,7 +891,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getBlockchainStatus
+### platform&#46;getBlockchainStatus
 
 Get the status of a blockchain.
 
@@ -938,7 +938,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getCurrentSupply
+### platform&#46;getCurrentSupply
 
 Returns an upper bound on the number of CAM that exist. This is an upper bound because it does not account for burnt tokens, including transaction fees.
 
@@ -975,7 +975,7 @@ curl -X POST --data '{
 
 The response in this example indicates that CAM’s supply is at most 365.865 million.
 
-### platform.getCurrentValidators
+### platform&#46;getCurrentValidators
 
 List the current validators of the given Subnet.
 
@@ -1100,7 +1100,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getHeight
+### platform&#46;getHeight
 
 Returns the height of the last accepted block.
 
@@ -1136,7 +1136,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getMaxStakeAmount
+### platform&#46;getMaxStakeAmount
 
 Returns the maximum amount of nCAM staking to the named node during a particular time period.
 
@@ -1189,7 +1189,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getMinStake
+### platform&#46;getMinStake
 
 Get the minimum amount of CAM required to validate the Primary Network and the minimum amount of CAM that can be delegated.
 
@@ -1226,7 +1226,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getPendingValidators
+### platform&#46;getPendingValidators
 
 List the validators in the pending validator set of the specified Subnet. Each validator is not currently validating the Subnet but will in the future.
 
@@ -1316,7 +1316,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getRewardUTXOs
+### platform&#46;getRewardUTXOs
 
 Returns the UTXOs that were rewarded after the provided transaction's staking or delegation period ended.
 
@@ -1368,7 +1368,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getStakingAssetID
+### platform&#46;getStakingAssetID
 
 Retrieve an assetID for a subnet’s staking asset. Currently, this only returns the Primary Network’s staking assetID.
 
@@ -1410,7 +1410,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getSubnets
+### platform&#46;getSubnets
 
 Get info about the Subnets.
 
@@ -1465,7 +1465,7 @@ curl -X POST --data '{
 }'
 ```
 
-### platform.getStake
+### platform&#46;getStake
 
 Get the amount of nCAM staked by a set of addresses. The amount returned does not include staking rewards.
 
@@ -1504,7 +1504,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getTimestamp
+### platform&#46;getTimestamp
 
 Get the current P-Chain timestamp.
 
@@ -1538,7 +1538,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getTotalStake
+### platform&#46;getTotalStake
 
 Get the total amount of nCAM staked on the Primary Network.
 
@@ -1572,7 +1572,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getTx
+### platform&#46;getTx
 
 Gets a transaction by its ID.
 
@@ -1691,7 +1691,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getTxStatus
+### platform&#46;getTxStatus
 
 Gets a transaction’s status by its ID. If the transaction was dropped, response will include a `reason` field with more information why the transaction was dropped.
 
@@ -1735,7 +1735,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.getUTXOs
+### platform&#46;getUTXOs
 
 Gets the UTXOs that reference a given set of addresses.
 
@@ -1893,7 +1893,7 @@ This gives response:
 }
 ```
 
-### platform.getValidatorsAt
+### platform&#46;getValidatorsAt
 
 Get the validators and their weights of a subnet or the Primary Network at a given P-Chain height.
 
@@ -1942,7 +1942,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.importAVAX
+### platform&#46;importAVAX
 
 Complete a transfer of CAM from the X-Chain to the P-Chain.
 
@@ -2002,7 +2002,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.importKey
+### platform&#46;importKey
 
 Give a user control over an address by providing the private key that controls the address.
 
@@ -2045,7 +2045,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.issueTx
+### platform&#46;issueTx
 
 Issue a transaction to the Platform Chain.
 
@@ -2088,7 +2088,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.listAddresses
+### platform&#46;listAddresses
 
 List addresses controlled by the given user.
 
@@ -2127,7 +2127,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.registerNode
+### platform&#46;registerNode
 
 Register a node with the consortium member address. So it can be used in other methods. (ex: [platform.addValidator](#platformaddvalidator))
 
@@ -2193,7 +2193,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.sampleValidators
+### platform&#46;sampleValidators
 
 Sample validators from the specified Subnet.
 
@@ -2243,7 +2243,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.setAddressState
+### platform&#46;setAddressState
 
 Issues an AddressStateTx transaction which assigns state to an address
 
@@ -2323,7 +2323,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.validatedBy
+### platform&#46;validatedBy
 
 Get the Subnet that validates a given blockchain.
 
@@ -2365,7 +2365,7 @@ curl -X POST --data '{
 }
 ```
 
-### platform.validates
+### platform&#46;validates
 
 Get the IDs of the blockchains a Subnet validates.
 
