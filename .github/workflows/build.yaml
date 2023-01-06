@@ -1,5 +1,8 @@
 name: build-app
-on: [push]
+  push:
+    branches:
+      - main
+      - dev
 jobs:
   yarn-build:
     runs-on: ubuntu-latest
