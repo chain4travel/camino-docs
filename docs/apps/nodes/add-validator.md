@@ -54,8 +54,8 @@ You will need:
   Note that this actually an address, just like a reqular wallet address.
 - **PrivateKey** of your node. <br/>
   You will need this to prove that you own the **NodeID**. Keep it safe!
-- **2k CAMs** in your P-Chain wallet. <br/>
-  Check from online [wallet](https://wallet.camino.network) that you have the at least 2000 tokens on P-Chain.
+- **100k CAMs** in your P-Chain wallet. <br/>
+  Check from online [wallet](https://wallet.camino.network) that you have the at least 100k tokens on P-Chain.
 - **Wallet address & private key** <br/>
   You will need your wallet address and private key. Again, keep your private keys safe!
 - **Consortium Member** <br/>
@@ -296,7 +296,7 @@ Which interacts with blockchains.
 
 :::
 
-:::caution KEYSTORE ARE PRIVATE TO YOUR NODE
+:::caution KEYSTORE IS PRIVATE TO YOUR NODE
 
 A keystore exists at the node level, so if you create a user on a node it exists _**only**_ on that node. However, users may be imported and exported using this API.
 
@@ -310,7 +310,7 @@ _**You should only create a keystore user on a node that you operate, as the nod
 
 ### Import Wallet & Node Private Keys
 
-In order to prove that we own the wallet and the node, we need to add our prive keys into the node's keystore.
+In order to prove that we own the wallet and the node, we need to add our private keys into the node's keystore.
 
 :::info Request
 
@@ -496,7 +496,7 @@ curl -s -X POST --data '{
 - **endTime**: The time that the validation period ends. It is the same format as `startTime`. In this example we used _2 days_ in the future.
   For Camino mainnet, you need minimum **2 weeks** and maximum **365 days** for the `endTime`.
 
-- **stakeAmount**: This is the _**fixed**_ amount of tokens to stake. For Camino testnet `columbus` it is `2000000000000` nCAMs (2000 CAMs). For mainnet it is `100000000000000` nCAMs (100k CAMs).
+- **stakeAmount**: This is the _**fixed**_ amount of tokens to stake. For Camino mainnet `camino` and testnet `columbus` it is `100000000000000` nCAMs (100k CAMs). (For devnet `kopernikus` it is 2k CAMs)
 
 - **delegationFeeRate**: This is the percent fee this validator charges when others delegate stake to them.<br/>
   Up to 4 decimal places allowed; additional decimal places are ignored. Must be between 0 and 100, inclusive.<br/>

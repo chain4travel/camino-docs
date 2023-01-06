@@ -17,7 +17,7 @@ For on-chain development like deploying and testing solidity-based smart-contrac
 
 ## Metamask configuration
 
-For a [metamask](https://metamask.io/) configuration simply choose a network name, use the RPC-URL <https://columbus.camino.foundation/ext/bc/C/rpc>, Chain-ID `502`, Currency-Symbol `CAM` and the Block-Explorer URL <https://explorer.camino.foundation>.
+For a [metamask](https://metamask.io/) configuration simply choose a network name, use the RPC-URL <https://columbus.camino.foundation/ext/bc/C/rpc>, Chain-ID `501`, Currency-Symbol `CAM` and the Block-Explorer URL <https://explorer.camino.foundation>.
 
 ## Funds on Columbus
 
