@@ -19,6 +19,15 @@ For on-chain development like deploying and testing solidity-based smart-contrac
 
 For a [metamask](https://metamask.io/) configuration simply choose a network name, use the RPC-URL <https://columbus.camino.foundation/ext/bc/C/rpc>, Chain-ID `501`, Currency-Symbol `CAM` and the Block-Explorer URL <https://explorer.camino.foundation>.
 
+:::tip CAMINO ON CHAINLIST.ORG
+
+Camino Network is on ChainList.org. You can automatically add Camino networks to MetaMask, please visit the links below:
+
+- [**Camino Mainnet** on ChainList.org](https://chainlist.org/?search=camino&testnets=false)
+- [**Columbus Testnet** on ChainList.org](https://chainlist.org/?search=columbus&testnets=true)
+
+:::
+
 ## Funds on Columbus
 
 As this network is only for testing purposes the tokens (CAM) needed to test can not be bought via a bridge or exchange. In fact tokens can only be requested for free using our `Camino` Discord bot.
