@@ -25,6 +25,12 @@ For more up-to-date information please check [Github Release](https://github.com
 
 ## v0.4.1-rc1
 
+:::caution WARNING
+
+This branch has bugs. Please use [v0.4.1-rc2](#v041-rc2) instead.
+
+:::
+
 [View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.1-rc1)
 
 Based on avalanchego v1.9.4 (Banff)
