@@ -28,9 +28,6 @@ jobs:
           elif [[ "${{ github.ref_name }}" == "dev" ]]; then
               echo "bucket=dev.docs.camino.network" >> $GITHUB_OUTPUT
               echo "collection=camino-docs-dev-`date +%s`" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.ref_name }}" == "update-workflow" ]]; then
-              echo "bucket=dev.docs.camino.network" >> $GITHUB_OUTPUT
-              echo "collection=camino-docs-dev-`date +%s`" >> $GITHUB_OUTPUT
           else
               exit 1
           fi
