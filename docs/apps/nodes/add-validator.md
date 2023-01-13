@@ -5,7 +5,7 @@ description: How to add a validator node
 
 # How to add a Validator Node
 
-This guide walks you through the process of linking your wallet address with a node ID and then adding that node
+This guide walks you through the process of linking your wallet address with your node ID and then adding that node
 as a validator.
 
 :::info Assumptions
@@ -21,6 +21,14 @@ machine with SSH and run the commands from the shell.
 
 :::
 
+:::note Validator Staking Port: 9651
+
+In this guide we will use the **API port** `9650` for the requests. But, please keep in mind, for your validator
+to work correctly, you need to open your server's **staking port** `9651`. This is generally done from a firewall, or from a router/modem if
+on residential ISP.
+
+:::
+
 ## Requirements
 
 There are a few requirements you have to satisfy before you can start the process of adding a validator node.
@@ -28,23 +36,23 @@ Below is a list of these requirements for Camino Mainnet (`mainnet`) and Camino 
 
 If you got stuck or have any questions about any of the steps, feel free to ask us at our [Discord](https://discord.gg/camino) server.
 
-You will find instructions about how to get these information with querying your node (where applicable) below.
+Further below, you will find instructions about how to get these information by querying your node (where applicable).
 
 ### Requirements: **Camino Mainnet**
 
 You will need:
 
 - **NodeID** of your node. <br/>
-  Note that this actually an address, just like a reqular wallet address.
+  Note that this actually is an address, just like a reqular wallet address.
 - **PrivateKey** of your node. <br/>
   You will need this to prove that you own the **NodeID**. Keep it safe!
-- **100k CAMs** in your P-Chain wallet. <br/>
-  Check from online [wallet](https://wallet.camino.network) that you have the at least 100k tokens on P-Chain.
+- **100k unlocked CAMs** in your P-Chain wallet. <br/>
+  Check from online [wallet](https://wallet.camino.network) that you have the at least 100k unlocked tokens on P-Chain.
 - **Wallet address & private key** <br/>
   You will need your wallet address and private key. Again, keep your private keys safe!
 - **Consortium Member** <br/>
   Your wallet address needs to be consortium member. If you don't know what this is drop by [Discord](https://discord.gg/camino) and ask us. <br/>
-  If you are a partner and participated the pre-sale, chances are you are already a Consortium Member.
+  If you are a partner and participated the pre-sale, you are already a Consortium Member.
 - **KYC/KYB Verified**
   You need to be KYC/KYB (Know-Your-Customer & Know-Your-Business) verified.
 
@@ -54,8 +62,8 @@ You will need:
   Note that this actually an address, just like a reqular wallet address.
 - **PrivateKey** of your node. <br/>
   You will need this to prove that you own the **NodeID**. Keep it safe!
-- **2k CAMs** in your P-Chain wallet. <br/>
-  Check from online [wallet](https://wallet.camino.network) that you have the at least 2000 tokens on P-Chain.
+- **100k unlocked CAMs** in your P-Chain wallet. <br/>
+  Check from online [wallet](https://wallet.camino.network) that you have the at least 100k tokens on P-Chain.
 - **Wallet address & private key** <br/>
   You will need your wallet address and private key. Again, keep your private keys safe!
 - **Consortium Member** <br/>
@@ -66,9 +74,7 @@ You will need:
 
 :::note PRE-SALE PARTICIPANTS
 
-Pre-sale participants may already be marked as Consortium Member on the `mainnet` and `testnet`. But you may need to do KYC/KYB process.
-
-<!-- TODO: Find a way to query the network to if a given address is a member & kyc verified -->
+Pre-sale participants are already marked as Consortium Member on the `mainnet` and `testnet` and also are KYC verified.
 
 :::
 
@@ -102,7 +108,7 @@ curl -s -X POST --data '{
 }
 ```
 
-In this example your **NodeID** is `NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ`
+In this example, your **NodeID** is `NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ`
 
 :::
 
@@ -162,7 +168,7 @@ Right side of your address there will be button named **Export Keys**.
 
 :::caution ON-GOING DEVELOPMENT
 
-**Camino Wallet** is under heavy development and changing fast. Keep in mind that instructions above may be outdated.
+**Camino Wallet** is under heavy development and changing fast. Keep in mind that instructions above **may be outdated**.
 
 :::
 
@@ -193,8 +199,8 @@ No private information is saved on the network.
 
 ## Becoming a Validator
 
-Until now, you should have all the requirements & information to become a Validator. Now we need to commit these information to the blockchain.
-To do that, we need to follow some steps.
+Until now, you should have all the requirements & information to become a Validator. Now, you need to commit this information to the blockchain.
+To do that, you need to follow some steps.
 
 Below is a summary of the steps we will follow. They will be explained with examples through the document.
 
@@ -208,9 +214,9 @@ Now let's see how we can do these steps with `cURL` API requests.
 
 ### Create User on Your Node
 
-In order to interact with some of our node's API methods, we need to have a username and password. For this, we first need to create that user.
+In order to interact with some of your node's API methods, you need to have a username and password. For this, we first need to create that user.
 
-Users are stored in our node's **keystore**.
+Users are stored in your node's **keystore**.
 
 For validation and delegation on the mainnet, you should issue transactions through [the wallet](https://wallet.camino.network).
 That way private keys for your funds won't be stored on your node, which significantly lowers the risk, should a computer running a node be compromised.
@@ -253,7 +259,7 @@ curl -s -X POST --data '{
 
 :::
 
-As you can see, the password we provided is too weak to be acceptable. We need to provide a stronger password:
+As you can see, the password we provided is too weak to be acceptable. you need to provide a stronger password:
 
 :::info Request
 
@@ -296,7 +302,7 @@ Which interacts with blockchains.
 
 :::
 
-:::caution KEYSTORE ARE PRIVATE TO YOUR NODE
+:::caution KEYSTORE IS PRIVATE TO YOUR NODE
 
 A keystore exists at the node level, so if you create a user on a node it exists _**only**_ on that node. However, users may be imported and exported using this API.
 
@@ -310,7 +316,7 @@ _**You should only create a keystore user on a node that you operate, as the nod
 
 ### Import Wallet & Node Private Keys
 
-In order to prove that we own the wallet and the node, we need to add our prive keys into the node's keystore.
+In order to prove that we own the wallet and the node, you need to add your private keys into the node's keystore.
 
 :::info Request
 
@@ -358,7 +364,7 @@ The addresses you see here will start with one of strings below depending on the
 
 :::
 
-Now we need to import our **node's private key**:
+Now you need to import your **node's private key**:
 
 :::info Request
 
@@ -398,7 +404,7 @@ Users can also use their (node's) private keys to control these addresses.
 
 ### Register Your Node
 
-Now we need to register our node with our wallet. This will link our node and wallet and enable us to interact with functions that require this feature
+Now you need to register your node with your wallet. This will link your node and wallet and enable you to interact with functions that require this feature
 like the `platform.addValidator` method.
 
 :::info Request
@@ -457,7 +463,7 @@ For example, let's say a voting operation is in place, to successfully vote, lin
 
 ### Make Your Node a Validator
 
-Now we are ready to make our node a validator.
+Now you are ready to make your node a validator.
 
 :::info Request
 
@@ -483,7 +489,7 @@ curl -s -X POST --data '{
 - **nodeID**: Enter your node's ID
 
 - **from**: Your wallet address. <br/>
-  Note that this field is a list. So even if we are going to enter a single address, we need to enclose is with square brackets.
+  Note that this field is a list. So even if you are going to enter a single address, you need to enclose is with square brackets.
 
 - **rewardAddress**: The address that the validator rewards will be sent to.
 
@@ -496,7 +502,7 @@ curl -s -X POST --data '{
 - **endTime**: The time that the validation period ends. It is the same format as `startTime`. In this example we used _2 days_ in the future.
   For Camino mainnet, you need minimum **2 weeks** and maximum **365 days** for the `endTime`.
 
-- **stakeAmount**: This is the _**fixed**_ amount of tokens to stake. For Camino testnet `columbus` it is `2000000000000` nCAMs (2000 CAMs). For mainnet it is `100000000000000` nCAMs (100k CAMs).
+- **stakeAmount**: This is the _**fixed**_ amount of tokens to stake. For Camino mainnet `camino` and testnet `columbus` it is `100000000000000` nCAMs (100k CAMs). (For devnet `kopernikus` it is 2k CAMs)
 
 - **delegationFeeRate**: This is the percent fee this validator charges when others delegate stake to them.<br/>
   Up to 4 decimal places allowed; additional decimal places are ignored. Must be between 0 and 100, inclusive.<br/>
@@ -517,13 +523,13 @@ curl -s -X POST --data '{
 }
 ```
 
-This response show the transaction ID for our `addValidator` request. We can use this ID to check the status of the transaction.
+This response shows the transaction ID for your `addValidator` request. You can use this ID to check the status of the transaction.
 
 :::
 
 ### Verify Your Validator
 
-Now we can verify if did everything correctly. To do this, we will query the blockchain and look for the status of your node.
+Now you can verify if you did everything correctly. To do this, you will query the blockchain and look for the status of your node.
 
 :::info REQUEST
 
@@ -584,7 +590,7 @@ curl -s -X POST --data '{
 }
 ```
 
-Here we can see that our node is **validator** now! Congragulations!
+Here you can see that your node is a **validator** now! Congragulations!
 
 **Please note** that this request is done after some time have passed. (To be sure that the `startTime` is reached)
 
@@ -614,7 +620,7 @@ It means either your `startTime` is not reached yet or you had some errors in th
 
 :::info REQUEST PENDING VALIDATORS
 
-You can ask for pending validators to check if your node is waiting for the `startTime` as below:
+You can ask for pending validators, to check if your node is waiting for the `startTime`, as below:
 
 ```sh
 curl -s -X POST --data '{
@@ -654,9 +660,9 @@ curl -s -X POST --data '{
 }
 ```
 
-Here we can see that our node is still in pending validators list. It waits for its `startTime`.
+Here you can see that your node is still in pending validators list. It waits for its `startTime`.
 
-Wait for the `startTime` pass and check again with **[getCurrentValidators](#verify-your-validator)**
+Wait for the `startTime` to pass and check again with **[getCurrentValidators](#verify-your-validator)**
 
 :::
 
