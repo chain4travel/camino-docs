@@ -14,6 +14,7 @@ env:
 
 jobs:
   build_deploy_scrape:
+    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' }}
     name: Build, Deploy & Scrape
     runs-on: ubuntu-latest
     steps:
