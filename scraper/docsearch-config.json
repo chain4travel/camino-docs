@@ -1,11 +1,6 @@
 {
-  "index_name": "camino-docs",
-  "start_urls": [
-    {
-      "url": "https://docs.camino.foundation",
-      "tags": ["prod"]
-    }
-  ],
+  "index_name": "camino-docs-default",
+  "start_urls": ["https://docs.camino.network"],
   "stop_urls": [],
   "selectors": {
     "lvl0": "article h1",

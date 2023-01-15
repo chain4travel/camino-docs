@@ -107,16 +107,16 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       typesense: {
-        typesenseCollectionName: 'camino-docs',
+        typesenseCollectionName: 'camino-docs-default',
         typesenseServerConfig: {
           nodes: [
             {
-              host: 'docs.camino.foundation',
-              port: 8108,
+              host: 'typesense.camino.network',
+              port: 443,
               protocol: 'https',
             },
           ],
-          apiKey: 'K3s7dltmYhPw0oqOepeOx8liLZPRAGH2',
+          apiKey: 'TfCsn1wHrrpAzkHQP7747iPAS83Rsqn3',
         },
         typesenseSearchParameters: {
           replaceSynonymsInHighlight:false,
