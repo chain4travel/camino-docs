@@ -21,7 +21,7 @@
     "@mdx-js/react": "1.6.22",
     "@svgr/webpack": "6.2.1",
     "add": "^2.0.6",
-    "clsx": "1.1.1",
+    "clsx": "1.2.1",
     "docusaurus-theme-search-typesense": "^0.4.0-2",
     "file-loader": "6.2.0",
     "patch-package": "^6.4.7",
