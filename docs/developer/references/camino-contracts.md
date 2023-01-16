@@ -22,9 +22,9 @@ Source: [admin.sol](https://github.com/chain4travel/caminoethvm/blob/chain4trave
 
 ## `CaminoIncentives`
 
-Smart contract for Camino dApp Incentive Pool. This contract is a placehold for future development.
+Smart contract for Camino dApp Incentive Pool. This contract is a placeholder for future development.
 
-This contract is Upgreadable Proxy backed and the implementation can be upgraded by an address with `ADMIN_ROLE`.
+This contract is [Upgreadable Proxy](https://ethereum.org/en/developers/docs/smart-contracts/upgrading/) backed and the implementation can be upgraded by an address with `ADMIN_ROLE`.
 
 |    Address     | `0x010000000000000000000000000000000000000c` |
 | :------------: | :------------------------------------------: |
