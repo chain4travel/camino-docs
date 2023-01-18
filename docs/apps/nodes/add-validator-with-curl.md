@@ -37,12 +37,12 @@ Further below, you will find instructions about how to get these information by 
 ### **Camino Mainnet** & **Columbus Testnet**
 
 - **NodeID**: This is the address of your node, similar to a regular wallet address.
-- **PrivateKey**: You will need this to prove ownership of the **NodeID**.<br/>
+- **Node's PrivateKey**: You will need this to prove ownership of the **NodeID**.<br/>
   Keep it safe and secure!
-- **100,000 unlocked CAMs** in your P-Chain wallet.<br/>
-  You can check this on the online [wallet](https://wallet.camino.network) to ensure that you have at least 100,000 unlocked tokens on the P-Chain.
 - **Wallet address & private key**: You will need your wallet address and private key.<br/>
   Remember to keep your private key safe!
+- **100,000 unlocked CAMs** in your P-Chain wallet.<br/>
+  You can check this on the online [wallet](https://wallet.camino.network) to ensure that you have at least 100,000 unlocked tokens on the P-Chain.
 - **Consortium Member**: Your wallet address must be a consortium member.<br/>
   If you are unsure about this, please reach out to us on [Discord](https://discord.gg/camino) for clarification. If you participated in the pre-sale, you are already a Consortium Member.
 - **KYC/KYB Verified**: You must be Know-Your-Customer (KYC) and Know-Your-Business (KYB) verified.
@@ -128,12 +128,6 @@ And you can also see your public key (your node's address, also known as `NodeID
 
 :::
 
-## Transferring Tokens to the P-Chain
-
-In order to stake for your validator, you will need to have tokens on the P-Chain. If you do not already have them on the P-Chain, you will need to transfer them.
-
-You can use the [Camino Wallet](https://wallet.camino.network) to perform this transfer. Simply click on **Cross Chain** in the main menu and follow the prompts in the user interface.
-
 ## Retrieving Your Wallet Private Key
 
 If you already got your wallet address go to the [Camino Wallet](https://wallet.camino.network) and retrieve your private key from the Manage Keys menu.
@@ -141,7 +135,7 @@ If you already got your wallet address go to the [Camino Wallet](https://wallet.
 If you don't know your address, when you created your wallet on the [Camino Wallet](https://wallet.camino.network), it prompted you to write down a key phrase.
 
 By using this key phrase, you can recover your wallet address and extract your private key. Log in to your wallet and click **Manage Keys** from the menu.
-Under **My Keys**, you will see your wallet address. There will be a button named **View P-Chain Private Key** right beside your address.
+Under **My Keys**, you will see your wallet address. There will be a button named **View C-Chain Private Key** right beside your address.
 
 :::caution ON-GOING DEVELOPMENT
 
@@ -155,6 +149,12 @@ This part is under development. Until then, please ask at [Discord](https://disc
 
 :::
 
+## Transferring Tokens to the P-Chain
+
+In order to stake for your validator, you will need to have tokens on the P-Chain. If you do not already have them on the P-Chain, you will need to transfer them.
+
+You can use the [Camino Wallet](https://wallet.camino.network) to perform this transfer. Simply click on **Cross Chain** in the main menu and follow the prompts in the user interface.
+
 ## Consortium Member
 
 If you participated in the pre-sale and provided a wallet address, you are already designated as a **Consortium Member**.
@@ -166,7 +166,7 @@ If you are not or you wish to be added as one for the Camino Testnet `columbus`,
 In order to complete a KYC (Know Your Customer) verification on Camino Network, you can log in to the [Camino Wallet](https://wallet.camino.network) and click the "KYC Verification" button.
 A pop-up window will appear, prompting you to provide your email and phone number. Follow the instructions provided to complete the verification process, which will require you to submit some form of identification.
 
-Additionally, you can continue the process on your phone after starting it on a browser.
+Additionally, the KYC process can be continued on your phone after starting it on a browser, allowing for greater convenience and flexibility. For more information on the KYC process, please refer to the [KYC](/kyc) page.
 
 Please note that the KYB process is currently in development and documentation will be updated soon. In the meantime, if you need assistance, please reach out to the Camino community on [Discord](https://discord.gg/camino) for help.
 
