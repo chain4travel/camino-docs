@@ -151,7 +151,7 @@ This part is under development. Until then, please ask at [Discord](https://disc
 
 ## Transferring Tokens to the P-Chain
 
-In order to stake for your validator, you will need to have tokens on the P-Chain. If you do not already have them on the P-Chain, you will need to transfer them.
+In order to stake for your validator, you will need to have __100,000 unlocked CAM__ tokens on the P-Chain. If you do not already have them on the P-Chain, you will need to transfer them.
 
 You can use the [Camino Wallet](https://wallet.camino.network) to perform this transfer. Simply click on **Cross Chain** in the main menu and follow the prompts in the user interface.
 
@@ -649,7 +649,7 @@ It is recommended to wait for the `startTime` to pass and then check again using
 
 :::
 
-:::warn PENDING VALIDATORS
+:::caution PENDING VALIDATORS
 
 It's important to note that nodes that are pending validators have completed the registration process but have not yet reached the `startTime` specified during registration. Once the `startTime` is reached, the node will be activated as a validator on the blockchain.
 
