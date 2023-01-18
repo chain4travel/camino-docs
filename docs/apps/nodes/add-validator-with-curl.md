@@ -151,7 +151,7 @@ This part is under development. Until then, please ask at [Discord](https://disc
 
 ## Transferring Tokens to the P-Chain
 
-In order to stake for your validator, you will need to have __100,000 unlocked CAM__ tokens on the P-Chain. If you do not already have them on the P-Chain, you will need to transfer them.
+In order to stake for your validator, you will need to have **100,000 unlocked CAM** tokens on the P-Chain. If you do not already have them on the P-Chain, you will need to transfer them.
 
 You can use the [Camino Wallet](https://wallet.camino.network) to perform this transfer. Simply click on **Cross Chain** in the main menu and follow the prompts in the user interface.
 
