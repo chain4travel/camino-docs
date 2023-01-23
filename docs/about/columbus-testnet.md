@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 description: All about the Columbus testnet, how to participate and what to expect.
 ---
 
@@ -56,7 +56,7 @@ When receiving tokens via the Discord bot they'll always be sent to the X-Addres
 
 ## Running a RPC/HTTP node
 
-To setup a node which acts as a RPC/HTTP node, simply follow the tutorial on [How to set up a node with docker](../apps/nodes/set-up-node-with-docker.md).
+To setup a node which acts as a RPC/HTTP node, simply follow the tutorial on [How to set up a node with docker](/nodes/set-up-node-with-docker.md).
 
 ## Running a validator node
 

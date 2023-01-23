@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+title: Using Docker Image
 ---
 
 # Camino Node Docker Setup
@@ -130,7 +131,7 @@ That's it, you're running a Camino-Node node on docker! Congratulations! Share i
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 
-Now you can [interact with your node](../../developer/apis/camino-node-apis/issuing-api-calls.md).
+Now you can [interact with your node](/developer/apis/camino-node-apis/issuing-api-calls.md).
 
 Finally, if you haven't already, it is a good idea to back up important files in case you ever need to restore your node to a different machine.
 

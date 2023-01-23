@@ -8,7 +8,17 @@ function removeTrailingSlash(str) {
 
 const replacers = {
   "/build/tutorials/columbus-testnet": "/about/columbus-testnet/",
-  "/apps/nodes/add-validator": "/apps/nodes/add-validator-with-curl",
+  "/apps/nodes/add-validator-with-curl": "/guides/add-validator-with-curl",
+  "/apps/nodes/add-validator": "/guides/add-validator-with-wallet",
+  "/apps/nodes/run-camino-node": "/nodes/set-up-node-manual-installation",
+  "/apps/nodes/set-up-node-with-installer": "/nodes/set-up-node-with-installer",
+  "/apps/nodes/set-up-node-with-docker": "/nodes/set-up-node-with-docker",
+  "/apps/nodes/camino-node-config-flags": "/apps/nodes/camino-node-config-flags",
+  "/guides/add-validator": "/guides/add-validator-with-wallet",
+  "/to/wallet-validate-cams": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
+  "/to/wallet-validate-kyc-kyb": "/guides/kyc",
+  "/to/wallet-validate-voted": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
+  "/to/wallet-validate-c-member": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
 }
 
 export default function NotFoundWrapper(props) {
