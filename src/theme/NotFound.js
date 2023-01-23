@@ -8,6 +8,7 @@ function removeTrailingSlash(str) {
 
 const replacers = {
   "/build/tutorials/columbus-testnet": "/about/columbus-testnet/",
+  "/apps/nodes/add-validator": "/apps/nodes/add-validator-with-curl",
 }
 
 export default function NotFoundWrapper(props) {
