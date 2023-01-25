@@ -23,6 +23,7 @@ const replacers = {
   "/to/wallet-validate-kyc-kyb": "/guides/kyc",
   "/to/wallet-validate-voted": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
   "/to/wallet-validate-c-member": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
+  "/to/wallet-validate-reg-node": "/guides/add-validator-with-curl#register-your-node",
 }
 
 export default function NotFoundWrapper(props) {
