@@ -32,7 +32,7 @@ Please note that while this guide will use the API port `9650` for requests, you
 ## Requirements
 
 Before starting the process of adding a validator node, there are a few requirements you must satisfy. Below is a list of these requirements
-for the mainnet (`camino`) and testnet (`columbus`). 
+for the mainnet (`camino`) and testnet (`columbus`).
 
 Further below, you will find instructions about how to get these information by querying your node (where applicable).
 

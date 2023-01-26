@@ -13,7 +13,7 @@ Any participant in the travel industry who meets the following criteria can beco
 - Has undergone and passed a Know-Your-Customer (KYC) and Know-Your-Business (KYB) verification process.
 - Has been elected as a validator by the validator consortium through a voting process.
 
-:::note 
+:::note
 
 Please note, the last requirement is not applicable for validators who are securing the network from its inception. For securing the Columbus Testnet, it's sufficient to be a market participant in the travel industry.
 
