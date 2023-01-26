@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Camino Platform Overview
@@ -57,7 +57,7 @@ So, in summary:
 
 A **Virtual Machine** (VM) defines the application-level logic of a blockchain. In technical terms, it specifies the blockchain’s state, state transition function, transactions, and the API through which users can interact with the blockchain. Every blockchain on Camino is an instance of a VM.
 
-[When you write a VM](../developer/build/create-a-virtual-machine-vm.md), you don't need to concern yourself with lower-level logic like networking, consensus, and the structure of the blockchain. Camino does this behind the scenes so, you can focus on the thing you would like to build.
+[When you write a VM](./developer/guides/create-a-virtual-machine-vm.md), you don't need to concern yourself with lower-level logic like networking, consensus, and the structure of the blockchain. Camino does this behind the scenes so, you can focus on the thing you would like to build.
 
 Think of a VM as a blueprint for a blockchain; you can use the same VM to create many blockchains, each of which follows the same ruleset but is logically independent of other blockchains.
 

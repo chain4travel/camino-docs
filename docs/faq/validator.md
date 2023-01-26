@@ -28,7 +28,7 @@ You can, however, lock additional CAM in your wallet that is used to configure y
 
 ## Can I use my locked Camino (CAM) tokens to run a validator node?
 
-Yes, you will be able to stake locked Camino (CAM) tokens in order to create a validator node.
+Yes, you will be able to stake locked Camino (CAM) tokens in order to create a validator node. But they need to be **unbonded**.
 
 ## Can I run more than one validator node?
 
