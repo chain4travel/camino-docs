@@ -1,6 +1,6 @@
 ---
 description: "This API allows clients to interact with Magellan, the Camino indexer."
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Magellan API

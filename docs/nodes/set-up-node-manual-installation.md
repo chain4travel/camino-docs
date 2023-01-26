@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
-description: The quickest way to learn about Camino is to run a node and interact with the network and geared toward people interested in how the Camino Platform works.
+title: Manual Installation
+description: Build yourself or use pre-built binaries
 ---
 
 # Camino Node manual setup
@@ -31,7 +32,7 @@ Let’s install the Camino-Node, the Go implementation of a Camino node, and con
 
 The node is a binary program. You can either download the source code and then build the binary program, or you can download the pre-built binary. You don’t need to do both.
 
-Downloading [pre-built binary](run-camino-node.md#binary) is easier and recommended if you're just looking to run your own node and stake on it.
+Downloading [pre-built binary](set-up-node-manual-installation.md#binary) is easier and recommended if you're just looking to run your own node and stake on it.
 
 Building the node from source is recommended if you're a developer looking to experiment and build on Camino.
 
@@ -104,7 +105,7 @@ When the node starts, it has to bootstrap (catch up with the rest of the network
 
 `INFO [06-07|19:54:06] <X Chain> /snow/engine/avalanche/transitive.go#80: bootstrapping finished with 1 vertices in the accepted frontier`
 
-To check if a given chain is done bootstrapping, in another terminal window call [`info.isBootstrapped`](../../developer/apis/camino-node-apis/info.md#infoisbootstrapped) by copying and pasting the following command:
+To check if a given chain is done bootstrapping, in another terminal window call [`info.isBootstrapped`](/developer/apis/camino-node-apis/info.md#infoisbootstrapped) by copying and pasting the following command:
 
 ```sh
 curl -X POST --data '{

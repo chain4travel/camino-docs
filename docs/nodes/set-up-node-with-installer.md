@@ -1,5 +1,7 @@
 ---
 sidebar_position: 2
+title: Automatic Install Script
+description: Use installation script for a quick and easy deployment
 ---
 
 # Camino Node Install Script
@@ -252,7 +254,7 @@ Done!
 
 ## Node configuration
 
-File that configures node operation is `~/.caminogo/configs/node.json`. You can edit it to add or change configuration options. The documentation of configuration options can be found [here](camino-node-config-flags.md). Default configuration may look like this:
+File that configures node operation is `~/.caminogo/configs/node.json`. You can edit it to add or change configuration options. The documentation of configuration options can be found [here](camino-node-config-flags). Default configuration may look like this:
 
 ```json
 {
@@ -315,7 +317,7 @@ That's it, you're running a Camino-Node node! Congratulations! Let us know you d
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 
-Now you can [interact with your node](../../developer/apis/camino-node-apis/issuing-api-calls.md).
+Now you can [interact with your node](/developer/apis/camino-node-apis/issuing-api-calls.md).
 
 Finally, if you haven't already, it is a good idea to back up important files in case you ever need to restore your node to a different machine.
 

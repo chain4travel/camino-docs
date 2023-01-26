@@ -1,6 +1,7 @@
 ---
-sidebar_position: 5
-description: How to add a validator node
+sidebar_position: 3
+title: Add a Validator Node with cURL
+description: How to add a Validator Node with cURL
 ---
 
 # How to add a Validator Node with cURL
@@ -166,7 +167,7 @@ If you are not or you wish to be added as one for the Camino Testnet `columbus`,
 In order to complete a KYC (Know Your Customer) verification on Camino Network, you can log in to the [Camino Wallet](https://wallet.camino.network) and click the "KYC Verification" button.
 A pop-up window will appear, prompting you to provide your email and phone number. Follow the instructions provided to complete the verification process, which will require you to submit some form of identification.
 
-Additionally, the KYC process can be continued on your phone after starting it on a browser, allowing for greater convenience and flexibility. For more information on the KYC process, please refer to the [KYC](/kyc) page.
+Additionally, the KYC process can be continued on your phone after starting it on a browser, allowing for greater convenience and flexibility. For more information on the KYC process, please refer to the [KYC](kyc.md) page.
 
 Please note that the KYB process is currently in development and documentation will be updated soon. In the meantime, if you need assistance, please reach out to the Camino community on [Discord](https://discord.gg/camino) for help.
 
@@ -657,7 +658,7 @@ It's important to note that nodes that are pending validators have completed the
 
 ## Getting More Help
 
-If you have any further questions about validators, you can refer to the [Validators FAQ](../../faq/validator.md) section on our website or visit our [Discord](https://discord.gg/camino) server.
+If you have any further questions about validators, you can refer to the [Validators FAQ](/faq/validator) section on our website or visit our [Discord](https://discord.gg/camino) server.
 We are always happy to help and chat.
 
 Please don't hesitate to reach out if you need any further assistance.

@@ -1,12 +1,13 @@
 ---
 sidebar_position: 1
+title: KYC Verification
 ---
 
-# Know-Your-Customer
+# Know-Your-Customer Verification
 
 ## Overview
 
-The Chain4Travel “network“ is bound to revolutionize the way people will travel in the near future. Nevertheless, as the possibilities for new and exciting ways to create and enjoy travel experiences, so too will the methods that ill-intentioned people or organizations might use to take advantage of them. Therefore, Camino uses a KYC service/process to protect travellers and businesses from fraudulence.
+The Camino Network is bound to revolutionize the way people will travel in the near future. Nevertheless, as the possibilities for new and exciting ways to create and enjoy travel experiences, so too will the methods that ill-intentioned people or organizations might use to take advantage of them. Therefore, Camino uses a KYC service/process to protect travellers and businesses from fraudulence.
 
 ## What does KYC mean and how does it work?
 
@@ -14,8 +15,8 @@ KYC stands for Know Your Client/Customer, and it is a regulatory process used to
 
 To be verified, the user has to share an id document and pass a liveness check to authenticate. After a successful verification, we save the verified status to the Camino blockchain where it can be picked up by the network. The smart contract which handles the KYC process can be found here:
 
-1.  Testnet Columbus: `0xcE2b8Ad41a4Cd4B3B718B4fAf2dad4351a015541`
-2.  Mainnet Camino: `0x010000000000000000000000000000000000000a`
+1. Testnet Columbus: `0xcE2b8Ad41a4Cd4B3B718B4fAf2dad4351a015541`
+2. Mainnet Camino: `0x010000000000000000000000000000000000000a`
 
 :::tip INFO
 
