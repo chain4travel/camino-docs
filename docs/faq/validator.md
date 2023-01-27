@@ -15,7 +15,7 @@ Any participant in the travel industry who meets the following criteria can beco
 
 :::note
 
-Please note, the last requirement is not applicable for validators who are securing the network from its inception. For securing the Columbus Testnet, it's sufficient to be a market participant in the travel industry.
+It is important to note that the final requirement does not apply to validators who will secure the network from its inception. These initial validators, who are in the genesis of the blockchain, are already designated as such and do not need to go through a voting process. However, they are still subject to later proposals, such as being removed from the consortium.
 
 :::
 
@@ -26,7 +26,7 @@ Please note, the last requirement is not applicable for validators who are secur
 
 :::note
 
-When a validator completes its role in validating the Camino Mainnet, they will receive their staked Camino tokens back. Additionally, they may also receive a reward for their contribution in securing the network. However, it's worth noting that a validator will only receive a validation reward if it has been sufficiently responsive and accurate during the validation period.
+When a validator completes its role in validating the Camino Mainnet, they will receive their staked Camino tokens back.
 
 :::
 

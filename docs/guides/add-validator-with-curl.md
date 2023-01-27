@@ -43,8 +43,8 @@ Further below, you will find instructions about how to get these information by 
   Keep it safe and secure!
 - **Wallet address & private key**: You will need your wallet address and private key.<br/>
   Remember to keep your private key safe!
-- **100,000 unbonded CAMs** in your P-Chain wallet. And a few CAMs for paying for transaction fees.<br/>
-  You can check this on the online [wallet](https://wallet.camino.network) to ensure that you have at least 100,000 unbonded tokens on the P-Chain.
+- **100,000 non-bonded CAMs** in your P-Chain wallet. And a few CAMs for paying for transaction fees.<br/>
+  You can check this on the online [wallet](https://wallet.camino.network) to ensure that you have at least 100,000 non-bonded tokens on the P-Chain.
 - **Consortium Member**: Your wallet address must be a consortium member.<br/>
   If you are unsure about this, please reach out to us on [Discord](https://discord.gg/camino) for clarification. If you participated in the pre-sale, you are already a Consortium Member.
 - **KYC/KYB Verified**: You must be Know-Your-Customer (KYC) and Know-Your-Business (KYB) verified.
@@ -55,17 +55,17 @@ Pre-sale participants have already been designated as Consortium Members on the 
 
 :::
 
-:::info UNBONDED CAM TOKENS
+:::info NON-BONDED CAM TOKENS
 
 In the Camino Network, CAM tokens can be utilized as securities for various purposes such as deposit rewards, validator stakes, or DAO proposals. There are two types of these securities: **deposits** and **bonds**.
 
-Individuals can deposit CAM tokens for a certain period of time to earn rewards. In this scenario, the tokens are "**deposited**" and their state is "**locked**".
+Individuals can deposit CAM tokens for a certain period of time to earn rewards. In this scenario, the tokens are "**deposited**" and "**locked**".
 
-Similarly, individuals can bond their tokens to a validator or a DAO proposal. In this scenario, the tokens are "**bonded**" and their state is also "**locked**".
+Similarly, individuals can bond their tokens to a validator stake or a DAO proposal. In this scenario, the tokens are "**bonded**" and "**locked**".
 
 It's worth noting that deposited tokens can be used for bonds and vice versa.
 
-It's also important to note that tokens that are locked **cannot be used for paying transaction fees**.
+It's also important to note that **tokens that are locked cannot be used for paying transaction fees**.
 
 For more detailed information regarding deposits and bonds please refer to the following page: [**Deposits & Bonds**](deposits-and-bonds)
 
@@ -169,7 +169,7 @@ This part is under development. Until then, please ask at [Discord](https://disc
 
 ## Transferring Tokens to the P-Chain
 
-In order to stake for your validator, you will need to have **100,000 unbonded CAM** tokens on the P-Chain. If you do not already have them on the P-Chain, you will need to transfer them.
+In order to stake for your validator, you will need to have **100,000 non-bonded CAM** tokens on the P-Chain. If you do not already have them on the P-Chain, you will need to transfer them.
 
 You can use the [Camino Wallet](https://wallet.camino.network) to perform this transfer. Simply click on **Cross Chain** in the main menu and follow the prompts in the user interface.
 
