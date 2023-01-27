@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 30
 title: Add a Validator Node with Wallet
 description: How to add a Validator Node with Camino Wallet
 ---
