@@ -56,6 +56,6 @@ Overall, the deposit and bond features in Camino Network provide a simple and se
 
 :::info DEPOSITS & BONDS ARE LOCKED TOKENS
 
-It's important to note that tokens that are bonded, whether for validator staking or DAO proposals, cannot be used for paying transaction fees. This is because the tokens are locked and cannot be moved or transferred during the bond period.
+It's important to note that tokens that are bonded, whether for validator staking or DAO proposals, cannot be used for paying transaction fees or exported (cross-chain transfers) to other chains. This is because the tokens are locked and cannot be moved or transferred during the bond period.
 
 :::
