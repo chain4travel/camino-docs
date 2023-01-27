@@ -20,7 +20,7 @@ Deposits in Camino Network provide an opportunity for users to earn rewards for 
 
 This mechanism helps Camino Network to stablize CAM token's value.
 
-### Difference from Delegation on other PoS Blockchains
+### The distinction from Delegation on other PoS Blockchains
 
 The deposit feature of the Camino Network differs from delegation on other PoS blockchains, such as Avalanche. In delegation, users are required to find a trustworthy validator on the network to which they can delegate their tokens for staking. This introduces an additional burden and complicates the process for users, as they must locate a validator with good uptime.
 
