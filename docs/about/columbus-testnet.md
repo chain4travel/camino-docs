@@ -17,7 +17,7 @@ For on-chain development like deploying and testing solidity-based smart-contrac
 
 ## Metamask configuration
 
-For a [metamask](https://metamask.io/) configuration simply choose a network name, use the RPC-URL <https://columbus.camino.foundation/ext/bc/C/rpc>, Chain-ID `501`, Currency-Symbol `CAM` and the Block-Explorer URL <https://explorer.camino.foundation>.
+The information on setting up Camino Network with MetaMask and RPC Endpoints can be found in the guide [MetaMask & RPC Endpoints](/guides/metamask-rpc-endpoints).
 
 :::tip CAMINO ON CHAINLIST.ORG
 

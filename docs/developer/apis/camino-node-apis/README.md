@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Camino Node APIs
+title: Camino-Node APIs
 ---
 
 # Camino Node APIs Overview
@@ -14,7 +14,7 @@ title: Camino Node APIs
 | [**The Admin API**](admin)                      | Allows clients to examine a node’s internal state, set of connections, and similar internal protocol data.                                       |
 | [**The Auth API**](auth)                        | Allows clients to manage the creation and revocation of authorization tokens.                                                                    |
 | [**The Health API**](health)                    | Allows clients to check a node’s health.                                                                                                         |
-| [**The Index API**](index)                      | Fetch transactions, vertex, or block by ID.                                                                                                      |
+| [**The Index API**](index-api)                  | Fetch transactions, vertex, or block by ID.                                                                                                      |
 | [**The Info API**](info)                        | Allows clients to examine basic information about a node.                                                                                        |
 | [**The IPC API**](ipc)                          | Allows users to create Unix domain sockets for blockchains to publish to.                                                                        |
 | [**The Keystore API**](keystore)                | Allows customers to use the embedded Keystore file of an Avalanche node.                                                                         |

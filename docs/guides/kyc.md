@@ -13,12 +13,9 @@ The Camino Network is bound to revolutionize the way people will travel in the n
 
 KYC stands for Know Your Client/Customer, and it is a regulatory process used to ascertain the identity and other credentials of a user. It is becoming legally mandatory in most countries, to ensure that the users are actually who they claim to be and to help against money laundering and the financing of terrorist activities. Moreover, if the users on the Camino network are verified, this will make our endeavors more trustworthy and less risky, thus enhancing the experience.
 
-To be verified, the user has to share an id document and pass a liveness check to authenticate. After a successful verification, we save the verified status to the Camino blockchain where it can be picked up by the network. The smart contract which handles the KYC process can be found here:
+To be verified, the user has to share an id document and pass a liveness check to authenticate. After a successful verification, we save the verified status to the Camino blockchain where it can be picked up by the network.
 
-1. Testnet Columbus: `0xcE2b8Ad41a4Cd4B3B718B4fAf2dad4351a015541`
-2. Mainnet Camino: `0x010000000000000000000000000000000000000a`
-
-:::tip INFO
+:::caution NO PRIVATE INFO IS SAVED ON THE BLOCKCHAIN
 
 No personal information will be saved to the Camino Blockchain or any other public ledger when using the Camino KYC verification.
 
