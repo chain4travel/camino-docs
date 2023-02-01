@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 30
 ---
 
 # Camino Smart Contracts
@@ -9,6 +9,10 @@ The Camino Network utilizes smart contracts to handle various administrative tas
 ## `CaminoAdmin`
 
 This smart contract is responsible for administrative tasks, including setting roles (e.g. KYC, gas fee, blacklist). It is an [Upgradable Proxy](https://ethereum.org/en/developers/docs/smart-contracts/upgrading/) contract, meaning that the implementation can be upgraded by an address with the `ADMIN_ROLE`.
+
+### KYC Smart Contract
+
+On Camino Network's Contract Chain (C-Chain), other smart contracts can interface with the CaminoAdmin contract from the provided address to retrieve the KYC verification status of a particular address.
 
 |    Address     | `0x010000000000000000000000000000000000000a` |
 | :------------: | :------------------------------------------: |

@@ -22,6 +22,12 @@ Other blockchains require the delegation mechanism to secure their networks, but
 
 With Camino's deposits, users can simply deposit their tokens for a certain period of time and earn rewards, without the need to find a trustworthy validator or delegate their tokens.
 
+:::tip
+
+The Earn section in the Camino Wallet displays the user's deposit earnings rewards.
+
+:::
+
 ## Bonds
 
 In the Camino Network, bonds are currently utilized for two purposes. The primary use is for staking by Validators, while the secondary use is for bonding DAO proposals.
@@ -41,6 +47,8 @@ It is important to note that bonded tokens can also be deposited to earn additio
 ### DAO Proposals
 
 The second use for bonds in Camino Network is for DAO proposals. Users can bond their tokens to a specific proposal, indicating their support for it. This allows for a more decentralized decision-making process and gives community members a direct say in the direction of the network.
+
+It's important to note that only the individual submitting the proposal must bond a specified amount of CAM tokens. On the other hand, voters do not need to bond any tokens, they simply need to be members of the consortium.
 
 This bonding mechanism is used to ensure that the person proposing the proposal is invested in its success and has a stake in the outcome. It also helps prevent spamming or low-quality proposals from being submitted to the DAO, as users have to put up a bond to propose a proposal. Overall, the use of bonds in Camino Network helps to ensure the integrity and security of the network.
 
