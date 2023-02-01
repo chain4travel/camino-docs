@@ -107,7 +107,7 @@ The validation period must be between 2 weeks and 1 year.
 
 There is a maximum total weight imposed on validators. This means that no validator will ever have more CAM staked and delegated to it than this value. This value will initially be set to `min(5 * amount staked, 3M CAM)`. The total value on a validator is 3 million CAM.
 
-Note that once you issue the transaction to add a node as a validator, there is no way to change the parameters. **You can’t remove stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, check out our [Developer FAQ](https://camino.foundation/developer-faq) or ask for help on [Discord.](https://discord.gg/camino)
+Note that once you issue the transaction to add a node as a validator, there is no way to change the parameters. **You can’t remove stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, ask for help on [Discord.](https://discord.gg/camino)
 
 **Signature**
 
@@ -143,6 +143,16 @@ platform.addValidator(
 - `username` is the user that pays the transaction fee.
 - `password` is `username`‘s password.
 - `txID` is the transaction ID
+
+:::info Stake Amount is Fixed
+Please keep in mind that Camino has fixed `stakeAmount` for validators.<br/>
+**testnet**: `2000000000000` nCAM (2000 CAM)<br/>
+**mainnet**: `100000000000000` nCAM (100k CAM)
+:::
+
+:::caution YOU NEED TO REGISTER YOUR NODE
+`platform.addValidator` method will fail if you did not register your node with your wallet address. Please see [platform.registerNode](#platformregisternode)
+:::
 
 **Example Call**
 
@@ -536,31 +546,19 @@ curl -X POST --data '{
 }
 ```
 
-### platform&#46;getAddressStateTx
+### platform&#46;getAddressStates
 
-Get an unsigned AddressStateTx transaction.
+Get the states bitmask applied to an address.
 
 **Signature**
 
 ```sh
-platform.getAddressStateTx({
-    from: []string,
-    changeAddr: string, //optional
+platform.getAddressStates({
     address: string,
-    state: int,
-    remove: bool,
-    encoding: string // optional
-}) -> {
-    tx: string
-}
+}) -> string
 ```
 
-- `from` are the addresses that you want to use for this operation.
-- `changeAddr` is the address any change will be sent to. If omitted, UTXO's owner is not changed.
-- `address` is the address to change state for.
-- `state` is the to set or unset (see remove).
-- `remove` specifies if the state should be set or unset.
-- `encoding` is the encoding format to use. Can be either `cb58` or `hex`. Defaults to `hex`.
+- `address` is the address to get states for.
 
 **Possible values for `state`**
 
@@ -576,24 +574,15 @@ platform.getAddressStateTx({
 	AddressStateRegisterNode  = uint8(38)
 ```
 
-:::info
-Only signers with `AddressStateRoleAdmin` state are allowed to grant / revoke new roles.  
-Only signers with `AddressStateRoleKyc` state are allowed to change KYC state flags.  
-Only signers with `AddressStateRoleValidator` state are allowed to change Validator state flags.
-:::
-
 **Example Call**
 
 ```sh
 curl -X POST --data '{
   "jsonrpc":"2.0",
   "id"     : 1,
-  "method" :"platform.getAddressStateTx",
+  "method" :"platform.getAddressStates",
   "params" :{
-      "from":["P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf"],
       "address":"P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf",
-      "state": 1,
-      "remove": false
   }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
 ```
@@ -603,9 +592,7 @@ curl -X POST --data '{
 ```json
 {
   "jsonrpc": "2.0",
-  "result": {
-    "tx": "0x0000000003ea000000000000000000000000000000000000000000000000000000000000000000000001e379844de84a0dd7461e7d9a6b8a347caf691a788eb0fc9c395af7557cc7e1c800000007002386f26fb1bdc0000000000000000000000001000000012de7aa29c0408faa8e34b1d917fda37e9c6d23c600000001000000000000000000000000000000000000000000000000000000000000000000000000e379844de84a0dd7461e7d9a6b8a347caf691a788eb0fc9c395af7557cc7e1c800000005002386f26fc100000000000100000000000000002de7aa29c0408faa8e34b1d917fda37e9c6d23c60100ab1e887d"
-  },
+  "result": "12345",
   "id": 1
 }
 ```
@@ -2135,6 +2122,72 @@ curl -X POST --data '{
   "jsonrpc": "2.0",
   "result": {
     "addresses": ["P-columbus1ffksh2m592yjzwfp2xmdxe3z4ushln9s09z5p0"]
+  },
+  "id": 1
+}
+```
+
+### platform&#46;registerNode
+
+Register a node with the consortium member address. So it can be used in other methods. (ex: [platform.addValidator](#platformaddvalidator))
+
+**Signature**
+
+```sh
+platform.registerNode(
+    {
+        oldNodeID: string,
+        newNodeID: string,
+        consortiumMemberAddress: string,
+        username: string,
+        password: string
+    }
+) ->
+{
+    txID: string,
+    changeAddr: string
+}
+```
+
+- `oldNodeID` is node ID to change from `oldNodeID` to `newNodeID`. If there is none, same node ID can be provided as the new one.
+- `newNodeID` is the node ID to be resgistered with the address.
+- `consortiumMemberAddress` is the address of consortium member.
+- `username` is the user name from keystore of the `camino-node`.
+- `password` is the password of the user in the keystore.
+
+:::info ONLY ONE NODE PER CONSORTIUM MEMBER
+Please note that one Consortium Member (address) can be registered with **one and only one** `NodeID`.
+:::
+
+:::caution YOU NEED TO ADD PRIVATE KEYS
+Please keep in mind that you need to import **private keys** of `consortiumMemberAddress` and `newNodeID` to your API node's keystore. Please see: [platform.importKey](#platformimportkey)
+:::
+
+**Example Call**
+
+```sh
+curl -X POST --data '{
+    "jsonrpc": "2.0",
+    "method": "platform.registerNode",
+    "params": {
+        "oldNodeID": "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
+        "newNodeID": "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
+        "consortiumMemberAddress": "P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68",
+        "username": "username",
+        "password": "passw0rd"
+    },
+    "id": 1
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
+```
+
+**Example Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "txID": "krj1ix5PEeHmd2C7son7uTDGMTr4DGFfCdzMdCbZfUstT3Fk2",
+    "changeAddr": "P-kopernikus1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv3qzan"
   },
   "id": 1
 }

@@ -5,7 +5,14 @@ sidebar_position: 3
 
 # Contract Chain (C-Chain) API
 
-_Note: Ethereum has its own notion of `networkID` and `chainID`. These have no relationship to Camino’s view of networkID and chainID and are purely internal to the_ C-Chain. _On Mainnet, the C-Chain uses `1000` and `500` for these values. On the Columbus Testnet, it uses `1001` and `502` for these values. `networkID` and `chainID` can also be obtained using the `net_version` and `eth_chainId` methods._
+:::note NOTE
+
+Ethereum has its own notion of `networkID` and `chainID`. These have no relationship to Camino’s view of networkID and chainID and are purely internal to the C-Chain.
+On Mainnet, the C-Chain uses `1000` and `500` for these values. On the Columbus Testnet, it uses `1001` and `501` for these values.
+
+`networkID` and `chainID` can also be obtained using the `net_version` and `eth_chainId` methods.
+
+:::
 
 ## Ethereum APIs
 
@@ -636,7 +643,7 @@ curl -X POST --data '{
 
 ## Admin API
 
-This API can be used for debugging. Note that the Admin API is disabled by default. To run a node with the Admin API enabled, use [config flag](/apps/nodes/camino-node-config-flags.md#c-chain-config) `--coreth-admin-api-enabled:true`.
+This API can be used for debugging. Note that the Admin API is disabled by default. To run a node with the Admin API enabled, use [config flag](/nodes/camino-node-config-flags.md#c-chain-config) `--coreth-admin-api-enabled:true`.
 
 ### Endpoint
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 description: All about the Columbus testnet, how to participate and what to expect.
 ---
 
@@ -9,7 +9,7 @@ The Columbus testnet is a full-fledged ready-to-use platform to both learn how t
 
 ## What to expect
 
-The Columbus testnet is undergoing constant improvement and despite the fact that the development is always striving to have a working network at all time it's highly unlikely but in extreme cases it can happen that the testnet must be build up from scratch. So please be aware of the fact that everything on the testnet can be reset at any given time and no productive environment is dependent on the state of the network.
+The Columbus testnet is undergoing constant improvement and despite the fact that the development is always striving to have a working network at all time it's highly unlikely but in extreme cases it can happen that the testnet must be built up from scratch. So please be aware of the fact that everything on the testnet can be reset at any given time and no productive environment is dependent on the state of the network.
 
 ## On-Chain Development
 
@@ -17,7 +17,16 @@ For on-chain development like deploying and testing solidity-based smart-contrac
 
 ## Metamask configuration
 
-For a [metamask](https://metamask.io/) configuration simply choose a network name, use the RPC-URL <https://columbus.camino.foundation/ext/bc/C/rpc>, Chain-ID `502`, Currency-Symbol `CAM` and the Block-Explorer URL <https://explorer.camino.foundation>.
+The information on setting up Camino Network with MetaMask and RPC Endpoints can be found in the guide [MetaMask & RPC Endpoints](/guides/metamask-rpc-endpoints).
+
+:::tip CAMINO ON CHAINLIST.ORG
+
+Camino Network is on ChainList.org. You can automatically add Camino networks to MetaMask, please visit the links below:
+
+- [**Camino Mainnet** on ChainList.org](https://chainlist.org/?search=camino&testnets=false)
+- [**Columbus Testnet** on ChainList.org](https://chainlist.org/?search=columbus&testnets=true)
+
+:::
 
 ## Funds on Columbus
 
@@ -47,7 +56,7 @@ When receiving tokens via the Discord bot they'll always be sent to the X-Addres
 
 ## Running a RPC/HTTP node
 
-To setup a node which acts as a RPC/HTTP node, simply follow the tutorial on [How to set up a node with docker](../apps/nodes/set-up-node-with-docker.md).
+To setup a node which acts as a RPC/HTTP node, simply follow the tutorial on [How to set up a node with docker](/nodes/set-up-node-with-docker.md).
 
 ## Running a validator node
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Camino Platform Overview
@@ -32,32 +32,32 @@ The **C-Chain** allows for the creation smart contracts using the [C-Chain’s A
 
 The C-Chain is an instance of the Ethereum Virtual Machine powered by [Camino](../).
 
-This chain is where probably 95% of the total load is transacted. Here the smart contracts (e.g. based on Solidity via Remix) are deployed and used by the users of the chain (mostly via apps). The addresses used on this chain are also identical in structure to what one is used to from EVM/Ethereum and, in addition, one can also connect to this chain quite easily with existing applications (such as Meta-Mask).
-From the maximum flexibility and compatibility the largest negative point arises: It is _potentially_ slow in the execution of (complex) operations. In order to prevent an overload of the network by inefficient smart contracts, there are corresponding transaction fees measured by the complexity.
+This chain is where probably 95% of the total load is transacted. Here the smart contracts, which can be written in Solidity in an Ethereum IDE like [Remix](https://remix.ethereum.org), are deployed and used by the users of the chain (mostly via apps). The addresses used on this chain are also identical in structure to what one is used to from EVM/Ethereum and, in addition, one can also connect to this chain quite easily with existing applications (such as MetaMask).
+From the maximum flexibility and compatibility, the largest negative point arises: It is _potentially_ slow in the execution of (complex) operations. So, to prevent an overload in the network due to complex or inefficient smart contracts, transaction fees will match the complexity of the contracts wanting to be deployed..
 
 ## Why 3 chains?
 
-One should always use the tool that is best suited for a job. This is exactly the philosophy behind the approach of the specialized chains within Avalanche, and since Camino is build on the technical basis, this also applies to us. These chains are designed, optimized and basically considered as completely separate systems according to their purpose.
+One should always use the tool that is best suited for a job. This is exactly the philosophy behind the approach of the specialized chains within Avalanche, and since Camino is built on the same technical framework, it also applies to us. These chains are designed, optimized and basically considered as completely separate systems according to their purpose.
 This can seem a bit overwhelming at first, but there are good reasons why these application areas should be split into different chains. And at the end of the day, it's not that complicated anymore, because you only use the Chains you really need.
 
-The chains are to be considered completely separate from each other and the interaction between the chains is exclusively the transfer of CAM between them. Who needs to work with which chain effectively is determined by the requirement and role of the entity/person who wants to work with it:
+The only interaction between the chains is the exchange of CAM tokens. The role of the entity or person will determine which chain it will need to use:
 
 - Validators/Delegates must work with the P-Chain.
-- App developers can decide, depending on their requirements, whether integration via the X-chain would be useful in order to save on fees for many small transactions. As soon as it comes to more complex application scenarios, which requires the use of smart contracts, one ends up on the C-Chain anyway.
-- App users should not notice this at all, as the apps should handle this accordingly in the background.
+- App developers can decide, depending on their requirements, whether integration via the X-chain would be useful to save on fees for many small transactions. As soon as it comes to more complex application scenarios, requiring the use of smart contracts, the C-Chain will be used.
+- App users should not notice this at all, as the apps should handle this in the background.
 
-So, in summary and in a nutshell:
+So, in summary:
 
-- Anyone can very easily transfer CAM between Chains in the Camino wallet.
-- Network operators/validators and anyone who wants to delegate must (also) deal with the P-Chain.
+- Anyone can very easily transfer CAM between Chains using the Camino wallet.
+- Network operators/validators and anyone who wants to delegate must (also) use the P-Chain.
 - Advanced app developers have the choice to deal with the limitations but also advantages of the simple and fast X-Chain.
-- All others are on the C-Chain anyway as they use the widely known and EVM compatible techniques.
+- All other operations, like deploying smart contracts happen on the C-Chain which is EVM compatible.
 
 ## Virtual Machines
 
 A **Virtual Machine** (VM) defines the application-level logic of a blockchain. In technical terms, it specifies the blockchain’s state, state transition function, transactions, and the API through which users can interact with the blockchain. Every blockchain on Camino is an instance of a VM.
 
-[When you write a VM](../developer/build/create-a-virtual-machine-vm.md), you don't need to concern yourself with lower-level logic like networking, consensus, and the structure of the blockchain. Camino does this behind the scenes so you can focus on the thing you would like to build.
+[When you write a VM](./developer/guides/create-a-virtual-machine-vm.md), you don't need to concern yourself with lower-level logic like networking, consensus, and the structure of the blockchain. Camino does this behind the scenes so, you can focus on the thing you would like to build.
 
 Think of a VM as a blueprint for a blockchain; you can use the same VM to create many blockchains, each of which follows the same ruleset but is logically independent of other blockchains.
 
