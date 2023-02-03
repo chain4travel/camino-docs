@@ -938,6 +938,179 @@ curl -X POST --data '{
 }
 ```
 
+### platform&#46;getClaimables
+
+Returns claimable rewards
+
+:::caution Work In Progress
+
+This API method's documentation is **work-in-progress**. It will be updated as the implementation is ready on the Camino Network.
+
+:::
+
+**Signature**
+
+```
+platform.getClaimables(
+    {
+        locktime: uint64
+        threshold: uint32
+        addresses: []string
+        depositTxIDs: []string
+    }
+
+) -> {
+    depositRewards: uint64,
+    validatorRewards: uint64,
+    expiredDepositRewards: uint64,
+}
+```
+
+- `locktime`: locktime of the rewards
+- `threshold`: the required threshold of
+- `addresses`: list of addresses of the reward Owner
+- `depositTxIDs`: transaction addresses for the deposits
+- `depositRewards`: deposit rewards in nCAMs,
+- `validatorRewards`: validator rewards in nCAMs,
+- `expiredDepositRewards`: expired deposit rewards in nCAMs,
+
+**Example Call**
+
+```sh
+curl -X POST --data '{
+    "jsonrpc": "2.0",
+    "method": "platform.getClaimables",
+    "params": {
+        "locktime": 0,
+        "threshold": 1,
+        "addresses": [
+            "P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf"
+        ],
+        "depositTxIDs": [
+            "2Eug3Y6j1yD745y5bQ9bFCf5nvU2qT1eB53GSpD15EkGUfu8xh"
+        ]
+    },
+    "id": 1
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
+```
+
+**Example Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "depositRewards": 0,
+    "validatorRewards": 0,
+    "expiredDepositRewards": 0
+  },
+  "id": 1
+}
+```
+
+### platform&#46;getConfiguration
+
+Returns PlatformVM Configuration
+
+**Signature**
+
+```sh
+platform.getConfiguration() -> {
+    networkID: int,
+    assetID: string,
+    assetSymbol: string,
+    hrp: string,
+    blockchains[]{
+        id: string,
+        name: string,
+        subnetID: string,
+        vmID: string
+      },
+    minStakeDuration: uint64,
+    maxStakeDuration: uint64,
+    minValidatorStake: uint64,
+    maxValidatorStake: uint64,
+    minDelegationFee: uint32,
+    minDelegatorStake: uint64,
+    minConsumptionRate: uint64,
+    maxConsumptionRate: uint64,
+    supplyCap: uint64,
+    codecVersion: uint16,
+    verifyNodeSignature: bool,
+    lockModeBondDeposit: bool
+}
+```
+
+- `networkID`: the ID of the Network
+- `assetID`: the fee assed ID
+- `assetSymbol`: the symbol of the fee asset ID
+- `hrp`: `beech32HRP` used in the addresses
+- `blockchains[]`: a list of Primary network blockchains
+- `minStakeDuration`: The minimum duration a validator has to stake
+- `maxStakeDuration`: The maximum duration a validator can stake
+- `minValidatorStake`: The minimum amount of tokens one must bond to be a validator
+- `maxValidatorStake`: The maximum amount of tokens bondable to a validator
+- `minDelegationFee`: The minimum delegation fee
+- `minDelegatorStake`: Minimum stake, in nCAM, that can be delegated on the primary network
+- `minConsumptionRate`: The minimum consumption rate
+- `maxConsumptionRate`: The maximum consumption rate
+- `supplyCap`: The supply cap for the native token (CAM)
+- `codecVersion`: The codec version used for serializing
+- `verifyNodeSignature`: Camino VerifyNodeSignature
+- `lockModeBondDeposit`: Camino LockModeBondDeposit
+
+**Example Call**
+
+```sh
+curl -s -X POST --data '{
+    "jsonrpc": "2.0",
+    "method": "platform.getConfiguration",
+    "params": {},
+    "id": 1
+    }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
+```
+
+**Example Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "networkID": "1002",
+    "assetID": "iTV3Gh5EY2aUqt6JyhKkHSH4thSsUUhGC8GhxwDrTxgmREpr1",
+    "assetSymbol": "CAM",
+    "hrp": "kopernikus",
+    "blockchains": [
+      {
+        "id": "2emXuWNR9Gn9Hbe5k3iwyBax8sQhGHv2BJwhDJwMrvXYAotBeL",
+        "name": "C-Chain",
+        "subnetID": "11111111111111111111111111111111LpoYY",
+        "vmID": "mgj786NP7uDwBCcq6YwThhaN8FLyybkCa4zBWTQbNgmK6k9A6"
+      },
+      {
+        "id": "2o3ApqF7hQCjBofo8hD8i8GLHhAkMv96Hu7kjd5NqsScraoZ1x",
+        "name": "X-Chain",
+        "subnetID": "11111111111111111111111111111111LpoYY",
+        "vmID": "jvYyfQTxGMJLuGWa55kdP2p2zSUYsQ5Raupu4TW34ZAUBAbtq"
+      }
+    ],
+    "minStakeDuration": "86400000000000",
+    "maxStakeDuration": "31536000000000000",
+    "minValidatorStake": "2000000000000",
+    "maxValidatorStake": "2000000000000",
+    "minDelegationFee": "0",
+    "minDelegatorStake": "0",
+    "minConsumptionRate": "0",
+    "maxConsumptionRate": "0",
+    "supplyCap": "1000000000000000000",
+    "codecVersion": "0",
+    "verifyNodeSignature": true,
+    "lockModeBondDeposit": true
+  },
+  "id": 1
+}
+```
+
 ### platform&#46;getCurrentSupply
 
 Returns an upper bound on the number of CAM that exist. This is an upper bound because it does not account for burnt tokens, including transaction fees.
