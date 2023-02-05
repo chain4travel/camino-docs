@@ -966,13 +966,13 @@ platform.getClaimables(
 }
 ```
 
-- `locktime`: locktime of the rewards
-- `threshold`: the required threshold of
-- `addresses`: list of addresses of the reward Owner
-- `depositTxIDs`: transaction addresses for the deposits
-- `depositRewards`: deposit rewards in nCAMs,
-- `validatorRewards`: validator rewards in nCAMs,
-- `expiredDepositRewards`: expired deposit rewards in nCAMs,
+- `locktime`: locktime of control group that owns the claimables like validator rewards and expired deposit rewards.
+- `threshold`: the required threshold of the control group.
+- `addresses`: list of addresses of the reward Owner.
+- `depositTxIDs`: transaction IDs for the deposits.
+- `depositRewards`: deposit rewards in nCAMs.
+- `validatorRewards`: validator rewards in nCAMs.
+- `expiredDepositRewards`: expired deposit rewards in nCAMs.
 
 **Example Call**
 
@@ -1041,23 +1041,23 @@ platform.getConfiguration() -> {
 }
 ```
 
-- `networkID`: the ID of the Network
-- `assetID`: the fee assed ID
-- `assetSymbol`: the symbol of the fee asset ID
-- `hrp`: `beech32HRP` used in the addresses
-- `blockchains[]`: a list of Primary network blockchains
-- `minStakeDuration`: The minimum duration a validator has to stake
-- `maxStakeDuration`: The maximum duration a validator can stake
-- `minValidatorStake`: The minimum amount of tokens one must bond to be a validator
-- `maxValidatorStake`: The maximum amount of tokens bondable to a validator
-- `minDelegationFee`: The minimum delegation fee
-- `minDelegatorStake`: Minimum stake, in nCAM, that can be delegated on the primary network
-- `minConsumptionRate`: The minimum consumption rate
-- `maxConsumptionRate`: The maximum consumption rate
-- `supplyCap`: The supply cap for the native token (CAM)
-- `codecVersion`: The codec version used for serializing
-- `verifyNodeSignature`: Camino VerifyNodeSignature
-- `lockModeBondDeposit`: Camino LockModeBondDeposit
+- `networkID`: the ID of the Network.
+- `assetID`: the fee assed ID.
+- `assetSymbol`: the symbol of the fee asset ID.
+- `hrp`: `beech32HRP` used in the addresses.
+- `blockchains[]`: a list of Primary network blockchains.
+- `minStakeDuration`: The minimum duration a validator has to stake.
+- `maxStakeDuration`: The maximum duration a validator can stake.
+- `minValidatorStake`: The minimum amount of tokens one must bond to be a validator.
+- `maxValidatorStake`: The maximum amount of tokens bondable to a validator.
+- `minDelegationFee`: The minimum delegation fee.
+- `minDelegatorStake`: Minimum stake, in nCAM, that can be delegated on the primary network.
+- `minConsumptionRate`: The minimum consumption rate.
+- `maxConsumptionRate`: The maximum consumption rate.
+- `supplyCap`: The supply cap for the native token (CAM).
+- `codecVersion`: The codec version used for serializing.
+- `verifyNodeSignature`: Camino VerifyNodeSignature.
+- `lockModeBondDeposit`: Camino LockModeBondDeposit.
 
 **Example Call**
 
