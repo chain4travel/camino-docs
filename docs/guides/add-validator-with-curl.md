@@ -47,7 +47,7 @@ Further below, you will find instructions about how to get these information by 
   You can check this on the online [wallet](https://wallet.camino.network) to ensure that you have at least 100,000 non-bonded tokens on the P-Chain.
 - **Consortium Member**: Your wallet address must be a consortium member.<br/>
   If you are unsure about this, please reach out to us on [Discord](https://discord.gg/camino) for clarification. If you participated in the pre-sale, you are already a Consortium Member.
-- **KYC/KYB Verified**: You must be Know-Your-Customer (KYC) and Know-Your-Business (KYB) verified.
+- **KYC/KYB Verified**: You must be Know-Your-Customer (KYC) or Know-Your-Business (KYB) verified.
 
 :::note PRE-SALE PARTICIPANTS
 
