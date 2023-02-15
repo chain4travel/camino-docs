@@ -597,6 +597,97 @@ curl -X POST --data '{
 }
 ```
 
+### platform&#46;getAllDepositOffers
+
+Get all deposit offers. Results can be filtered to return only active deposit offers.
+
+**Signature**
+
+```sh
+platform.getAllDepositOffers({
+    active: bool // optional
+}) ->
+{
+    depositOffers: []{
+        ID: string,
+        InterestRateNominator: int,
+        Start: int,
+        End: int
+        MinAmount: int,
+        MinDuration: int,
+        MaxDuration: int
+        UnlockPeriodDuration: int,
+        NoRewardsPeriodDuration: int,
+        Memo: string
+        Flags: int,
+    }
+}
+```
+
+- `ID` is the ID of the deposit offer.
+- `InterestRateNominator` is the nominator of the interest rate.
+- `Start` is the Unix time when this offer starts to be valid.
+- `End` is the Unix time when this offer stops to be valid.
+- `MinAmount` is the minimum amount of CAM that can be deposited.
+- `MinDuration` is the minimum duration of the deposit in seconds.
+- `MaxDuration` is the maximum duration of the deposit in seconds.
+- `UnlockPeriodDuration` is the duration of the unlock period in seconds.
+- `NoRewardsPeriodDuration` is the duration of the no rewards period in seconds.
+- `Memo` is base64 encoded string of a description of the deposit offer.
+- `Flags` is a parameter describing the status of the deposit offer.
+
+**Example Call**
+
+```sh
+curl -X POST --data '{
+    "jsonrpc": "2.0",
+    "method": "platform.getAllDepositOffers",
+    "params": {
+      "active": true
+    },
+    "id": 1
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
+```
+
+**Example Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "depositOffers": [
+      {
+        "ID": "2GcJSMiaRACwrKDYV8Sa17AoFce8k4WHHXFyZL5eFH2CtZBAKy",
+        "InterestRateNominator": 210000,
+        "Start": 1676374487,
+        "End": 1739450087,
+        "MinAmount": 1,
+        "MinDuration": 86400,
+        "MaxDuration": 31536000,
+        "UnlockPeriodDuration": 43200,
+        "NoRewardsPeriodDuration": 43200,
+        "Memo": "MHg2NDY1NzA2ZjczNjk3NDRmNjY2NjY1NzIyMDc0NjU3Mzc0MjMzMjIwMmQyMDcwNjk2MzZiNjE2MjZjNjUyMDYxNjY3NDY1NzIyMDZlNjU3NDc3NmY3MjZiMjA2MzcyNjU2MTc0Njk2ZjZlMjA2MTZlNjQyMDZlNmY3NDIwNjk2ZTIwNjc2NTZlNjU3MzY5NzMyMDYxNzMyMDY0NzU3MjYxNzQ2OTZmNmUyMDY5NzMyMDZlNmY3NDIwNjM2ODZmNmY3MzYxNjI2YzY1MjA3MDY1NzIyMDYxNmM2YzZmNjM2MTc0Njk2ZjZlMjE1MjhiMTMzYg==",
+        "Flags": 0
+      },
+      {
+        "ID": "2t8eBizuEpdGfXbuQxw57PHmtBpmkZeLtzDJ3q5tmju6HhDDaG",
+        "InterestRateNominator": 110000,
+        "Start": 1676374487,
+        "End": 1739450087,
+        "MinAmount": 1,
+        "MinDuration": 60,
+        "MaxDuration": 31536000,
+        "UnlockPeriodDuration": 0,
+        "NoRewardsPeriodDuration": 0,
+        "Memo": "MHg2NDY1NzA2ZjczNjk3NDRmNjY2NjY1NzIyMDc0NjU3Mzc0MjMzMTIwMmQyMDcwNjk2MzZiNjE2MjZjNjUyMDYxNjY3NDY1NzIyMDZlNjU3NDc3NmY3MjZiMjA2MzcyNjU2MTc0Njk2ZjZlMjA2MTZlNjQyMDZlNmY3NDIwNjk2ZTIwNjc2NTZlNjU3MzY5NzMyMDYxNzMyMDY0NzU3MjYxNzQ2OTZmNmUyMDY5NzMyMDZlNmY3NDIwNjM2ODZmNmY3MzYxNjI2YzY1MjA3MDY1NzIyMDYxNmM2YzZmNjM2MTc0Njk2ZjZlMjEyOGZiMzE0ZQ==",
+        "Flags": 0
+      }
+    ]
+  },
+  "id": 1
+}
+```
+
 ### platform&#46;getBalance
 
 Get the balance of CAM controlled by a given address.
