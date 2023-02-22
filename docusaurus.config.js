@@ -23,6 +23,10 @@ const config = {
   projectName: 'camino-docs', // Usually your repo name.
   themes: ['docusaurus-theme-search-typesense'],
 
+  plugins: [
+    require.resolve('docusaurus-plugin-image-zoom')
+  ],
+
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -50,6 +54,16 @@ const config = {
         {name: 'twitter:description', content: 'Camino is the first blockchain focussing on touristic market.'},
         {name: 'twitter:title', content:'Documentation and Tutorials for Camino'}
       ],
+      zoom: {
+        selector: '.markdown :not(em) > img, img.zoom',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)'
+        },
+        config: {
+          // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        }
+      },
       navbar: {
         title: '',
         logo: {
