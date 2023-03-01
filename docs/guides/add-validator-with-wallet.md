@@ -21,11 +21,14 @@ This guide will walk you through the process of adding a validator node using yo
 
 Please ensure that you use the correct wallet address for this guide:
 
-https://dev.suite.camino.network/
+| Network             | URL                               |
+| ------------------- | --------------------------------- |
+| Columbus (testnet): | https://suite.camino.network/     |
+| Camino (mainnet):   | https://dev.suite.camino.network/ |
 
 :::
 
-:::danger VERIFY WALLET ADDRESS
+:::caution VERIFY WALLET ADDRESS
 
 Always verify that the domain is **camino.network** while using the wallet.
 
