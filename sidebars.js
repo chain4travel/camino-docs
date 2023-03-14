@@ -22,7 +22,7 @@ const sidebars = {
     "intro",
     {
       type: "category",
-      label: "Camino Platform",
+      label: "Camino Network",
       collapsible: true,
       collapsed: false,
       link: {
