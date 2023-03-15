@@ -4,7 +4,7 @@ title: Add a Validator Node with cURL
 description: How to add a Validator Node with cURL
 ---
 
-# How to add a Validator Node with cURL
+# Adding a Validator Node using cURL
 
 This guide will walk you through the process of linking your wallet address with your node ID, and then adding that node as a validator on the Camino network.
 
@@ -47,7 +47,7 @@ Further below, you will find instructions about how to get these information by 
   You can check this on the online [wallet](https://wallet.camino.network) to ensure that you have at least 100,000 non-bonded tokens on the P-Chain.
 - **Consortium Member**: Your wallet address must be a consortium member.<br/>
   If you are unsure about this, please reach out to us on [Discord](https://discord.gg/camino) for clarification. If you participated in the pre-sale, you are already a Consortium Member.
-- **KYC/KYB Verified**: You must be Know-Your-Customer (KYC) and Know-Your-Business (KYB) verified.
+- **KYC/KYB Verified**: You must be Know-Your-Customer (KYC) or Know-Your-Business (KYB) verified.
 
 :::note PRE-SALE PARTICIPANTS
 
@@ -146,6 +146,12 @@ And you can also see your public key (your node's address, also known as `NodeID
 
 :::
 
+:::caution ADMIN API ENDPOINT
+
+Please keep in mind that Admin API is disabled by default in Camino Node. You need to enable it to use the endpoint. For more info check [here](/developer/apis/camino-node-apis/admin):
+
+:::
+
 ## Retrieving Your Wallet Private Key
 
 If you already got your wallet address go to the [Camino Wallet](https://wallet.camino.network) and retrieve your private key from the Manage Keys menu.
@@ -155,17 +161,7 @@ If you don't know your address, when you created your wallet on the [Camino Wall
 By using this key phrase, you can recover your wallet address and extract your private key. Log in to your wallet and click **Manage Keys** from the menu.
 Under **My Keys**, you will see your wallet address. There will be a button named **View C-Chain Private Key** right beside your address.
 
-:::caution ON-GOING DEVELOPMENT
-
-It's important to note that the **Camino Wallet** is undergoing heavy development and is subject to frequent updates and changes. As a result, the instructions provided above **may be outdated**.
-
-:::
-
-:::danger METHOD FOR EXTRACTING P-CHAIN PRIVATE KEY
-
-This part is under development. Until then, please ask at [Discord](https://discord.gg/camino).
-
-:::
+![My Keys - C-Chain Private Key](/img/add-validator/with-curl-my-keys-0.png)
 
 ## Transferring Tokens to the P-Chain
 
