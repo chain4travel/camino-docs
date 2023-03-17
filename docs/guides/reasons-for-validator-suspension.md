@@ -6,9 +6,9 @@ description: Camino Network has a mechanism to suspend validators to prevent net
 
 # Reasons for Validator Suspension
 
-Camino Network has a mechanism to suspend validators to prevent network unavailability
-due to bad actors or poorly configured nodes. The following are the reasons why a
-validator may be suspended.
+Until the DAO voting implementation, the Camino Network has a mechanism to suspend validators
+to prevent network unavailability due to bad actors or poorly configured nodes.
+The following are the reasons why a validator may be suspended.
 
 ## Losing Consortium Membership
 
