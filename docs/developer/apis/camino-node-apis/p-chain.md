@@ -563,15 +563,14 @@ platform.getAddressStates({
 **Possible values for `state`**
 
 ```sh
-	AddressStateRoleAdmin     = uint8(0)
-	AddressStateRoleKyc       = uint8(1)
-	AddressStateRoleValidator = uint8(2)
+    AddressStateRoleAdmin    = uint8(0)
+    AddressStateRoleKyc      = uint8(1)
 
-	AddressStateKycVerified   = uint8(32)
-	AddressStateKycExpired    = uint8(33)
-	AddressStateConsortium    = uint8(34)
+    AddressStateKycVerified    = uint8(32)
+    AddressStateKycExpired     = uint8(33)
 
-	AddressStateRegisterNode  = uint8(38)
+    AddressStateConsortium      = uint8(38)
+    AddressStateNodeDeferred    = uint8(39)
 ```
 
 **Example Call**
@@ -582,7 +581,7 @@ curl -X POST --data '{
   "id"     : 1,
   "method" :"platform.getAddressStates",
   "params" :{
-      "address":"P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf",
+      "address":"P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf"
   }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
 ```
@@ -2367,15 +2366,14 @@ platform.setAddressStateTx({
 **Possible values for `state`**
 
 ```sh
-	AddressStateRoleAdmin     = uint8(0)
-	AddressStateRoleKyc       = uint8(1)
-	AddressStateRoleValidator = uint8(2)
+    AddressStateRoleAdmin    = uint8(0)
+    AddressStateRoleKyc      = uint8(1)
 
-	AddressStateKycVerified   = uint8(32)
-	AddressStateKycExpired    = uint8(33)
-	AddressStateConsortium    = uint8(34)
+    AddressStateKycVerified    = uint8(32)
+    AddressStateKycExpired     = uint8(33)
 
-	AddressStateRegisterNode  = uint8(38)
+    AddressStateConsortium      = uint8(38)
+    AddressStateNodeDeferred    = uint8(39)
 ```
 
 :::info

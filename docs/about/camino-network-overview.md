@@ -2,11 +2,11 @@
 sidebar_position: 2
 ---
 
-# Camino Platform Overview
+# Camino Network Overview
 
 Camino features 3 built-in blockchains: [**Exchange Chain (X-Chain)**](#exchange-chain-x-chain), [**Platform Chain (P-Chain)**](#platform-chain-p-chain), and [**Contract Chain (C-Chain**)](#contract-chain-c-chain). All 3 blockchains are validated and secured by the **Primary Network**. The Primary Network is a special subnet, and all members of all custom subnets must also be a member of the Primary Network.
 
-![Primary network](/img/about/platform-overview/primary-network.png)
+![Primary network](/img/about/network-overview/primary-network.png)
 
 ## Exchange Chain (X-Chain)
 
