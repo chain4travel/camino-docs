@@ -6,7 +6,7 @@ description: This document describes how to use Remix IDE to query KYC State of 
 
 # How to Query KYC State on C-Chain
 
-This document provides a guide on how to use Remix IDE to query the KYC state of 
+This document provides a guide on how to use Remix IDE to query the KYC state of
 an address on C-Chain. Follow the steps below to accomplish this.
 
 ## Requirements
@@ -15,7 +15,7 @@ an address on C-Chain. Follow the steps below to accomplish this.
 
 ## Add Camino Network to MetaMask
 
-To query the KYC state of an address using the Remix IDE, we will use the MetaMask wallet. 
+To query the KYC state of an address using the Remix IDE, we will use the MetaMask wallet.
 
 We need to add a custom network to MetaMask. In this document, we will use the Columbus test network.
 
@@ -84,7 +84,6 @@ You can download the ABI file from Chain4Travel's GitHub repository:
 ## Uploading the ABI file to the Remix IDE
 
 Follow these steps to upload the ABI file to the Remix IDE:
-
 
 - Switch to **File Explorer** on the right sidebar and click the upload button.
 - Select the file you downloaded from your local computer and upload it.
