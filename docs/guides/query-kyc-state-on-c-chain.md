@@ -175,7 +175,7 @@ method in P-Chain API documentation.
 
 :::info Conclusion
 
-Smart contracts on the C-Chain can utilize the CaminoAdmin contract to inquire and authenticate
+Smart contracts on the C-Chain can retrieve information from the CaminoAdmin contract to confirm
 whether an address they are interacting with has undergone KYC verification or not.
 
 This functionality empowers developers to create use-cases where such information is necessary.
