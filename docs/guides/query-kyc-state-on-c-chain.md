@@ -6,7 +6,7 @@ description: This document describes how to use Remix IDE to query KYC State of 
 
 # How to Query KYC State on C-Chain
 
-This document provides a guide on how to use Remix IDE to query the KYC state of
+This document provides a guide on how to use [Remix IDE](https://remix.ethereum.org/) to query the KYC state of
 an address on C-Chain. Follow the steps below to accomplish this.
 
 ## Requirements
@@ -140,6 +140,16 @@ Follow the steps below to make the query:
 
 - Paste the address you want to query KYC state into the field and click **`getKycState`** button.
 
+:::note
+
+This is the C-Chain address of a wallet, that starts with `0x`.
+
+If you want to query the **P-Chain address**,
+please refer to the [`platform.getAddressStates()`](/developer/apis/camino-node-apis/p-chain#platformgetaddressstates)
+method in P-Chain API documentation.
+
+:::
+
 <figure>
 <img class="zoom" src="/img/query-kyc-state-c-chain/13-paste-the-address-n-click-getkycstate.png"/>
 <figcaption align="center"><b>Fig.14:</b> Paste the address to query and click getKycState button</figcaption>
@@ -147,7 +157,7 @@ Follow the steps below to make the query:
 
 ## Result
 
-- The result of the query will be displayed below the **`getKycState`** button
+- The result of the query will be displayed below the **`getKycState`** button.
 
 ### Example Result for KYC Verified Address
 
@@ -162,3 +172,12 @@ Follow the steps below to make the query:
 <img class="zoom" src="/img/query-kyc-state-c-chain/15-kyc-state-result-zero.png"/>
 <figcaption align="center"><b>Fig.15:</b> Example result for Non-Verified address</figcaption>
 </figure>
+
+:::info Conclusion
+
+Smart contracts on the C-Chain can utilize the CaminoAdmin contract to inquire and authenticate
+whether an address they are interacting with has undergone KYC verification or not.
+
+This functionality empowers developers to create use-cases where such information is necessary.
+
+:::
