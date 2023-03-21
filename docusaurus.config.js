@@ -36,7 +36,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           // Please change this to your repo.
-          editUrl: 'https://github.com/chain4travel/camino-docs/edit/main/',
+          editUrl: 'https://github.com/chain4travel/camino-docs/edit/dev/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

@@ -9,7 +9,7 @@ description: This document describes how to use Remix IDE to query KYC State of 
 This document provides a guide on how to use [Remix IDE](https://remix.ethereum.org/) to query the KYC state of
 an address on C-Chain. Follow the steps below to accomplish this.
 
-## Requirements
+## Prerequisites
 
 - MetaMask installation and functionality
 
@@ -19,33 +19,7 @@ To query the KYC state of an address using the Remix IDE, we will use the MetaMa
 
 We need to add a custom network to MetaMask. In this document, we will use the Columbus test network.
 
-- Click **Add network** from MetaMask.
-
-<figure>
-<img class="zoom" src="/img/query-kyc-state-c-chain/0-add-network-to-metamask.png"/>
-<figcaption align="center"><b>Fig.1:</b> Click "Add network"</figcaption>
-</figure>
-
-- On the next screen, click **Add a network manually**
-
-<figure>
-<img class="zoom" src="/img/query-kyc-state-c-chain/1-add-custom-network-to-mm.png"/>
-<figcaption align="center"><b>Fig.2:</b> Click "Add a network manually"</figcaption>
-</figure>
-
-- **Fill in the text fields & click Save**. You can obtain this information from the [MetaMask RPC Endpoints](/guides/metamask-rpc-endpoints.md) page.
-
-<figure>
-<img class="zoom" src="/img/query-kyc-state-c-chain/2-enter-details-into-the-network.png"/>
-<figcaption align="center"><b>Fig.3:</b> Fill out the text fields</figcaption>
-</figure>
-
-- Verify that the custom network has been added successfully.
-
-<figure>
-<img class="zoom" src="/img/query-kyc-state-c-chain/3-add-custom-network-success.png"/>
-<figcaption align="center"><b>Fig.4:</b> Verify success</figcaption>
-</figure>
+Please refer to the [MetaMask & RPC Endpoints](/guides/metamask-rpc-endpoints.md) document to add a custom network.
 
 ## Connecting MetaMask to the Remix IDE
 
@@ -158,6 +132,13 @@ method in P-Chain API documentation.
 ## Result
 
 - The result of the query will be displayed below the **`getKycState`** button.
+
+- Possible values are:
+
+| Value |      State      | Description                                      |
+| :---: | :-------------: | ------------------------------------------------ |
+|  `0`  | non-KYC verifed | Given address has not undergone KYC verification |
+|  `1`  |  KYC verified   | Given address has undergone KYC verification     |
 
 ### Example Result for KYC Verified Address
 
