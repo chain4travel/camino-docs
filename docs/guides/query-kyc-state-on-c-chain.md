@@ -21,7 +21,6 @@ We need to add a custom network to MetaMask. In this document, we will use the C
 
 Please refer to the [MetaMask & RPC Endpoints](/guides/metamask-rpc-endpoints.md) document to add a custom network.
 
-
 ## Connecting MetaMask to the Remix IDE
 
 Follow the steps below to connect MetaMask to the IDE:

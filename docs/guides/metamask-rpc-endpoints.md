@@ -76,7 +76,6 @@ Camino Network is on ChainList.org. You can automatically add Camino networks to
 <figcaption align="center"><b>Fig.4:</b> Verify success</figcaption>
 </figure>
 
-
 ## Public API Endpoints
 
 Below is the information regarding Camino Network's Public API Endpoints.
@@ -105,4 +104,3 @@ For more information please visit [Camino-Node APIs page](/developer/apis/camino
 For more information about Magellan APIs please visit [Magellan API page](/developer/apis/magellan)
 
 :::
-
