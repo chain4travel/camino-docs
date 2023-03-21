@@ -24,6 +24,7 @@ const replacers = {
   "/to/wallet-validate-voted": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
   "/to/wallet-validate-c-member": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
   "/to/wallet-validate-reg-node": "/guides/add-validator-with-curl#register-your-node",
+  "/about/camino-platform-overview": "/about/camino-network-overview",
 }
 
 export default function NotFoundWrapper(props) {
