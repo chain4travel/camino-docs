@@ -44,6 +44,39 @@ Camino Network is on ChainList.org. You can automatically add Camino networks to
 | Currency Symbol: |                      `CAM`                       |
 |  Block Explorer: | https://explorer.columbus.camino.network/c-chain |
 
+### Add Network to MetaMask
+
+- Click **Add network** from MetaMask.
+
+<figure>
+<center>
+<img class="zoom" src="/img/query-kyc-state-c-chain/00-add-network-to-metamask.png"/>
+</center>
+<figcaption align="center"><b>Fig.1:</b> Click "Add network"</figcaption>
+</figure>
+
+- On the next screen, click **Add a network manually**
+
+<figure>
+<img class="zoom" src="/img/query-kyc-state-c-chain/1-add-custom-network-to-mm.png"/>
+<figcaption align="center"><b>Fig.2:</b> Click "Add a network manually"</figcaption>
+</figure>
+
+- **Fill in the text fields & click Save**. You can obtain this information from the [MetaMask RPC Endpoints](/guides/metamask-rpc-endpoints.md) page.
+
+<figure>
+<img class="zoom" src="/img/query-kyc-state-c-chain/2-enter-details-into-the-network.png"/>
+<figcaption align="center"><b>Fig.3:</b> Fill out the text fields</figcaption>
+</figure>
+
+- Verify that the custom network has been added successfully.
+
+<figure>
+<img class="zoom" src="/img/query-kyc-state-c-chain/3-add-custom-network-success.png"/>
+<figcaption align="center"><b>Fig.4:</b> Verify success</figcaption>
+</figure>
+
+
 ## Public API Endpoints
 
 Below is the information regarding Camino Network's Public API Endpoints.
@@ -72,3 +105,4 @@ For more information please visit [Camino-Node APIs page](/developer/apis/camino
 For more information about Magellan APIs please visit [Magellan API page](/developer/apis/magellan)
 
 :::
+
