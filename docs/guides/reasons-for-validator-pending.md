@@ -22,3 +22,16 @@ but have not yet reached the specified start time that was set during registrati
 is reached, the node will be activated as a validator on the blockchain.
 
 :::
+
+:::info Setting up a Validator in Wallet
+
+- When adding a validator through your wallet, you won't be required to specify a start time. The wallet
+  automatically assumes that you want to add the validator immediately and sets the start time to be +5
+  minutes in the future.
+
+- After submitting your transaction, you will receive a message as below. This can take some time to finish.
+  Wallet is checking if the transaction is committed.
+
+![](/img/add-validator/z_setting_up_validator_please_wait.png)
+
+:::
