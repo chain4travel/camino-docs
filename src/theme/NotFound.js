@@ -7,6 +7,15 @@ function removeTrailingSlash(str) {
 }
 
 const replacers = {
+  "/to/wallet-validate-cams": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
+  "/to/wallet-validate-kyc-kyb": "/guides/kyc",
+  "/to/wallet-validate-voted": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
+  "/to/wallet-validate-c-member": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
+  "/to/wallet-validate-reg-node": "/guides/add-validator-with-curl#register-your-node",
+  "/to/wallet-validate-suspension": "/guides/reasons-for-validator-suspension",
+  "/to/wallet-validate-pending": "/guides/reasons-for-validator-pending",
+  "/to/create-a-local-test-network": "/developer/guides/create-a-local-test-network",
+  "/developer/build/create-a-local-test-network": "/developer/guides/create-a-local-test-network",
   "/build/tutorials/columbus-testnet": "/about/columbus-testnet/",
   "/apps/nodes/add-validator-with-curl": "/guides/add-validator-with-curl",
   "/apps/nodes/add-validator": "/guides/add-validator-with-wallet",
@@ -19,11 +28,6 @@ const replacers = {
   "/apps/release-notes/caminoethvm": "/release-notes/caminoethvm",
   "/apps/release-notes/magellan": "/release-notes/magellan",
   "/guides/add-validator": "/guides/add-validator-with-wallet",
-  "/to/wallet-validate-cams": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
-  "/to/wallet-validate-kyc-kyb": "/guides/kyc",
-  "/to/wallet-validate-voted": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
-  "/to/wallet-validate-c-member": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
-  "/to/wallet-validate-reg-node": "/guides/add-validator-with-curl#register-your-node",
   "/about/camino-platform-overview": "/about/camino-network-overview",
 }
 
