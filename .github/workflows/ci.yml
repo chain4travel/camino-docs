@@ -3,7 +3,8 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
+      - dev
   pull_request:
 
 env:
@@ -19,4 +20,5 @@ jobs:
           cache: yarn
           node-version: ${{ env.node_version }}
       - run: yarn install --frozen-lockfile
+      - run: yarn prettier-check
       - run: yarn build

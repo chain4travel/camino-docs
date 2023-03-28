@@ -23,6 +23,10 @@ const config = {
   projectName: 'camino-docs', // Usually your repo name.
   themes: ['docusaurus-theme-search-typesense'],
 
+  plugins: [
+    require.resolve('docusaurus-plugin-image-zoom')
+  ],
+
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -32,7 +36,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           // Please change this to your repo.
-          editUrl: 'https://github.com/chain4travel/camino-docs/edit/main/',
+          editUrl: 'https://github.com/chain4travel/camino-docs/edit/dev/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -50,6 +54,16 @@ const config = {
         {name: 'twitter:description', content: 'Camino is the first blockchain focussing on touristic market.'},
         {name: 'twitter:title', content:'Documentation and Tutorials for Camino'}
       ],
+      zoom: {
+        selector: '.markdown :not(em) > img, img.zoom',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)'
+        },
+        config: {
+          // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        }
+      },
       navbar: {
         title: '',
         logo: {
@@ -71,15 +85,15 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discord.gg/K5THjAweFB',
+                href: 'https://discord.gg/camino',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/CaminoFndtn',
+                href: 'https://twitter.com/caminonetwork',
               },
               {
                 label: 'Telegram',
-                href: 'https://t.me/caminochain',
+                href: 'https://t.me/camino_network',
               },
               {
                 label: 'Medium',
@@ -107,16 +121,16 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       typesense: {
-        typesenseCollectionName: 'camino-docs',
+        typesenseCollectionName: 'camino-docs-default',
         typesenseServerConfig: {
           nodes: [
             {
-              host: 'docs.camino.foundation',
-              port: 8108,
+              host: 'typesense.camino.network',
+              port: 443,
               protocol: 'https',
             },
           ],
-          apiKey: 'K3s7dltmYhPw0oqOepeOx8liLZPRAGH2',
+          apiKey: 'TfCsn1wHrrpAzkHQP7747iPAS83Rsqn3',
         },
         typesenseSearchParameters: {
           replaceSynonymsInHighlight:false,

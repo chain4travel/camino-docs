@@ -1,0 +1,71 @@
+name: update-gcs-bucket
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+        - main
+        - dev
+
+env:
+  node_version: 16
+  typesense_url: https://typesense.camino.network
+  default_collection_name: camino-docs-default
+
+jobs:
+  build_deploy_scrape:
+    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' }}
+    name: Build, Deploy & Scrape
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Prepare variables
+        id: prepareVariables
+        run: |
+          if [[ "${{ github.ref_name }}" == "main" ]]; then
+              echo "bucket=docs.camino.network" >> $GITHUB_OUTPUT
+              echo "collection=camino-docs-`date +%s`" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref_name }}" == "dev" ]]; then
+              echo "bucket=dev.docs.camino.network" >> $GITHUB_OUTPUT
+              echo "collection=camino-docs-dev-`date +%s`" >> $GITHUB_OUTPUT
+          else
+              exit 1
+          fi
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
+          
+      - name: Install yarn dependencies        
+        run: yarn install
+
+      - name: Set collection name for Docusaurus
+        run: sed -i "s/camino-docs-default/${{ steps.prepareVariables.outputs.collection }}/g" docusaurus.config.js
+
+      - name: Build
+        run: yarn build
+
+      - name: Serve local site for the scraper
+        run: docker run -d -p80:80 -v$PWD/build:/usr/share/nginx/html nginx:stable-alpine
+
+      - name: Run local scraping and push to TypeSense
+        run: |
+          sed -i "s/https:\/\/docs.camino.network/http:\/\/host.docker.internal/" scraper/docsearch-config.json
+          sed -i "s/camino-docs-default/${{ steps.prepareVariables.outputs.collection }}/" scraper/docsearch-config.json
+          ENV_FILE=$(readlink -f scraper/env-file)
+          CONFIG=$(cat scraper/docsearch-config.json | jq -r tostring)
+          docker run -i --add-host=host.docker.internal:host-gateway -e"TYPESENSE_API_KEY=${{ secrets.TYPESENSE_ADMIN_KEY }}" --env-file=$ENV_FILE -e "CONFIG=$CONFIG" typesense/docsearch-scraper
+
+      - name: Cloud authentication
+        id: auth
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+
+      - name: Update bucket
+        run: |
+          gsutil -m rsync -R -d build gs://${{ steps.prepareVariables.outputs.bucket }}

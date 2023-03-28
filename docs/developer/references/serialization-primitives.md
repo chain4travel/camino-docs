@@ -1,10 +1,10 @@
 ---
-sidebar_position: 6
+sidebar_position: 70
 ---
 
 # Serialization Primitives
 
-[Camino](../../#camino) uses a simple, uniform, and elegant representation for all internal data. This document describes how primitive types are encoded on the Camino platform. Transactions are encoded in terms of these basic primitive types.
+[Camino](../../#camino) uses a simple, uniform, and elegant representation for all internal data. This document describes how primitive types are encoded on the Camino Network. Transactions are encoded in terms of these basic primitive types.
 
 ## Byte
 

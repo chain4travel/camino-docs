@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 40
 ---
 
 # Cryptographic Primitives
@@ -43,7 +43,7 @@ Addresses on the X-Chain and P-Chain use the Bech32 standard outlined in [BIP 01
 - A base-32 encoded string representing the 20 byte address.
 - A 6-character base-32 encoded error correction code.
 
-Additionally, an Camino address is prefixed with the alias of the chain it exists on, followed by a dash. For example, X-Chain addresses are prefixed with `X-`.
+Additionally, a Camino address is prefixed with the alias of the chain it exists on, followed by a dash. For example, X-Chain addresses are prefixed with `X-`.
 
 The following regular expression matches addresses on the X-Chain, P-Chain and C-Chain. Note that all valid Camino addresses will match this regular expression, but some strings that are not valid Camino addresses may match this regular expression.
 

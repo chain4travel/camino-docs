@@ -223,7 +223,7 @@ Now you have a 5-nodes network with HTTP ports (where API calls should be sent) 
 
 ## Manually
 
-The below commands assume you have [Camino-Node](../../apps/nodes/run-camino-node.md#download-camino-node) installed at `$GOPATH/src/github.com/chain4travel/camino-node`. Each of the five nodes created is a validator.
+The below commands assume you have [Camino-Node](/nodes/set-up-node-manual-installation.md#download-camino-node) installed at `$GOPATH/src/github.com/chain4travel/camino-node`. Each of the five nodes created is a validator.
 
 The staking keys for these nodes are in the caminogo dependency and can be found at: `$GOPATHpkg/mod/github.com/chain4travel/caminogo@[VERSION]/staking/local/staker1.crt`, etc
 

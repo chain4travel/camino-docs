@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 # Subnet CLI
@@ -23,8 +23,6 @@ working as expected (_make sure your $GOBIN is in your $PATH_):
 
 Pre-build binaries of `subnet-cli` are not available at this time.
 
-```bash
-
 ## Usage
 
 ```bash
@@ -32,7 +30,7 @@ Pre-build binaries of `subnet-cli` are not available at this time.
 subnet-cli CLI
 
 Usage:
-  subnet-cli [command]
+subnet-cli [command]
 
 Available Commands:
   add         Sub-commands for creating resources
@@ -90,10 +88,9 @@ This creates a file `.subnet-cli.pk` under the current directory with a private 
 #### Local
 
 On local node funds can be transfered from X-Chain to P-Chain using the following API calls:
+
 - `avm.export`
 - `platform.importAVAX`
-
-```bash
 
 ### `subnet-cli wizard`
 
@@ -297,9 +294,9 @@ To add a validator to the local network:
 
 ```bash
 subnet-cli add validator \
---public-uri=http://localhost:9650 \  
---node-ids="NodeID-Nj5C7NdpS3p8hZvu6b5HBREKi8hA1qbDD" \  
---stake-amount=100000000000 \  
+--public-uri=http://localhost:9650 \
+--node-ids="NodeID-Nj5C7NdpS3p8hZvu6b5HBREKi8hA1qbDD" \
+--stake-amount=100000000000 \
 --validate-reward-fee-percent=3
 ```
 
