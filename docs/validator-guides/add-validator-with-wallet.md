@@ -6,15 +6,6 @@ description: How to add a Validator Node with Camino Wallet
 
 # Adding a Validator Node using the Wallet
 
-<!-- :::caution Work In Progress
-
-This document is **work-in-progress**. It will be updated as the implementation is ready on the Camino Wallet.
-
-Please check [**How to Add a Validator Node with cURL**](add-validator-with-curl), until this document is ready.
-
-:::
- -->
-
 This guide will walk you through the process of adding a validator node using your consortium member address with Camino Wallet.
 
 :::tip WALLET ADDRESS
@@ -81,7 +72,7 @@ If some of the requirements are not met, you will see a page similar to this:
 
 To register your node to your consortium address, you need to prove that you own the node. Therefore, the wallet needs to sign the register node transaction with the node's private key. This is why you need to provide your node's private key to the wallet.
 
-For more information on how to retrieve your node's private key, please refer to the [Retrieving Your Node's Private Key](/guides/add-validator-with-curl#retrieving-your-nodes-private-key) guide.
+For more information on how to retrieve your node's private key, please refer to the [Retrieving Your Node's Private Key](/validator-guides/add-validator-with-curl#retrieving-your-nodes-private-key) guide.
 
 ## 3. Register Your Node
 

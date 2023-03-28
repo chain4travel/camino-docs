@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## Introduction
 
-One of the core features of Camino is the ability to create new, custom blockchains, which are defined by [Virtual Machines (VMs)](../about/#virtual-machines)
+One of the core features of Camino is the ability to create new, custom blockchains, which are defined by [Virtual Machines (VMs)](/about/camino-network-overview#virtual-machines)
 
 In this tutorial, we’ll create a very simple VM. The blockchain defined by the VM is a [TimestampVM](https://github.com/chain4travel/camino-timestampvm/). Each block in the blockchain contains the timestamp when it was created along with a 32-byte piece of data (payload). Each block’s timestamp is after its parent’s timestamp.
 
@@ -1472,7 +1472,7 @@ It's possible to give an alias for these IDs. For example, we can alias `Timesta
 ### Installing a VM
 
 Camino-Node searches for and registers plugins under the `plugins` directory of the
-[build directory](../nodes/camino-node-config-flags.md#build-directory).
+[build directory](/camino-node/camino-node-config-flags.md#build-directory).
 
 To install the virtual machine onto your node, you need to move the built virtual machine binary under this directory.
 Virtual machine executable names must be either a full virtual machine ID (encoded in CB58), or a VM alias.
@@ -1521,7 +1521,7 @@ already installed previously in the response.
 ```
 
 Now, this VM's static API can be accessed at endpoints `/ext/vm/timestampvm` and `/ext/vm/timestamp`.
-For more details about VM configs, see [here](../nodes/camino-node-config-flags.md#vm-configs).
+For more details about VM configs, see [here](/camino-node/camino-node-config-flags.md#vm-configs).
 
 In this tutorial, we used the VM's ID as the executable name to simplify the process. However, Camino-Node would also
 accept `timestampvm` or `timestamp` since those are registered aliases in previous step.
