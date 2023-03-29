@@ -119,3 +119,7 @@ img[src*='#center'] {
   display: block;
   margin: auto;
 }
+
+.medium-zoom-image--opened {
+  z-index: 1000;
+}
