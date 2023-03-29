@@ -643,7 +643,7 @@ curl -X POST --data '{
 
 ## Admin API
 
-This API can be used for debugging. Note that the Admin API is disabled by default. To run a node with the Admin API enabled, use [config flag](/nodes/camino-node-config-flags.md#c-chain-config) `--coreth-admin-api-enabled:true`.
+This API can be used for debugging. Note that the Admin API is disabled by default. To run a node with the Admin API enabled, use [config flag](/camino-node/camino-node-config-flags.md#c-chain-config) `--coreth-admin-api-enabled:true`.
 
 ### Endpoint
 

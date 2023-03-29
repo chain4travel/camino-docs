@@ -67,7 +67,7 @@ It's worth noting that deposited tokens can be used for bonds and vice versa.
 
 It's also important to note that **tokens that are locked cannot be used for paying transaction fees**.
 
-For more detailed information regarding deposits and bonds please refer to the following page: [**Deposits & Bonds**](deposits-and-bonds)
+For more detailed information regarding deposits and bonds please refer to the following page: [**Deposits & Bonds**](/guides/deposits-and-bonds)
 
 :::
 
@@ -180,7 +180,7 @@ If you are not or you wish to be added as one for the Camino Testnet `columbus`,
 In order to complete a KYC (Know Your Customer) verification on Camino Network, you can log in to the [Camino Wallet](https://wallet.camino.network) and click the "KYC Verification" button.
 A pop-up window will appear, prompting you to provide your email and phone number. Follow the instructions provided to complete the verification process, which will require you to submit some form of identification.
 
-Additionally, the KYC process can be continued on your phone after starting it on a browser, allowing for greater convenience and flexibility. For more information on the KYC process, please refer to the [KYC](kyc.md) page.
+Additionally, the KYC process can be continued on your phone after starting it on a browser, allowing for greater convenience and flexibility. For more information on the KYC process, please refer to the [KYC](/guides/kyc.md) page.
 
 Please note that the KYB process is currently in development and documentation will be updated soon. In the meantime, if you need assistance, please reach out to the Camino community on [Discord](https://discord.gg/camino) for help.
 

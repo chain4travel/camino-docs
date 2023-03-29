@@ -29,6 +29,19 @@ const replacers = {
   "/apps/release-notes/magellan": "/release-notes/magellan",
   "/guides/add-validator": "/guides/add-validator-with-wallet",
   "/about/camino-platform-overview": "/about/camino-network-overview",
+  "/subnets": "/developer/subnets",
+  "/subnets/subnets-overview": "/developer/subnets/subnets-overview",
+  "/subnets/subnet-cli": "/developer/subnets/subnet-cli",
+  "/subnets/create-a-virtual-machine-vm": "/developer/subnets/create-a-virtual-machine-vm",
+  "/nodes": "/camino-node",
+  "/nodes/set-up-node-manual-installation": "/camino-node/set-up-node-manual-installation",
+  "/nodes/set-up-node-with-installer": "/camino-node/set-up-node-with-installer",
+  "/nodes/set-up-node-with-docker": "/camino-node/set-up-node-with-docker",
+  "/nodes/camino-node-config-flags": "/camino-node/camino-node-config-flags",
+  "/guides/add-validator-with-wallet": "/validator-guides/add-validator-with-wallet",
+  "/guides/add-validator-with-curl": "/validator-guides/add-validator-with-curl",
+  "/guides/reasons-for-validator-suspension": "/validator-guides/reasons-for-validator-suspension",
+  "/guides/reasons-for-validator-pending": "/validator-guides/reasons-for-validator-pending",
 }
 
 export default function NotFoundWrapper(props) {

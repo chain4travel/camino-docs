@@ -13,7 +13,7 @@ If the start date for a validator has not yet been reached, it will remain in th
 list. This is the only reason a validator may be in a pending state.
 
 If you wish to learn how to query the network for pending validators,
-please refer to [this document](/guides/add-validator-with-curl#check-pending-validators).
+please refer to [this document](/validator-guides/add-validator-with-curl#check-pending-validators).
 
 :::tip PENDING VALIDATORS
 
