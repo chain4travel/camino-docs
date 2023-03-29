@@ -129,7 +129,7 @@ The response to this call is actually pretty large, as it contains the state of 
         "name": "node1",
         "execPath": "/Users/testuser/workspace/src/github.com/chain4travel/camino-node/build/camino-node",
         "uri": "http://127.0.0.1:40108",
-        "id": "NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg",
+        "id": "NodeID-AK7sPBsZM9rQwse23aLhEEBPHZD5gkLrL",
         "logDir": "/var/folders/0h/v4nrbbsn1vvbr5h2wfrh5h500000gn/T/network-runner-root-data3575458647/node1/log",
         "dbDir": "/var/folders/0h/v4nrbbsn1vvbr5h2wfrh5h500000gn/T/network-runner-root-data3575458647/node1/db-dir",
         "pluginDir": "",
@@ -140,7 +140,7 @@ The response to this call is actually pretty large, as it contains the state of 
         "name": "node2",
         "execPath": "/Users/testuser/workspace/src/github.com/chain4travel/camino-node/build/camino-node",
         "uri": "http://127.0.0.1:64470",
-        "id": "NodeID-MFrZFVCXPv5iCn6M9K6XduxGTYp891xXZ",
+        "id": "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
         "logDir": "/var/folders/0h/v4nrbbsn1vvbr5h2wfrh5h500000gn/T/network-runner-root-data3575458647/node2/log",
         "dbDir": "/var/folders/0h/v4nrbbsn1vvbr5h2wfrh5h500000gn/T/network-runner-root-data3575458647/node2/db-dir",
         "pluginDir": "",
@@ -151,7 +151,7 @@ The response to this call is actually pretty large, as it contains the state of 
         "name": "node3",
         "execPath": "/Users/testuser/workspace/src/github.com/chain4travel/camino-node/build/camino-node",
         "uri": "http://127.0.0.1:30301",
-        "id": "NodeID-NFBbbJ4qCmNaCzeW7sxErhvWqvEQMnYcN",
+        "id": "NodeID-PM2LqrGsxudhZSP49upMonevbQvnvAciv",
         "logDir": "/var/folders/0h/v4nrbbsn1vvbr5h2wfrh5h500000gn/T/network-runner-root-data3575458647/node3/log",
         "dbDir": "/var/folders/0h/v4nrbbsn1vvbr5h2wfrh5h500000gn/T/network-runner-root-data3575458647/node3/db-dir",
         "pluginDir": "",
@@ -162,7 +162,7 @@ The response to this call is actually pretty large, as it contains the state of 
         "name": "node4",
         "execPath": "/Users/testuser/workspace/src/github.com/chain4travel/camino-node/build/camino-node",
         "uri": "http://127.0.0.1:31072",
-        "id": "NodeID-GWPcbFJZFfZreETSoWjPimr846mXEKCtu",
+        "id": "NodeID-5ZUdznHckQcqucAnNf3vzXnPF97tfRtfn",
         "logDir": "/var/folders/0h/v4nrbbsn1vvbr5h2wfrh5h500000gn/T/network-runner-root-data3575458647/node4/log",
         "dbDir": "/var/folders/0h/v4nrbbsn1vvbr5h2wfrh5h500000gn/T/network-runner-root-data3575458647/node4/db-dir",
         "pluginDir": "",
@@ -173,7 +173,7 @@ The response to this call is actually pretty large, as it contains the state of 
         "name": "node5",
         "execPath": "/Users/testuser/workspace/src/github.com/chain4travel/camino-node/build/camino-node",
         "uri": "http://127.0.0.1:37730",
-        "id": "NodeID-P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5",
+        "id": "NodeID-EoYFkbokZEukfWrUovo74YkTFnAMaqTG7",
         "logDir": "/var/folders/0h/v4nrbbsn1vvbr5h2wfrh5h500000gn/T/network-runner-root-data3575458647/node5/log",
         "dbDir": "/var/folders/0h/v4nrbbsn1vvbr5h2wfrh5h500000gn/T/network-runner-root-data3575458647/node5/db-dir",
         "pluginDir": "",
@@ -249,17 +249,17 @@ cd $GOPATH/src/github.com/chain4travel/camino-node
 ```
 
 ```sh
-./build/camino-node --public-ip=127.0.0.1 --http-port=9652 --staking-port=9653 --db-dir=db/node2 --network-id=local --bootstrap-ips=127.0.0.1:9651 --bootstrap-ids=NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg --staking-tls-cert-file=$(CAMINO_KEY_PATH)/staker2.crt --staking-tls-key-file=$(CAMINO_KEY_PATH)/staker2.key
+./build/camino-node --public-ip=127.0.0.1 --http-port=9652 --staking-port=9653 --db-dir=db/node2 --network-id=local --bootstrap-ips=127.0.0.1:9651 --bootstrap-ids=NodeID-AK7sPBsZM9rQwse23aLhEEBPHZD5gkLrL --staking-tls-cert-file=$(CAMINO_KEY_PATH)/staker2.crt --staking-tls-key-file=$(CAMINO_KEY_PATH)/staker2.key
 ```
 
 ```sh
-./build/camino-node --public-ip=127.0.0.1 --http-port=9654 --staking-port=9655 --db-dir=db/node3 --network-id=local --bootstrap-ips=127.0.0.1:9651 --bootstrap-ids=NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg --staking-tls-cert-file=$(CAMINO_KEY_PATH)/staker3.crt --staking-tls-key-file=$(CAMINO_KEY_PATH)/staker3.key
+./build/camino-node --public-ip=127.0.0.1 --http-port=9654 --staking-port=9655 --db-dir=db/node3 --network-id=local --bootstrap-ips=127.0.0.1:9651 --bootstrap-ids=NodeID-AK7sPBsZM9rQwse23aLhEEBPHZD5gkLrL --staking-tls-cert-file=$(CAMINO_KEY_PATH)/staker3.crt --staking-tls-key-file=$(CAMINO_KEY_PATH)/staker3.key
 ```
 
 ```sh
-./build/camino-node --public-ip=127.0.0.1 --http-port=9656 --staking-port=9657 --db-dir=db/node4 --network-id=local --bootstrap-ips=127.0.0.1:9651 --bootstrap-ids=NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg --staking-tls-cert-file=$(CAMINO_KEY_PATH)/staker4.crt --staking-tls-key-file=$(CAMINO_KEY_PATH)/staker4.key
+./build/camino-node --public-ip=127.0.0.1 --http-port=9656 --staking-port=9657 --db-dir=db/node4 --network-id=local --bootstrap-ips=127.0.0.1:9651 --bootstrap-ids=NodeID-AK7sPBsZM9rQwse23aLhEEBPHZD5gkLrL --staking-tls-cert-file=$(CAMINO_KEY_PATH)/staker4.crt --staking-tls-key-file=$(CAMINO_KEY_PATH)/staker4.key
 ```
 
 ```sh
-./build/camino-node --public-ip=127.0.0.1 --http-port=9658 --staking-port=9659 --db-dir=db/node5 --network-id=local --bootstrap-ips=127.0.0.1:9651 --bootstrap-ids=NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg --staking-tls-cert-file=$(CAMINO_KEY_PATH)/staker5.crt --staking-tls-key-file=$(CAMINO_KEY_PATH)/staker5.key
+./build/camino-node --public-ip=127.0.0.1 --http-port=9658 --staking-port=9659 --db-dir=db/node5 --network-id=local --bootstrap-ips=127.0.0.1:9651 --bootstrap-ids=NodeID-AK7sPBsZM9rQwse23aLhEEBPHZD5gkLrL --staking-tls-cert-file=$(CAMINO_KEY_PATH)/staker5.crt --staking-tls-key-file=$(CAMINO_KEY_PATH)/staker5.key
 ```

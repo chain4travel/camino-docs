@@ -70,7 +70,7 @@ curl -X POST --data '{
     "jsonrpc": "2.0",
     "method": "platform.addDelegator",
     "params": {
-        "nodeID":"NodeID-MFrZFVCXPv5iCn6M9K6XduxGTYp891xXZ",
+        "nodeID":"NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
         "rewardAddress":"P-columbus1gss39m5sx6jn7wlyzeqzm086yfq2l02xkvmecy",
         "startTime":1594102400,
         "endTime":1604102400,
@@ -235,7 +235,7 @@ curl -X POST --data '{
     "jsonrpc": "2.0",
     "method": "platform.addSubnetvalidator",
     "params": {
-        "nodeID":"NodeID-7xhw2mdxuds44j42tcb6u5579esbst3lg",
+        "nodeID":"NodeID-AK7sPBsZM9rQwse23aLhEEBPHZD5gkLrL",
         "subnetID":"zbfoww1ffkpvrfywpj1cvqrfnyesepdfc61hmu2n9jnghduel",
         "startTime":1583524047,
         "endTime":1604102399,
@@ -1259,7 +1259,7 @@ curl -X POST --data '{
     "method": "platform.getMaxStakeAmount",
     "params": {
         "subnetID":"11111111111111111111111111111111LpoYY",
-        "nodeID":"NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg",
+        "nodeID":"NodeID-AK7sPBsZM9rQwse23aLhEEBPHZD5gkLrL",
         "startTime": 1644240334,
         "endTime": 1644240634
     },
@@ -1398,7 +1398,7 @@ curl -X POST --data '{
         "startTime": "1600368523",
         "endTime": "1602960342",
         "stakeAmount": "20000000000",
-        "nodeID": "NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg"
+        "nodeID": "NodeID-AK7sPBsZM9rQwse23aLhEEBPHZD5gkLrL"
       }
     ]
   },
@@ -2021,11 +2021,11 @@ curl -X POST --data '{
   "jsonrpc": "2.0",
   "result": {
     "validators": {
-      "NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg": 2000000000000000,
-      "NodeID-GWPcbFJZFfZreETSoWjPimr846mXEKCtu": 2000000000000000,
-      "NodeID-MFrZFVCXPv5iCn6M9K6XduxGTYp891xXZ": 2000000000000000,
-      "NodeID-NFBbbJ4qCmNaCzeW7sxErhvWqvEQMnYcN": 2000000000000000,
-      "NodeID-P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5": 2000000000000000
+      "NodeID-AK7sPBsZM9rQwse23aLhEEBPHZD5gkLrL": 2000000000000000,
+      "NodeID-5ZUdznHckQcqucAnNf3vzXnPF97tfRtfn": 2000000000000000,
+      "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ": 2000000000000000,
+      "NodeID-PM2LqrGsxudhZSP49upMonevbQvnvAciv": 2000000000000000,
+      "NodeID-EoYFkbokZEukfWrUovo74YkTFnAMaqTG7": 2000000000000000
     }
   },
   "id": 1
@@ -2326,8 +2326,8 @@ curl -X POST --data '{
   "id": 1,
   "result": {
     "validators": [
-      "NodeID-MFrZFVCXPv5iCn6M9K6XduxGTYp891xXZ",
-      "NodeID-NFBbbJ4qCmNaCzeW7sxErhvWqvEQMnYcN"
+      "NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ",
+      "NodeID-PM2LqrGsxudhZSP49upMonevbQvnvAciv"
     ]
   }
 }

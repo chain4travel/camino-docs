@@ -90,7 +90,7 @@ Timeout when attempting to connect to bootstrapping beacons. Defaults to `1m`.
 
 #### `--bootstrap-ids` (string):
 
-Bootstrap IDs is an array of validator IDs. These IDs will be used to authenticate bootstrapping peers. An example setting of this field would be `--bootstrap-ids="NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg,NodeID-MFrZFVCXPv5iCn6M9K6XduxGTYp891xXZ"`. The default value depends on the network ID.
+Bootstrap IDs is an array of validator IDs. These IDs will be used to authenticate bootstrapping peers. An example setting of this field would be `--bootstrap-ids="NodeID-AK7sPBsZM9rQwse23aLhEEBPHZD5gkLrL,NodeID-D1LbWvUf9iaeEyUbTYYtYq4b7GaYR5tnJ"`. The default value depends on the network ID.
 
 #### `--bootstrap-ips` (string):
 
