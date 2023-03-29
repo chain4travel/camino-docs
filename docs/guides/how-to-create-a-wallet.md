@@ -12,7 +12,7 @@ To create a Camino Wallet, open your browser and navigate to the Camino Suite.
 
 :::caution Verify the Address
 
-It's important to ensure that you are on the correct website before creating your wallet. 
+It's important to ensure that you are on the correct website before creating your wallet.
 Check the URL and the lock icon in the address bar to verify the website's authenticity.
 
 ![](/img/create-wallet/00-suite-wallet-address-bar.png)
@@ -22,7 +22,7 @@ Confirm that the address in the address bar is: https://suite.camino.network/
 :::
 
 After verifying the website's authenticity, you will be greeted with a page similar
-to the one shown below. Click on the "Login" button located at the top right corner 
+to the one shown below. Click on the "Login" button located at the top right corner
 of the page to proceed with the wallet creation process.
 
 <figure>
@@ -50,8 +50,8 @@ On the next page, click the **GENERATE KEY PHRASE** button to generate your wall
 
 ## Write Down Your Key Phrase
 
-On the next page, you will be presented with the key phrase that has been generated for 
-your wallet. It is important that you **write it down and keep it in a secure location**. 
+On the next page, you will be presented with the key phrase that has been generated for
+your wallet. It is important that you **write it down and keep it in a secure location**.
 Your key phrase is necessary if you ever need to recover your wallet.
 
 :::danger KEEP YOUR KEY PHRASE SECURE
@@ -61,7 +61,7 @@ IF YOU LOSE YOUR KEY PHRASE, YOUR FUNDS WILL BE LOST FOREVER!
 :::
 
 Once you have written down your key phrase in a secure location, click on the checkbox that
-states "*I wrote down my key phrase in a secure location.*" to confirm that you have 
+states "_I wrote down my key phrase in a secure location._" to confirm that you have
 secured it properly.
 
 <figure>
@@ -82,7 +82,7 @@ On the next page, click the **ACCESS WALLET** button to access your newly create
 
 On the next page, you will be presented with a challenge to verify your key phrase.
 
-Retrieve the key phrase that you previously wrote down and fill in the blank spots 
+Retrieve the key phrase that you previously wrote down and fill in the blank spots
 in the popup window to verify your key phrase.
 
 <figure>
@@ -90,7 +90,7 @@ in the popup window to verify your key phrase.
 <figcaption align = "center"><b>Fig.6:</b> Fill in the blanks</figcaption>
 </figure>
 
-After you have finished filling in the blank spots with your key phrase, click on 
+After you have finished filling in the blank spots with your key phrase, click on
 the "Verify" button to confirm that you have entered it correctly.
 
 <figure>
@@ -111,10 +111,10 @@ Click on the "Access Wallet" button to access your Camino Wallet.
 
 ## Switch to Wallet View
 
-Now that you are logged in with your newly created wallet, you can see your wallet 
+Now that you are logged in with your newly created wallet, you can see your wallet
 address instead of the login button at the top right corner of the screen.
 
-To switch to the wallet view, click on the dropdown menu located at the top left 
+To switch to the wallet view, click on the dropdown menu located at the top left
 corner of the screen.
 
 <figure>
@@ -131,8 +131,8 @@ Then, from the dropdown menu, click on the "Wallet" option to access your Camino
 
 ## Enjoy Your Wallet!
 
-Congratulations! You have successfully created your Camino Wallet and can now start 
-receiving funds on the Camino Network. 
+Congratulations! You have successfully created your Camino Wallet and can now start
+receiving funds on the Camino Network.
 
 Enjoy the benefits of secure and decentralized transactions with your new wallet.
 
@@ -143,11 +143,8 @@ Enjoy the benefits of secure and decentralized transactions with your new wallet
 
 :::tip Save Your Wallet
 
-If you would like to save your wallet to your browser's local storage for easy 
-access in the future, please refer to the [**How to Save Your Wallet**](/guides/how-to-save-your-wallet) 
+If you would like to save your wallet to your browser's local storage for easy
+access in the future, please refer to the [**How to Save Your Wallet**](/guides/how-to-save-your-wallet)
 page for detailed instructions.
 
 :::
-
-
-
