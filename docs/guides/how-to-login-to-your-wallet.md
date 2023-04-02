@@ -126,7 +126,7 @@ You can view your private key by accessing the "My Keys" section on the "Manage 
 
 <figure>
 <img class="zoom" src="/img/login-wallet/my-keys-private-key-dialog.png#center"/>
-<figcaption align = "center"><b>Fig.7:</b> View Keys Dialog</figcaption>
+<figcaption align = "center"><b>Fig.8:</b> View Keys Dialog</figcaption>
 </figure>
 
 ## Log in with Keystore File
@@ -137,12 +137,12 @@ providing the file and entering your saved password.
 
 <figure>
 <img class="zoom" src="/img/login-wallet/keystore-0-select-file.png#center"/>
-<figcaption align = "center"><b>Fig.7:</b> Select Keystore File</figcaption>
+<figcaption align = "center"><b>Fig.9:</b> Select Keystore File</figcaption>
 </figure>
 
 <figure>
 <img class="zoom" src="/img/login-wallet/keystore-1-file-selected-password-filled.png#center"/>
-<figcaption align = "center"><b>Fig.7:</b> Keystore File Selected & Passwored Entered</figcaption>
+<figcaption align = "center"><b>Fig.10:</b> Keystore File Selected & Passwored Entered</figcaption>
 </figure>
 
 For more information about how to save your wallet into a keystore file, please refer
