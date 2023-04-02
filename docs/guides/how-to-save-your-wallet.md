@@ -4,7 +4,13 @@ title: How to Save Your Wallet
 description: How to save your wallet
 ---
 
-# How to Save Your Wallet
+# How to Save Your Wallet?
+
+There are two ways to save your wallet. One is to store it in your browser's local
+storage, and the other option is to save it to your computer as a keystore file.
+Both methods use encryption to securely store your password.
+
+## Saving your wallet to Browser's local storage
 
 The Camino Wallet provides a feature to safely save your wallet to your browser's
 local storage for easy access in the future.
@@ -21,7 +27,7 @@ In any of those cases, **you will need your key phrase to recover your wallet**.
 
 :::
 
-## Open the Save Account Dialog
+### Open the Save Account Dialog
 
 To save your wallet, first, click on the dropdown menu located in the top right corner of the screen.
 
@@ -37,7 +43,7 @@ Next, click on the "Save Account" option from the dropdown menu. This will open 
 <figcaption align = "center"><b>Fig.2:</b> Click Save Account</figcaption>
 </figure>
 
-## Fill in the Form
+### Fill in the Form
 
 Once the "Save Account" dialog box is open, you will need to fill in the required
 information to save your wallet.
@@ -63,7 +69,7 @@ to save your wallet to your browser's local storage.
 <figcaption align = "center"><b>Fig.4:</b> Click Save</figcaption>
 </figure>
 
-## Verify Your Saved Wallet
+### Verify Your Saved Wallet
 
 Once you have saved your wallet, you can verify that it has been successfully
 saved by checking the top right corner of the Camino Wallet interface.
@@ -77,7 +83,7 @@ and is now accessible from your browser's local storage. Congratulations!
 <figcaption align = "center"><b>Fig.5:</b> Saved Wallet</figcaption>
 </figure>
 
-## Change Password or Delete Saved Wallet
+### Change Password or Delete Saved Wallet
 
 If you need to change the password for your saved wallet or delete it entirely,
 you can do so by accessing the Account Settings menu.
@@ -104,5 +110,26 @@ deleting your wallet.
 
 <figure>
 <img class="zoom" src="/img/save-wallet/s5-suite-wallet-manage-account-popup.png"/>
-<figcaption align = "center"><b>Fig.6:</b> Change Password & Delete Account</figcaption>
+<figcaption align = "center"><b>Fig.7:</b> Change Password & Delete Account</figcaption>
+</figure>
+
+## Saving your wallet to a Keystore File
+
+To save your wallet to a keystore file, you need to open the "Manage Keys" page and
+click on the "Export Keys" button.
+
+<figure>
+<img class="zoom" src="/img/save-wallet/k1-suite-wallet-keystore-export-button.png#center"/>
+<figcaption align = "center"><b>Fig.8:</b> Export Keys Button</figcaption>
+</figure>
+
+A dialog box will appear prompting you to enter a password for encrypting the keystore
+file. Enter the password twice and then click on the "Export Wallet" button.
+
+After this a dialog box will appear prompting you to save the keystore file.
+Select a secure location to save your file.
+
+<figure>
+<img class="zoom" src="/img/save-wallet/export-keys-password-dialog-filled.png#center"/>
+<figcaption align = "center"><b>Fig.9:</b> Enter Encryption Password</figcaption>
 </figure>

@@ -123,3 +123,7 @@ img[src*='#center'] {
 .medium-zoom-image--opened {
   z-index: 1000;
 }
+
+figcaption {
+  text-align: center;
+}
