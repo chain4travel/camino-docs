@@ -1,9 +1,8 @@
-name: build-app
+name: docker-build
+
 on:
-  push:
-    branches:
-      - main
-      - dev
+  workflow_dispatch:
+
 jobs:
   yarn-build:
     runs-on: ubuntu-latest
