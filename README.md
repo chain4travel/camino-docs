@@ -22,7 +22,7 @@ Contributing to the docs site is a great way to get involved with the Camino dev
 ### Pull Request (PR)
 * All PRs should be made against the `dev` branch.
 * Once your PR is merged into `dev`, [docs (testing)](https://playground.docs.camino.foundation/) will be updated with your changes.
-* After review from our staff, we merge `dev` regularly into `main`. Then it's updated on the [production site](https://docs.camino.foundation/).
+* After review from our staff, we merge `dev` regularly into `c4t`. Then it's updated on the [production site](https://docs.camino.foundation/).
 
 ### Installation
 

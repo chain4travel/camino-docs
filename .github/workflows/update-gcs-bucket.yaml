@@ -13,7 +13,7 @@ env:
 
 jobs:
   build_deploy_scrape:
-    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' }}
+    if: ${{ github.ref == 'refs/heads/dev' }}
     name: Build, Deploy & Scrape
     runs-on: ubuntu-latest
     steps:
@@ -22,10 +22,7 @@ jobs:
       - name: Prepare variables
         id: prepareVariables
         run: |
-          if [[ "${{ github.ref_name }}" == "main" ]]; then
-              echo "bucket=docs.camino.network" >> $GITHUB_OUTPUT
-              echo "collection=camino-docs-`date +%s`" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.ref_name }}" == "dev" ]]; then
+          if [[ "${{ github.ref_name }}" == "dev" ]]; then
               echo "bucket=dev.docs.camino.network" >> $GITHUB_OUTPUT
               echo "collection=camino-docs-dev-`date +%s`" >> $GITHUB_OUTPUT
           else
