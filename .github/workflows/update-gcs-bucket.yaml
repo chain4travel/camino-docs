@@ -7,7 +7,7 @@ on:
       - dev
 
 env:
-  node_version: 16
+  node_version: 18
   typesense_url: https://typesense.camino.network
   default_collection_name: camino-docs-default
 
