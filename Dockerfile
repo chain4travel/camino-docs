@@ -1,4 +1,4 @@
-FROM node:16-bullseye-slim as builder
+FROM node:18 as builder
 
 WORKDIR /opt
 
