@@ -1,5 +1,5 @@
 ---
-sidebar_position: 31
+sidebar_position: 34
 title: Adding a Validator Node with cURL
 description: How to add a Validator Node with cURL
 ---

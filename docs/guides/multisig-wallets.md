@@ -1,10 +1,10 @@
 ---
 sidebar_position: 5
-title: Multi-Sig Wallets & Aliases
-description: What is a Multi-Sig Wallet and Multi-Sig Alias?
+title: Multisig Wallets & Aliases
+description: What is a Multisig Wallet and Multisig Alias?
 ---
 
-# What is a Multi-Sig Wallet?
+# What is a Multisig Wallet?
 
 A multisig wallet, also known as a multi-signature wallet, is a type of digital wallet
 that requires multiple signatures from different parties to authorize a transaction.
@@ -20,35 +20,26 @@ wallet for a joint investment. Instead of giving control of the wallet to just o
 they can create a multisig wallet where a certain number of signatories (e.g. 2 out of 3, 3 out of 5, etc.)
 must approve any transaction before it can be executed.
 
+Members of the multisig wallet are authorized to sign transactions for the multisig alias without needing
+approval from others. However, to execute a transaction, the signature threshold must be met.
+
 In summary, a multisig wallet is a secure way to manage cryptocurrency funds that requires
 multiple parties to authorize transactions. It is particularly useful in the Camino Network
 for risk management and increased security.
 
-## What is a Multi-Sig Alias?
+## What is a Multisig Alias?
 
-In the Camino Network, a multisig alias, also known as a control group, is a way of grouping
-together multiple addresses into a single identifier for the purpose of managing a multisig wallet.
-An alias is a public key that the addresses are derived from and has no private keys. It represents
-the control group that collectively manages the multisig wallet.
+In the Camino Network, a multisig alias, or control group, is a technique used to manage a multisig
+wallet by grouping multiple addresses into a single identifier. This identifier is referred to as
+an alias and is a regular address with no private keys. The alias represents the control group responsible
+for collectively managing the multisig wallet.
 
-When a multisig wallet is created, a unique address is derived from the public keys of the signatories.
-This address can be quite long and complex, making it difficult to manage and share with others.
-By creating a multisig alias, the wallet address can be replaced with a shorter and more user-friendly
-identifier (a regular wallet address), simplifying the process of sharing and using the wallet.
+The use of an alias allows the control group to have a single address with the ability to change owners,
+enabling the seamless use of applications similar to a traditional wallet.
 
-Members of the control group are authorized to sign transactions for the multisig alias without needing
-approval from others. However, to execute a transaction, the signature threshold must be met.
+Aliases define a multisig wallet with members and a threshold.
 
-Multisig aliases are particularly useful in situations where there are multiple parties involved in the
-management of a wallet, such as in a joint venture or a team project. By grouping together the signatories
-into a single alias, it simplifies the process of authorizing transactions and reduces the risk of
-unauthorized access or fraud.
-
-In summary, a multisig alias is an address that represents a control group of signatories that manage a
-multisig wallet. The alias has no private keys and can be used to simplify the management of the wallet,
-allowing members of the group to sign transactions for the alias without requiring approval from anyone else.
-
-## What is Threshold in Multi-Sig Wallets?
+## What is Threshold in Multisig Wallets?
 
 In a multisig wallet, threshold refers to the minimum number of signatories required to authorize a
 transaction. When creating a multisig wallet, the threshold is set as a parameter, along with the list
@@ -71,7 +62,7 @@ In summary, threshold in the context of multisig wallets refers to the minimum n
 to authorize a transaction. It provides an added layer of security and control over the funds, while also
 determining the level of convenience and ease of use for the wallet.
 
-## Single Treshold Multi-Sig Wallets
+## Single Treshold Multisig Wallets
 
 Single threshold multisig wallets are a type of multisig wallet where a single signature is required to sign
 and execute transactions. This means that a transaction can be authorized by any one of the signatories in
@@ -100,7 +91,7 @@ among a group of people or entities, with the added security benefits of multisi
 they may not provide the same level of security as higher threshold multisig wallets, and it's important
 to weigh the advantages and disadvantages based on the specific use case and requirements.
 
-## Managing Multi-Sig Wallets with Camino Wallet
+## Managing Multisig Wallets with Camino Wallet
 
 When logging into your wallet using your key phrase, navigate to the Manage Keys section. If your wallet
 is a member of a multisig wallet, you will be prompted with an import wallets dialog. You can also access
@@ -119,9 +110,16 @@ the same dialog from the wallet switcher button. Figure 1 & 2 shows an examples 
 After clicking the import button, your multisig wallets and their corresponding addresses will appear,
 as shown in Figure 3.
 
+:::note
+
+It is important to note that while this example includes three multisig wallets, the majority of
+users who are members of a multisig wallet will typically only have a single multisig wallet.
+
+:::
+
 <figure>
 <img class="zoom" src="/img/msig/msig-2-imported-switcher.png#center"/>
-<figcaption align = "center"><b>Fig.3:</b> Multi-Sig Wallets Imported</figcaption>
+<figcaption align = "center"><b>Fig.3:</b> Multisig Wallets Imported</figcaption>
 </figure>
 
 You can activate the corresponding wallet by clicking the star icon. This allows you to see and transfer its

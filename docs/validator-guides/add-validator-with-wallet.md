@@ -12,7 +12,7 @@ your consortium member address with Camino Wallet.
 :::info MULTISIG WALLETS
 
 Kindly note that the wallets of a majority of the consortium members are multi-signature
-(multi-sig) wallets. If your wallet is also a multi-sig wallet, please consult the
+(multi-sig) wallets. If your wallet is also a multisig wallet, please consult the
 [Adding a Validator Node with MultiSig Wallet](/validator-guides/add-validator-with-msig) documentation.
 
 :::

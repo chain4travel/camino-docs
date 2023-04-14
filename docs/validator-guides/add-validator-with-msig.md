@@ -1,10 +1,10 @@
 ---
-sidebar_position: 30
-title: Adding a Validator Node with Multi-Sig Wallet
-description: How to add a Validator Node with Multi-Sig Wallet
+sidebar_position: 32
+title: Adding a Validator Node with Multisig Wallet
+description: How to add a Validator Node with Multisig Wallet
 ---
 
-# Adding a Validator Node with Multi-Sig Wallet
+# Adding a Validator Node with Multisig Wallet
 
 This guide will walk you through the process of adding a validator node using
 your consortium member address with Camino Wallet.
@@ -34,9 +34,9 @@ Always verify that the domain is **camino.network** while using the wallet.
 
 ## Overview
 
-To add a validator node using Camino Wallet and a multi-sig wallet, you will need to follow these steps:
+To add a validator node using Camino Wallet and a multisig wallet, you will need to follow these steps:
 
-1. Activate your Multi-Sig Wallet
+1. Activate your Multisig Wallet
 1. Check and verify the requirements
 1. Retrieve your node's private key
 1. Register your node with your wallet
@@ -50,18 +50,24 @@ To add a validator node using Camino Wallet and a multi-sig wallet, you will nee
    - Execute the transaction
 1. Verify that the validator is online
 
-## 1. Activate your Multi-Sig Wallet
+:::danger RAPID DEVELOPMENT
 
-Firstly, you will need to [activate your multi-sig wallet](/guides/multisig-wallets#managing-multi-sig-wallets-with-camino-wallet).
+The Multi-Signature features of Camino Wallet are currently undergoing rapid development. Please note that these features are subject to updates, changes, or fixes.
+
+:::
+
+## 1. Activate your Multisig Wallet
+
+Firstly, you will need to [activate your multisig wallet](/guides/multisig-wallets#managing-multi-sig-wallets-with-camino-wallet).
 To do this, log in to your wallet using your key phrase and navigate to the Manage Keys
 section (or click the switch button at the top right).
 
-If you are a member of a multi-sig wallet, an import wallets dialog box will appear. Click the
-Import Wallets button to pull in the multi-sig wallets that you are a member of.
+If you are a member of a multisig wallet, an import wallets dialog box will appear. Click the
+Import Wallets button to pull in the multisig wallets that you are a member of.
 
-Next, click the small star icon on the right side of the multi-sig address to activate it.
+Next, click the small star icon on the right side of the multisigaddress to activate it.
 
-For more detailed information, please refer to the [Multi-Sig Wallets & Aliases](/guides/multisig-wallets) documentation.
+For more detailed information, please refer to the [Multisig Wallets & Aliases](/guides/multisig-wallets) documentation.
 
 ## 2. Requirements
 
@@ -80,7 +86,7 @@ Below is a list of these requirements for the mainnet (`camino`) and testnet (`c
 
 ### Checking Requirements Using Camino Wallet
 
-You can verify if you meet these requirements by accessing the Validator tab after logging in and activating the multi-sig wallet.
+You can verify if you meet these requirements by accessing the Validator tab after logging in and activating the multisig wallet.
 
 You will be presented with a page similar to this:
 
@@ -95,7 +101,7 @@ To register your node to your consortium address, you need to prove that you own
 
 For more information on how to retrieve your node's private key, please refer to the [Retrieving Your Node's Private Key](/validator-guides/add-validator-with-curl#retrieving-your-nodes-private-key) guide.
 
-## 4. Register Your Node with your Multi-Sig Wallet
+## 4. Register Your Node with your Multisig Wallet
 
 Once you have fulfilled the requirements outlined above, you can proceed to register your node. You should see a page as in the Fig.3 screenshot.
 
@@ -116,7 +122,7 @@ Here, you can verify the NodeID displayed with your node's ID to ensure that the
 Pay close attention to the warnings displayed in the dialog box. Once the transaction is initiated, it cannot be
 undone. It must either be signed by other members of the wallet and executed or it must be left to expire.
 
-This effectively prevents you from initiating new transactions and using the multi-sig wallet.
+This effectively prevents you from initiating new transactions and using the multisig wallet.
 
 Currently, the expiration time for pending transactions is two weeks and cannot be canceled or changed. However,
 in the near future, it will be possible to cancel signature-pending transactions.
@@ -177,16 +183,26 @@ section.
 <figcaption align = "center"><b>Fig.7:</b> Setting up a Validator</figcaption>
 </figure>
 
+### Set Validation & Transaction End Dates
+
 Please note that the "**Confirm**" button under the duration is currently disabled. This is because the
 validation end date must be at least 6 months in the future. Therefore, you will need to update this
 date accordingly.
-
-### Set Validation & Transaction End Dates
 
 Additionally, please update the "**Transaction End Date**" field. The description of this field can be
 misleading, as this is actually the date and time when the transaction will be executed. Therefore,
 please choose a sensible date and time, taking into consideration that other members of the multisig
 wallet will also need to sign the transaction.
+
+:::caution NOTE ABOUT END DATES
+
+Please note that it is important to set the validation and transaction end dates to appropriate values.
+
+| **Validation End Date**  |    This should be set to a date that is at least 6 months (183 days) in the future.    |
+| :----------------------: | :------------------------------------------------------------------------------------: |
+| **Transaction End Date** | This should be set to a relatively short time in the future, such as 30 or 60 minutes. |
+
+:::
 
 Once you have set the appropriate dates, the page will appear as shown below. Click the **Confirm**
 button to proceed.
@@ -218,7 +234,7 @@ As with the Register Node transaction, you will need to collect enough signature
 
 ### Signing the Pending Transaction
 
-Next, the other members of the multi-sig wallet need to log in to the wallet and sign the transaction.
+Next, the other members of the multisig wallet need to log in to the wallet and sign the transaction.
 The following screen shows what a member would see:
 
 <figure>
