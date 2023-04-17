@@ -12,6 +12,28 @@ For more up-to-date information please check [Github Release](https://github.com
 
 :::
 
+## v0.4.5-rc1
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.5-rc1)
+
+- Update of the genesis file (kopernikus) by @pnowosie in #58
+- CaminoGo
+  - CrossTransferOut to specify Import receiver already on export time
+  - PlatformVM: Implement BaseTx to enable P -> P transfer
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.4-rc1...v0.4.5-rc1
+
+## v0.4.4-rc1
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.4-rc1)
+
+- Cleanup Release
+- **This version is NOT compatible to earlier camino-node versions**
+- Simplify DepositOffer DB storage
+- Update Columbus Genesis
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.3-rc3...v0.4.4-rc1
+
 ## v0.4.3-rc2
 
 [View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.3-rc2)
@@ -101,7 +123,7 @@ Based on avalanchego v1.9.4 (Banff)
 - DepositBond mode instead stake/delegate (for camino networks)
 - AddressStates for KYC / ConsortiumMembers
 - Registration NodeID <-> Consortium member
-- Multi-Sig addresses
+- Multisigaddresses
 
 #### X-Chain:
 
