@@ -1,6 +1,6 @@
 ---
 sidebar_position: 30
-title: Add a Validator Node with Wallet
+title: Adding a Validator Node with Wallet
 description: How to add a Validator Node with Camino Wallet
 ---
 
@@ -8,6 +8,14 @@ description: How to add a Validator Node with Camino Wallet
 
 This guide will walk you through the process of adding a validator node using
 your consortium member address with Camino Wallet.
+
+:::info MULTISIG WALLETS
+
+Kindly note that the wallets of a majority of the consortium members are multi-signature
+(multi-sig) wallets. If your wallet is also a multisig wallet, please consult the
+[Adding a Validator Node with MultiSig Wallet](/validator-guides/add-validator-with-msig) documentation.
+
+:::
 
 :::tip WALLET ADDRESS
 
@@ -59,7 +67,8 @@ Below is a list of these requirements for the mainnet (`camino`) and testnet (`c
 
 ### Checking Requirements Using Camino Wallet
 
-You can verify if you meet these requirements by accessing the Validator tab in your [wallet](https://wallet.camino.network)'s sidebar after logging in.
+You can verify if you meet these requirements by accessing the Validator tab in your wallet's navigation bar after
+logging in.
 
 If some of the requirements are not met, you will see a page similar to this:
 

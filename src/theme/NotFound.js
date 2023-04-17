@@ -7,13 +7,13 @@ function removeTrailingSlash(str) {
 }
 
 const replacers = {
-  "/to/wallet-validate-cams": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
+  "/to/wallet-validate-cams": "/validator-guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
   "/to/wallet-validate-kyc-kyb": "/guides/kyc",
-  "/to/wallet-validate-voted": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
-  "/to/wallet-validate-c-member": "/guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
-  "/to/wallet-validate-reg-node": "/guides/add-validator-with-curl#register-your-node",
-  "/to/wallet-validate-suspension": "/guides/reasons-for-validator-suspension",
-  "/to/wallet-validate-pending": "/guides/reasons-for-validator-pending",
+  "/to/wallet-validate-voted": "/validator-guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
+  "/to/wallet-validate-c-member": "/validator-guides/add-validator-with-curl#camino-mainnet--columbus-testnet",
+  "/to/wallet-validate-reg-node": "/validator-guides/add-validator-with-curl#register-your-node",
+  "/to/wallet-validate-suspension": "/validator-guides/reasons-for-validator-suspension",
+  "/to/wallet-validate-pending": "/validator-guides/reasons-for-validator-pending",
   "/to/create-a-local-test-network": "/developer/guides/create-a-local-test-network",
   "/developer/build/create-a-local-test-network": "/developer/guides/create-a-local-test-network",
   "/build/tutorials/columbus-testnet": "/about/columbus-testnet/",
