@@ -12,6 +12,33 @@ For more up-to-date information please check [Github Release](https://github.com
 
 :::
 
+## v0.4.7-rc1
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.7-rc1)
+
+- General genesis update by @Noctunus in #63
+- ClaimTx Rework (CaminoGo)
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.6-rc2...v0.4.7-rc1
+
+## v0.4.6-rc2
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.6-rc2)
+
+- caminogo: fix camino beacon (missing port)
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.6-rc1...v0.4.6-rc2
+
+## v0.4.6-rc1
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.6-rc1)
+
+- Camino genesis generation by @Noctunus in #60
+- caminojs: genesis files / version bump 0.4.6 (== compatibility)
+- caminojs: reward UTXO sorting
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.5-rc1...v0.4.6-rc1
+
 ## v0.4.5-rc1
 
 [View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.5-rc1)
