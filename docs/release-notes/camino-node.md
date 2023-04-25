@@ -12,6 +12,18 @@ For more up-to-date information please check [Github Release](https://github.com
 
 :::
 
+## v0.4.8-rc1
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.8-rc1)
+
+- Version 0.4.8 (== compatibility)
+- Add RewardOwner into Deposit (state)
+- Multiple Owners getClaimables
+- PVM Service: Remove APIOwner, instead use existing platformapi.Owner
+- Fixed NodeIDs for Columbus by @Noctunus in #64
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.7-rc1...v0.4.8-rc1
+
 ## v0.4.7-rc1
 
 [View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.7-rc1)
