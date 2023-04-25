@@ -4,13 +4,6 @@ sidebar_position: 8
 
 # MetaMask & RPC Endpoints
 
-:::caution Work In Progress
-
-This document is still a **work-in-progress**. It is advisable to check back later for updates and revisions.
-If you need help, please feel free to contact us on our [**Discord server**](https://discord.gg/camino) for assistance.
-
-:::
-
 ## MetaMask
 
 To add Camino to your MetaMask wallet, use the following information, or alternatively, use ChainList.org to seamlessly integrate Camino into your wallet.
@@ -28,21 +21,21 @@ Camino Network is on ChainList.org. You can automatically add Camino networks to
 
 #### Camino Mainnet
 
-|    Network Name: |                Camino (mainnet)                |
-| ---------------: | :--------------------------------------------: |
-|         RPC URL: | https://mainnet.camino.foundation/ext/bc/C/rpc |
-|        Chain-ID: |                     `500`                      |
-| Currency Symbol: |                     `CAM`                      |
-|  Block Explorer: |    https://explorer.camino.network/mainnet     |
+|    Network Name: |               Camino (mainnet)                |
+| ---------------: | :-------------------------------------------: |
+|         RPC URL: |    https://api.camino.network/ext/bc/C/rpc    |
+|        Chain-ID: |                     `500`                     |
+| Currency Symbol: |                     `CAM`                     |
+|  Block Explorer: | https://suite.camino.network/explorer/c-chain |
 
 #### Columbus Testnet
 
-|    Network Name: |                Columbus (testnet)                |
-| ---------------: | :----------------------------------------------: |
-|         RPC URL: |   https://columbus.camino.network/ext/bc/C/rpc   |
-|        Chain-ID: |                      `501`                       |
-| Currency Symbol: |                      `CAM`                       |
-|  Block Explorer: | https://explorer.columbus.camino.network/c-chain |
+|    Network Name: |              Columbus (testnet)               |
+| ---------------: | :-------------------------------------------: |
+|         RPC URL: | https://columbus.camino.network/ext/bc/C/rpc  |
+|        Chain-ID: |                     `501`                     |
+| Currency Symbol: |                     `CAM`                     |
+|  Block Explorer: | https://suite.camino.network/explorer/c-chain |
 
 ### Add Network to MetaMask
 
@@ -82,10 +75,10 @@ Below is the information regarding Camino Network's Public API Endpoints.
 
 ### Camino-Node RPC APIs
 
-|         API Name |                URL                 |
-| ---------------: | :--------------------------------: |
-|   Camino Mainnet | https://mainnet.camino.foundation/ |
-| Columbus Testnet |  https://columbus.camino.network/  |
+|         API Name |               URL                |
+| ---------------: | :------------------------------: |
+|   Camino Mainnet |   https://api.camino.network/    |
+| Columbus Testnet | https://columbus.camino.network/ |
 
 :::note MORE ON CAMINO APIs
 
@@ -97,10 +90,18 @@ For more information please visit [Camino-Node APIs page](/developer/apis/camino
 
 |         API Name |                     URL                     |
 | ---------------: | :-----------------------------------------: |
+|   Camino Mainnet |     https://magellan.camino.network/v2      |
 | Columbus Testnet | https://magellan.columbus.camino.network/v2 |
 
 :::note MORE ON MAGELLAN API
 
 For more information about Magellan APIs please visit [Magellan API page](/developer/apis/magellan)
+
+:::
+
+:::info Getting More Help
+
+If you require further assistance, don't hesitate to contact us on our [**Discord server**](https://discord.gg/camino).
+We are always happy to help.
 
 :::
