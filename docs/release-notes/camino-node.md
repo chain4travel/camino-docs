@@ -4,13 +4,38 @@ sidebar_position: 1
 
 # Camino-Node Releases
 
-:::info UP-TO-DATE INFORMATION
+:::note UP-TO-DATE INFORMATION
 
 `camino-node` is under very rapid development, this page may be outdated.
 
 For more up-to-date information please check [Github Release](https://github.com/chain4travel/camino-node/releases) page.
 
 :::
+
+## v0.4.9-rc1
+
+<p><span class="alert alert--success pill">Current Mainnet (Camino) Version</span></p>
+<p><span class="alert alert--warning pill">Current Testnet (Columbus) Version</span></p>
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.9-rc1)
+
+- CaminoAddValidator NodeOwnerAuth
+- Because we faced issues with the current UnsortedCredential checker, a subnetAuth was added to the CaminoAddValidatorTx.
+- This authentication must handle credentials which verifies the Registered NodeID owner
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.8-rc1...v0.4.9-rc1
+
+## v0.4.8-rc1
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.8-rc1)
+
+- Version 0.4.8 (== compatibility)
+- Add RewardOwner into Deposit (state)
+- Multiple Owners getClaimables
+- PVM Service: Remove APIOwner, instead use existing platformapi.Owner
+- Fixed NodeIDs for Columbus by @Noctunus in #64
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.7-rc1...v0.4.8-rc1
 
 ## v0.4.7-rc1
 

@@ -127,3 +127,7 @@ img[src*='#center'] {
 figcaption {
   text-align: center;
 }
+
+.pill {
+  padding: 5px 15px 5px 15px;
+}
