@@ -22,8 +22,10 @@ verified, it enhances trustworthiness and reduces risk, thereby improving the ov
 experience.
 
 To be verified, the user must share an ID document and pass a liveness check to authenticate.
-After successful verification, the verified status is saved to the Camino blockchain where
-it can be picked up by the network.
+Once the user has successfully completed the verification process, their wallet will be
+associated with a verified KYC status. This enables other network participants and builders
+to identify wallets that have a verified KYC, without disclosing any personal KYC information
+provided by the user.
 
 :::caution NO PRIVATE INFO IS SAVED ON THE BLOCKCHAIN
 
