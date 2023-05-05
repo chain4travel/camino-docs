@@ -37,7 +37,7 @@ const sidebars = {
         {
           type: 'link',
           label: 'Camino Lightpaper',
-          href: 'https://camino.network/static/Chain4Travel_Litepaper_June.pdf'
+          href: 'https://camino.network/static/docs/Chain4Travel_Litepaper_June.pdf'
         },
       ],
     },
