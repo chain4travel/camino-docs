@@ -51,6 +51,18 @@ No, you don’t need to keep your private keys on your validator (and we strongl
 
 Yes. A validator will receive a staking reward if they are online and respond for more than 90% of their validation period. You should aim for your validator to be online and responsive 100% of the time.
 
+### Why does my validator's uptime percentage start from a lower value and then gradually increase to 100%?
+
+When a new validator is added to the network, it takes some time for the API node to discover and connect to
+it. The uptime percentage displayed in the explorer is based on the API node's view of the network, not on
+the validator itself. As a result, during the initial period, your validator appears to be offline to the API
+node, which causes the uptime percentage to start from a lower value.
+
+However, this is not a significant issue since other validators are also tracking the uptime of their peers.
+Each node in the network monitors the uptime of other nodes, so even if the API node initially reports a lower
+uptime percentage, your validator's node will show a 100% uptime if it was healthy and online when it was added
+to the network.
+
 ### Can I stop my validator and stop staking at any time?
 
 No, your stake is locked for the pre-defined staking period. Your stake is automatically returned to your address upon completion.
