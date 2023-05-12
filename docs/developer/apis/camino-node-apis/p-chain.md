@@ -1028,6 +1028,93 @@ curl -X POST --data '{
 }
 ```
 
+### platform&#46;getConfiguration
+
+Returns platformVM configuration.
+
+**Signature**
+
+```sh
+platform.getConfiguration() -> {
+    networkID: int,
+    assetID: string,
+    assetSymbol: string,
+    hrp: string,
+    blockchains: [
+      {
+        id: string,
+        name: string,
+        subnetID: string,
+        vmID: string
+      },
+      ...
+    ],
+    minStakeDuration: int,
+    maxStakeDuration: int,
+    minValidatorStake: int,
+    maxValidatorStake: int,
+    minDelegationFee: int,
+    minDelegatorStake: int,
+    minConsumptionRate: int,
+    maxConsumptionRate: int,
+    supplyCap: int,
+    codecVersion: int,
+    verifyNodeSignature: bool,
+    lockModeBondDeposit: bool
+}
+```
+
+**Example Call**
+
+```sh
+curl -X POST --data '{
+    "jsonrpc":"2.0",
+    "id"     :1,
+    "method" :"platform.getConfiguration"
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
+```
+
+**Example Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "networkID": "1002",
+    "assetID": "iTV3Gh5EY2aUqt6JyhKkHSH4thSsUUhGC8GhxwDrTxgmREpr1",
+    "assetSymbol": "CAM",
+    "hrp": "kopernikus",
+    "blockchains": [
+      {
+        "id": "2emXuWNR9Gn9Hbe5k3iwyBax8sQhGHv2BJwhDJwMrvXYAotBeL",
+        "name": "C-Chain",
+        "subnetID": "11111111111111111111111111111111LpoYY",
+        "vmID": "mgj786NP7uDwBCcq6YwThhaN8FLyybkCa4zBWTQbNgmK6k9A6"
+      },
+      {
+        "id": "2o3ApqF7hQCjBofo8hD8i8GLHhAkMv96Hu7kjd5NqsScraoZ1x",
+        "name": "X-Chain",
+        "subnetID": "11111111111111111111111111111111LpoYY",
+        "vmID": "jvYyfQTxGMJLuGWa55kdP2p2zSUYsQ5Raupu4TW34ZAUBAbtq"
+      }
+    ],
+    "minStakeDuration": "86400000000000",
+    "maxStakeDuration": "31536000000000000",
+    "minValidatorStake": "2000000000000",
+    "maxValidatorStake": "2000000000000",
+    "minDelegationFee": "0",
+    "minDelegatorStake": "0",
+    "minConsumptionRate": "0",
+    "maxConsumptionRate": "0",
+    "supplyCap": "1000000000000000000",
+    "codecVersion": "0",
+    "verifyNodeSignature": true,
+    "lockModeBondDeposit": true
+  },
+  "id": 1
+}
+```
+
 ### platform&#46;getCurrentSupply
 
 Returns an upper bound on the number of CAM that exist. This is an upper bound because it does not account for burnt tokens, including transaction fees.
