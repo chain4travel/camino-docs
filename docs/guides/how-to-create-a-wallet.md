@@ -60,6 +60,17 @@ IF YOU LOSE YOUR KEY PHRASE, YOUR FUNDS WILL BE LOST FOREVER!
 
 :::
 
+:::tip PROTECT YOUR KEY PHRASE: Best Practices for Security
+
+To ensure the safety of your key phrase, it's essential to follow best practices. For detailed
+information on how to safeguard your key phrase effectively, please refer to this page:
+[**How to Safeguard Your Key Phrase**](/guides/safeguard-your-key-phrase)
+
+Discover valuable tips and strategies to enhance the security of your key phrase and maintain
+control over your digital assets.
+
+:::
+
 Once you have written down your key phrase in a secure location, click on the checkbox that
 states "_I wrote down my key phrase in a secure location._" to confirm that you have
 secured it properly.
