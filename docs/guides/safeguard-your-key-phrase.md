@@ -34,7 +34,7 @@ their keys and retain control over their digital assets.
 When you generate a key phrase, it's crucial to write it down on
 a physical medium, such as a piece of paper or a metal backup. Avoid storing it digitally or
 taking screenshots, storing it on a USB drive, on your computer, on your phone, or in the cloud,
-  as these can be vulnerable to hacks and malware.
+as these can be vulnerable to hacks and malware.
 
 ### Store it in a secure location
 
@@ -81,12 +81,12 @@ in the near future. Stay tuned for updates!
 
 ### Regularly test your key phrase backup
 
-Periodically verify that you can correctly recover your wallet using your key phrase backup. 
+Periodically verify that you can correctly recover your wallet using your key phrase backup.
 This helps ensure that your backup is accurate and accessible when needed.
 
 ### Be discreet and limit exposure
 
-Avoid discussing or displaying your key phrase in public or on social media platforms. 
+Avoid discussing or displaying your key phrase in public or on social media platforms.
 Keep your key phrase private and limit its exposure to trusted individuals only.
 
 By following these best practices, you can significantly enhance the security of your key phrase
