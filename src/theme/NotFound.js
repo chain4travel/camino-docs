@@ -42,6 +42,7 @@ const replacers = {
   "/guides/add-validator-with-curl": "/validator-guides/add-validator-with-curl",
   "/guides/reasons-for-validator-suspension": "/validator-guides/reasons-for-validator-suspension",
   "/guides/reasons-for-validator-pending": "/validator-guides/reasons-for-validator-pending",
+  "/guides/query-kyc-state-on-c-chain": "/developer/guides/query-kyc-state-on-c-chain",
 }
 
 export default function NotFoundWrapper(props) {
