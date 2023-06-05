@@ -18,7 +18,7 @@ Starting with API version 1, the request paths will be prefixed by a version tag
 In addition to integers, strings, and booleans, the following data types are used throughout the API:
 
 | Name           | Description                                                                 | Examples                                                                             |
-|:---------------|:----------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|
+| :------------- | :-------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
 | `id`           | A CB58 encoded object identifier, such as a chain, transaction, or asset ID | `2oYMBNV4eNHyqk2fjjV5nVQLDbtmNJzq5s3qs3Lo6ftnC6FByM`                                 |
 | `address`      | A bech-32 encoded address (used on the X-Chain and P-Chain)                 | `fuji1wycv8n7d2fg9aq6unp23pnj4q0arv03ysya8jw`                                        |
 | `timestamp`    | A Unix timestamp as a string                                                | `1599696000`                                                                         |
@@ -28,7 +28,7 @@ In addition to integers, strings, and booleans, the following data types are use
 
 ### Create Multisig Tx
 
-This endpoint will create a new multisig transaction for collecting signatures. The client provides the alias,  unsignedTx, and the signature.
+This endpoint will create a new multisig transaction for collecting signatures. The client provides the alias, unsignedTx, and the signature.
 The signature’s payload contains the unsigned transaction and is signed with the owner's private key.
 The public key is used to verify that the creator of the transaction is an owner for this alias.
 The response will return the same object with a list of the owners and the alias threshold as obtained from the Node API.
@@ -37,21 +37,19 @@ Note that an empty transactionId is denoting the fact that this is a pending tra
 **Params**
 
 | Name                | Type     | Description                                                                                 | Default | Optional |
-|:--------------------|:---------|:--------------------------------------------------------------------------------------------| :------ |:---------|
+| :------------------ | :------- | :------------------------------------------------------------------------------------------ | :------ | :------- |
 | `unsignedTx`        | `string` | An unsigned transaction.                                                                    | None    | No       |
 | `alias`             | `id`     | The multisig alias issuing the transaction.                                                 | None    | No       |
 | `signature`         | `string` | The unsigned transaction signed with the owner's private key.                               | None    | No       |
-| `outputOwners`      | `string` | A hex encoded representation of the object `outputOwners`                                    | None    | No       |
+| `outputOwners`      | `string` | A hex encoded representation of the object `outputOwners`                                   | None    | No       |
 | `metadata`          | `string` | A string which can contain for example the signature of a node that wants to be registered. | None    | Yes      |
 | `expiration`        | `int`    | A Unix timestamp as an integer                                                              | None    | Yes      |
-| `parentTransaction` | `string` | A hex represantation of the parent transaction of the unsignedTx  (not yet evaluated)       | None    | Yes      |
-
-
+| `parentTransaction` | `string` | A hex represantation of the parent transaction of the unsignedTx (not yet evaluated)        | None    | Yes      |
 
 **Result Types**
 
 | Name           | Description                                                   |
-|:---------------|:--------------------------------------------------------------|
+| :------------- | :------------------------------------------------------------ |
 | `unsignedTx`   | Pending unsigned Tx                                           |
 | `alias`        | Multisig Alias                                                |
 | `signature`    | The unsigned transaction signed with the owner's private key. |
@@ -100,13 +98,14 @@ This endpoint will return an array of all pending transactions for the alias spe
 
 **Params**
 
-| Name        | Type     | Description                                                                                                                                                                                           | Default |
-|:------------|:---------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :------ |
-| `alias`     | `string` | Multisig alias                                                                                                                                                                                       |
-| `signature` | `string` | The payload that will be signed must contain the alias and the timestamp. <br/>The values are concatenated together as a string and then signed with the owner’s private key composing the signature. | None    |
+| Name        | Type        | Description                                                                                                                                                                                           | Default |
+| :---------- | :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ |
+| `alias`     | `string`    | Multisig alias                                                                                                                                                                                        |
+| `signature` | `string`    | The payload that will be signed must contain the alias and the timestamp. <br/>The values are concatenated together as a string and then signed with the owner’s private key composing the signature. | None    |
 | `timestamp` | `timestamp` | Unix epoc h as string                                                                                                                                                                                 | None    |
 
 Example signature:
+
 ```text
 signature = alias + timestamp
 "P-kopernikus1k4przmfu79ypp4u7y98glmdpzwk0u3sc7saazy" + "1678877386" = "P-kopernikus1k4przmfu79ypp4u7y98glmdpzwk0u3sc7saazy1678877386"
@@ -114,16 +113,16 @@ signature = alias + timestamp
 
 **Result Types**
 
-| Name            | Description                                                |
-|:----------------|:-----------------------------------------------------------|
-| `id `           | Signavault's Id for the Tx                                 |
-| `unsignedTx`    | Pending unsigned Tx                                        |
-| `alias`         | Multisig Alias                                             |
-| `threshold`     | Threshold                                                  |
-| `transactionId` | Transaction ID                                             |
-| `owners`        | Array of Owners consisting of address and signature        |
-| `outputOwners`  | A hex encoded representation of the object `outputOwners`  |
-| `metadata`      | Metadata                                                   |
+| Name            | Description                                               |
+| :-------------- | :-------------------------------------------------------- |
+| `id `           | Signavault's Id for the Tx                                |
+| `unsignedTx`    | Pending unsigned Tx                                       |
+| `alias`         | Multisig Alias                                            |
+| `threshold`     | Threshold                                                 |
+| `transactionId` | Transaction ID                                            |
+| `owners`        | Array of Owners consisting of address and signature       |
+| `outputOwners`  | A hex encoded representation of the object `outputOwners` |
+| `metadata`      | Metadata                                                  |
 
 **Example Call**
 
@@ -164,29 +163,27 @@ This endpoint will add a new signer on an existing Multisig transaction identifi
 **Params**
 
 | Name        | Type     | Description                                                                                           | Default |
-|:------------|:---------|:------------------------------------------------------------------------------------------------------| :------ |
-| `id `       | `id`     |  Signavault's Id for the Tx                                                                           | None    |
+| :---------- | :------- | :---------------------------------------------------------------------------------------------------- | :------ |
+| `id `       | `id`     | Signavault's Id for the Tx                                                                            | None    |
 | `signature` | `string` | The signature’s payload contains the unsigned transaction and is signed with the owner's private key. | None    |
-
 
 **Result Types**
 
-| Name            | Description                                                |
-|:----------------|:-----------------------------------------------------------|
-| `id `           | Signavault's Id for the Tx                                 |
-| `unsignedTx`    | Pending unsigned Tx                                        |
-| `alias`         | Multisig Alias                                             |
-| `threshold`     | Threshold                                                  |
-| `transactionId` | Transaction ID                                             |
-| `owners`        | Array of Owners consisting of address and signature        |
-| `outputOwners`  | A hex encoded representation of the object `outputOwners`  |
-| `metadata`      | Metadata                                                   |
+| Name            | Description                                               |
+| :-------------- | :-------------------------------------------------------- |
+| `id `           | Signavault's Id for the Tx                                |
+| `unsignedTx`    | Pending unsigned Tx                                       |
+| `alias`         | Multisig Alias                                            |
+| `threshold`     | Threshold                                                 |
+| `transactionId` | Transaction ID                                            |
+| `owners`        | Array of Owners consisting of address and signature       |
+| `outputOwners`  | A hex encoded representation of the object `outputOwners` |
+| `metadata`      | Metadata                                                  |
 
-    
 **Example Call**
 
 ```sh
-curl -X PUT --data '{    
+curl -X PUT --data '{
     "signature": "0x26f7774da6795a209beec22d85c4d02f5b69a3058cb2ceac056b91ec0c63ed3a5fca5e0d82ce5dab3a2ab734a043d4073badd27cd13d1d81110cd213ada4d0e401491f1648"
 }' -H 'content-type:application/json;' http://localhost:8080/v1/multisig/19
 ```
@@ -215,7 +212,6 @@ curl -X PUT --data '{
 }
 ```
 
-
 ### Issue Multisig Tx
 
 This endpoint is used as a proxy between the wallet and the node. The wallet will send the complete signed transaction bytes and SignaVault will forward it to the node. If the transaction is successfully executed, SignaVault will also update the corresponding database entry with the generated txID and it notify the wallet as well. On transaction failure SignaVault will return the error back to the wallet accordingly.
@@ -223,21 +219,20 @@ This endpoint is used as a proxy between the wallet and the node. The wallet wil
 **Params**
 
 | Name        | Type     | Description                                                                                           | Default |
-|:------------|:---------|:------------------------------------------------------------------------------------------------------| :------ |
+| :---------- | :------- | :---------------------------------------------------------------------------------------------------- | :------ |
 | `signedTx`  | `tx`     | The complete signedTx object encoded in hex.                                                          | None    |
 | `signature` | `string` | The signature’s payload contains the unsigned transaction and is signed with the owner's private key. | None    |
 
-
 **Result Types**
 
-| Name           | Description     |
-|:---------------|:----------------|
-| `txID `        | Transaction ID  |
+| Name    | Description    |
+| :------ | :------------- |
+| `txID ` | Transaction ID |
 
 **Example Call**
 
 ```sh
-curl -X POST --data '{    
+curl -X POST --data '{
     "signedTx": "0x00000000200400003039010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e4a36162",
     "signature": "0x26f7774da6795a209beec22d85c4d02f5b69a3058cb2ceac056b91ec0c63ed3a5fca5e0d82ce5dab3a2ab734a043d4073badd27cd13d1d81110cd213ada4d0e401491f1648"
 }' -H 'content-type:application/json;' http://localhost:8080/v1/multisig/issue
