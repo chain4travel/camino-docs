@@ -69,6 +69,47 @@ Camino Network is on ChainList.org. You can automatically add Camino networks to
 <figcaption align="center"><b>Fig.4:</b> Verify success</figcaption>
 </figure>
 
+### Add Your Account to MetaMask
+
+To retrieve your C-Chain private key from the Camino Wallet and add it to MetaMask, follow these steps:
+
+1. In the Camino Wallet, navigate to the "Manage Keys" page.
+1. Locate the "View Static Key" link and click on it to retrieve your private key.
+
+:::tip
+
+If you are using this private key to add your account to a wallet that
+requires the "0x" notation, simply add "0x" at the beginning of the key.
+
+:::
+
+<figure>
+<img class="zoom" src="/img/query-kyc-state-c-chain/mm-account-0-get-pk.png#center"/>
+<figcaption align="center"><b>Fig.6:</b> Get Private Key</figcaption>
+</figure>
+
+Open MetaMask and click on "Import Account" from the My Accounts menu.
+
+<figure>
+<img class="zoom" src="/img/query-kyc-state-c-chain/mm-account-1-import.png#center"/>
+<figcaption align="center"><b>Fig.6:</b> Click Import Account</figcaption>
+</figure>
+
+Select "Private Key" as the import type. Paste your private key into the provided field.
+Click "Import" to proceed.
+
+<figure>
+<img class="zoom" src="/img/query-kyc-state-c-chain/mm-account-2-pk.png#center"/>
+<figcaption align="center"><b>Fig.7:</b> Enter Private Key and click Import</figcaption>
+</figure>
+
+Your account will now be successfully added to MetaMask.
+
+<figure>
+<img class="zoom" src="/img/query-kyc-state-c-chain/mm-account-3-done.png#center"/>
+<figcaption align="center"><b>Fig.8:</b> Account Imported</figcaption>
+</figure>
+
 ## Public API Endpoints
 
 Below is the information regarding Camino Network's Public API Endpoints.
