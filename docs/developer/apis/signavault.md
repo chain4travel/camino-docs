@@ -26,7 +26,7 @@ In addition to integers, strings, and booleans, the following data types are use
 
 ## Available Endpoints
 
-### Create Multisig Tx
+### Create Multisig Transaction
 
 This endpoint will create a new multisig transaction for collecting signatures. The client provides the alias, unsignedTx, and the signature.
 The signature’s payload contains the unsigned transaction and is signed with the owner's private key.
@@ -92,7 +92,7 @@ curl -X POST --data '{
 }
 ```
 
-### Get Multisig Txs
+### Get Multisig Transactions
 
 This endpoint will return an array of all pending transactions for the alias specified with the path parameter **:alias**
 
@@ -156,7 +156,7 @@ curl http://localhost:8080/v1/multisig/P-kopernikus1k4przmfu79ypp4u7y98glmdpzwk0
 ]
 ```
 
-### Sign Multisig Tx
+### Sign Multisig Transaction
 
 This endpoint will add a new signer on an existing Multisig transaction identified by the :id
 
@@ -212,7 +212,7 @@ curl -X PUT --data '{
 }
 ```
 
-### Issue Multisig Tx
+### Issue Multisig Transaction
 
 This endpoint is used as a proxy between the wallet and the node. The wallet will send the complete signed transaction bytes and SignaVault will forward it to the node. If the transaction is successfully executed, SignaVault will also update the corresponding database entry with the generated txID and it notify the wallet as well. On transaction failure SignaVault will return the error back to the wallet accordingly.
 
