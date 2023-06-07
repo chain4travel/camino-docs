@@ -110,6 +110,13 @@ Your account will now be successfully added to MetaMask.
 <figcaption align="center"><b>Fig.8:</b> Account Imported</figcaption>
 </figure>
 
+:::caution YOU NEED FUNDS ON C-CHAIN FOR METAMASK
+
+Please note that **in order to view your funds on MetaMask**, it is necessary to transfer them to the C-Chain on the Camino Wallet.
+For instructions on executing a cross-chain transfer, please refer to the [**Cross Chain Transfer**](/guides/cross-chain-transfer) page for detailed guidance.
+
+:::
+
 ## Public API Endpoints
 
 Below is the information regarding Camino Network's Public API Endpoints.
