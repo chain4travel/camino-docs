@@ -6,8 +6,8 @@ description: This guide explains the process of doing a cross chain transfer on 
 
 # Cross Chain Transfer
 
-This guide provides instructions on conducting a cross-chain transfer on the Camino Network 
-using the Camino Wallet. To better understand the various chains and their functions, please 
+This guide provides instructions on conducting a cross-chain transfer on the Camino Network
+using the Camino Wallet. To better understand the various chains and their functions, please
 consult the [Camino Network Overview](/about/camino-network-overview) document.
 
 ## Steps for Cross-Chain Transfer
