@@ -22,6 +22,12 @@ This install script assumes:
 - Camino-Node is not running and not already installed as a service
 - User running the script has superuser privileges (can run `sudo`)
 
+:::caution NODE VERSIONS
+
+Please make sure to use only the recommended node versions mentioned on the [Current Node Versions](/validator-guides/current-node-versions) page. Avoid using RC or Alpha releases on the mainnet.
+
+:::
+
 ### Environment considerations
 
 If you run a different flavor of Linux, the script might not work as intended. It assumes `systemd` is used to run system services. Other Linux flavors might use something else, or might have files in different places than is assumed by the script.
@@ -74,7 +80,7 @@ To download and run the script, enter the following in the terminal:
 ```bash
 wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/camino-node-installer.sh;\
 chmod 755 camino-node-installer.sh;\
-./camino-node-installer.sh ## if you run the node on testnet(columbus) please use ./camino-node-installer.sh --version v0.2.1-rc2
+./camino-node-installer.sh
 ```
 
 And we're off! The output should look something like this:

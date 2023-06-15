@@ -78,6 +78,9 @@ usage () {
   echo "Options:"
   echo "   --help            Shows this message"
   echo "   --list            Lists 10 newest versions available to install"
+#hide this option
+#  echo "   --list-all        Lists 10 newest versions available to install including RC and Alpha Releases"
+#  echo "                     Note: Please do not use RC/Alpha releases for mainnet"
   echo "   --version <tag>   Installs <tag> version"
   echo "   --reinstall       Run the installer from scratch, overwriting the old service file"
   echo ""
@@ -92,6 +95,15 @@ if [ $# -ne 0 ] #arguments check
 then
   case $1 in
     --list) #print version list and exit (last 10 versions)
+      echo "Available versions:"
+      wget -q -O - https://api.github.com/repos/chain4travel/camino-node/releases \
+      | grep tag_name \
+      | grep -v "rc\|alpha" \
+      | sed 's/.*: "\(.*\)".*/\1/' \
+      | head
+      exit 0
+      ;;
+    --list-all) #print version list including rc and alhpa releases and exit (last 10 versions)
       echo "Available versions:"
       wget -q -O - https://api.github.com/repos/chain4travel/camino-node/releases \
       | grep tag_name \

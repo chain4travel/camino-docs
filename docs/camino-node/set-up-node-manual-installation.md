@@ -15,6 +15,12 @@ In this tutorial, we will:
 
 This tutorial is primarily geared toward developers and people interested in how the Camino Network works. If you're just interested in setting up a node for staking, you may want to follow the [Camino Node Install Script](set-up-node-with-installer.md) tutorial instead. The installer automates the installation process and sets it up as a system service, which is recommended for unattended operation. You may also try things out by following this tutorial first, and then later set up the node using the installer as a permanent solution.
 
+:::caution NODE VERSIONS
+
+Please make sure to use only the recommended node versions mentioned on the [Current Node Versions](/validator-guides/current-node-versions) page. Avoid using RC or Alpha releases on the mainnet.
+
+:::
+
 ## Requirements
 
 Camino is a lightweight protocol which let nodes run on commodity hardware. Note that as network usage increases, hardware requirements may change.

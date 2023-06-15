@@ -23,6 +23,12 @@ The docker container assumes in the default configuration:
 - A mount-point will be used to mount the directory `/root/.caminogo` to a persistent storage
 - The port 9651 is accessible from the internet
 
+:::caution NODE VERSIONS
+
+Please make sure to use only the recommended node versions mentioned on the [Current Node Versions](/validator-guides/current-node-versions) page. Avoid using RC or Alpha releases on the mainnet.
+
+:::
+
 ## Configuration
 
 To change the configuration you have to pass another set of config-flags to the execution of Camino-Node. The list of config-flags can be found [here](./camino-node-config-flags).
