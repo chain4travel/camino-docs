@@ -80,7 +80,7 @@ To download and run the script, enter the following in the terminal:
 ```bash
 wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/camino-node-installer.sh;\
 chmod 755 camino-node-installer.sh;\
-./camino-node-installer.sh ## if you run the node on testnet(columbus) please use ./camino-node-installer.sh --version v0.2.1-rc2
+./camino-node-installer.sh
 ```
 
 And we're off! The output should look something like this:
