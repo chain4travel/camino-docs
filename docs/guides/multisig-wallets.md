@@ -137,3 +137,18 @@ In this panel, "linked wallets" refers to the addresses that are imported to the
 be used to sign and execute transactions. "Unlinked wallets" are the other members of the multisig wallet
 that are not imported into the Camino Wallet. The owners of these wallets need to log in to the Camino Wallet
 to sign multisig transactions.
+
+## How It Works Behind the Scenes?
+
+### Signavault Service
+
+As mentioned previously, the successful execution of multisig transactions requires each transaction to be
+signed by a minimum number of wallets defined by the threshold. This involves the creation of an unsigned
+transaction and the collection of signatures. To simplify this process for users, Camino Wallet utilizes
+a service called Signavault.
+
+When a user initiates a multisig transaction, the wallet generates the transaction and submits it to the
+Signavault service. This allows other members of the multisig group to utilize the wallet for querying
+the Signavault service in order to check if there are any pending transactions requiring their signatures.
+If such transactions exist, they can sign them and save the signatures within the Signavault. Ultimately,
+when the threshold requirement is met, any member of the group can execute the transaction.
