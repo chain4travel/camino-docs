@@ -1,12 +1,18 @@
 ---
 sidebar_position: 4
-title: Configs & Flags
-description: This documents list all available configuration and flags for Camino Node.
+title: Configuration
+description: Common configuration options used for the Camino Node.
 ---
 
-# Camino Node Config and Flags
+# Camino Node Configuration
 
 You can specify the configuration of a node with the arguments below.
+
+:::tip FLAGS & ARGUMENTS
+
+For a comprehensive list of available options, please refer to the [Flags & Arguments](/camino-node/flags-arguments) page.
+
+:::
 
 ## Config File
 
@@ -18,9 +24,25 @@ Example JSON config file:
 
 ```json
 {
-  "log-level": "debug"
+  "public-ip": "111.112.113.114",
+  "http-host": "127.0.0.1",
+  "network-id": "columbus",
+  "log-level": "debug",
+  "log-display-level": "info",
+  "log-rotater-compress-enabled": "true",
+  "log-rotater-max-size": 32,
+  "log-rotater-max-files": 20,
+  "log-rotater-max-age": "60",
+  "api-keystore-enabled": "false"
 }
 ```
+
+:::note CONFIG FLAG VS CLI FLAG
+
+It's important to note that the same options can be configured using both the command line and the config file.
+The distinction lies in the usage syntax: when utilizing the option as a CLI flag, you need to prepend it with `--` (double dash).
+
+:::
 
 #### `--config-file-content` (string):
 
@@ -32,9 +54,9 @@ Specifies the format of the base64 encoded config content. JSON, TOML, YAML are 
 
 ## APIs
 
-#### `--api-admin-enabled` (boolean):
+#### `--api-admin-enabled-secret` (string):
 
-If set to `false`, this node will not expose the Admin API. Defaults to `false`. See [here](/developer/apis/camino-node-apis/admin.md) for more information.
+If not empty, this node exposes the Admin API. The secret must be passed for every call. See [here](/developer/apis/camino-node-apis/admin.md) for more information.
 
 #### `--api-auth-required` (boolean):
 
@@ -650,6 +672,10 @@ For an example of a JSON representation of genesis data, see [here](https://gith
 As an alternative to `--genesis`, it allows specifying base64 encoded genesis data to use.
 
 ## HTTP Server
+
+#### `--http-allowed-origins` (string):
+
+Origins to allow on the HTTP port. Defaults to \* which allows all origins.
 
 #### `--http-host` (string):
 

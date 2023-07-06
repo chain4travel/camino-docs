@@ -7,7 +7,7 @@ description: The IPC API allows users to create UNIX domain sockets for blockcha
 
 The IPC API allows users to create UNIX domain sockets for blockchains to publish to. When the blockchain accepts a vertex/block it will publish it to a socket and the decisions contained inside will be published to another.
 
-A node will only expose this API if it is started with [config flag](/camino-node/camino-node-config-flags.md) `api-ipcs-enabled=true`.
+A node will only expose this API if it is started with [config flag](/camino-node/configuration) `api-ipcs-enabled=true`.
 
 ## IPC Message Format
 

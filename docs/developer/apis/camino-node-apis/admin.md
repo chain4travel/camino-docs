@@ -10,7 +10,7 @@ This API can be used for measuring node health and debugging.
 
 Note that the Admin API is disabled by default for security reasons.
 
-To run a node with the Admin API enabled, use [config flag](/camino-node/camino-node-config-flags.md) **`--api-admin-enabled=true`**
+To run a node with the Admin API enabled, use [config flag](/camino-node/flags-arguments#--api-admin-enabled-secret-string) **`--api-admin-enabled-secret=<string>`**
 
 :::
 
@@ -48,7 +48,8 @@ curl -X POST --data '{
     "id"     :1,
     "method" :"admin.alias",
     "params": {
-        "alias":"myAlias",
+        "secret": "<ADMIN-SECRET>",
+        "alias" :"myAlias",
         "endpoint":"bc/X"
     }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
@@ -94,6 +95,7 @@ curl -X POST --data '{
     "id"     :1,
     "method" :"admin.aliasChain",
     "params": {
+        "secret": "<ADMIN-SECRET>",
         "chain":"sV6o671RtkGBcno1FiaDbVcFv2sG5aVXMZYzKdP4VQAWmJQnM",
         "alias":"myBlockchainAlias"
     }
@@ -138,6 +140,7 @@ curl -X POST --data '{
     "id"     :1,
     "method" :"admin.getChainAliases",
     "params": {
+        "secret": "<ADMIN-SECRET>",
         "chain":"sV6o671RtkGBcno1FiaDbVcFv2sG5aVXMZYzKdP4VQAWmJQnM"
     }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
@@ -190,6 +193,7 @@ curl -X POST --data '{
     "id"     :1,
     "method" :"admin.getLoggerLevel",
     "params": {
+        "secret": "<ADMIN-SECRET>",
         "loggerName": "C"
     }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
@@ -233,6 +237,7 @@ curl -X POST --data '{
     "id"     :1,
     "method" :"admin.getNodeSigner",
     "params": {
+        "secret": "<ADMIN-SECRET>"
     }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
@@ -272,7 +277,9 @@ curl -X POST --data '{
     "jsonrpc":"2.0",
     "id"     :1,
     "method" :"admin.loadVMs",
-    "params" :{}
+    "params" :{
+        "secret": "<ADMIN-SECRET>"
+    }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
@@ -310,7 +317,9 @@ curl -X POST --data '{
     "jsonrpc":"2.0",
     "id"     :1,
     "method" :"admin.lockProfile",
-    "params" :{}
+    "params" :{
+        "secret": "<ADMIN-SECRET>"
+    }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
@@ -343,7 +352,9 @@ curl -X POST --data '{
     "jsonrpc":"2.0",
     "id"     :1,
     "method" :"admin.memoryProfile",
-    "params" :{}
+    "params" :{
+        "secret": "<ADMIN-SECRET>"
+    }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 
@@ -389,6 +400,7 @@ curl -X POST --data '{
     "id"     :1,
     "method" :"admin.setLoggerLevel",
     "params": {
+        "secret": "<ADMIN-SECRET>",
         "loggerName": "C",
         "logLevel": "DEBUG",
         "displayLevel": "INFO"
@@ -425,7 +437,9 @@ curl -X POST --data '{
     "jsonrpc":"2.0",
     "id"     :1,
     "method" :"admin.startCPUProfiler",
-    "params" :{}
+    "params" :{
+        "secret": "<ADMIN-SECRET>"
+    }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/admin
 ```
 

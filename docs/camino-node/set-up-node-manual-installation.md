@@ -134,7 +134,7 @@ To be able to make API calls to your node from other machines, when starting up 
 
 When the mainnet (Camino) goes live, you can either omit `--network-id=columbus` parameter, or pass `--network-id=camino` which is the name of our mainnet.
 
-Validators must know their public facing IP addresses so they can let other nodes know how to connect to them. So If your node will run as a validator, you need to use the `--public-ip` option. For more info check [public-ip flag](camino-node-config-flags.md#public-ip)
+Validators must know their public facing IP addresses so they can let other nodes know how to connect to them. So If your node will run as a validator, you need to use the `--public-ip` option. For more info check [public-ip flag](/camino-node/configuration#public-ip)
 
 ## What next?
 
