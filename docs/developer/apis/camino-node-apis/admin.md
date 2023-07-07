@@ -10,7 +10,7 @@ This API can be used for measuring node health and debugging.
 
 Note that the Admin API is disabled by default for security reasons.
 
-To run a node with the Admin API enabled, use [config flag](/camino-node/flags-arguments#--api-admin-enabled-secret-string) **`--api-admin-enabled-secret=<string>`**
+To run a node with the Admin API enabled, use [config flag](/camino-node/configuration/flags-arguments#--api-admin-enabled-secret-string) **`--api-admin-enabled-secret=<string>`**
 
 :::
 

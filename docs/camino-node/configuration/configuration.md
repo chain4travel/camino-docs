@@ -10,7 +10,7 @@ You can specify the configuration of a node with the arguments below.
 
 :::tip FLAGS & ARGUMENTS
 
-For a comprehensive list of available options, please refer to the [Flags & Arguments](/camino-node/flags-arguments) page.
+For a comprehensive list of available options, please refer to the [Flags & Arguments](/camino-node/configuration/flags-arguments) page.
 
 :::
 
