@@ -1,12 +1,12 @@
 ---
 sidebar_position: 45
-title: Query KYC State on C-Chain
-description: This document describes how to use Remix IDE to query KYC State of an address on C-Chain
+title: Query KYC/KYB States on C-Chain
+description: This document describes how to use Remix IDE to query KYC/KYB States of an address on C-Chain
 ---
 
-# How to Query KYC State on C-Chain
+# How to Query KYC/KYB States on C-Chain
 
-This document provides a guide on how to use [Remix IDE](https://remix.ethereum.org/) to query the KYC state of
+This document provides a guide on how to use [Remix IDE](https://remix.ethereum.org/) to query the KYC/KYB States of
 an address on C-Chain. Follow the steps below to accomplish this.
 
 ## Prerequisites
@@ -15,7 +15,7 @@ an address on C-Chain. Follow the steps below to accomplish this.
 
 ## Add Camino Network to MetaMask
 
-To query the KYC state of an address using the Remix IDE, we will use the MetaMask wallet.
+To query the KYC/KYB States of an address using the Remix IDE, we will use the MetaMask wallet.
 
 We need to add a custom network to MetaMask. In this document, we will use the Columbus test network.
 
@@ -112,7 +112,7 @@ Follow the steps below to make the query:
 <figcaption align="center"><b>Fig.13:</b> Click the arrow to open the dropdown</figcaption>
 </figure>
 
-- Paste the address you want to query KYC state into the field and click **`getKycState`** button.
+- Paste the address you want to query KYC/KYB States into the field and click **`getKycState`** button.
 
 :::note
 
@@ -133,12 +133,25 @@ method in P-Chain API documentation.
 
 - The result of the query will be displayed below the **`getKycState`** button.
 
-- Possible values are:
+- Common values are:
 
-| Value |      State      | Description                                      |
-| :---: | :-------------: | ------------------------------------------------ |
-|  `0`  | non-KYC verifed | Given address has not undergone KYC verification |
-|  `1`  |  KYC verified   | Given address has undergone KYC verification     |
+| Value |       State        | Description                                        |
+| :---: | :----------------: | -------------------------------------------------- |
+|  `0`  |  No Verification   | Given address has not undergone KYC verification   |
+|  `1`  |    KYC Verified    | Given address has undergone KYC verification       |
+| `256` |    KYB Verified    | Given address has undergone KYB verification       |
+| `257` | KYC & KYB Verified | Given address has undergone KYC & KYB verification |
+
+## KYC/KYB State Bits
+
+KYC/KYB states are represented by bits in a uint256 variable. The table below illustrates
+the mapping of each bit to its corresponding information:
+
+| Bit | Information  |
+| :-: | :----------: |
+| `0` | KYC Verifed  |
+| `1` | KYC Expired  |
+| `8` | KYB Verified |
 
 ### Example Result for KYC Verified Address
 
@@ -154,10 +167,17 @@ method in P-Chain API documentation.
 <figcaption align="center"><b>Fig.15:</b> Example result for Non-Verified address</figcaption>
 </figure>
 
+### Example Result for KYC & KYB Verified Address
+
+<figure>
+<img class="zoom" src="/img/query-kyc-state-c-chain/16-kyc-kyb-state.png"/>
+<figcaption align="center"><b>Fig.16:</b> Example result for KYC & KYB verified address</figcaption>
+</figure>
+
 :::info Conclusion
 
 Smart contracts on the C-Chain can retrieve information from the CaminoAdmin contract to confirm
-whether an address they are interacting with has undergone KYC verification or not.
+whether an address they are interacting with has undergone KYC/KYB verification or not.
 
 This functionality empowers developers to create use-cases where such information is necessary.
 
