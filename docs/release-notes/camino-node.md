@@ -12,10 +12,60 @@ For more up-to-date information please check [Github Release](https://github.com
 
 :::
 
-## v0.4.9-rc1
+## v1.0.0
 
+<p><span class="alert alert--info pill">Athens Phase</span></p>
 <p><span class="alert alert--success pill">Current Mainnet (Camino) Version</span></p>
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v1.0.0)
+
+- Official Athens Phase Release
+- ** Release notes same as `v1.0.0-rc1`**
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.9...v1.0.0
+
+## v1.0.0-rc1
+
+<p><span class="alert alert--info pill">Athens Phase (Pre-Release)</span></p>
+<p><span class="alert alert--secondary pill">Pre-Release</span></p>
 <p><span class="alert alert--warning pill">Current Testnet (Columbus) Version</span></p>
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v1.0.0-rc1)
+
+- Athens version by @evlekht in #68
+
+**caminogo**
+
+- Athens Upgrade
+- AddDepositOffer allows creation of deposit offers
+- Whitelist / Owner controlled deposit offers
+- AddressStateTx upgrade to make it MsigAlias capable
+- Fix AddValidatorTx RewardOwner
+- Fix bootstrap of SystemUnlockDepositTx (empty Creds[0])
+- Fix AddddressStateTx Roles
+- Admin API secret (dns attack)
+
+**camino-node**
+
+- Bump dependencies
+- Adjust Config flags for admin api secret
+- 1.9.16 avax to dev by @evlekht in #65
+- update git version in dockerfile by @mo-c4t in #67
+- Admin API DNS Rebinding mitigation by @DerTiedemann in #62
+- Fix Validator reconnection when public IP changes
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.9...v1.0.0-rc1
+
+## v0.4.9
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.9)
+
+- caminogo: Fix bootstrap issues after RewardValTx
+- caminogo: Change Deposit API (query with timestamp) and strings for uint64 result types.
+
+**Full Changelog**: https://github.com/chain4travel/camino-node/compare/v0.4.9-rc1...v0.4.9
+
+## v0.4.9-rc1
 
 [View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v0.4.9-rc1)
 
