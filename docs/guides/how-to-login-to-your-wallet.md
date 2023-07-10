@@ -25,7 +25,7 @@ option to access detailed information.
    log in by clicking on the Keystore File in the login page of the Camino Wallet interface and
    providing the file and entering your saved password.
 
-:::info Caming Soon: Ledger Support!
+:::info Coming Soon: Ledger Support!
 
 We are currently developing a new feature that will allow you to use your Ledger hardware wallet
 device to log in to your Camino Wallet. This will provide an additional layer of security for
@@ -79,7 +79,7 @@ warning that the key phrase is invalid.
 <figcaption align = "center"><b>Fig.4:</b> Mnemonic Key Phrase Filled with Error</figcaption>
 </figure>
 
-:::danger Invalida Mnemonic Phrases
+:::danger Invalid Mnemonic Phrases
 
 Please note that the feature of displaying an error message for incorrect words in the mnemonic
 key phrase only works for misspelled or entirely wrong words. The key phrase consists of a list
