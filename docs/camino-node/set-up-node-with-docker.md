@@ -31,7 +31,7 @@ Please make sure to use only the recommended node versions mentioned on the [Cur
 
 ## Configuration
 
-To change the configuration you have to pass another set of config-flags to the execution of Camino-Node. The list of config-flags can be found [here](./camino-node-config-flags).
+To change the configuration you have to pass another set of config-flags to the execution of Camino-Node. The list of config-flags can be found [here](/camino-node/configuration).
 
 Examples:
 
@@ -120,7 +120,7 @@ To upgrade your node, simply change the tag of the docker container obtained fro
 
 ## Advanced Node configuration
 
-File that configures node operation is `~/.caminogo/configs/node.json`. You can edit it to add or change configuration options. The documentation of configuration options can be found [here](camino-node-config-flags.md). Default configuration may look like this:
+File that configures node operation is `~/.caminogo/configs/node.json`. You can edit it to add or change configuration options. The documentation of configuration options can be found [here](/camino-node/configuration). Default configuration may look like this:
 
 ```json
 {

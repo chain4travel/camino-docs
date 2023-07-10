@@ -43,6 +43,7 @@ const replacers = {
   "/guides/reasons-for-validator-suspension": "/validator-guides/reasons-for-validator-suspension",
   "/guides/reasons-for-validator-pending": "/validator-guides/reasons-for-validator-pending",
   "/guides/query-kyc-state-on-c-chain": "/developer/guides/query-kyc-state-on-c-chain",
+  "/camino-node/camino-node-config-flags": "/camino-node/configuration",
 }
 
 export default function NotFoundWrapper(props) {
