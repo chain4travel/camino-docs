@@ -1,0 +1,148 @@
+---
+sidebar_position: 5
+title: Download Database
+description: Download Camino-Node DB to accelerate the bootstrapping process.
+---
+
+import LatestCaminoDB from "/src/components/DatabaseDownload";
+
+# Download Camino Node Database
+
+## Why would you want to download the Database?
+
+When deploying a new node, the camino-node needs to download the blockchain database and bootstrap,
+which can be a time-consuming process. However, you can expedite this process by downloading the
+pre-existing database from another node that has already been bootstrapped.
+
+To facilitate this, Camino Network offers compressed database files (tarballs) that allow users to
+download and bootstrap their nodes more quickly.
+
+## How to download and use the Tarball?
+
+To download and activate your node with the newly downloaded database, follow these steps:
+
+### 1. Download the Database
+
+Download the database from one of the following links. It is recommended to choose the latest version.
+
+** Download Camino (mainnet) latest:**
+
+<pre>
+  wget <LatestCaminoDB onlyurl="true" />
+</pre>
+
+** Download Columbus (testnet) latest:**
+
+<pre>
+  wget <LatestCaminoDB network="columbus" onlyurl="true" />
+</pre>
+
+<details>
+<summary>Camino (mainnet) - Tarballs URLs</summary>
+
+- <LatestCaminoDB />
+- <LatestCaminoDB previous="1" />
+- <LatestCaminoDB previous="2" />
+- <LatestCaminoDB previous="3" />
+- <LatestCaminoDB previous="4" />
+- <LatestCaminoDB previous="5" />
+- <LatestCaminoDB previous="6" />
+- <LatestCaminoDB previous="7" />
+- <LatestCaminoDB previous="8" />
+- <LatestCaminoDB previous="9" />
+- <LatestCaminoDB previous="10" />
+
+</details>
+
+<details>
+<summary>Columbus (testnet) - Tarballs URLs</summary>
+
+- <LatestCaminoDB network="columbus" />
+- <LatestCaminoDB network="columbus" previous="1" />
+- <LatestCaminoDB network="columbus" previous="2" />
+- <LatestCaminoDB network="columbus" previous="3" />
+- <LatestCaminoDB network="columbus" previous="4" />
+- <LatestCaminoDB network="columbus" previous="5" />
+- <LatestCaminoDB network="columbus" previous="6" />
+- <LatestCaminoDB network="columbus" previous="7" />
+- <LatestCaminoDB network="columbus" previous="8" />
+- <LatestCaminoDB network="columbus" previous="9" />
+- <LatestCaminoDB network="columbus" previous="10" />
+
+</details>
+
+### 2. Stop Camino Node
+
+If your camino-node is currently running, stop it by executing the following command:
+
+```
+systemctl stop camino-node
+```
+
+If you are running camino-node using a Docker image, please stop the container.
+
+### 3. Replace the Database Directory
+
+Replace the contents of the `.caminogo/db` directory with the contents of the downloaded tarball file.
+
+**Extract the tarball**
+
+```
+tar zxvf camino_db_230713.tar.gz
+```
+
+:::info DATA DIRECTORY
+
+The data directory for camino-node is specified either from the command line or the config file using the `--data-dir` flag.
+By default, the data directory is set to `$HOME/.caminogo`. If you have changed the data directory, please update the commands below accordingly.
+
+:::
+
+**Remove your camino-node db directory**
+
+```
+rm -rf .caminogo/db
+```
+
+**Move newly extracted `db` directory to it's place**
+
+```
+mv db .caminogo/
+```
+
+### 4. Start the Camino Node
+
+Restart the camino-node by executing the following command:
+
+```
+systemctl start camino-node
+```
+
+If you are running camino-node using a Docker image, please start the container.
+
+### 5. Check Status of Your Node
+
+Check if your node is healthy
+
+```
+curl -X POST --data '{"jsonrpc":"2.0","id":1,"method" :"health.health"}' \
+  -H 'content-type:application/json;' http://127.0.0.1:9650/ext/health
+```
+
+Output should be similar to the one below. Note the `healthy: true` at the end.
+
+```
+{"jsonrpc":"2.0","result":{"checks":{"C":{"message":{"consensus":{"longestRunningBlock":"0s","ou
+tstandingBlocks":0},"vm":null},"timestamp":"2023-07-13T14:29:43.732028329Z","duration":6379},"P"
+:{"message":{"consensus":{"longestRunningBlock":"0s","outstandingBlocks":0},"vm":{"primary-perce
+ntConnected":1}},"timestamp":"2023-07-13T14:29:43.732032635Z","duration":44799},"X":{"message":{
+"consensus":{"outstandingVertices":0,"snowstorm":{"outstandingTransactions":0}},"vm":null},"time
+stamp":"2023-07-13T14:29:43.732038182Z","duration":8339},"bootstrapped":{"message":[],"timestamp
+":"2023-07-13T14:29:43.73203501Z","duration":4675},"database":{"timestamp":"2023-07-13T14:29:43.
+732016444Z","duration":1769},"diskspace":{"message":{"availableDiskBytes":214359080960},"timesta
+mp":"2023-07-13T14:29:43.731985631Z","duration":9137},"network":{"message":{"connectedPeers":25,
+"sendFailRate":0,"timeSinceLastMsgReceived":"732.041631ms","timeSinceLastMsgSent":"6.732041631s"
+},"timestamp":"2023-07-13T14:29:43.732045108Z","duration":11155},"router":{"message":{"longestRu
+nningRequest":"0s","outstandingRequests":0},"timestamp":"2023-07-13T14:29:43.732020511Z","durati
+on":47099}},"healthy":true},"id":1}
+```
