@@ -78,7 +78,7 @@ So, now that you prepared your system and have the info ready, let's get to it.
 To download and run the script, enter the following in the terminal:
 
 ```bash
-wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/camino-node-installer.sh;\
+wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/c4t/scripts/camino-node-installer.sh;\
 chmod 755 camino-node-installer.sh;\
 ./camino-node-installer.sh
 ```
