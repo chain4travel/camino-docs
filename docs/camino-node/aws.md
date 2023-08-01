@@ -7,6 +7,8 @@ description: This guide provides step-by-step instructions on how to set up and 
 # Setting Up Camino Node on AWS
 
 In this guide, we will walk you through the process of setting up Camino Node on the Amazon Web Services (AWS) platform.
+You have two methods to choose from for the setup process: the manual method and the automatic method using Terraform.
+
 Camino Node is a decentralized messaging and booking platform built on blockchain technology, offering secure
 and efficient communication and transaction capabilities within the Camino Network. By following this guide,
 you'll be able to deploy Camino Node on AWS and explore the potential of decentralized messaging in the travel industry.
@@ -14,7 +16,7 @@ you'll be able to deploy Camino Node on AWS and explore the potential of decentr
 Whether you're new to blockchain technology or an experienced AWS user, this guide is designed to be accessible
 and easy to follow. It provides step-by-step instructions to help you get Camino Node up and running smoothly on AWS.
 
-Let's get started with the setup process of Camino Node on AWS.
+Let's get started with the setup process of Camino Node on AWS. Choose the method that best suits your preferences and needs.
 
 ## Go to EC2 section in AWS.
 
@@ -262,6 +264,16 @@ please replace `--public-ip-resolution-service=ifconfigme` with `--public-ip=<st
 
 Automating the process of configuring Camino Node on AWS is made easier with Terraform.
 Terraform allows you to create and manage infrastructure as code, simplifying the setup and deployment steps significantly.
+
+:::note
+
+Please note that this section outlines an alternative method for installing Camino Node on AWS.
+If you have already completed the steps outlined in this guide, you do not need to follow this alternative method.
+
+This alternative method provides an additional approach for setting up Camino Node on AWS and may be useful for
+specific use cases or preferences.
+
+:::
 
 To take advantage of Terraform for setting up Camino Node, follow these steps:
 
