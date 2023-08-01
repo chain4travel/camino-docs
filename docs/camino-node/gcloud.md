@@ -102,6 +102,20 @@ For more information about APIs, please refer to the [Camino Node APIs](/develop
    - Command: `/camino-node/build/camino-node`
    - Arguments: `--network-id=columbus` and `--public-ip-resolution-service=ifconfigme`
 
+:::note NETWORK ID
+
+If you intend to run your node on the mainnet, change the `--network-id=columbus` option to `--network-id=camino`.
+
+:::
+
+:::note PUBLIC IP
+
+Throughout this guide, we utilized a public IP resolution service to determine the public IP address.
+However, it is advisable to have a static public IP for stability. If you have a static public IP,
+please replace `--public-ip-resolution-service=ifconfigme` with `--public-ip=<static-ip>` instead.
+
+:::
+
 <figure>
 <img class="zoom" src="/img/gcloud/gcloud_5.png#center"/>
 <figcaption align = "center"><b>Fig.9:</b> Configure the container details</figcaption>
