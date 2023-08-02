@@ -300,7 +300,7 @@ export AWS_SECRET_ACCESS_KEY="xxxxxx"
 
 ## OPTIONAL variables, below are the defaul values assigned
 export TF_VAR_network=camino    ## use columbus for testnet
-export TF_VAR_aws_region=europe-west1-b
+export TF_VAR_aws_region=eu-north-1
 export TF_VAR_vm_name=camino-node
 export TF_VAR_key_pair_name="camino-key-pair"
 # write your ip range that will be allowed to ssh to the vm and also make api calls using port 9650
