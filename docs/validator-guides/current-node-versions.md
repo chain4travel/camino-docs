@@ -10,12 +10,6 @@ The following tables provide the recommended and minimum versions for Camino Net
 
 # Mainnet - Camino
 
-:::caution UPGRADE YOUR NODE
-
-Validators on the mainnet are required to update their nodes to the recommended version by **Monday, July 17, 2023, at 7:59 AM UTC.**
-
-:::
-
 | Recommended Node Version | `v1.0.0` | https://github.com/chain4travel/camino-node/releases/latest     |
 | ------------------------ | -------- | --------------------------------------------------------------- |
 | Minimum Node Version     | `v1.0.0` | https://github.com/chain4travel/camino-node/releases/tag/v1.0.0 |

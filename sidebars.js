@@ -61,7 +61,7 @@ const sidebars = {
       type: "category",
       label: "Validator Guides",
       collapsible: true,
-      collapsed: false,
+      collapsed: true,
       link: {
         type: 'generated-index',
         slug: '/validator-guides',
@@ -77,7 +77,7 @@ const sidebars = {
       type: "category",
       label: "Camino Node",
       collapsible: true,
-      collapsed: false,
+      collapsed: true,
       link: {
         type: 'generated-index',
         slug: '/camino-node',
