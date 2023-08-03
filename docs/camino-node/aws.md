@@ -303,7 +303,8 @@ export TF_VAR_network=camino    ## use columbus for testnet
 export TF_VAR_aws_region=eu-north-1
 export TF_VAR_vm_name=camino-node
 export TF_VAR_key_pair_name="camino-key-pair"
-# write your ip range that will be allowed to ssh to the vm and also make api calls using port 9650
+# write your ip range that will be allowed to ssh to the vm and also make api calls using port 9650. eg: 1.1.1.1/32
 export TF_VAR_allowed_ip_range=""
+
 terraform apply
 ```
