@@ -28,6 +28,12 @@ variable "gcp_project_id" {
   description = "GCP Project ID"
 }
 
+variable "allowed_ip_range" {
+  type        = string
+  default     = ""
+  description = "IP range to be allowed for ssh and 9650 ports connection. eg: 1.1.1.1/32"
+}
+
 
 locals {
   camino_data_path = "/home/camino-data"
@@ -180,6 +186,20 @@ resource "google_compute_firewall" "default" {
   }
 
   target_tags = ["camino-node-p2p"]
+}
+
+resource "google_compute_firewall" "ssh_api_fw" {
+  count   = var.allowed_ip_range == "" ? 0 : 1
+  name    = "allow-camino-api-ssh-firewall"
+  network = google_compute_network.default.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["9650", "22"]
+  }
+
+  source_ranges = [var.allowed_ip_range]
+  target_tags   = ["camino-node-p2p"]
 }
 
 resource "google_compute_network" "default" {
