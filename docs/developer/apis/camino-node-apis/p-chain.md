@@ -695,12 +695,13 @@ Get the balance of CAM controlled by a given address.
 
 ```sh
 platform.getBalance({
-    address:string
+    addresses: string[]
 }) -> {
-    balance: string,
-    unlocked: string,
-    lockedStakeable: string,
-    lockedNotStakeable: string,
+    balances: {id: string},
+    unlockedOutputs: {id: string},
+    bondedOutputs: {id: string},
+    depositedOutputs: {id: string},
+    bondedDepositedOutputs: {id: string},
     utxoIDs: []{
         txID: string,
         outputIndex: int
@@ -708,12 +709,19 @@ platform.getBalance({
 }
 ```
 
-- `address` is the address to get the balance of.
-- `balance` is the total balance, in nCAM.
-- `unlocked` is the unlocked balance, in nCAM.
-- `lockedStakeable` is the locked stakeable balance, in nCAM.
-- `lockedNotStakeable` is the locked and not stakeable balance, in nCAM.
+- `addresses` is the list of addresses to get the balance of.
+- `balances` is the total balance, in nCAM. Response is a map as `{ assedID: balance }`. See [platform.getConfiguration](#platformgetconfiguration) for more info.
+- `unlockedOutputs` is the unlocked balance, in nCAM.
+- `bondedOutputs` is the bonded balance, in nCAM.
+- `depositedOutputs` is the deposited balance, in nCAM.
+- `bondedDepositedOutputs` is the bonded and deposited balance, in nCAM.
 - `utxoIDs` are the IDs of the UTXOs that reference `address`.
+
+:::info DEPOSITS & BONDS
+
+For more info about deposits and bonds please visit [Deposits & Bonds](/guides/deposits-and-bonds) page.
+
+:::
 
 **Example Call**
 
@@ -723,7 +731,7 @@ curl -X POST --data '{
   "id"     : 1,
   "method" :"platform.getBalance",
   "params" :{
-      "address":"P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf"
+      "addresses":["P-columbus1m8wnvtqvthsxxlrrsu3f43kf9wgch5tyfx4nmf"]
   }
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
 ```
@@ -734,17 +742,24 @@ curl -X POST --data '{
 {
   "jsonrpc": "2.0",
   "result": {
-    "balance": "20000000000000000",
-    "unlocked": "10000000000000000",
-    "lockedStakeable": "10000000000000000",
-    "lockedNotStakeable": "0",
+    "balances": {
+      "2qD5UA8E5a3rCyVGrxWHp4pwP14d8WicgCfM9KzdyWQ6AyK3w8": "104901417112028"
+    },
+    "unlockedOutputs": {
+      "2qD5UA8E5a3rCyVGrxWHp4pwP14d8WicgCfM9KzdyWQ6AyK3w8": "4901417112028"
+    },
+    "bondedOutputs": {},
+    "depositedOutputs": {},
+    "bondedDepositedOutputs": {
+      "2qD5UA8E5a3rCyVGrxWHp4pwP14d8WicgCfM9KzdyWQ6AyK3w8": "100000000000000"
+    },
     "utxoIDs": [
       {
-        "txID": "11111111111111111111111111111111LpoYY",
-        "outputIndex": 1
+        "txID": "22cFMeT6vJKEw4CADLGMFeHMyogn7TSE44ZtZjGNFi7W6m2GyV",
+        "outputIndex": 0
       },
       {
-        "txID": "11111111111111111111111111111111LpoYY",
+        "txID": "k91svvCsKQHQbuezUqiWtBT3PkGwtinrM4biuAv5CbfT7BjUG",
         "outputIndex": 0
       }
     ]
@@ -795,7 +810,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
 ```
 
-#**Example Response**
+**Example Response**
 
 ```json
 {
