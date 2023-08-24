@@ -78,12 +78,12 @@ resource "aws_instance" "default" {
     delete_on_termination = true
     encrypted             = false
     throughput            = 200
-    volume_size           = 500  // size in GB, you can change it as needed
+    volume_size           = 500 // size in GB, you can change it as needed
     volume_type           = "gp3"
   }
 
   ebs_optimized = true
-// startup script to download db and start camino-node docker container
+  // startup script to download db and start camino-node docker container
   user_data = <<EOF
 #!/bin/bash
 

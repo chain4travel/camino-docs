@@ -117,10 +117,10 @@ resource "google_compute_instance_template" "default" {
     camino  = ""
   }
 
-// setting startup script and logging. You can set logging and monitoring to false if you want
+  // setting startup script and logging. You can set logging and monitoring to false if you want
   metadata = {
     gce-container-declaration = module.gce-container.metadata_value
-    startup-script            =  <<EOF
+    startup-script            = <<EOF
 #! /bin/bash
 mkdir -p /home/camino-data
 docker pull google/cloud-sdk:434.0.0
@@ -137,7 +137,7 @@ EOF
 
 
   instance_description = "description assigned to instances"
-  machine_type         = "e2-standard-4"  // 4vCPUs & 16 GB RAM
+  machine_type         = "e2-standard-4" // 4vCPUs & 16 GB RAM
   can_ip_forward       = false
 
 
@@ -147,7 +147,7 @@ EOF
     boot         = true
     mode         = "READ_WRITE"
     disk_type    = "pd-balanced"
-    disk_size_gb = 500   // size in GB. you can change that as needed
+    disk_size_gb = 500 // size in GB. you can change that as needed
   }
 
 
