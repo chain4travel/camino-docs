@@ -13,7 +13,7 @@ const config = {
 
   title: 'Camino Docs',
   tagline: 'Documentation and Tutorials for Camino',
-  url: 'https://docs.camino.foundation',
+  url: 'https://docs.camino.network',
   baseUrl: '/',
   //onBrokenLinks: 'throw',
   onBrokenLinks: 'warn',
@@ -89,15 +89,15 @@ const config = {
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/caminonetwork',
+                href: 'https://twitter.com/camino_network',
               },
               {
                 label: 'Telegram',
                 href: 'https://t.me/camino_network',
               },
               {
-                label: 'Medium',
-                href: 'https://medium.com/@caminofoundation',
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/company/caminonetwork/',
               }
             ],
           },
