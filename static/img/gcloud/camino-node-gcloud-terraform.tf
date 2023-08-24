@@ -34,15 +34,11 @@ variable "allowed_ip_range" {
   description = "IP range to be allowed for ssh and 9650 ports connection. eg: 1.1.1.1/32"
 }
 
-
+// setting local variables you can optionally change them but no need.
 locals {
   camino_data_path = "/home/camino-data"
-  camino_args = [
-    "--network-id=${var.network}",
-    "--public-ip-resolution-service=ifconfigme"
-  ]
-  vm_tags      = ["camino-node-p2p"]
-  docker_image = "c4tplatform/camino-node:latest"
+  vm_tags          = ["camino-node-p2p"]
+  docker_image     = "c4tplatform/camino-node:latest"
 }
 
 terraform {
@@ -57,15 +53,18 @@ terraform {
 provider "google" {
 
   project = var.gcp_project_id
+  zone    = var.vm_zone
 
 }
 
 provider "google-beta" {
 
   project = var.gcp_project_id
+  zone    = var.vm_zone
 
 }
 
+// container module to set container options
 module "gce-container" {
   source  = "terraform-google-modules/container-vm/google"
   version = "~> 2.0"
@@ -75,7 +74,10 @@ module "gce-container" {
     command = [
       "/camino-node/build/camino-node"
     ]
-    args = local.camino_args
+    args = [
+      "--network-id=${var.network}",
+      "--public-ip=${google_compute_address.default.address}"
+    ]
 
     # Declare volumes to be mounted.
     # This is similar to how docker volumes are declared.
@@ -102,7 +104,7 @@ module "gce-container" {
 }
 
 
-
+// create the template for vm
 resource "google_compute_instance_template" "default" {
   name        = var.template_name
   project     = var.gcp_project_id
@@ -115,16 +117,27 @@ resource "google_compute_instance_template" "default" {
     camino  = ""
   }
 
+// setting startup script and logging. You can set logging and monitoring to false if you want
   metadata = {
     gce-container-declaration = module.gce-container.metadata_value
-    startup-script            = "#! /bin/bash\n     mkdir -p /home/camino-data\n  docker pull google/cloud-sdk:434.0.0\n   export CONTNAME=$(docker ps -q  --filter ancestor=c4tplatform/camino-node:latest)\n     docker container stop $CONTNAME || true\n         mkdir -p /home/camino-data/db\n     docker run -v /home/camino-data/db:/opt/db --name gcloud-config google/cloud-sdk:434.0.0 gsutil -m rsync -d -R  gs://${var.network}-db /opt/db\n     docker rm -f gcloud-config\n     docker container start $CONTNAME || true"
+    startup-script            =  <<EOF
+#! /bin/bash
+mkdir -p /home/camino-data
+docker pull google/cloud-sdk:434.0.0
+export CONTNAME=$(docker ps -q  --filter ancestor=${local.docker_image})
+docker container stop $CONTNAME || true
+mkdir -p /home/camino-data/db
+docker run -v /home/camino-data/db:/opt/db --name gcloud-config google/cloud-sdk:434.0.0 gsutil -m rsync -d -R  gs://${var.network}-db /opt/db
+docker rm -f gcloud-config\n     docker container start $CONTNAME || true
+EOF
+
     google-logging-enabled    = "true"
     google-monitoring-enabled = "true"
   }
 
 
   instance_description = "description assigned to instances"
-  machine_type         = "e2-standard-4"
+  machine_type         = "e2-standard-4"  // 4vCPUs & 16 GB RAM
   can_ip_forward       = false
 
 
@@ -134,7 +147,7 @@ resource "google_compute_instance_template" "default" {
     boot         = true
     mode         = "READ_WRITE"
     disk_type    = "pd-balanced"
-    disk_size_gb = 500
+    disk_size_gb = 500   // size in GB. you can change that as needed
   }
 
 
@@ -161,6 +174,7 @@ resource "google_compute_instance_template" "default" {
 
 }
 
+// creates instance from the template
 resource "google_compute_instance_from_template" "default" {
 
   name = var.vm_name
@@ -170,12 +184,15 @@ resource "google_compute_instance_from_template" "default" {
 
   network_interface {
     network = google_compute_network.default.name
+    // setting the static ip of the machine
     access_config {
+      nat_ip = google_compute_address.default.address
     }
   }
 
 }
 
+// creates firewall to allow traffic for port 9651
 resource "google_compute_firewall" "default" {
   name    = "allow-camino-staking-firewall"
   network = google_compute_network.default.name
@@ -185,9 +202,11 @@ resource "google_compute_firewall" "default" {
     ports    = ["9651"]
   }
 
-  target_tags = ["camino-node-p2p"]
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["camino-node-p2p"]
 }
 
+// creates firewall to allow traffic for ports 9650 & 22 to certain IP range
 resource "google_compute_firewall" "ssh_api_fw" {
   count   = var.allowed_ip_range == "" ? 0 : 1
   name    = "allow-camino-api-ssh-firewall"
@@ -202,13 +221,20 @@ resource "google_compute_firewall" "ssh_api_fw" {
   target_tags   = ["camino-node-p2p"]
 }
 
+// creates a new vpc network
 resource "google_compute_network" "default" {
   name = "camino-vpc-network"
 }
 
+
+// creates a new service account (Optional, you can remove it and edit the service account email in service_account option under google_compute_instance_template)
 resource "google_service_account" "default" {
   account_id   = "camino-service-account-id"
   display_name = "Camino Service Account"
   project      = var.gcp_project_id
 }
 
+// create a new static public ip
+resource "google_compute_address" "default" {
+  name = "camino-node-test-ip"
+}

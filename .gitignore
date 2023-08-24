@@ -22,3 +22,7 @@ yarn-error.log*
 .markdownlint.json
 
 .idea
+
+
+# Terraform
+.terraform*
