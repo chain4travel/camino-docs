@@ -45,7 +45,7 @@ terraform {
 provider "aws" {
   region = var.aws_region
 }
-
+// we use ubuntu image
 data "aws_ami" "default" {
   most_recent = true
 
@@ -78,12 +78,12 @@ resource "aws_instance" "default" {
     delete_on_termination = true
     encrypted             = false
     throughput            = 200
-    volume_size           = 500
+    volume_size           = 500 // size in GB, you can change it as needed
     volume_type           = "gp3"
   }
 
   ebs_optimized = true
-
+  // startup script to download db and start camino-node docker container
   user_data = <<EOF
 #!/bin/bash
 
@@ -120,6 +120,7 @@ docker run -d -v /home/camino-data:/root/.caminogo -p 9650:9650 -p 9651:9651 --r
 EOF
 }
 
+// allow egress traffic
 resource "aws_security_group" "default" {
   name        = "allow_camino_staking"
   description = "Allow camino inbound traffic"
@@ -137,6 +138,7 @@ resource "aws_security_group" "default" {
   }
 }
 
+// allow ssh connection to certain ip range
 resource "aws_security_group_rule" "ssh_sg_rule" {
   count             = var.allowed_ip_range == "" ? 0 : 1
   type              = "ingress"
@@ -147,6 +149,7 @@ resource "aws_security_group_rule" "ssh_sg_rule" {
   security_group_id = aws_security_group.default.id
 }
 
+// allow 9650 port to certain ip range
 resource "aws_security_group_rule" "api_sg_rule" {
   count             = var.allowed_ip_range == "" ? 0 : 1
   type              = "ingress"
@@ -157,6 +160,7 @@ resource "aws_security_group_rule" "api_sg_rule" {
   security_group_id = aws_security_group.default.id
 }
 
+// allow traffic through staking port 9651
 resource "aws_security_group_rule" "staking_sg_rule" {
   type              = "ingress"
   from_port         = 9651
