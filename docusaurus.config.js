@@ -98,6 +98,10 @@ const config = {
               {
                 label: 'LinkedIn',
                 href: 'https://www.linkedin.com/company/caminonetwork/',
+              },
+              {
+                label: 'Mirror',
+                href: 'https://mirror.xyz/caminonetwork.eth',
               }
             ],
           },
