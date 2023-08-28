@@ -689,7 +689,7 @@ curl -X POST --data '{
 
 ### platform&#46;getBalance
 
-Get the balance of CAM controlled by a given address.
+Get the balance of CAM controlled by given addresses.
 
 **Signature**
 
