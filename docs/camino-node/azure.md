@@ -59,7 +59,17 @@ For Ubuntu systems, you can directly install using:
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-### 4: Create a Resource Group
+### 4: Azure Login
+
+Before proceeding with the deployment, ensure you're logged in to your Azure account:
+
+```bash
+az login
+```
+
+Follow the on-screen prompts to complete the login process.
+
+### 5: Create a Resource Group
 
 Set up a new resource group named `camino-node-rg`. If you opt for a different location, ensure you also update line number 6 in the `parameters.json` file.
 
@@ -67,7 +77,7 @@ Set up a new resource group named `camino-node-rg`. If you opt for a different l
 az group create --name camino-node-rg --location "westeurope"
 ```
 
-### 5: Deploy the Template
+### 6: Deploy the Template
 
 With everything in place, you can now deploy the template and initiate your virtual machine:
 
@@ -103,7 +113,7 @@ That's it! Follow these steps, and you'll have Camino Node set up automatically 
 ### 3. Virtual Machine Image and Size
 
 - For the VM image, choose **Ubuntu 22.04** with an x86 architecture.
-- It's recommended to select a machine size of **Standard_D4s_v3**.
+- It's recommended to select a machine size of **Standard_D4s_v3**. (Fig.4)
 
 <figure>
 <img class="zoom" src="/img/azure/azure_vm_3.png#center"/>
@@ -275,4 +285,9 @@ docker run -d -v /home/camino-data:/root/.caminogo -p 9650:9650 -p 9651:9651 --r
 <figcaption align="center"><b>Fig.19</b></figcaption>
 </figure>
 
-- Don't forget to download the public key file to securely connect to your virtual machine in the future.
+- Don't forget to download the private key file to securely connect to your virtual machine in the future.
+
+<figure>
+<img class="zoom" src="/img/azure/azure_vm_20.png#center"/>
+<figcaption align="center"><b>Fig.20</b></figcaption>
+</figure>
