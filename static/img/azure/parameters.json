@@ -1,0 +1,175 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+        "networkInterfaceName": {
+            "value": "camino-node606"
+        },
+        "networkSecurityGroupName": {
+            "value": "camino-node-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "AllowAnyCustom9651Inbound",
+                    "properties": {
+                        "priority": 1010,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "9651"
+                    }
+                },
+                {
+                    "name": "AllowCidrBlockCustom9650Inbound",
+                    "properties": {
+                        "priority": 1020,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "CHANGE_ME: X.X.X.X",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "9650"
+                    }
+                },
+                {
+                    "name": "AllowCidrBlockSSHInbound",
+                    "properties": {
+                        "priority": 1030,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "CHANGE_ME: X.X.X.X",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                },
+                {
+                    "name": "AllowAnyCustomAnyOutbound",
+                    "properties": {
+                        "priority": 100,
+                        "protocol": "*",
+                        "access": "Allow",
+                        "direction": "Outbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "*"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "virtualNetworkName": {
+            "value": "camino-node-vnet"
+        },
+        "addressPrefixes": {
+            "value": [
+                "10.0.0.0/16"
+            ]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "default",
+                    "properties": {
+                        "addressPrefix": "10.0.0.0/24"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "camino-node-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "publicIpAddressSku": {
+            "value": "Standard"
+        },
+        "pipDeleteOption": {
+            "value": "Detach"
+        },
+        "virtualMachineName": {
+            "value": "camino-node"
+        },
+        "virtualMachineComputerName": {
+            "value": "camino-node"
+        },
+        "virtualMachineRG": {
+            "value": "camino-rg"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "osDiskDeleteOption": {
+            "value": "Delete"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B1s"
+        },
+        "nicDeleteOption": {
+            "value": "Detach"
+        },
+        "adminUsername": {
+            "value": "azureuser"
+        },
+        "customData": {
+            "value": "IyEvYmluL2Jhc2gKCgphcHQtZ2V0IHVwZGF0ZQphcHQtZ2V0IGluc3RhbGwgLXkgY2EtY2VydGlm
+aWNhdGVzIGN1cmwgZ251cGcKCmluc3RhbGwgLW0gMDc1NSAtZCAvZXRjL2FwdC9rZXlyaW5ncwpj
+dXJsIC1mc1NMIGh0dHBzOi8vZG93bmxvYWQuZG9ja2VyLmNvbS9saW51eC91YnVudHUvZ3BnIHwg
+Z3BnIC0tZGVhcm1vciAtbyAvZXRjL2FwdC9rZXlyaW5ncy9kb2NrZXIuZ3BnCmNobW9kIGErciAv
+ZXRjL2FwdC9rZXlyaW5ncy9kb2NrZXIuZ3BnCgplY2hvIFwKICAiZGViIFthcmNoPSIkKGRwa2cg
+LS1wcmludC1hcmNoaXRlY3R1cmUpIiBzaWduZWQtYnk9L2V0Yy9hcHQva2V5cmluZ3MvZG9ja2Vy
+LmdwZ10gaHR0cHM6Ly9kb3dubG9hZC5kb2NrZXIuY29tL2xpbnV4L3VidW50dSBcCiAgIiQoLiAv
+ZXRjL29zLXJlbGVhc2UgJiYgZWNobyAiJFZFUlNJT05fQ09ERU5BTUUiKSIgc3RhYmxlIiB8IFwK
+ICB0ZWUgL2V0Yy9hcHQvc291cmNlcy5saXN0LmQvZG9ja2VyLmxpc3QgPiAvZGV2L251bGwKCmFw
+dC1nZXQgdXBkYXRlCmFwdC1nZXQgaW5zdGFsbCAteSBkb2NrZXItY2UgZG9ja2VyLWNlLWNsaSBj
+b250YWluZXJkLmlvIGRvY2tlci1idWlsZHgtcGx1Z2luIGRvY2tlci1jb21wb3NlLXBsdWdpbgoK
+YXB0LWdldCBpbnN0YWxsIC15IGFwdC10cmFuc3BvcnQtaHR0cHMgY2EtY2VydGlmaWNhdGVzIGdu
+dXBnIGN1cmwgc3VkbwoKZWNobyAiZGViIFtzaWduZWQtYnk9L3Vzci9zaGFyZS9rZXlyaW5ncy9j
+bG91ZC5nb29nbGUuZ3BnXSBodHRwczovL3BhY2thZ2VzLmNsb3VkLmdvb2dsZS5jb20vYXB0IGNs
+b3VkLXNkayBtYWluIiB8IHRlZSAtYSAvZXRjL2FwdC9zb3VyY2VzLmxpc3QuZC9nb29nbGUtY2xv
+dWQtc2RrLmxpc3QKCmN1cmwgaHR0cHM6Ly9wYWNrYWdlcy5jbG91ZC5nb29nbGUuY29tL2FwdC9k
+b2MvYXB0LWtleS5ncGcgfCBhcHQta2V5IC0ta2V5cmluZyAvdXNyL3NoYXJlL2tleXJpbmdzL2Ns
+b3VkLmdvb2dsZS5ncGcgYWRkIC0KCmFwdC1nZXQgdXBkYXRlICYmIGFwdC1nZXQgaW5zdGFsbCAt
+eSBnb29nbGUtY2xvdWQtY2xpCgpta2RpciAtcCAvaG9tZS9jYW1pbm8tZGF0YS9kYgojIyBmb3Ig
+Y29sdW1idXMgdXNlIGdzOi8vY29sdW1idXMtZGIKZ3N1dGlsIC1tIHJzeW5jIC1kIC1SICBnczov
+L2NhbWluby1kYiAvaG9tZS9jYW1pbm8tZGF0YS9kYgoKZG9ja2VyIHJ1biAtZCAtdiAvaG9tZS9j
+YW1pbm8tZGF0YTovcm9vdC8uY2FtaW5vZ28gLXAgOTY1MDo5NjUwIC1wIDk2NTE6OTY1MSAtLXJl
+c3RhcnQgYWx3YXlzIGM0dHBsYXRmb3JtL2NhbWluby1ub2RlOmxhdGVzdCAuL2NhbWluby1ub2Rl
+IC0tbmV0d29yay1pZD1jYW1pbm8gLS1odHRwLWhvc3Q9MC4wLjAuMCAtLXB1YmxpYy1pcC1yZXNv
+bHV0aW9uLXNlcnZpY2U9aWZjb25maWdtZQo="
+        },
+        "securityType": {
+            "value": "TrustedLaunch"
+        },
+        "secureBoot": {
+            "value": true
+        },
+        "vTPM": {
+            "value": true
+        },
+        "adminPublicKey": {
+            "value": "CHANGE_ME: ssh-rsa AAAAB3Nza..."
+        }
+    }
+}
