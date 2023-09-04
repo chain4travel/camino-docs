@@ -128,7 +128,8 @@ export CONTNAME=$(docker ps -q  --filter ancestor=${local.docker_image})
 docker container stop $CONTNAME || true
 mkdir -p /home/camino-data/db
 docker run -v /home/camino-data/db:/opt/db --name gcloud-config google/cloud-sdk:434.0.0 gsutil -m rsync -d -R  gs://${var.network}-db /opt/db
-docker rm -f gcloud-config\n     docker container start $CONTNAME || true
+docker rm -f gcloud-config
+docker container start $CONTNAME || true
 EOF
 
     google-logging-enabled    = "true"
