@@ -39,6 +39,14 @@ enabling the seamless use of applications similar to a traditional wallet.
 
 Aliases define a multisig wallet with members and a threshold.
 
+:::caution NETWORK-SPECIFIC MULTISIG ALIASES
+
+Remember that multisig aliases are specific to their respective networks. This means an alias created on the
+mainnet cannot be directly used on the testnet, and vice versa. If you wish to use a multisig alias on a different
+network, you'll need to set up a separate multisig on that network.
+
+:::
+
 ## What is Threshold in Multisig Wallets?
 
 In a multisig wallet, threshold refers to the minimum number of signatories required to authorize a
