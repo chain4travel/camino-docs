@@ -21,6 +21,14 @@ For further details on multisig wallets, please refer to the [Multisig Wallets &
 
 :::
 
+:::caution NETWORK-SPECIFIC MULTISIG ALIASES
+
+Remember that multisig aliases are specific to their respective networks. This means an alias created on the
+mainnet cannot be directly used on the testnet, and vice versa. If you wish to use a multisig alias on a different
+network, you'll need to set up a separate multisig on that network.
+
+:::
+
 ## Creating a Multisig Alias
 
 ### 1. Login with a Member Wallet
