@@ -10,7 +10,7 @@ sidebar_position: 5
 
 We're thrilled to introduce a significant new feature in the latest version of the Camino Application Suite
 
-**Introducing Multisignature Aliase Create & Edit Functionality in Settings**:
+**Introducing Multisignature Alias Create & Edit Functionality in Settings**:
 
 - Dive into our **Settings** page and discover the all-new capability to **create and edit multisignature aliases**. This enhancement is designed to provide users with a more seamless and intuitive way to manage their multisignature wallets.
   - Expose a dedicated component to create multisig aliases. [Details](https://github.com/chain4travel/camino-suite/pull/146)
