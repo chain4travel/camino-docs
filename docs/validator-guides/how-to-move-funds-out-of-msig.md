@@ -9,7 +9,7 @@ description: This guide provides instructions on how to transfer funds from a mu
 :::info What is a Multisig Wallet?
 
 To learn more about multisig wallets please refer to the
-[Multisig Wallets](/guides/multisig-wallets.md) documentation.
+[Multisig Wallets](/guides/multisig-wallets) documentation.
 
 :::
 

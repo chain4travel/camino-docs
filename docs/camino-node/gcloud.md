@@ -6,28 +6,58 @@ description: This guide provides step-by-step instructions on how to set up and 
 
 # Setting Up Camino Node on Google Cloud Platform
 
-This tutorial will walk you through the process of configuring a Camino Node on the Google Cloud Platform (GCP).
-You have two methods to choose from for the setup process: the manual method and the automatic method using Terraform.
+This tutorial will walk you through the process of configuring a Camino Node on the Google Cloud Platform (GCP). You have three methods to choose from for the setup process: the GCP Marketplace deployment, the manual method, and the automatic method using Terraform.
 
-If you prefer a more hands-on approach and want to understand the detailed steps, you can follow the manual method.
-Starting with creating a firewall rule to open the necessary port, setting up a virtual machine (VM) instance,
-and configuring Camino Node to operate seamlessly on the Google Cloud Platform. Whether you are a seasoned
-developer or a beginner exploring blockchain technology, this guide is tailored to provide clear instructions
-and ensure a smooth setup process.
+- [**Marketplace Deployment**](#gcp-marketplace-method): This method leverages the Google Cloud Marketplace to deploy the Camino Node. It provides a streamlined, user-friendly interface, minimizing the intricacies of manual setup. Ideal for those who seek an efficient and straightforward deployment without delving deep into the underlying technical details.
 
-On the other hand, if you prefer an automated approach and want to streamline the setup process, you can use Terraform.
-This method allows you to quickly deploy Camino Node with minimal effort, making it an attractive option for users
-familiar with Terraform's infrastructure-as-code paradigm.
+- [**Manual Method**](#manual-method): If you prefer a more hands-on approach and want to understand the detailed steps, the manual method is for you. Starting with creating a firewall rule to open the necessary port, setting up a virtual machine (VM) instance, and configuring Camino Node to operate seamlessly on GCP. Whether you're a seasoned developer or a beginner exploring blockchain technology, this guide provides clear instructions to ensure a smooth setup process.
 
-Before we dive into the technical details, it's essential to understand the significance of the staking and API ports used
-by Camino Node. We will also touch upon the option of exposing your node as an API node for further utility. By the end of
-this guide, you'll have a fully operational Camino Node, ready to contribute to the decentralized network and participate
-in the Camino ecosystem.
+- [**Terraform Method**](#terraform-method): For those who favor an automated approach and want to streamline the setup process, Terraform is the way to go. This method allows you to deploy Camino Node quickly with minimal effort, making it an attractive option for users familiar with Terraform's infrastructure-as-code paradigm.
 
-Let's get started with the journey of setting up your Camino Node on Google Cloud Platform!
-Choose the method that best suits your preferences and needs.
+Before diving into the technical details, it's crucial to understand the significance of the staking and API ports used by Camino Node. We'll also discuss the option of exposing your node as an API node for further utility. By the end of this guide, you'll have a fully operational Camino Node, ready to contribute to the decentralized network and participate in the Camino ecosystem.
 
-## Create Firewall Rule to Open Port 9651
+Let's embark on the journey of setting up your Camino Node on Google Cloud Platform! Choose the method that best aligns with your preferences and needs.
+
+## GCP Marketplace Method
+
+### Navigate to the Camino Node on Google Cloud Marketplace
+
+- Go to [Camino Node on Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/chain4travel-public/camino-node)
+- Alternatively, you can search for "camino node" on gcloud marketplace.
+
+### Start Deployment
+
+- Click on the "Launch" button.
+
+<figure>
+<img class="zoom" src="/img/gcloud/gcloud_marketplace_4.png#center"/>
+<figcaption align = "center"><b>Fig.15:</b> Click on the Launch button</figcaption>
+</figure>
+
+### Edit Deployment Parameters
+
+<figure>
+<img class="zoom" src="/img/gcloud/gcloud_marketplace_5.png#center"/>
+<figcaption align = "center"><b>Fig.15:</b> Deployment Parameters</figcaption>
+</figure>
+
+- **Deployment Name**: Enter the desired name for the deployment. This name will also be used for the created VM, and will be a part of the names for the VPC network, static external IP, firewall, and service account.
+- **Service Account**: Choose an existing service account or create a new one. Ensure that it has the following permissions:
+  - Cloud Infrastructure Manager Agent
+  - Compute Admin
+- **Allowed IP Range**: Specify the IP range if you wish to create a firewall rule. This rule will allow ports 9650 and 22 to the provided IP range. Format should be CIDR notation: `x.x.x.x/x`.
+- **Camino Docker Tag**: Enter the desired Camino Node version, such as `vx.x.x` (ex: `v1.0.0`). Alternatively, use `latest` for the most recent stable version.
+- **Network**: Specify the Camino Node network ID. Use `camino` for mainnet and `columbus` for testnet.
+- **Source Image**: This is the base image for the VM. Retain the default value and avoid making changes.
+- **VM Zone**: Select the appropriate location for the virtual machine. It should correspond to one of the provided gcloud VM zones.
+
+### Complete Deployment
+
+- Click on the "Deploy" button to begin the deployment process.
+
+## Manual Method
+
+### Create Firewall Rule to Open Port 9651
 
 1. Access the Google Cloud Platform (GCP) Console and navigate to "VPC Network" > "Firewall."
 
@@ -72,7 +102,7 @@ For more information about APIs, please refer to the [Camino Node APIs](/develop
 <figcaption align = "center"><b>Fig.4:</b> Finish the rule configuration and click Create when you are ready</figcaption>
 </figure>
 
-## Create the VM Instance
+### Create the VM Instance
 
 1. Navigate to "Compute Engine" > "VM Instances."
 
@@ -175,7 +205,9 @@ docker container start $CONTNAME || true
 <figcaption align = "center"><b>Fig.14:</b> Set up startup script</figcaption>
 </figure>
 
-## Setting Up Camino Node with Terraform
+## Terraform Method
+
+### Setting Up Camino Node with Terraform
 
 Automating the process of configuring Camino Node on Google Cloud Platform (GCP) is made easier with Terraform.
 Terraform allows you to create and manage infrastructure as code, simplifying the setup and deployment steps significantly.

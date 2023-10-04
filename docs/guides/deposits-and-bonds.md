@@ -6,7 +6,7 @@ description: Details about Camino Network's securities
 
 # Deposits & Bonds
 
-The Camino Network employs two concepts, known as deposits and bonds, which are securities utilized for various purposes, including deposit rewards, validator stakes, and DAO proposals.
+The Camino Network employs two concepts, known as deposits and bonds, which are securities utilized for various purposes, including deposit rewards, validator bonds, and DAO proposals.
 
 ## Deposits
 
@@ -18,7 +18,7 @@ This mechanism helps Camino Network to stablize CAM token's value.
 
 The deposit feature of the Camino Network differs from delegation on other PoS blockchains, such as Avalanche. In delegation, users are required to find a trustworthy validator on the network to which they can delegate their tokens for staking. This introduces an additional burden and complicates the process for users, as they must locate a validator with good uptime.
 
-Other blockchains require the delegation mechanism to secure their networks, but Camino Network uses a unique consensus mechanism called Proof of Stake and Authority, which eliminates the need for a delegation mechanism. Every Camino validator is known, having been verified through KYC or KYB, and stakes a fixed amount of CAM tokens. This enables Camino Network to provide a simple deposit functionality to its users.
+Other blockchains require the delegation mechanism to secure their networks, but Camino Network uses a unique consensus mechanism called Proof of Stake and Authority, which eliminates the need for a delegation mechanism. Every Camino validator is known, having been verified through KYC or KYB, and bonds a fixed amount of CAM tokens. This enables Camino Network to provide a simple deposit functionality to its users.
 
 With Camino's deposits, users can simply deposit their tokens for a certain period of time and earn rewards, without the need to find a trustworthy validator or delegate their tokens.
 
@@ -30,15 +30,15 @@ The Earn section in the Camino Wallet displays the user's deposit earnings rewar
 
 ## Bonds
 
-In the Camino Network, bonds are currently utilized for two purposes. The primary use is for staking by Validators, while the secondary use is for bonding DAO proposals.
+In the Camino Network, bonds are currently utilized for two purposes. The primary use is for bonding by Validators, while the secondary use is bonding for DAO proposals.
 
-### Staking for Validators
+### Bonding for Validators
 
-Validators need to stake exactly 100,000 CAM tokens to become a validator. These staked tokens are locked in a bond and stay in that state for the duration of the bond.
+Validators need to bond exactly 100,000 CAM tokens to become a validator. These bonded tokens are locked in a bond and stay in that state for the duration of the bond.
 
-This mechanism is similar to other PoS blockchains' staking, but differs because in Camino Network the staked amount is fixed. Validators can not stake more or less than 100,000 CAM tokens. Additionally, validators are subject to KYC or KYB verification and are limited to running a single validator node. This creates a fair and democratic field for all members of the network to vote on DAO proposals.
+This mechanism is similar to other PoS blockchains' staking, but differs because in Camino Network the bonded amount is fixed. Validators can not bond more, or less than 100,000 CAM tokens. Additionally, validators are subject to KYC or KYB verification and are limited to running a single validator node. This creates a fair and democratic field for all members of the network to vote on DAO proposals.
 
-:::tip STAKED TOKENS CAN ALSO BE DEPOSITED
+:::tip BONDED TOKENS CAN ALSO BE DEPOSITED
 
 It is important to note that bonded tokens can also be deposited to earn additional rewards.
 
@@ -54,10 +54,10 @@ This bonding mechanism is used to ensure that the person proposing the proposal 
 
 ## Conclusion
 
-Overall, the deposit and bond features in Camino Network provide a simple and secure way for users to earn rewards and participate in the decision-making process of the network. The fixed staking amount and the requirement for validators to be verified create a fair and democratic environment for all members.
+Overall, the deposit and bond features in Camino Network provide a simple and secure way for users to earn rewards and participate in the decision-making process of the network. The fixed bond amount and the requirement for validators to be verified create a fair and democratic environment for all members.
 
 :::info DEPOSITS & BONDS ARE LOCKED TOKENS
 
-It's important to note that tokens that are bonded, whether for validator staking or DAO proposals, cannot be used for paying transaction fees or exported (cross-chain transfers) to other chains. This is because the tokens are locked and cannot be moved or transferred during the bond period.
+It's important to note that tokens that are bonded, whether for validators or DAO proposals, cannot be used for paying transaction fees or exported (cross-chain transfers) to other chains. This is because the tokens are locked and cannot be moved or transferred during the bond period.
 
 :::
