@@ -598,13 +598,13 @@ curl -X POST --data '{
 
 ### platform&#46;getAllDepositOffers
 
-Get all deposit offers. Results can be filtered to return only active deposit offers.
+Get all deposit offers for a given unix `timestamp`. The method returns only deposit offers that are active at the given `timestamp`.
 
 **Signature**
 
 ```sh
 platform.getAllDepositOffers({
-    active: bool // optional
+    timestamp: int
 }) ->
 {
     depositOffers: []{
@@ -642,7 +642,7 @@ curl -X POST --data '{
     "jsonrpc": "2.0",
     "method": "platform.getAllDepositOffers",
     "params": {
-      "active": true
+      "timestamp": 1696303193
     },
     "id": 1
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/P
