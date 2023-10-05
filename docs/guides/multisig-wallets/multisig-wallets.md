@@ -70,7 +70,7 @@ In summary, threshold in the context of multisig wallets refers to the minimum n
 to authorize a transaction. It provides an added layer of security and control over the funds, while also
 determining the level of convenience and ease of use for the wallet.
 
-## Single Treshold Multisig Wallets
+## Single Threshold Multisig Wallets
 
 Single threshold multisig wallets are a type of multisig wallet where a single signature is required to sign
 and execute transactions. This means that a transaction can be authorized by any one of the signatories in
@@ -138,7 +138,7 @@ as shown in Figure 4.
 
 <figure>
 <img class="zoom" src="/img/msig/msig-3-multisig-members.png#center"/>
-<figcaption align = "center"><b>Fig.4:</b> Wallets Owners & Treshold</figcaption>
+<figcaption align = "center"><b>Fig.4:</b> Wallets Owners & Threshold</figcaption>
 </figure>
 
 In this panel, "linked wallets" refers to the addresses that are imported to the Camino Wallet and can
