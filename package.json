@@ -24,7 +24,7 @@
     "add": "^2.0.6",
     "clsx": "1.1.1",
     "docusaurus-plugin-image-zoom": "^0.1.1",
-    "docusaurus-theme-search-typesense": "^0.4.0-2",
+    "docusaurus-theme-search-typesense": "^0.13.0",
     "file-loader": "6.2.0",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
