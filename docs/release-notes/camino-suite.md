@@ -4,9 +4,37 @@ sidebar_position: 5
 
 # Camino Application Suite Release Notes
 
+## v1.2.1
+
+<p>
+  <span class="alert alert--success pill">Latest</span> 
+  <span class="alert alert--info pill">Bugfix</span>
+</p>
+
+### User Experience and Interface Enhancements
+
+Introducing Camino Application Suite `v1.2.1`, focusing on refining your experience.
+
+**🛠️ Highlights:**
+
+- **Improved Interactivity**: Enhanced drawer behavior and fixed HTML structure issues.
+- **URL Clarity**: Multisig management path updated to `/manage-multisig`. [Details](https://github.com/chain4travel/camino-suite/pull/168)
+- **Enhanced Security**: Restricted `fetchMultiSigAliases` function to logged-in users.
+- **Interface Updates**:
+  - "Network" now clearly displayed in settings.
+  - Revamped wallet icons for better clarity.
+  - Adjusted multi-sig wallet address displays.
+- **Performance & Bug Fixes**:
+  - Optimized `fetchMultiSigAliases` calls.
+  - Fixed display in mint collectibles section.
+  - Resolved Caminojs collectible creation issue. [Details](https://github.com/chain4travel/camino-wallet/pull/329)
+- **Fresh MultiSig Management**: Data refreshes with every page access.
+
+Stay updated with Camino Suite for a smoother experience, and as always, your feedback drives our improvements!
+
 ## v1.2.0
 
-<p><span class="alert alert--success pill">Latest</span></p>
+### Multisignature Alias Create & Edit
 
 We're thrilled to introduce a significant new feature in the latest version of the Camino Application Suite
 

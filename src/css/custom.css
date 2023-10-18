@@ -130,6 +130,7 @@ figcaption {
 
 .pill {
   padding: 5px 15px 5px 15px;
+  margin-right: 5px;
 }
 
 .phonescr img {
