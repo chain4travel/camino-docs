@@ -49,7 +49,7 @@ No, you don’t need to keep your private keys on your validator (and we strongl
 
 ### Is my validating node uptime important?
 
-Yes. A validator will receive a staking reward if they are online and respond for more than 90% of their validation period. You should aim for your validator to be online and responsive 100% of the time.
+Yes. A validator will receive a staking reward if they are online and respond for more than 80% of their validation period. You should aim for your validator to be online and responsive 100% of the time.
 
 ### Why does my validator's uptime percentage start from a lower value and then gradually increase to 100%?
 

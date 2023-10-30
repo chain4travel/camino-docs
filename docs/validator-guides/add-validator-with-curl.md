@@ -4,7 +4,15 @@ title: Adding a Validator Node with cURL
 description: How to add a Validator Node with cURL
 ---
 
-# Adding a Validator Node using cURL
+:::caution DEPRECATED DOCUMENT
+
+Due to the deprecation of the Keystore API in **camino-node**, the method of adding a validator with `curl`, as described in this document,
+is also deprecated. This document remains available for reference on the process of adding a validator.
+
+Please refer to [**Adding a Validator Node with the Wallet**](/validator-guides/add-validator-with-wallet) or
+[**Adding a Validator Node using the Multisig Wallet**](/validator-guides/add-validator-with-msig) for updated methods.
+
+:::
 
 This guide will walk you through the process of linking your wallet address with your node ID, and then adding that node as a validator on the Camino network.
 
@@ -171,7 +179,7 @@ You can use the [Camino Wallet](https://wallet.camino.network) to perform this t
 
 ## Consortium Member
 
-If you participated in the pre-sale and provided a wallet address, you are already designated as a **Consortium Member**.
+If you participated in the pre-sale, provided a wallet address, and are a travel-related company, you are already designated as a **Consortium Member**.
 
 If you are not or you wish to be added as one for the Camino Testnet `columbus`, please contact us through [Discord](https://discord.gg/camino).
 
