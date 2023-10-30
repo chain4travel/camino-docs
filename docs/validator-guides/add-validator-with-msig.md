@@ -81,7 +81,7 @@ Below is a list of these requirements for the mainnet (`camino`) and testnet (`c
   Keep it safe and secure!
 - **100,000 non-bonded CAMs** in your P-Chain wallet. And a few CAMs for paying for transaction fees.
 - **Consortium Member**: Your wallet address must be a consortium member.<br/>
-  If you are unsure about this, please reach out to us on [Discord](https://discord.gg/camino) for clarification. If you participated in the pre-sale, you are already a Consortium Member.
+  If you are unsure about this, please reach out to us on [Discord](https://discord.gg/camino) for clarification. If you participated in the pre-sale, provided a wallet address, and are a travel-related company, you are already a Consortium Member.
 - **KYC/KYB Verified**: You must be Know-Your-Customer (KYC) or Know-Your-Business (KYB) verified.
 
 ### Checking Requirements Using Camino Wallet
