@@ -62,6 +62,13 @@ Log in to the Camino Wallet using one of the member accounts you intend to inclu
 
 - **Multisignature Name**: This names your multisig wallet and gets recorded on the blockchain. Ensure it doesn't contain any private or sensitive information.
 - **Multisignature Co-owners**: Lists members of the multisig wallet. The initial member is the account you've logged in with. Add more members by clicking the green '+' icon. Note: names in this section are stored in your browser's local cache and aren't blockchain entries.
+
+:::caution AVOID USING MULTISIG ALIASES FOR CO-OWNER ADDRESSES
+
+It's crucial to understand that multisig aliases must not be entered as member addresses here. Nested multisigs are not supported. The implementation of MultiSig Aliases is such that they can only be signed by single-sig accounts. Consequently, signing a pending request of a MultiSig Alias with another MultiSig Alias as a member is not possible in the Frontend.
+
+:::
+
 - **Multisignature Threshold**: Dictates the minimum number of signatures needed for transaction approval. Choose any number between 1 and the total count of members.
 
 <figure>
