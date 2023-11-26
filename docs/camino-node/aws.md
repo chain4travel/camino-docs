@@ -174,11 +174,11 @@ Let's proceed with creating the EC2 instance and get your Camino Node machine up
 <figcaption align = "center"><b>Fig.10:</b> Fill in the details</figcaption>
 </figure>
 
-4. Choose **Instance type: m6g.xlarge** (or any other suitable instance type, check [node requirements](/camino-node/set-up-node-with-installer/#before-you-start) for guidance).
+4. Choose **Instance type: t3.xlarge** (or any other suitable instance type, check [node requirements](/camino-node/set-up-node-with-installer/#before-you-start) for guidance).
 
 <figure>
 <img class="zoom" src="/img/aws/aws_instance_2.png#center"/>
-<figcaption align = "center"><b>Fig.11:</b> Select "mx6.xlarge"</figcaption>
+<figcaption align = "center"><b>Fig.11:</b> Select the instance type</figcaption>
 </figure>
 
 5. Under **"Key pair,"** choose the key pair which you created previously from the dropdown list. This will enable you to SSH into the instance.
@@ -266,9 +266,10 @@ please replace `--public-ip-resolution-service=ifconfigme` with `--public-ip=<st
 
 ## AWS Marketplace Method
 
-:::caution DRAFT DOCUMENTATION
+:::tip UPCOMING AVAILABILITY
 
-The information in this section of the documentation is currently under testing and review. Please proceed with caution.
+The Camino Node will soon be available on the AWS Marketplace. This section of the documentation is prepared in anticipation
+of its release, fulfilling a requirement by Amazon. The steps outlined here are for your early reference.
 
 :::
 
