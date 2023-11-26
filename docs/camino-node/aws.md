@@ -7,18 +7,22 @@ description: This guide provides step-by-step instructions on how to set up and 
 # Setting Up Camino Node on AWS
 
 In this guide, we will walk you through the process of setting up Camino Node on the Amazon Web Services (AWS) platform.
-You have two methods to choose from for the setup process: the manual method and the automatic method using Terraform.
+You have three methods to choose from for the setup process: the manual method, AWS Marketplace method, and the automatic method using Terraform.
 
-Camino Node is a decentralized messaging and booking platform built on blockchain technology, offering secure
-and efficient communication and transaction capabilities within the Camino Network. By following this guide,
-you'll be able to deploy Camino Node on AWS and explore the potential of decentralized messaging in the travel industry.
+- [**Manual Method**](#manual-method): If you prefer a more hands-on approach and want to understand the detailed steps, the manual method is for you.
+
+- [**AWS Marketplace Method**](#aws-marketplace-method): This method leverages the AWS Marketplace to deploy the Camino Node. It provides a streamlined, user-friendly interface, minimizing the intricacies of manual setup. Ideal for those who seek an efficient and straightforward deployment without delving deep into the underlying technical details.
+
+- [**Terraform Method**](#terraform-method): For those who favor an automated approach and want to streamline the setup process, Terraform is the way to go. This method allows you to deploy Camino Node quickly with minimal effort, making it an attractive option for users familiar with Terraform's infrastructure-as-code paradigm.
 
 Whether you're new to blockchain technology or an experienced AWS user, this guide is designed to be accessible
 and easy to follow. It provides step-by-step instructions to help you get Camino Node up and running smoothly on AWS.
 
 Let's get started with the setup process of Camino Node on AWS. Choose the method that best suits your preferences and needs.
 
-## Go to EC2 section in AWS.
+## Manual Method
+
+### Go to EC2 section in AWS
 
 1. Go to **Services > Compute > EC2** to access the EC2 section in AWS. This is where you'll create and manage your virtual machine instances.
 
@@ -27,7 +31,7 @@ Let's get started with the setup process of Camino Node on AWS. Choose the metho
 <figcaption align = "center"><b>Fig.1:</b> Go to EC2 Section</figcaption>
 </figure>
 
-## Create Key Pair: Secure Access to Your Machine
+### Create Key Pair: Secure Access to Your Machine
 
 Creating a Key Pair is an essential step that will grant you secure access to your newly created machine. With the Key Pair,
 you'll be able to log in to the machine securely via SSH (Secure Shell) and manage it effectively.
@@ -64,7 +68,7 @@ Let's proceed with creating the Key Pair to ensure secure access to your Camino 
 <figcaption align = "center"><b>Fig.4:</b> Click "Create Key Pair" when finished</figcaption>
 </figure>
 
-## Create Security Group: Configuring Access Permissions
+### Create Security Group: Configuring Access Permissions
 
 In this step, we'll create a Security Group, which acts as a virtual firewall to control inbound and outbound traffic to your
 Camino Node machine. By defining the access permissions within the Security Group, we can ensure that the necessary ports for
@@ -144,7 +148,7 @@ documentation.
 <figcaption align = "center"><b>Fig.8:</b> Click "Create security group"</figcaption>
 </figure>
 
-## Create EC2 instance: Launching Your Camino Node Machine
+### Create EC2 instance: Launching Your Camino Node Machine
 
 In this step, we'll create an Amazon Elastic Compute Cloud (EC2) instance, which will serve as your Camino Node machine. The EC2 instance provides a scalable and flexible computing environment, allowing you to run applications like Camino Node on the AWS cloud.
 
@@ -260,7 +264,92 @@ please replace `--public-ip-resolution-service=ifconfigme` with `--public-ip=<st
 
 :::
 
-## Setting Up Camino Node with Terraform on AWS
+## AWS Marketplace Method
+
+:::caution DRAFT DOCUMENTATION
+
+The information in this section of the documentation is currently under testing and review. Please proceed with caution.
+
+:::
+
+1. **Create a Keypair Manually:** Follow the ["Create Key Pair: Secure Access to Your Machine"](#create-key-pair-secure-access-to-your-machine) instructions from above to create a keypair.
+
+2. **Create a Security Group Manually:** Follow the ["Create Security Group: Configuring Access Permissions"](#create-security-group-configuring-access-permissions) instructions from above to create a security group.
+
+:::info
+
+If you are already subscribed to the “Camino Node” product, you can skip steps 3-6 and proceed directly to step 7.
+
+Navigate to your marketplace subscriptions and select “Launch new instance” for the “Camino Node” product.
+
+<figure>
+<img class="zoom" src="/img/aws/aws_mp_8.png#center"/>
+<figcaption align = "center"><b>Fig.:</b> </figcaption>
+</figure>
+
+:::
+
+3. Navigate to the AWS Marketplace and search for "Camino Node".
+
+4. Access the “Camino Node” product page and click on “Continue to Subscribe”.
+
+<figure>
+<img class="zoom" src="/img/aws/aws_mp_1.png#center"/>
+<figcaption align = "center"><b>Fig.:</b> </figcaption>
+</figure>
+
+5. Click on “Accept Terms”.
+
+<figure>
+<img class="zoom" src="/img/aws/aws_mp_2.png#center"/>
+<figcaption align = "center"><b>Fig.:</b> </figcaption>
+</figure>
+
+6. Click on “Continue to Configuration”.
+
+<figure>
+<img class="zoom" src="/img/aws/aws_mp_3.png#center"/>
+<figcaption align = "center"><b>Fig.:</b> </figcaption>
+</figure>
+
+7. Select the desired version of Camino Node. The version name includes the network (columbus for testnet or camino for mainnet) and the version number as per the GitHub releases [Releases · chain4travel/camino-node](https://github.com/chain4travel/camino-node/releases).
+
+<figure>
+<img class="zoom" src="/img/aws/aws_mp_4.png#center"/>
+<figcaption align = "center"><b>Fig.:</b> </figcaption>
+</figure>
+
+8. Choose the appropriate AWS region.
+
+<figure>
+<img class="zoom" src="/img/aws/aws_mp_4.png#center"/>
+<figcaption align = "center"><b>Fig.:</b> </figcaption>
+</figure>
+
+9. Select an instance type. As of this guide's creation, the recommended type is `t3.xlarge`.
+
+<figure>
+<img class="zoom" src="/img/aws/aws_mp_5.png#center"/>
+<figcaption align = "center"><b>Fig.:</b> </figcaption>
+</figure>
+
+10. Configure your preferred VPC settings and subnet.
+
+<figure>
+<img class="zoom" src="/img/aws/aws_mp_6.png#center"/>
+<figcaption align = "center"><b>Fig.:</b> </figcaption>
+</figure>
+
+11. Select the security group and key pair created in the first two steps, then click “Launch”.
+
+<figure>
+<img class="zoom" src="/img/aws/aws_mp_7.png#center"/>
+<figcaption align = "center"><b>Fig.:</b> </figcaption>
+</figure>
+
+## Terraform Method
+
+### Setting Up Camino Node with Terraform on AWS
 
 Automating the process of configuring Camino Node on AWS is made easier with Terraform.
 Terraform allows you to create and manage infrastructure as code, simplifying the setup and deployment steps significantly.

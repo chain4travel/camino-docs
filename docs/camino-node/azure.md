@@ -9,10 +9,6 @@ description: This guide provides step-by-step instructions on how to set up and 
 In this guide, we will walk you through the process of setting up Camino Node on the Microsoft Azure platform.
 You have two methods to choose from for the setup process: the manual method and the automatic method using Terraform.
 
-Camino Node is a decentralized messaging and booking platform built on blockchain technology, offering secure
-and efficient communication and transaction capabilities within the Camino Network. By following this guide,
-you'll be able to deploy Camino Node on Azure and explore the potential of decentralized messaging in the travel industry.
-
 Whether you're new to blockchain technology or an experienced Azure user, this guide is designed to be accessible
 and easy to follow. It provides step-by-step instructions to help you get Camino Node up and running smoothly on Azure.
 
