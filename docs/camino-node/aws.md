@@ -278,73 +278,73 @@ The information in this section of the documentation is currently under testing 
 
 :::info
 
-If you are already subscribed to the “Camino Node” product, you can skip steps 3-6 and proceed directly to step 7.
+If you are already subscribed to the "Camino Node" product, you can skip steps 3-6 and proceed directly to step 7.
 
-Navigate to your marketplace subscriptions and select “Launch new instance” for the “Camino Node” product.
+Navigate to your marketplace subscriptions and select "Launch new instance" for the "Camino Node" product.
 
 <figure>
 <img class="zoom" src="/img/aws/aws_mp_8.png#center"/>
-<figcaption align = "center"><b>Fig.:</b> </figcaption>
+<figcaption align = "center"><b>Fig.16:</b> Click "Launch new instance"</figcaption>
 </figure>
 
 :::
 
 3. Navigate to the AWS Marketplace and search for "Camino Node".
 
-4. Access the “Camino Node” product page and click on “Continue to Subscribe”.
+4. Access the "Camino Node" product page and click on "Continue to Subscribe".
 
 <figure>
 <img class="zoom" src="/img/aws/aws_mp_1.png#center"/>
-<figcaption align = "center"><b>Fig.:</b> </figcaption>
+<figcaption align = "center"><b>Fig.17:</b> Click "Continue to Subscribe"</figcaption>
 </figure>
 
-5. Click on “Accept Terms”.
+5. Click on "Accept Terms".
 
 <figure>
 <img class="zoom" src="/img/aws/aws_mp_2.png#center"/>
-<figcaption align = "center"><b>Fig.:</b> </figcaption>
+<figcaption align = "center"><b>Fig.18:</b> Click on "Accept Terms"</figcaption>
 </figure>
 
-6. Click on “Continue to Configuration”.
+6. Click on "Continue to Configuration".
 
 <figure>
 <img class="zoom" src="/img/aws/aws_mp_3.png#center"/>
-<figcaption align = "center"><b>Fig.:</b> </figcaption>
+<figcaption align = "center"><b>Fig.19:</b> Click on "Continue to Configuration"</figcaption>
 </figure>
 
 7. Select the desired version of Camino Node. The version name includes the network (columbus for testnet or camino for mainnet) and the version number as per the GitHub releases [Releases · chain4travel/camino-node](https://github.com/chain4travel/camino-node/releases).
 
 <figure>
 <img class="zoom" src="/img/aws/aws_mp_4.png#center"/>
-<figcaption align = "center"><b>Fig.:</b> </figcaption>
+<figcaption align = "center"><b>Fig.20:</b> Select the desired version</figcaption>
 </figure>
 
-8. Choose the appropriate AWS region.
+8. Choose the preferred AWS region.
 
 <figure>
 <img class="zoom" src="/img/aws/aws_mp_4.png#center"/>
-<figcaption align = "center"><b>Fig.:</b> </figcaption>
+<figcaption align = "center"><b>Fig.21:</b> Choose the region</figcaption>
 </figure>
 
 9. Select an instance type. As of this guide's creation, the recommended type is `t3.xlarge`.
 
 <figure>
 <img class="zoom" src="/img/aws/aws_mp_5.png#center"/>
-<figcaption align = "center"><b>Fig.:</b> </figcaption>
+<figcaption align = "center"><b>Fig.22:</b> Select the instance type</figcaption>
 </figure>
 
 10. Configure your preferred VPC settings and subnet.
 
 <figure>
 <img class="zoom" src="/img/aws/aws_mp_6.png#center"/>
-<figcaption align = "center"><b>Fig.:</b> </figcaption>
+<figcaption align = "center"><b>Fig.23:</b> Configure VPC & Subnet</figcaption>
 </figure>
 
-11. Select the security group and key pair created in the first two steps, then click “Launch”.
+11. Select the security group and key pair created in the first two steps, then click "Launch".
 
 <figure>
 <img class="zoom" src="/img/aws/aws_mp_7.png#center"/>
-<figcaption align = "center"><b>Fig.:</b> </figcaption>
+<figcaption align = "center"><b>Fig.24:</b> Select security group and key pair</figcaption>
 </figure>
 
 ## Terraform Method
