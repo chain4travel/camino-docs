@@ -224,7 +224,7 @@ Based on avalanchego v1.9.4 (Banff)
 
 - DepositBond mode instead stake/delegate (for camino networks)
 - AddressStates for KYC / ConsortiumMembers
-- Registration NodeID <-> Consortium member
+- Registration NodeID `<->` Consortium member
 - Multisigaddresses
 
 #### X-Chain:

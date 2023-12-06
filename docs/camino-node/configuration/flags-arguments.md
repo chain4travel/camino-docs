@@ -912,7 +912,7 @@ Argument: `string`
 
 ### --db-type [string]
 
-Database type to use. Should be one of {leveldb, memdb} (default "leveldb")
+Database type to use. Should be one of `{leveldb, memdb}` (default "leveldb")
 
 Argument: `string`
 
@@ -1408,7 +1408,7 @@ Disables displaying plugin logs in stdout.
 
 ### --log-display-level [string]
 
-The log display level. If left blank, will inherit the value of log-level. Otherwise, should be one of {verbo, debug, trace, info, warn, error, fatal, off}
+The log display level. If left blank, will inherit the value of log-level. Otherwise, should be one of `{verbo, debug, trace, info, warn, error, fatal, off}`
 
 Argument: `string`
 
@@ -1426,7 +1426,7 @@ Argument: `string`
 
 ### --log-format [string]
 
-The structure of log format. Defaults to 'auto' which formats terminal-like logs, when the output is a terminal. Otherwise, should be one of {auto, plain, colors, json} (default "auto")
+The structure of log format. Defaults to 'auto' which formats terminal-like logs, when the output is a terminal. Otherwise, should be one of `{auto, plain, colors, json}`(default "auto")
 
 Argument: `string`
 
@@ -1444,7 +1444,7 @@ Argument: `string`
 
 ### --log-level [string]
 
-The log level. Should be one of {verbo, debug, trace, info, warn, error, fatal, off} (default "info")
+The log level. Should be one of `{verbo, debug, trace, info, warn, error, fatal, off}` (default "info")
 
 Argument: `string`
 
@@ -2544,7 +2544,7 @@ Argument: `duration`
 
 ### --snow-mixed-query-num-push-non-vdr [uint]
 
-If this node is not a validator, when a container is inserted into consensus, send a Push Query to snow-mixed-query-num-push-non-vdr validators and a Pull Query to the others. Must be <= k.
+If this node is not a validator, when a container is inserted into consensus, send a Push Query to snow-mixed-query-num-push-non-vdr validators and a Pull Query to the others. Must be `<= k`.
 
 Argument: `uint`
 
@@ -2562,7 +2562,7 @@ Argument: `uint`
 
 ### --snow-mixed-query-num-push-vdr [uint]
 
-If this node is a validator, when a container is inserted into consensus, send a Push Query to snow-mixed-query-num-push-vdr validators and a Pull Query to the others. Must be <= k. (default 10)
+If this node is a validator, when a container is inserted into consensus, send a Push Query to snow-mixed-query-num-push-vdr validators and a Pull Query to the others. Must be `<= k`. (default 10)
 
 Argument: `uint`
 
@@ -3488,7 +3488,7 @@ If true, don't use TLS when sending trace data (default true)
 
 ### --tracing-sample-rate [float]
 
-The fraction of traces to sample. If >= 1, always sample. If <= 0, never sample (default 0.1)
+The fraction of traces to sample. If >= 1, always sample. If `<= 0`, never sample (default 0.1)
 
 Argument: `float`
 
