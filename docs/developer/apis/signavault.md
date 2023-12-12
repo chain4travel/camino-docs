@@ -17,12 +17,12 @@ Starting with API version 1, the request paths will be prefixed by a version tag
 
 In addition to integers, strings, and booleans, the following data types are used throughout the API:
 
-| Name           | Description                                                                 | Examples                                                                             |
-| :------------- | :-------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| `id`           | A CB58 encoded object identifier, such as a chain, transaction, or asset ID | `2oYMBNV4eNHyqk2fjjV5nVQLDbtmNJzq5s3qs3Lo6ftnC6FByM`                                 |
-| `address`      | A bech-32 encoded address (used on the X-Chain and P-Chain)                 | `fuji1wycv8n7d2fg9aq6unp23pnj4q0arv03ysya8jw`                                        |
-| `timestamp`    | A Unix timestamp as a string                                                | `1599696000`                                                                         |
-| `outputOwners` | An object consisted of the fields `{threshold, locktime, addresses[]}`      | {threshold: 1, locktime: 0, ["P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"]} |
+| Name           | Description                                                                 | Examples                                                                               |
+| :------------- | :-------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| `id`           | A CB58 encoded object identifier, such as a chain, transaction, or asset ID | `2oYMBNV4eNHyqk2fjjV5nVQLDbtmNJzq5s3qs3Lo6ftnC6FByM`                                   |
+| `address`      | A bech-32 encoded address (used on the X-Chain and P-Chain)                 | `fuji1wycv8n7d2fg9aq6unp23pnj4q0arv03ysya8jw`                                          |
+| `timestamp`    | A Unix timestamp as a string                                                | `1599696000`                                                                           |
+| `outputOwners` | An object consisted of the fields `{threshold, locktime, addresses[]}`      | `{threshold: 1, locktime: 0, ["P-kopernikus18jma8ppw3nhx5r4ap8clazz0dps7rv5uuvjh68"]}` |
 
 ## Available Endpoints
 

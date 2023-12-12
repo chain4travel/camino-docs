@@ -1848,11 +1848,11 @@ func main() {
 
 **Operations**
 
-| Command          | Description                  | Example                                                      | Arguments                                                                                                                          |
-| :--------------- | :--------------------------- | :----------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-| **NewSet**       | create a new address map set | {"newSet":{}}                                                |                                                                                                                                    |
-| **NewBloom**     | create a new bloom set.      | {"newBloom":{"maxElements":"1000","collisionProb":"0.0100"}} | maxElements - number of elements in filter must be &gt; 0 collisionProb - allowed collision probability must be &gt; 0 and &lt;= 1 |
-| **AddAddresses** | add an address to the set    | {"addAddresses":{"addresses":\["X-columbus..."\]}}           | addresses - list of addresses to match                                                                                             |
+| Command          | Description                  | Example                                                        | Arguments                                                                                                                          |
+| :--------------- | :--------------------------- | :------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| **NewSet**       | create a new address map set | `{"newSet":{}}`                                                |                                                                                                                                    |
+| **NewBloom**     | create a new bloom set.      | `{"newBloom":{"maxElements":"1000","collisionProb":"0.0100"}}` | maxElements - number of elements in filter must be &gt; 0 collisionProb - allowed collision probability must be &gt; 0 and &lt;= 1 |
+| **AddAddresses** | add an address to the set    | `{"addAddresses":{"addresses":\["X-columbus..."\]}}`           | addresses - list of addresses to match                                                                                             |
 
 Calling **NewSet** or **NewBloom** resets the filter, and must be followed with **AddAddresses**. **AddAddresses** can be called multiple times.
 
