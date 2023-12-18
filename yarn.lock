@@ -3621,10 +3621,10 @@ docusaurus-plugin-image-zoom@^1.0.1:
     medium-zoom "^1.0.6"
     validate-peer-dependencies "^2.2.0"
 
-docusaurus-theme-search-typesense@^0.14.1-0:
-  version "0.14.1-0"
-  resolved "https://registry.yarnpkg.com/docusaurus-theme-search-typesense/-/docusaurus-theme-search-typesense-0.14.1-0.tgz#e24516859985ab183f07417033ba6f12a07df450"
-  integrity sha512-9Awr5i8rhykwMqv1LrTn0C7bAIegBebYboXDGgGWe/m5m6v0o2JW2RS6HLcniPUSN7S1DVFaggYXqp8bTezcmg==
+docusaurus-theme-search-typesense@^0.14.1:
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/docusaurus-theme-search-typesense/-/docusaurus-theme-search-typesense-0.14.1.tgz#cdf9942a2d74b008b777c58d6a0c071e177159ed"
+  integrity sha512-Zdbs1qnVv5cqxzh5/zGbLQfX4UNQGo6wnRRkYTtCg1eMvK14kFn7oejCxvkvfmRZpeeWLTMBgKyV220Kv7kKFw==
   dependencies:
     "@docusaurus/logger" "3.0.1"
     "@docusaurus/plugin-content-docs" "3.0.1"
