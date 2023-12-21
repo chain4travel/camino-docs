@@ -2,12 +2,44 @@
 sidebar_position: 5
 ---
 
-# Camino Application Suite Release Notes
+# Camino Application Suite Releases
+
+## v1.3.0
+
+<p>
+  <span class="alert alert--success pill">Latest</span> 
+</p>
+
+### Deposit Offers
+
+We are pleased to announce the release of Camino Application Suite version 1.3.0 "Deposit Offers", featuring significant enhancements, updates, and bug fixes that improve overall functionality and user experience.
+
+- **Major Update: Deposit Offers**
+
+  - **New Top-Level Navigation "Foundation"**: Introducing a dedicated navigation area for deposit offer administrators to streamline management 🧭.
+  - **Address-Specific Deposit Offer Creation**: Selected addresses now have the capability to create deposit offers, enhancing security and administration 🔑.
+  - **Creating Deposit Offers**: Admins are equipped with new functionalities to create deposit offers, increasing flexibility in deposit management.
+  - **Saving Pools on Testnet**: Test the new saving pool feature in the Earn section of the wallet and start accruing rewards on the testnet 🏦.
+
+- **Minor Updates:**
+
+  - **New Font Across All Frontends**: The rollout of a new font across all interfaces aims to improve readability and visual comfort.
+  - **Updated Wallet Transactions Footer Text**: Refinements in the wallet transactions footer text for clearer communication.
+  - **Improved Navbar**: The navigation bar has been updated for better display of wallet and account information.
+  - **Multisig Owners' Names**: Ensuring multisig owners' names are now reliably stored within the wallet.
+
+- **Bugfixes:**
+  - **Saving Pool Visibility Post-Network Switch**: Addressed the issue where the saving pool would only show up following a network change.
+  - **Correct P Balance Display**: Fixed a bug that caused incorrect P balance displays during token interactions.
+  - **Validator Page Uptime Accuracy**: Corrected the validator page uptime display from an erroneous 10000% to the actual 100%.
+  - **Validator Tab Auto-Refresh**: The validator tab will now refresh automatically after switching networks or multisig arrangements 🔄.
+  - **Deposit Offer Creation Fixes**: Implemented multiple fixes to refine the deposit offer creation process.
+
+Your feedback is always welcome, and we are dedicated to the ongoing improvement of the Camino Application Suite.
 
 ## v1.2.1
 
 <p>
-  <span class="alert alert--success pill">Latest</span> 
   <span class="alert alert--info pill">Bugfix</span>
 </p>
 
