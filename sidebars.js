@@ -36,8 +36,8 @@ const sidebars = {
         },
         {
           type: 'link',
-          label: 'Camino Lightpaper',
-          href: 'https://camino.network/static/docs/Chain4Travel_Litepaper_June.pdf'
+          label: 'Whitepaper',
+          href: 'https://camino.network/static/docs/Camino_Network_Whitepaper.pdf'
         },
       ],
     },
