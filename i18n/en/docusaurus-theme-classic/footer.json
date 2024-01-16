@@ -28,7 +28,7 @@
     "description": "The label of footer link with label=GitHub linking to https://github.com/chain4travel/camino-docs"
   },
   "copyright": {
-    "message": "Copyright © 2022 Chain4Travel AG",
+    "message": "Copyright © 2024 Camino Network Foundation",
     "description": "The footer copyright"
   }
 }
