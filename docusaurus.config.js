@@ -119,7 +119,7 @@ const config = {
             
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Chain4Travel AG.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Camino Network Foundation`,
       },
       prism: {
         theme: lightCodeTheme,
