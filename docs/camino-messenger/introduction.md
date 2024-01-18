@@ -160,3 +160,13 @@ This early version is made available for review and feedback as part of our tran
 |      Partner Service      |       [Partner API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.partner.v1alpha)       |
 |       Ping Service        |          [Ping API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.ping.v1alpha)          |
 |     Transport Service     |     [Transport API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.transport.v1alpha)     |
+
+## Branches
+
+We have a few branches that we will use heavily in the development phase.
+
+| Branch  | Purpose                                                                                                                             |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `c4t`   | This branch will only include latest released code. Which is also tagged and pushed to buf.build's main branch                      |
+| `dev`   | This branch is for on-going development, where PRs are created against. When a new release is tagged, it is merged to `c4t` branch. |
+| `draft` | This is used to sketch ideas and obtain feedback from partners, test the API documentation on buf.build.                            |
