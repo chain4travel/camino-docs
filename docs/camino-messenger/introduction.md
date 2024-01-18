@@ -6,6 +6,12 @@ description: Camino Messenger Introduction
 
 # Camino Messenger Protocol Documentation
 
+:::info DRAFT DOCUMENTATION NOTICE
+
+Please be aware that this document is currently a draft and is undergoing active development. Content, guidelines, and instructions may be subject to change.
+
+:::
+
 :::caution 🚧 ALPHA CODE NOTICE 🚧
 
 This protocol definition is in the alpha phase of development. It is important to note that during this stage, breaking changes may occur without advance notice. Users should proceed with caution.
@@ -145,12 +151,12 @@ This early version is made available for review and feedback as part of our tran
 
 :::
 
-|          Package          |                                                                  Link                                                                   |
-| :-----------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: |
-| Main Module Documentation |                       [Main API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/dev)                       |
-|   Accommodation Service   | [Accommodation API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/dev:cmp.services.accommodation.v1alpha) |
-|     Activity Service      |      [Activity API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/dev:cmp.services.activity.v1alpha)      |
-|      Network Service      |       [Network API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/dev:cmp.services.network.v1alpha)       |
-|      Partner Service      |       [Partner API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/dev:cmp.services.partner.v1alpha)       |
-|       Ping Service        |          [Ping API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/dev:cmp.services.ping.v1alpha)          |
-|     Transport Service     |     [Transport API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/dev:cmp.services.transport.v1alpha)     |
+|          Package          |                                                                   Link                                                                   |
+| :-----------------------: | :--------------------------------------------------------------------------------------------------------------------------------------: |
+| Main Module Documentation |                       [Main API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main)                       |
+|   Accommodation Service   | [Accommodation API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.accommodation.v1alpha) |
+|     Activity Service      |      [Activity API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.activity.v1alpha)      |
+|      Network Service      |       [Network API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.network.v1alpha)       |
+|      Partner Service      |       [Partner API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.partner.v1alpha)       |
+|       Ping Service        |          [Ping API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.ping.v1alpha)          |
+|     Transport Service     |     [Transport API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.transport.v1alpha)     |
