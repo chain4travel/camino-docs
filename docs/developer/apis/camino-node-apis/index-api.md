@@ -384,7 +384,9 @@ curl --location --request POST 'localhost:9650/ext/index/X/tx' \
 Here is an example of how to iterate through all transactions on the X-Chain.
 
 :::warning
+
 To help users to try out this example and other index APIs, we have set up a testing indexer node located at (tbc). This indexer node is not for production use. We may change or shut it down at any time without notice.
+
 :::
 
 You can use the Index API to get the ID of every transaction that has been accepted on the X-Chain, and use the X-Chain API method `avm.getTx` to get a human-readable representation of the transaction.
@@ -394,7 +396,7 @@ To get an X-Chain transaction by its index (the order it was accepted in), use I
 For example, to get the _second_ transaction (note that `"index":1`) accepted on the X-Chain, do:
 
 ```sh
-curl --location --request POST 'https://indexer-test.camino.foundation/ext/index/X/tx' \
+curl --location --request POST 'https://indexer-test.camino.network/ext/index/X/tx' \
 --header 'Content-Type: application/json' \
 --data-raw '{
    "jsonrpc": "2.0",
@@ -438,7 +440,7 @@ curl -X POST --data '{
         "txID":"ZGYTSU8w3zUP6VFseGC798vA2Vnxnfj6fz1QPfA9N93bhjJvo",
         "encoding": "json"
     }
-}' -H 'content-type:application/json;' https://api.camino.foundation/ext/bc/X
+}' -H 'content-type:application/json;' https://api.camino.network/ext/bc/X
 ```
 
 Response:
