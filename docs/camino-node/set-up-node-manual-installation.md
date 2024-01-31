@@ -138,4 +138,4 @@ Validators must know their public facing IP addresses so they can let other node
 
 ## What next?
 
-Your node is running and connected now. If you want to use your node as a validator, head over to the [Camino Web Wallet](https://wallet.camino.network) and register your node in there.
+Your node is running and connected now. If you want to use your node as a validator, head over to the [Camino Web Wallet](https://suite.camino.network/wallet) and register your node in there.

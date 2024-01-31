@@ -52,7 +52,7 @@ Further below, you will find instructions about how to get these information by 
 - **Wallet address & private key**: You will need your wallet address and private key.<br/>
   Remember to keep your private key safe!
 - **100,000 non-bonded CAMs** in your P-Chain wallet. And a few CAMs for paying for transaction fees.<br/>
-  You can check this on the online [wallet](https://wallet.camino.network) to ensure that you have at least 100,000 non-bonded tokens on the P-Chain.
+  You can check this on the online [wallet](https://suite.camino.network/wallet) to ensure that you have at least 100,000 non-bonded tokens on the P-Chain.
 - **Consortium Member**: Your wallet address must be a consortium member.<br/>
   If you are unsure about this, please reach out to us on [Discord](https://discord.gg/camino) for clarification. If you participated in the pre-sale, you are already a Consortium Member.
 - **KYC/KYB Verified**: You must be Know-Your-Customer (KYC) or Know-Your-Business (KYB) verified.
@@ -162,9 +162,9 @@ Please keep in mind that Admin API is disabled by default in Camino Node. You ne
 
 ## Retrieving Your Wallet Private Key
 
-If you already got your wallet address go to the [Camino Wallet](https://wallet.camino.network) and retrieve your private key from the Manage Keys menu.
+If you already got your wallet address go to the [Camino Wallet](https://suite.camino.network/wallet) and retrieve your private key from the Manage Keys menu.
 
-If you don't know your address, when you created your wallet on the [Camino Wallet](https://wallet.camino.network), it prompted you to write down a key phrase.
+If you don't know your address, when you created your wallet on the [Camino Wallet](https://suite.camino.network/wallet), it prompted you to write down a key phrase.
 
 By using this key phrase, you can recover your wallet address and extract your private key. Log in to your wallet and click **Manage Keys** from the menu.
 Under **My Keys**, you will see your wallet address. There will be a button named **View C-Chain Private Key** right beside your address.
@@ -175,7 +175,7 @@ Under **My Keys**, you will see your wallet address. There will be a button name
 
 In order to stake for your validator, you will need to have **100,000 non-bonded CAM** tokens on the P-Chain. If you do not already have them on the P-Chain, you will need to transfer them.
 
-You can use the [Camino Wallet](https://wallet.camino.network) to perform this transfer. Simply click on **Cross Chain** in the main menu and follow the prompts in the user interface.
+You can use the [Camino Wallet](https://suite.camino.network/wallet) to perform this transfer. Simply click on **Cross Chain** in the main menu and follow the prompts in the user interface.
 
 ## Consortium Member
 
@@ -185,7 +185,7 @@ If you are not or you wish to be added as one for the Camino Testnet `columbus`,
 
 ## Know-Your-Customer & Know-Your-Business Verification
 
-In order to complete a KYC (Know Your Customer) verification on Camino Network, you can log in to the [Camino Wallet](https://wallet.camino.network) and click the "KYC Verification" button.
+In order to complete a KYC (Know Your Customer) verification on Camino Network, you can log in to the [Camino Wallet](https://suite.camino.network/wallet) and click the "KYC Verification" button.
 A pop-up window will appear, prompting you to provide your email and phone number. Follow the instructions provided to complete the verification process, which will require you to submit some form of identification.
 
 Additionally, the KYC process can be continued on your phone after starting it on a browser, allowing for greater convenience and flexibility. For more information on the KYC process, please refer to the [KYC](/guides/kyc.md) page.
@@ -219,7 +219,7 @@ Now let's see how you can complete these steps using `curl` API requests.
 
 To interact with some of the API methods on your node, you will need to have a username and password. The first step in this process is to create a user.
 
-Users are stored in the keystore on your node. It is important to note that for validation and delegation on the mainnet, it is recommended to use the [wallet on Camino Network](https://wallet.camino.network) to issue transactions. This ensures that private keys for your funds are not stored on your node, significantly reducing the risk in the event that the computer running the node is compromised.
+Users are stored in the keystore on your node. It is important to note that for validation and delegation on the mainnet, it is recommended to use the [wallet on Camino Network](https://suite.camino.network/wallet) to issue transactions. This ensures that private keys for your funds are not stored on your node, significantly reducing the risk in the event that the computer running the node is compromised.
 
 :::note
 

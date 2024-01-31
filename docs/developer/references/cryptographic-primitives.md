@@ -120,7 +120,7 @@ As an example we will sign the message "Through consensus to the stars"
 54 68 72 6f 75 67 68 20 63 6f 6e 73 65 6e 73 75 73 20 74 6f 20 74 68 65 20 73 74 61 72 73
 ```
 
-After hashing with `sha256` and signing the pre-image we return the value [cb58](#cb58) encoded: `4Eb2zAHF4JjZFJmp4usSokTGqq9mEGwVMY2WZzzCmu657SNFZhndsiS8TvL32n3bexd8emUwiXs8XqKjhqzvoRFvghnvSN`. Here's an example using the [Camino Web Wallet](https://wallet.camino.network).
+After hashing with `sha256` and signing the pre-image we return the value [cb58](#cb58) encoded: `4Eb2zAHF4JjZFJmp4usSokTGqq9mEGwVMY2WZzzCmu657SNFZhndsiS8TvL32n3bexd8emUwiXs8XqKjhqzvoRFvghnvSN`. Here's an example using the [Camino Web Wallet](https://suite.camino.network/wallet).
 
 ![Sign message](/img/build/references/sign-message.png#center)
 
