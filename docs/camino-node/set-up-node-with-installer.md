@@ -319,7 +319,7 @@ This will delete the existing service file, and run the installer from scratch, 
 
 ## What next?
 
-That's it, you're running a Camino-Node node! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/caminonetwork) or [Discord](https://discord.gg/camino)!
+That's it, you're running a Camino-Node node! Congratulations! Let us know you did it on our [Twitter](https://twitter.com/camino_network) or [Discord](https://discord.gg/camino)!
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 

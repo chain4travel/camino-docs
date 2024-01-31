@@ -133,7 +133,7 @@ Note that configuration file needs to be a properly formatted `JSON` file, so sw
 
 ## What next?
 
-That's it, you're running a Camino-Node node on docker! Congratulations! Share it on our [Twitter](https://twitter.com/caminonetwork) or [Discord](https://discord.gg/camino)!
+That's it, you're running a Camino-Node node on docker! Congratulations! Share it on our [Twitter](https://twitter.com/camino_network) or [Discord](https://discord.gg/camino)!
 
 If you're on a residential network (dynamic IP), don't forget to set up port forwarding. If you're on a cloud service provider, you're good to go.
 

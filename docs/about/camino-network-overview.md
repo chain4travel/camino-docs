@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Camino Network Overview
 
-Camino features 3 built-in blockchains: [**Exchange Chain (X-Chain)**](#exchange-chain-x-chain), [**Platform Chain (P-Chain)**](#platform-chain-p-chain), and [**Contract Chain (C-Chain**)](#contract-chain-c-chain). All 3 blockchains are validated and secured by the **Primary Network**. The Primary Network is a special subnet, and all members of all custom subnets must also be a member of the Primary Network.
+Camino Network features 3 built-in blockchains: [**Exchange Chain (X-Chain)**](#exchange-chain-x-chain), [**Platform Chain (P-Chain)**](#platform-chain-p-chain), and [**Contract Chain (C-Chain**)](#contract-chain-c-chain). All 3 blockchains are validated and secured by the **Primary Network**. The Primary Network is a special subnet, and all members of all custom subnets must also be a member of the Primary Network.
 
 ![Primary network](/img/about/network-overview/primary-network.png)
 
@@ -12,7 +12,7 @@ Camino features 3 built-in blockchains: [**Exchange Chain (X-Chain)**](#exchange
 
 The **X-Chain** acts as a decentralized platform for creating and trading digital smart assets, a representation of a real-world resource (e.g., equity, bonds) with a set of rules that govern its behavior, like "can’t be traded until tomorrow" or "can only be sent to US citizens."
 
-One asset traded on the X-Chain is CAM. When you issue a transaction to a blockchain on Camino, you pay a fee denominated in CAM.
+One asset traded on the X-Chain is CAM. When you issue a transaction to a blockchain on Camino Network, you pay a fee denominated in CAM.
 
 The X-Chain is an instance of the Avalanche Virtual Machine (AVM). The [X-Chain API](../developer/apis/camino-node-apis/x-chain.mdx) allows clients to create and trade assets on the X-Chain and other instances of the AVM.
 
@@ -20,7 +20,7 @@ This is a highly specialized and performance-optimized Chain and since it's kept
 
 ## Platform Chain (P-Chain)
 
-The **P-Chain** is the metadata blockchain on Camino and coordinates validators, keeps track of active subnets, and enables the creation of new subnets. The P-Chain implements the **Snowman consensus protocol**.
+The **P-Chain** is the metadata blockchain on Camino Network and coordinates validators, keeps track of active subnets, and enables the creation of new subnets. The P-Chain implements the **Snowman consensus protocol**.
 
 The [P-Chain API](../developer/apis/camino-node-apis/p-chain.md) allows clients to create subnets, add validators to subnets, and create blockchains.
 
@@ -30,34 +30,34 @@ Not only coordination but also creation of validators and also delegation of sta
 
 The **C-Chain** allows for the creation smart contracts using the [C-Chain’s API](../developer/apis/camino-node-apis/c-chain.md).
 
-The C-Chain is an instance of the Ethereum Virtual Machine powered by [Camino](../).
+The C-Chain is an instance of the Ethereum Virtual Machine powered by Camino Network.
 
 This chain is where probably 95% of the total load is transacted. Here the smart contracts, which can be written in Solidity in an Ethereum IDE like [Remix](https://remix.ethereum.org), are deployed and used by the users of the chain (mostly via apps). The addresses used on this chain are also identical in structure to what one is used to from EVM/Ethereum and, in addition, one can also connect to this chain quite easily with existing applications (such as MetaMask).
 From the maximum flexibility and compatibility, the largest negative point arises: It is _potentially_ slow in the execution of (complex) operations. So, to prevent an overload in the network due to complex or inefficient smart contracts, transaction fees will match the complexity of the contracts wanting to be deployed..
 
 ## Why 3 chains?
 
-One should always use the tool that is best suited for a job. This is exactly the philosophy behind the approach of the specialized chains within Avalanche, and since Camino is built on the same technical framework, it also applies to us. These chains are designed, optimized and basically considered as completely separate systems according to their purpose.
+One should always use the tool that is best suited for a job. This is exactly the philosophy behind the approach of the specialized chains within Avalanche, and since Camino Network is built on the same technical framework, it also applies to us. These chains are designed, optimized and basically considered as completely separate systems according to their purpose.
 This can seem a bit overwhelming at first, but there are good reasons why these application areas should be split into different chains. And at the end of the day, it's not that complicated anymore, because you only use the Chains you really need.
 
 The only interaction between the chains is the exchange of CAM tokens. The role of the entity or person will determine which chain it will need to use:
 
-- Validators/Delegates must work with the P-Chain.
-- App developers can decide, depending on their requirements, whether integration via the X-chain would be useful to save on fees for many small transactions. As soon as it comes to more complex application scenarios, requiring the use of smart contracts, the C-Chain will be used.
+- Validators must work with the P-Chain.
+- App developers can decide, depending on their requirements, whether integration via the X-Chain would be useful to save on fees for many small transactions. As soon as it comes to more complex application scenarios, requiring the use of smart contracts, the C-Chain will be used.
 - App users should not notice this at all, as the apps should handle this in the background.
 
 So, in summary:
 
-- Anyone can very easily transfer CAM between Chains using the Camino wallet.
+- Anyone can very easily transfer CAM between Chains using [the Camino Wallet](https://suite.camino.network/).
 - Network operators/validators and anyone who wants to delegate must (also) use the P-Chain.
 - Advanced app developers have the choice to deal with the limitations but also advantages of the simple and fast X-Chain.
 - All other operations, like deploying smart contracts happen on the C-Chain which is EVM compatible.
 
 ## Virtual Machines
 
-A **Virtual Machine** (VM) defines the application-level logic of a blockchain. In technical terms, it specifies the blockchain’s state, state transition function, transactions, and the API through which users can interact with the blockchain. Every blockchain on Camino is an instance of a VM.
+A **Virtual Machine** (VM) defines the application-level logic of a blockchain. In technical terms, it specifies the blockchain’s state, state transition function, transactions, and the API through which users can interact with the blockchain. Every blockchain on Camino Network is an instance of a VM.
 
-[When you write a VM](../developer/guides/create-a-virtual-machine-vm.md), you don't need to concern yourself with lower-level logic like networking, consensus, and the structure of the blockchain. Camino does this behind the scenes so, you can focus on the thing you would like to build.
+[When you write a VM](../developer/guides/create-a-virtual-machine-vm.md), you don't need to concern yourself with lower-level logic like networking, consensus, and the structure of the blockchain. Camino Network does this behind the scenes so, you can focus on the thing you would like to build.
 
 Think of a VM as a blueprint for a blockchain; you can use the same VM to create many blockchains, each of which follows the same ruleset but is logically independent of other blockchains.
 
@@ -69,7 +69,7 @@ People who wanted custom decentralized applications had to create their own, ent
 
 Ethereum made a step toward solving this problem with smart contracts. Developers didn’t need to worry about networking and consensus, but creating decentralized applications was still hard. The Ethereum VM has low performance and imposes restrictions on smart contract developers. Solidity and the other few languages for writing Ethereum smart contracts are unfamiliar to most programmers.
 
-Camino VMs make it easy to define a blockchain-based decentralized application. Rather than new, limited languages like Solidity, developers can write VMs in Go (other languages will be supported in the future).
+VMs make it easy to define a blockchain-based decentralized application. Rather than new, limited languages like Solidity, developers can write VMs in Go (other languages will be supported in the future).
 
 ## Subnets
 
@@ -79,7 +79,7 @@ A subnet manages its own membership, and it may require that its constituent val
 
 ### Compliance
 
-Camino’s subnet architecture makes regulatory compliance manageable. As mentioned above, a subnet may require validators to meet a set of requirements.
+Camino Network’s subnet architecture makes regulatory compliance manageable. As mentioned above, a subnet may require validators to meet a set of requirements.
 
 Some examples of requirements include:
 
@@ -87,7 +87,7 @@ Some examples of requirements include:
 - Validators must pass a KYC/AML checks
 - Validators must hold a certain license
 
-(To be abundantly clear, the above examples are just that: examples. Not all requirements do apply to the Camino Primary Network.)
+(To be abundantly clear, the above examples are just that: examples. Not all requirements do apply to the Camino Network.)
 
 ### Support for Private Blockchains
 
