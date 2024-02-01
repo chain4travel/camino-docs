@@ -22,7 +22,10 @@ const config = {
   favicon: 'img/favicon.png',
   organizationName: 'chain4travel', // Usually your GitHub org/user name.
   projectName: 'camino-docs', // Usually your repo name.
-  themes: ['docusaurus-theme-search-typesense'],
+  themes: ['docusaurus-theme-search-typesense', '@docusaurus/theme-mermaid'],
+  markdown: {
+    mermaid: true,
+  },
 
   plugins: [
     require.resolve('docusaurus-plugin-image-zoom')
