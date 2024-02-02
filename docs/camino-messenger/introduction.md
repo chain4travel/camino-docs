@@ -42,6 +42,8 @@ It would not make sense to only transact the booking on the blockchain and maint
 
 The messenger brings one connection for all travel products, your B2B wallet is the single set of credentials you need for any connection and there is a Message Standard with sub messages that are only implemented once across every travel product, virtually creating one standard for any product. From discovery of suppliers and the products they can off to the search for prices and availabilities and the booking, upselling and modification processes.
 
+A great benefit of blockchain technology is that the payment can happen in the same transaction of the booking. No more need to have confidence in your partner that they'll pay your invoice at the end of the month. No more credit risk insurance and collection costs. No more invoicing and settlement procedures. No more disputes, payment delays and credit notes. It is as simple as passing the transaction notification from the Camino Messenger Bot your payment platform to mark the booking as paid and find the funds in your digital wallet in stablecoin. However, if you want to split your initial steps into trading via the Camino Network as a first phase and trading in stablecoin to a second phase, that is no problem. The NFT representing the booking can also be traded for a zero value on-chain and a regular invoice in fiat currency can be issued by the provider.
+
 The Camino Messenger is a decentralized network of messenger servers hosted by the validators of the Camino Network. The distribution and supply partners install a messenger client we call the Messenger Bot. A development is requited to install the gRPC SDK in the programming language each partner prefers to connect their system to the Messenger Bot. Onboarding, Search and Validate messages are sent encrypted between partners. Several suppliers can be requested in the same format for one product or different travel products can be requested where a large portion of the message is the same, no matter whether a flight, rent a car, accommodation, train, transfer or activity is packaged to a multi product trip.
 
 <figure>
@@ -51,7 +53,7 @@ The Camino Messenger is a decentralized network of messenger servers hosted by t
 
 #### Performance indicators
 
-in the gRPC metadata every hop and processing time is registered. There is a script to record this metadata of your requests and responses, which is gathered in a clear .csv format. This way you have full transparency of the performance of the Camino Messenger and your providers.
+in the gRPC metadata every hop and processing time is registered. There is a script to record this metadata of your requests and responses, which is gathered in a clear .csv format. This way you have full transparency of the performance of the Camino Messenger and your providers. More info on gRPC can be found [here](https://grpc.io/docs/what-is-grpc/introduction/).
 
 ## Message Type Standard
 
@@ -130,6 +132,13 @@ graph TD
 
 All products and services that can be traded on the Camino Network follow a 3 step "Search-Check-Book" approach for the booking process. This is the so called pull model. There are currently many push models, where ARI (Availability, Rates and Inventory) are pushed to distribution systems for pre-packaging, fast initial search results and extended functionality like calendar views. This is not yet covered at the current state of implementation.
 
+The stateful message flows only refers to a unique search_id and option_id from the search results to validate and then use the validate_id to create the booking. This requires partners that do only support stateless transactions to configure a temporary message storage in memory in the Camino Messenger Bot to recollect details of a previous message, required to go to the next step in the internal system.
+
+<figure>
+<img class="zoom" src="/img/messenger/stateful_flow.png" alt="This image displays the Messenger Search, Validate and Mint workflow"/>
+<figcaption align = "center"><b>Fig.5:</b> Stateful message flow</figcaption>
+</figure>
+
 1. Search: The first step is that a distribution partner submits a Search Request with a UUID search_id to one or more supply partners. They return a Search Response that includes a sequential option_id for each option. This represents all the possible products and options that can be bought.
 2. Check: to verify whether a search option is still available at the same price after dwelling, the Validate Request refers to the search_id and option_id to be booked. The Validate Response returns a UUID validation_id, availability status and total price.
 3. Book: The submits a Mint Request that refers to the validation_id. After generating the booking in the Inventory System of the supplier and receiving a supplier reference, the messenger client creates a digital asset on the Camino blockchain and returns a digital_asset_id to the messenger client of the distributor. Which then initiates the transfer of funds to the supplier and the digital asset to the distributor in one transaction.
@@ -137,44 +146,47 @@ All products and services that can be traded on the Camino Network follow a 3 st
 Figure 4: search-validate-mint
 
 ```mermaid
-flowchart LR
-    SearchRequest -->|Sent to| SupplyPartner
-    SupplyPartner -->|Return| SearchResponse
-    SearchResponse -->|Includes| search_id_and_option_id
-    search_id_and_option_id --> ValidateRequest
-    ValidateRequest -->|Sent to| SupplyPartner
-    SupplyPartner -->|Returns| ValidateResponse
-    ValidateResponse -->|Includes| validation_id
-    validation_id --> MintRequest
-    MintRequest -->|Sent to| SupplyPartner
-    SupplyPartner -->|Generates| Booking(Booking in InventorySystem)
-    Booking -->|Creates| DigitalAsset(DigitalAsset on Camino Blockchain)
-    DigitalAsset -->|Returns| digital_asset_id
-    digital_asset_id -->|Initiates| TransferFundsToSeller
-    digital_asset_id -->|Initiates| TransferDigitalAssetToBuyer
-    TransferFundsToSeller --> ConfirmBooking
-    TransferDigitalAssetToBuyer--> ConfirmBooking
+sequenceDiagram
+    DistributionPartner->>+SupplyPartner: SearchRequest
+    SupplyPartner-->>+DistributionPartner: SearchResponse with search_id_and_option_id
+    DistributionPartner->>+SupplyPartner: ValidateRequest with search_id_and_option_id
+    SupplyPartner-->>-DistributionPartner: ValidateResponse with validate_id
+    DistributionPartner->>+SupplyPartner: MintRequest with validate_id
+    SupplyPartner->>+InventorySystem: Create booking
+    InventorySystem-->>-SupplyPartner: Booking reference
+    SupplyPartner-->>+Blockchain: Mint digital asset
+    Blockchain-->>-SupplyPartner: Digital asset ID
+    SupplyPartner-->>-DistributionPartner: Booking reference and digital asset ID
+    DistributionPartner-->>-Blockchain: Transfer funds
+    Blockchain-->>+SupplyPartner: Transfer digital asset
 ```
-
-#### Stateful message flow
-
-The stateful message flows that only refers to a unique search_id and option_id from the search results to validate and then use the validate_id to create the booking, requires partners that do only support stateless transactions to configure a temporary message storage in memory to recollect details of a previous message, required to go to the next step in the internal system.
-
-<figure>
-<img class="zoom" src="/img/messenger/stateful_flow.png" alt="This image displays the Messenger Search, Validate and Mint workflow"/>
-<figcaption align = "center"><b>Fig.5:</b> Stateful message flow</figcaption>
-</figure>
 
 #### Fulfillment
 
 After an initial booking is made, a number of events can happen in its lifecycle to full delivery of the service or product:
 
-// discuss retrieve booking message
-
-1. <b>RetrieveBooking:</b> To facilitate the "ghost booking process" and to check whether the distribution system and inventory system of a supplier have a matching booking status, the RetrieveBooking Request has been designed. For the time being it is not enough to rely on the single point of truth in the blockchain, because we want to provide an easy troubleshooting solution for suppliers to discover mismatches between their inventory system and the blockchain, but also for distributors to gain confidence in the consistency of systems. There is a BookingList and a BookingDetails variant.
+1. <b>RetrieveBooking:</b> To check whether the blockchain, the distribution system and inventory system of a supplier have a matching booking status, the RetrieveBooking Request has been designed. For the time being it is not enough to rely on the single point of truth in the blockchain, because we want to provide an easy troubleshooting solution for suppliers to discover mismatches between their inventory system and the blockchain, but also for distributors to gain confidence in the consistency of systems. Conclusively we provide a switch to include the blockchain status, the provider status or both.
+   There is a BookingList variant to check the status of bookings made between DateTime stamps and a BookingDetails variant to retrieve all booking details of a specific booking. This also supports automated actions in case of time-outs (ghost booking process).
 2. <b>The CancellationRequest:</b> is the standard procedure to cancel a product or service. As usual it includes a CancellationCheck Request to verify if cancellation is possible and what the cancellation cost would be.
 3. <b>Upselling:</b> After an initial product, service or package has been sold, an optional extra or service might be added to a product or a service. This is what we refer to as "upselling" in the industry. At the Camino Network we have designed a Message Type that can be sent to each supplier that "owns" the booking for a specific product or service, so that any possible "upgrades" or additions can be offered. The AdditionalServices Request requires the distributor or supplier reference to identify the booking. In the Response any optional or alternative product or service may be offered.
 4. <b>The BookingModification Request</b> allows for an already confirmed booking to be modified to alternative products or additional services or different dates, if they have previously been offered in a Search Request or Upselling Request.
+
+Figure 6: search-validate-mint
+
+```mermaid
+flowchart LR
+  A[Start] --> B[Upselling Request or Search Request]
+
+  B -->|Yes| D[Modify to alternative products]
+  B -->|Yes| E[Change to different dates]
+  B -->|Yes| F[add additional products or services]
+  D --> G[BookingModification Request]
+  E --> G
+  F --> G
+  G --> H[BookingModification Response]
+
+  H --> J[End]
+```
 
 Finally there is an extensive section of error messages so that adequate follow-up can be designed in the workflow for when something goes wrong. But also to make extensive partner performance visible and troubleshooting of under performing flows easily possible.
 
