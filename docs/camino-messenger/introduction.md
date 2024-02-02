@@ -26,8 +26,6 @@ An overview can be found at the [Camino Network](https://camino.network/) websit
 
 The Camino Messenger protocol is created together with Partners from each vertical (flights, hotels, holiday homes, transfers, car rental, cruise,..). The objective is to create a message standard for the Camino Messenger, that is considered simple, efficient, complete, robust and easy to integrate by all partners. And conclusively it will delightfully be implemented and used by partners. As all other Camino Network components, the Camino Messenger Protocol is open source. Free to be used anywhere, but of course targeted to be used with the Camino Messenger.
 
-// license
-
 Please do not hesitate to communicate your observations on this documentation like uncertainties, mistakes or missing explanations, so that we can continuously improve this documentation. Every Camino Network Partner (Validator) can also participate in official Message Type reviews to help improve the message format.
 
 ## Messenger
@@ -152,7 +150,7 @@ sequenceDiagram
     DistributionPartner->>+SupplyPartner: ValidateRequest with search_id_and_option_id
     SupplyPartner-->>-DistributionPartner: ValidateResponse with validate_id
     DistributionPartner->>+SupplyPartner: MintRequest with validate_id
-    SupplyPartner->>+InventorySystem: Create booking
+    SupplyPartner-->>+InventorySystem: Create booking
     InventorySystem-->>-SupplyPartner: Booking reference
     SupplyPartner-->>+Blockchain: Mint digital asset
     Blockchain-->>-SupplyPartner: Digital asset ID
