@@ -1,0 +1,157 @@
+---
+sidebar_position: 10
+title: Configuration & Running
+description: How to Configure & Run Camino Messenger Bot?
+---
+
+import AsciinemaEmbed from "/src/components/AsciinemaScriptInjector";
+
+# Camino Messenger Bot Configuration
+
+:::info DRAFT DOCUMENTATION NOTICE
+
+Please be aware that this document is currently a draft and is undergoing
+active development. Content, guidelines, and instructions may be subject to
+change.
+
+:::
+
+:::caution 🚧 ALPHA CODE NOTICE 🚧
+
+This application is in the alpha phase of development. It is important to note
+that during this stage, breaking changes may occur without advance notice.
+Users should proceed with caution.
+
+:::
+
+## Copy the Example Configuration File
+
+After you've installed Camino Messenger Bot (CMB), copy the example
+configuration file `camino-messenger-bot.yaml.example`, removing the
+`.example` at the end.
+
+```sh
+cp camino-messenger-bot.yaml.example camino-messenger-bot.yaml
+```
+
+**Example Bot Config File:**
+
+```yaml
+# Example config
+developer_mode: true
+matrix_key: PrivateKey-YOUR_PRIVATE_KEY
+matrix_host: matrix.camino.network
+matrix_store: mautrix.db
+rpc_server_port: 9090
+rpc_unencrypted: false
+rpc_server_cert_file: server-cert.pem
+rpc_server_key_file: server-key.pem
+partner_plugin_host: localhost
+partner_plugin_port: 50051
+partner_plugin_unencrypted: false
+partner_plugin_ca_file: ca-cert.pem
+response_timeout: 3000
+supported_request_types:
+  - ActivitySearchRequest
+  - AccommodationSearchRequest
+  - GetNetworkFeeRequest
+  - GetPartnerConfigurationRequest
+  - PingRequest
+  - TransportSearchRequest
+```
+
+## Creating a Wallet for the Bot
+
+Navigate to [Camino Wallet](https://suite.camino.network/wallet/home)
+and create a wallet for use with your bot deployment. Once you have logged
+into your wallet, proceed to the "Manage Keys" tab. Here, click on "View
+Private Key" next to your key listed under the "My Keys" section.
+
+![](/img/messenger/get-private-key.png)
+
+Enter this private key into the configuration file for your bot.
+
+## Configuring for Development
+
+To set up your environment for development, modify the configuration file as
+indicated below. Note that we have omitted certificate-related fields to
+allow for unencrypted communication.
+
+```yaml
+# Example config
+developer_mode: true
+matrix_key: PrivateKey-2ZcUVySrDwz4aS8ZxKYtDwCFX8JPrchnhR1KBcmkJezX2d2ZTi
+matrix_host: matrix.camino.network
+matrix_store: mautrix.db
+rpc_server_port: 9090
+rpc_unencrypted: true
+partner_plugin_host: localhost
+partner_plugin_port: 50051
+partner_plugin_unencrypted: true
+response_timeout: 3000
+supported_request_types:
+  - ActivitySearchRequest
+  - AccommodationSearchRequest
+  - GetNetworkFeeRequest
+  - GetPartnerConfigurationRequest
+  - PingRequest
+  - TransportSearchRequest
+```
+
+Run the bot with the command below:
+
+```sh
+./bot -config camino-messenger-bot.yaml
+```
+
+## Configuring the Docker Container
+
+For those utilizing Docker for bot installation, configure your environment
+variables as shown below.
+
+```sh
+docker run --rm --env-file bot.env camino-messenger-bot
+```
+
+Your `bot.env` file should contain the following settings:
+
+```sh
+CMB_DEVELOPER_MODE=true
+CMB_MATRIX_KEY=PrivateKey-qzCMkC3mbCD94pUTeQgufWLv9BPKc4qiDW9GzHWTcEDCRiSjU
+CMB_MATRIX_HOST=matrix.camino.network
+CMB_MATRIX_STORE=mautrix-localhost.db
+CMB_RPC_SERVER_PORT=9090
+CMB_RPC_UNENCRYPTED=true
+CMB_PARTNER_PLUGIN_HOST=distributor-plugin
+CMB_PARTNER_PLUGIN_PORT=50051
+CMB_PARTNER_PLUGIN_UNENCRYPTED=true
+CMB_RESPONSE_TIMEOUT=3000
+CMB_SUPPORTED_REQUEST_TYPES=ActivitySearchRequest,AccommodationSearchRequest,GetNetworkFeeRequest,GetPartnerConfigurationRequest,PingRequest,TransportSearchRequest
+```
+
+:::tip CHECK DOCKER COMPOSE FILE
+
+For more detailed configuration, refer to the `docker-compose.yaml` file provided in the repository.
+
+:::
+
+## Example Output
+
+After launching the bot, you can expect to see an output similar to the following:
+
+```
+2024-02-06T01:03:03.218Z        INFO    app/app.go:50   Starting gRPC client...
+2024-02-06T01:03:03.218Z        INFO    app/app.go:62   Starting message receiver...
+2024-02-06T01:03:03.218Z        WARN    server/server.go:65     Running gRPC server without TLS!
+github.com/chain4travel/camino-messenger-bot/internal/rpc/server.NewServer
+        /camino-messenger-bot/internal/rpc/server/server.go:65
+github.com/chain4travel/camino-messenger-bot/internal/app.(*App).Run
+        /camino-messenger-bot/internal/app/app.go:82
+main.main
+        /camino-messenger-bot/cmd/camino-messenger-bot/main.go:22
+runtime.main
+        /usr/local/go/src/runtime/proc.go:250
+2024-02-06T01:03:03.219Z        INFO    app/app.go:84   Starting gRPC server...
+2024-02-06T01:03:03.570Z        INFO    matrix/matrix_messenger.go:126  Successfully logged in as: @t-kopernikus1uknuxrgqtxfd4yk08v24m9pn0j9gvt6wav8gc7:matrix.camino.network
+2024-02-06T01:03:03.570Z        INFO    app/app.go:77   Starting message processor...
+```
