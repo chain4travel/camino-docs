@@ -1,0 +1,135 @@
+---
+sidebar_position: 5
+title: Installation
+description: How to install Camino Messenger Bot?
+---
+
+import AsciinemaEmbed from "/src/components/AsciinemaScriptInjector";
+
+# Camino Messenger Bot Installation
+
+:::info DRAFT DOCUMENTATION NOTICE
+
+Please be aware that this document is currently a draft and is undergoing
+active development. Content, guidelines, and instructions may be subject to
+change.
+
+:::
+
+:::caution 🚧 ALPHA CODE NOTICE 🚧
+
+This application is in the alpha phase of development. It is important to note
+that during this stage, breaking changes may occur without advance notice.
+Users should proceed with caution.
+
+:::
+
+## Introduction
+
+This document guides you through the installation of the Camino Messenger Bot
+using two distinct methods. The first method involves [compiling the
+software](#compiling-from-source) from its source code, while the second
+method [utilizes Docker](#building-docker-image) to create an image and run a
+container.
+
+## Compiling from Source
+
+### Requirements
+
+Before you begin, ensure you have the necessary libraries installed.
+
+**Ubuntu 22.04 LTS:**
+
+```sh
+sudo apt install libolm-dev
+sudo snap install go --classic
+```
+
+### Get the Source
+
+To get started, clone the Camino Messenger Bot repository and initialize the
+submodules:
+
+```sh
+git clone https://github.com/chain4travel/camino-messenger-bot.git
+cd camino-messenger-bot
+git submodule update --init
+```
+
+### Install Go Dependencies
+
+Install the required Go dependencies with:
+
+```sh
+go mod download
+```
+
+### Build
+
+Compile the application using the following command:
+
+```sh
+go build -o bot cmd/camino-messenger-bot/main.go
+```
+
+### Verify
+
+To ensure the build was successful, check for the `bot` binary:
+
+```
+./bot -help
+```
+
+Running bot -help should produce the following output:
+
+```
+$ ./bot -help
+Usage of ./bot:
+  -config string
+    	Path to configuration file
+```
+
+Below is a screen capture of all the steps above done on Ubuntu 22.04.3 LTS:
+
+<AsciinemaEmbed id="faCHXrLJcSOZQC2JLS4dhL8Ze" />
+
+## Building Docker Image
+
+Follow these steps to build the Docker image.
+
+### Get the Source
+
+First, clone the Camino Messenger Bot repository and initialize the
+submodules:
+
+```sh
+git clone https://github.com/chain4travel/camino-messenger-bot.git
+cd camino-messenger-bot
+git submodule update --init
+```
+
+### Build the Image
+
+Use the following command to build the Docker image:
+
+```sh
+docker build --tag camino-messenger-bot .
+```
+
+After a successful build, test the image with:
+
+```sh
+docker run --rm camino-messenger-bot -help
+```
+
+The expected output should be:
+
+```
+Usage of ./camino-messenger-bot:
+  -config string
+    	Path to configuration file
+```
+
+Below is a screen capture of all the steps above done on Ubuntu 22.04.3 LTS:
+
+<AsciinemaEmbed id="qYt6MhboIv9vyy94B1fwwpQpe" />
