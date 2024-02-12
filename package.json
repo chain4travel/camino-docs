@@ -33,7 +33,7 @@
     "add": "^2.0.6",
     "algoliasearch": "^4.20.0",
     "clsx": "2.1.0",
-    "docusaurus-plugin-image-zoom": "^1.0.1",
+    "docusaurus-plugin-image-zoom": "^2.0.0",
     "docusaurus-theme-search-typesense": "^0.15.0",
     "file-loader": "6.2.0",
     "patch-package": "^8.0.0",
