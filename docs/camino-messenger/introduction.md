@@ -26,21 +26,21 @@ An overview can be found at the [Camino Network](https://camino.network/) websit
 
 The Camino Messenger protocol is created together with Partners from each vertical (flights, hotels, holiday homes, transfers, car rental, cruise,..). The objective is to create a message standard for the Camino Messenger, that is considered simple, efficient, complete, robust and easy to integrate by all partners. And conclusively it will delightfully be implemented and used by partners. As all other Camino Network components, the Camino Messenger Protocol is open source. Free to be used anywhere, but of course targeted to be used with the Camino Messenger.
 
-Please do not hesitate to communicate your observations on this documentation like uncertainties, mistakes or missing explanations, so that we can continuously improve this documentation. Every Camino Network Partner (Validator) can also participate in official Message Type reviews to help improve the message format.
+Please do not hesitate to communicate your observations on this documentation like uncertainties, mistakes or missing explanations, so that we can continuously improve this documentation. Everybody can also participate in official Message Type reviews to help improve the message format. There is a Messenger Protocol review channel in our [Discord Server](https://discord.gg/camino). The network partners decide through voting on proposed changes.
 
 ## Messenger
 
 In the travel industry various partners are trading travel products such as hotel nights, flight seats, transfers or tickets to an event. A travel agent might buy a package from a tour operator, a tour operator might buy a transfer from an incoming agency and a flight from a flight broker or an airline. We call the buying partner the "Distributor" and the selling partner the "Supplier".
 
-Not all interactions between a Supplier and a Distributor require to be stored forever in a blockchain. Prices and availability of travel products are more and more volatile and irrelevant after the travel date has passed...
+Not all interactions between a Supplier and a Distributor require to be stored forever in a blockchain. Prices and availability of travel products are more and more volatile and irrelevant after the travel date has passed.
 
 When the travel product has been booked by a distributor, we want to transact on-chain to have a single point of truth of the service booked and the price paid.
 
 It would not make sense to only transact the booking on the blockchain and maintain the current chaos of APIs for products, prices and availabilities. There is no uniformity and the cost of maintenance of at least 100 APIs for any mid-sized player in the travel industry has a serious impact on margins.
 
-The messenger brings one connection for all travel products, your B2B wallet is the single set of credentials you need for any connection and there is a Message Standard with sub messages that are only implemented once across every travel product, virtually creating one standard for any product. From discovery of suppliers and the products they can off to the search for prices and availabilities and the booking, upselling and modification processes.
+The messenger brings one connection for all travel products, your B2B wallet is the single set of credentials you need for any connection and there is a Message Standard with sub messages that are only implemented once across every travel product, virtually creating one standard for any product. From discovery of suppliers and the products providers can offer, to the search for prices and availabilities and the booking, upselling and modification processes.
 
-A great benefit of blockchain technology is that the payment can happen in the same transaction of the booking. No more need to have confidence in your partner that they'll pay your invoice at the end of the month. No more credit risk insurance and collection costs. No more invoicing and settlement procedures. No more disputes, payment delays and credit notes. It is as simple as passing the transaction notification from the Camino Messenger Bot your payment platform to mark the booking as paid and find the funds in your digital wallet in stablecoin. However, if you want to split your initial steps into trading via the Camino Network as a first phase and trading in stablecoin to a second phase, that is no problem. The NFT representing the booking can also be traded for a zero value on-chain and a regular invoice in fiat currency can be issued by the provider.
+A great benefit of blockchain technology is that the payment can happen in the same transaction of the booking. No more need to have confidence in your partner that they'll pay your invoice at the end of the month. No more credit risk insurance and collection costs. No more invoicing and settlement procedures. No more disputes, payment delays and credit notes. It is as simple as passing the transaction notification from the Camino Messenger Bot to your payment platform to mark the booking as paid and find the funds in your digital wallet in stablecoin. However, if you want to split your initial steps into trading via the Camino Network as a first phase and trading in stablecoin to a second phase, that is no problem. The Digital asset representing the booking can also be traded for a zero value on-chain and a regular invoice in fiat currency can be issued by the provider.
 
 The Camino Messenger is a decentralized network of messenger servers hosted by the validators of the Camino Network. The distribution and supply partners install a messenger client we call the Messenger Bot. A development is requited to install the gRPC SDK in the programming language each partner prefers to connect their system to the Messenger Bot. Onboarding, Search and Validate messages are sent encrypted between partners. Several suppliers can be requested in the same format for one product or different travel products can be requested where a large portion of the message is the same, no matter whether a flight, rent a car, accommodation, train, transfer or activity is packaged to a multi product trip.
 
@@ -51,11 +51,11 @@ The Camino Messenger is a decentralized network of messenger servers hosted by t
 
 #### Performance indicators
 
-in the gRPC metadata every hop and processing time is registered. There is a script to record this metadata of your requests and responses, which is gathered in a clear .csv format. This way you have full transparency of the performance of the Camino Messenger and your providers. More info on gRPC can be found [here](https://grpc.io/docs/what-is-grpc/introduction/).
+In the gRPC metadata every hop and processing time is registered. There is a script to record this metadata of your requests and responses, which is gathered in a clear .csv format. This way you have full transparency of the performance of the Camino Messenger and your providers. More info on gRPC can be found [here](https://grpc.io/docs/what-is-grpc/introduction/).
 
 ## Message Type Standard
 
-In the WhatsApp messenger, you'll find a couple of standardize Message Types you can exchange with anybody that has the WhatsApp client installed (text, location, audio, video, contact, document,..). The same for the Camino Messenger, all partners need to be able to uniformly use the flight, hotel, car rental, transfer, activities,.. Message Types, no matter to which partner they are connected.
+In the WhatsApp messenger, you'll find a couple of standardized Message Types you can exchange with anybody that has the WhatsApp client installed (text, location, audio, video, contact, document,..). It is the same for the Camino Messenger, all partners need to be able to uniformly use the flight, hotel, car rental, transfer, activities,.. Message Types, no matter to which partner they are connected.
 The use of a Messenger client also allows to define the Message Type Standard beyond field names. There can be enhanced message validation, field data and workflow standardization.
 
 for example 3 main Message Types are:
@@ -64,7 +64,7 @@ for example 3 main Message Types are:
 - **transport**: Defines the Message Type for Flights, Rail and Transfer.
 - **activity**: for Tickets & Excursions
 
-In each of those you will find a product list, product details and a search message. In **types** you will find the sub messages that are used across all travel products, like travellers, travel period, location, geo coordinates, currencies, etc...
+In each of those you find a product list, product details and a search message. In **types** you find the sub messages that are used across all travel products, like travellers, travel period, location, geo coordinates, currencies, etc...
 
 ### Workflow
 
@@ -72,31 +72,31 @@ A blockchain is product or service agnostic. Conclusively our strategy is to kee
 
 Just like any API end-point from the web2 era, you can check the availability of a supplier on the Camino network with a Ping Request
 
-#### Partners, partner fee and network fee
+#### Partners, supplier fee and network fee
 
 Partner configuration can be managed via the Camino Partner Configurator, which will form part of the Camino Application Suite. Two messages have been made available to enable automatic detection of changed partners, their settings and fees:
 
-1. Partner Request gives you all active Camino Network Partners that are selling their products and services. It specifies the messages they support, the supplierFee for each message to be paid (if any) and whether the partner support on-chain payment, off-chain payment or both.
+1. Partner Request gives you all active Camino Network Partners that are selling their products and services. It specifies the messages they support, the Supplier Fee for each message to be paid (if any) and whether the partner support on-chain payment, off-chain payment or both.
 2. The Network Fee Request gives you the cost of a Message to the Camino Network for operating the Camino Messenger Servers. This fee goes towards the Partners operating a Messenger Server.
 
-Because this information is stored on the blockchain, the changes since a certain date/time can be requested using a block-height parameter. This is required as not every node on the blockchain is updated at the exact same timestamp. Conclusively, if this information is used in the distribution system, store the block height of the last block you visited. Use the Partner Request to query the T-Chain for blocks that have a higher block height than the last block height you visited. The MessageType filters the transactions to only include those that interact with the Partner Configuration smart contracts. You filter for just the suppliers you are interested in. Process the transaction and update your application state accordingly. Finally update the last block height that you visited to the block height of the last block you processed. The same in case you store the NetworkFee externally.
+Because this information is stored on the blockchain, the changes since a certain date/time can be requested using a block-height parameter. This is required as not every node on the blockchain is updated at the exact same timestamp. Conclusively, if this information is used in the distribution system, store the block height of the last block you visited. Use the Partner Request to query the T-Chain for blocks that have a higher block height than the last block height you visited. The MessageType filters the transactions to only include those that interact with the ones defined in Partner Configuration. You filter for just the suppliers you are interested in. Process the transaction and update your application state accordingly. Finally update the last block height that you visited to the block height of the last block you processed. The same in case you store the NetworkFee externally.
 
-Figure 2: partner fee and network fee
+Figure 2: supplier fee and network fee
 
 ```mermaid
 flowchart LR
-    A[Camino Application Suite] --> B[Camino Partner Configurator]
-    B -->|Stored on| C[Blockchain]
-    C --> D[Partner Request]
-    D -->|Includes| H[ProviderFee]
-    D --> I[Payment Support]
-    I --> J[On-chain Payment]
-    I --> K[Off-chain Payment]
+    A[Camino Application Suite] -->|Will contain| B[Camino Partner Configurator]
+    B -->|Stored on| C[T-Chain]
+    C -.-> D[Partner Request]
+    D -->|Returns| H[SupplierFee]
+    D -->|Returns| I[Payment Support]
+    I -->|Allows| J[On-chain Payment]
+    I -->|Allows| K[Off-chain Payment]
 
     L[Network fee set by the Consortium]
-    L -->|Stored on| C[Blockchain]
-    C --> M[NetworkFee Message]
-    M -->|Includes| N[NetworkFee]
+    L -->|Stored on| C[T-Chain]
+    C -.-> M[NetworkFee Message]
+    M -->|Returns| N[NetworkFee]
 ```
 
 #### Onboarding
@@ -110,19 +110,19 @@ Figure 3: onboarding workflow
 
 ```mermaid
 graph TD
-    ProductListRequest -->|Includes| BasicInformation
-    ProductListRequest -->|Includes| LastModifiedTimestamp
-    ProductListRequest -->|Includes| DeactivatedStatus
-    onboarding -->|Initiates| ProductListRequest
+    ProductList -->|Includes| BasicInformation
+    ProductList -->|Includes| LastModifiedTimestamp
+    ProductList -->|Includes| DeactivatedStatus
+    Onboarding -->|Initiates| ProductList
 
 
     BasicInformation -->|Used for decision| DistributionDecision
     LastModifiedTimestamp -->|Action| RefreshDetails
     DeactivatedStatus -->|Triggers| RemoveFromDistribution
 
-    DistributionDecision --> ProductDetails
-    RefreshDetails --> ProductDetails
-    ProductDetails -->|Triggers| DownloadInformation
+    DistributionDecision --> ProductInfo
+    RefreshDetails --> ProductInfo
+    ProductInfo -->|Triggers| DownloadInformation
     DownloadInformation -->|Includes| DetailedInformation
 ```
 
@@ -134,20 +134,20 @@ The stateful message flows only refers to a unique search_id and option_id from 
 
 <figure>
 <img class="zoom" src="/img/messenger/stateful_flow.png" alt="This image displays the Messenger Search, Validate and Mint workflow"/>
-<figcaption align = "center"><b>Fig.5:</b> Stateful message flow</figcaption>
+<figcaption align = "center">Fig.4: Stateful message flow (RQ stands for request, RS stands for response)</figcaption>
 </figure>
 
-1. Search: The first step is that a distribution partner submits a Search Request with a UUID search_id to one or more supply partners. They return a Search Response that includes a sequential option_id for each option. This represents all the possible products and options that can be bought.
-2. Check: to verify whether a search option is still available at the same price after dwelling, the Validate Request refers to the search_id and option_id to be booked. The Validate Response returns a UUID validation_id, availability status and total price.
-3. Book: The submits a Mint Request that refers to the validation_id. After generating the booking in the Inventory System of the supplier and receiving a supplier reference, the messenger client creates a digital asset on the Camino blockchain and returns a digital_asset_id to the messenger client of the distributor. Which then initiates the transfer of funds to the supplier and the digital asset to the distributor in one transaction.
+1. Search: The first step is that a distribution partner submits a Search Request with a UUID search_id to one or more supply partners. The supply partners return a Search Response that includes a sequential option_id for each option. This represents all the possible products and options that can be bought.
+2. Check: to verify whether a search option is still available at the same price after some time has passed, the Validate Request refers to the search_id and option_id to be booked. The Validate Response returns a UUID validation_id, availability status and total price.
+3. Book: The Distributor submits a Mint Request that refers to the validation_id. After generating the booking in the Inventory System of the supplier and receiving a supplier reference, the messenger client creates a digital asset on the Camino blockchain and returns a digital_asset_id to the messenger client of the distributor. Which then initiates the transfer of funds to the supplier and the digital asset to the distributor in one transaction. If the transaction on chain fails or takes too long, an expiration time can be set, which triggers a roll-back of the booking in the suppliers inventory system.
 
-Figure 4: search-validate-mint
+Figure 5: Workflow from Search to Validate and Mint messages.
 
 ```mermaid
 sequenceDiagram
     DistributionPartner->>+SupplyPartner: SearchRequest
-    SupplyPartner-->>+DistributionPartner: SearchResponse with search_id_and_option_id
-    DistributionPartner->>+SupplyPartner: ValidateRequest with search_id_and_option_id
+    SupplyPartner-->>+DistributionPartner: SearchResponse with search_id and option_id
+    DistributionPartner->>+SupplyPartner: ValidateRequest with search_id and option_id
     SupplyPartner-->>-DistributionPartner: ValidateResponse with validate_id
     DistributionPartner->>+SupplyPartner: MintRequest with validate_id
     SupplyPartner-->>+InventorySystem: Create booking
@@ -155,29 +155,29 @@ sequenceDiagram
     SupplyPartner-->>+Blockchain: Mint digital asset
     Blockchain-->>-SupplyPartner: Digital asset ID
     SupplyPartner-->>-DistributionPartner: Booking reference and digital asset ID
-    DistributionPartner-->>-Blockchain: Transfer funds
-    Blockchain-->>+SupplyPartner: Transfer digital asset
+    DistributionPartner-->>+Blockchain: Transfer funds
+    Blockchain-->>-SupplyPartner: Transfer digital asset
 ```
 
-#### Fulfillment
+#### Retrieving, Modifying and Cancelling a booking
 
 After an initial booking is made, a number of events can happen in its lifecycle to full delivery of the service or product:
 
-1. <b>RetrieveBooking:</b> To check whether the blockchain, the distribution system and inventory system of a supplier have a matching booking status, the RetrieveBooking Request has been designed. For the time being it is not enough to rely on the single point of truth in the blockchain, because we want to provide an easy troubleshooting solution for suppliers to discover mismatches between their inventory system and the blockchain, but also for distributors to gain confidence in the consistency of systems. Conclusively we provide a switch to include the blockchain status, the provider status or both.
+1. <b>RetrieveBooking:</b> To check whether the blockchain, the distribution system and inventory system of a supplier have a matching booking status, the RetrieveBooking Request has been designed. For the time being it is not enough to rely on the single point of truth in the blockchain, because we want to provide an easy troubleshooting solution for suppliers to discover mismatches between their inventory system and the blockchain, but also for Partners to gain confidence in the consistency of Distribution system, Inventory system and blockchain. Conclusively we provide a switch to include the blockchain status, the provider status or both.
    There is a BookingList variant to check the status of bookings made between DateTime stamps and a BookingDetails variant to retrieve all booking details of a specific booking. This also supports automated actions in case of time-outs (ghost booking process).
-2. <b>The CancellationRequest:</b> is the standard procedure to cancel a product or service. As usual it includes a CancellationCheck Request to verify if cancellation is possible and what the cancellation cost would be.
-3. <b>Upselling:</b> After an initial product, service or package has been sold, an optional extra or service might be added to a product or a service. This is what we refer to as "upselling" in the industry. At the Camino Network we have designed a Message Type that can be sent to each supplier that "owns" the booking for a specific product or service, so that any possible "upgrades" or additions can be offered. The AdditionalServices Request requires the distributor or supplier reference to identify the booking. In the Response any optional or alternative product or service may be offered.
-4. <b>The BookingModification Request</b> allows for an already confirmed booking to be modified to alternative products or additional services or different dates, if they have previously been offered in a Search Request or Upselling Request.
+2. <b>Upselling:</b> After an initial product, service or package has been sold, an optional extra or service might be added to a product or a service. This is what we refer to as "upselling" in the industry. At the Camino Network we have designed a Message Type that can be sent to each supplier that "owns" the booking for a specific product or service, so that any possible "upgrades" or additions can be offered. The AdditionalServices Request requires the distributor or supplier reference to identify the booking. In the Response any optional or alternative product or service may be offered.
+3. <b>The BookingModification Request</b> allows for an already confirmed booking to be modified to alternative products or additional services or different dates, if they have previously been offered in a Search Request or Upselling Request.
+4. <b>The CancellationRequest:</b> is the standard procedure to cancel a product or service. As usual it includes a CancellationCheck Request to verify if cancellation is possible and what the cancellation cost would be.
 
-Figure 6: search-validate-mint
+Figure 6: Upselling and Modification workflow.
 
 ```mermaid
 flowchart LR
   A[Start] --> B[Upselling Request or Search Request]
 
-  B -->|Yes| D[Modify to alternative products]
-  B -->|Yes| E[Change to different dates]
-  B -->|Yes| F[add additional products or services]
+  B -->|Available| D[Modify to alternative products]
+  B -->|Available| E[Change to different dates]
+  B -->|Available| F[add additional products or services]
   D --> G[BookingModification Request]
   E --> G
   F --> G
@@ -186,11 +186,11 @@ flowchart LR
   H --> J[End]
 ```
 
-Finally there is an extensive section of error messages so that adequate follow-up can be designed in the workflow for when something goes wrong. But also to make extensive partner performance visible and troubleshooting of under performing flows easily possible.
+There will be an extensive section of error messages so that adequate follow-up can be designed in the workflow for when something goes wrong. But also to make extensive partner performance visible and troubleshooting of under performing flows easily possible.
 
 ## The importance of standardization
 
-When a Tour Operator or an Online Travel Agent has multiple providers for different products, it would be great if with one implementation of a Message Type, like for example "Accommodation", all hotel providers can be connected with the same implementation. Of course one provider might support a feature and another supplier supports another feature. For example supplier 1 supports sorting by distance to a POI, where supplier 2 supports selection of products via a polygon of geo coordinates. On the distributor side this then requires an implementation of rules for features to use or not use for the different suppliers for the same product. Another example is the implementation of the NDC standard in the airline industry. Would it no be great if with one implementation we can book flights with all connected airlines on the Camino Messenger? or for a channel manager to distribute their hotels to all their distribution partners with just one implementation to the Camino Messenger?
+When a Tour Operator or an Online Travel Agent has multiple providers for different products, it would be great if with one implementation of a Message Type, like for example "Accommodation", all hotel providers can be connected with the same implementation. Of course one provider might support a feature and another supplier supports another feature. For example supplier 1 supports sorting by distance to a POI, where supplier 2 supports selection of products via a polygon of geo coordinates. On the distributor side this then requires an implementation of rules for features to use or not use for the different suppliers for the same product. Another example is the implementation of the NDC standard in the airline industry. Would it not be great if with one implementation we can book flights with all connected airlines on the Camino Messenger? Or for a channel manager to distribute their hotels to all their distribution partners with just one implementation to the Camino Messenger?
 
 ### Fields
 
@@ -216,7 +216,7 @@ In the Camino Messenger Protocol, there is no static data inclusion in any of th
 
 ## Versioning and releases
 
-We are currently in the V1Alpha version and the first release was done on 18 January 2023. Feedback and reviews will lead improvements of a Message Type, as suggested by our partners. A partner working with a specific Message Type to implement a connection to their system discovers errors or finds a concept is missing in the Camino MessageType. Conclusively one Message Type can be mature and suffer few changes, while another Message Type is actively being developed. While "Accommodation" might be in a productive V1, we might have "Car Rental" in a V2Beta. As all message formats are released together, we simply have numeric releases that contain updates on one or more messages from one or more feature branches and PRs. Unless a partner is working together with us to develop a new message or new features in an existing message, the c4t (main) branch should be used.
+We are currently in the V1Alpha version and the first release was done on 18 January 2023. Feedback and reviews will lead improvements of a Message Type, as suggested by our partners. A partner working with a specific Message Type to implement a connection to their system discovers errors or finds a concept is missing in the Camino MessageType. Conclusively one Message Type can be mature and and have only non-breaking improvements, while another Message Type is actively being developed. While "Accommodation" might be in a productive V1, we might have "Car Rental" in a V2Beta. As all message formats are released together, we simply have numeric releases that contain updates on one or more messages from one or more feature branches and PRs. Unless a partner is working together with us to develop a new message or new features in an existing message, the c4t (main) branch should be used.
 
 ## Why Protobuf
 
@@ -238,13 +238,13 @@ See above details in Message Type Standard for more generic details or at the in
 - **ping**: A simple utility Message Type, essential for health checks and service availability confirmations.
 - **partners**: discovery of all partners trading on the Camino Network
 - **network_fee**: Contains specifications related to network transaction fees.
-- **product_list**: List of products or services available from a supplier
-- **product_details**: Description of products or services available from a supplier
+- **product_list**: List of products or services available from a supplier for every product type
+- **product_info**: Description of products or services available from a supplier for every product type
 - **accommodation**: Defines the Message Type for Accommodations like hotels and holiday homes.
 - **transport**: Defines the Message Type for Flights, Rail and Transfer.
 - **activity**: for Tickets & Excursions
 - **cruise**: Cruise (not started)
-- **car_rental**: Rent a car, Rent a Camper
+- **vehicle**: Rent a bicycle, motorbike, car or camper (not started)
 - **insurance**: Insurances (not started)
 - **camping**: Camping (not started)
 - **package**: Packages, inherent format consisting of the above structures for the services/products included in the package
@@ -257,7 +257,7 @@ Delving deeper into the data structures and components, protobuf uses shared str
 
 Some examples:
 
-- **coordinate.proto**: Captures geographical coordinates.
+- **coordinate.proto**: Defines geographical coordinates.
 - **currency.proto**: Handles different currency types and associated attributes.
 - **date.proto**: A flexible schema for managing date-related data.
 - **distance.proto**: Quantifies and categorizes distances, catering to various units and interpretations.
@@ -276,6 +276,8 @@ Camino Messenger Protocol is published on [buf.build](https://buf.build/chain4tr
 
 The links provided below offer access to the preliminary draft of the protocol definition for Camino Messenger.
 This early version is made available for review and feedback as part of our transparent development process.
+
+So after going through the technical documentation, ask (if any) questions or provide feedback on [Discord](https://discord.gg/camino). Install and tune the [gRPC SDK](https://buf.build/chain4travel/camino-messenger-protocol/sdks/main) to map the messages for onboarding, searching, and validating offers.
 
 :::
 
