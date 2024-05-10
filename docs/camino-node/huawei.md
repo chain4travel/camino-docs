@@ -1,13 +1,13 @@
 ---
 sidebar_position: 13
 title: Run Camino Node with Huawei Cloud KooGallery
-description: This guide provides step-by-step instructions on how to set up and run Camino Node on the Huawei Cloud KooGallery.
+description: Learn how to set up Camino Node on Huawei Cloud KooGallery once it's released.
 ---
 
 # Setting Up Camino Node on Huawei Cloud KooGallery
 
-:::tip This page is under maintenance..Stay tuned
+:::tip This page is currently under construction . Stay tuned!
 
-Camino Node is not yet published on Huawei Cloud KooGallery. This page will contain a step-by-step guide with screenshots to run a Camino Node in few clicks on Huawei Cloud KooGallery. This page will be ready once Camino Node is published on Huawei Cloud KooGallery
+Camino Node has not yet been released on Huawei Cloud KooGallery. Upon its release, this page will feature a comprehensive guide, complete with step-by-step instructions and visual aids, to help you easily set up Camino Node on Huawei Cloud KooGallery. Please check back once Camino Node is available.
 
 :::
