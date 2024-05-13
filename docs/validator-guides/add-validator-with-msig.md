@@ -11,7 +11,7 @@ your consortium member address with Camino Wallet.
 
 :::tip WALLET ADDRESS
 
-Please ensure that you use the correct wallet address for this guide: https://suite.camino.network/ 
+Please ensure that you use the correct wallet address for this guide: https://suite.camino.network/
 
 :::
 
