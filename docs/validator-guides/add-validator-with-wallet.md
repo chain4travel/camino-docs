@@ -186,3 +186,15 @@ You can also check Earn page on Camino Wallet to your bond about your validator:
 ## All Done!
 
 Congratulations! You have successfully added your validator node.
+
+<figure>
+<img class="zoom" src="/img/add-validator/10-val-general-view.png"/>
+<figcaption align = "center"><b>Fig.8:</b> Validator Node Information</figcaption>
+</figure>
+
+You can also check Validator Rewards on Camino Wallet in the Rewards section in Validator tab:
+
+<figure>
+<img class="zoom" src="/img/add-validator/11-val-rewards.png"/>
+<figcaption align = "center"><b>Fig.9:</b> Validator Rewards</figcaption>
+</figure>
