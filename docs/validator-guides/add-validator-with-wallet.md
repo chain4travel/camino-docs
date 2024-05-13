@@ -19,16 +19,7 @@ Kindly note that the wallets of a majority of the consortium members are multi-s
 
 :::tip WALLET ADDRESS
 
-Please ensure that you use the correct wallet address for this guide:
-
-| Network             | URL                               | Note                                                                                 |
-| ------------------- | --------------------------------- | ------------------------------------------------------------------------------------ |
-| Camino (mainnet):   | https://suite.camino.network/     | Production version: Please use this if you are unsure which version to choose.       |
-| Columbus (testnet): | https://dev.suite.camino.network/ | Development version: Please use this version if you would like to test new features. |
-
-Please be advised that both of these wallets have access to both the mainnet and
-testnet. However, one of them is the production version while the other is
-designated for staging and development purposes.
+Please ensure that you use the correct wallet address for this guide: https://suite.camino.network/
 
 :::
 
@@ -149,7 +140,7 @@ After you have submitted your transaction, you should see the status as committe
 
 ### 5.1 Check Camino Explorer
 
-In a few minutes, your validator should be online in [Explorer's validators page](https://dev.suite.camino.network/explorer/validators)
+In a few minutes, your validator should be online in [Explorer's validators page](https://suite.camino.network/explorer/camino/validators)
 
 :::tip Validators List
 
