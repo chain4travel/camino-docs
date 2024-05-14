@@ -11,16 +11,7 @@ your consortium member address with Camino Wallet.
 
 :::tip WALLET ADDRESS
 
-Please ensure that you use the correct wallet address for this guide:
-
-| Network             | URL                               | Note                                                                                 |
-| ------------------- | --------------------------------- | ------------------------------------------------------------------------------------ |
-| Camino (mainnet):   | https://suite.camino.network/     | Production version: Please use this if you are unsure which version to choose.       |
-| Columbus (testnet): | https://dev.suite.camino.network/ | Development version: Please use this version if you would like to test new features. |
-
-Please be advised that both of these wallets have access to both the mainnet and
-testnet. However, one of them is the production version while the other is
-designated for staging and development purposes.
+Please ensure that you use the correct wallet address for this guide: https://suite.camino.network/
 
 :::
 

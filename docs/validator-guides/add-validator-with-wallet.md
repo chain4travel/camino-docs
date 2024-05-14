@@ -19,16 +19,7 @@ Kindly note that the wallets of a majority of the consortium members are multi-s
 
 :::tip WALLET ADDRESS
 
-Please ensure that you use the correct wallet address for this guide:
-
-| Network             | URL                               | Note                                                                                 |
-| ------------------- | --------------------------------- | ------------------------------------------------------------------------------------ |
-| Camino (mainnet):   | https://suite.camino.network/     | Production version: Please use this if you are unsure which version to choose.       |
-| Columbus (testnet): | https://dev.suite.camino.network/ | Development version: Please use this version if you would like to test new features. |
-
-Please be advised that both of these wallets have access to both the mainnet and
-testnet. However, one of them is the production version while the other is
-designated for staging and development purposes.
+Please ensure that you use the correct wallet address for this guide: https://suite.camino.network/
 
 :::
 
@@ -149,7 +140,7 @@ After you have submitted your transaction, you should see the status as committe
 
 ### 5.1 Check Camino Explorer
 
-In a few minutes, your validator should be online in [Explorer's validators page](https://dev.suite.camino.network/explorer/validators)
+In a few minutes, your validator should be online in [Explorer's validators page](https://suite.camino.network/explorer/camino/validators)
 
 :::tip Validators List
 
@@ -183,15 +174,18 @@ To access the **Validators List**, click on the "Number of Validators" on the Ca
 <figcaption align = "center"><b>Fig.7-b:</b> After Add Validator: Validators List</figcaption>
 </figure>
 
-### 5.2 Check Earn Page
-
-You can also check Earn page on Camino Wallet to your bond about your validator:
-
-<figure>
-<img class="zoom" src="/img/add-validator/10-earn-tab.png"/>
-<figcaption align = "center"><b>Fig.7-b:</b> Earn page: Deposits & Bonds</figcaption>
-</figure>
-
 ## All Done!
 
 Congratulations! You have successfully added your validator node.
+
+<figure>
+<img class="zoom" src="/img/add-validator/10-val-general-view.png"/>
+<figcaption align = "center"><b>Fig.8:</b> Validator Node Information</figcaption>
+</figure>
+
+You can also check Validator Rewards on Camino Wallet in the Rewards section in Validator tab:
+
+<figure>
+<img class="zoom" src="/img/add-validator/11-val-rewards.png"/>
+<figcaption align = "center"><b>Fig.9:</b> Validator Rewards</figcaption>
+</figure>
