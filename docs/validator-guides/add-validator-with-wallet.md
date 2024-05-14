@@ -174,15 +174,6 @@ To access the **Validators List**, click on the "Number of Validators" on the Ca
 <figcaption align = "center"><b>Fig.7-b:</b> After Add Validator: Validators List</figcaption>
 </figure>
 
-### 5.2 Check Earn Page
-
-You can also check Earn page on Camino Wallet to your bond about your validator:
-
-<figure>
-<img class="zoom" src="/img/add-validator/10-earn-tab.png"/>
-<figcaption align = "center"><b>Fig.7-b:</b> Earn page: Deposits & Bonds</figcaption>
-</figure>
-
 ## All Done!
 
 Congratulations! You have successfully added your validator node.
