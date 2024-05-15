@@ -134,12 +134,24 @@ After importing the necessary files into your workspace, select the "SampleERC20
 
 - To compile your contract, navigate to the "Solidity Compiler" tab in the Remix IDE.
 - Choose the appropriate compiler version. In this case, select v0.5.17.
+- Click on the drop down menu "Advanced Configurations" and select "paris" as EVM version.
 - Click on the "Compile SampleERC20.sol" button to initiate the compilation process.
 
 <figure>
 <img class="zoom" src="/img/deploy-smart-contract/9-deploy-sc-compiled.png"/>
 <figcaption align="center"><b>Fig.9:</b> Contract Compiled</figcaption>
 </figure>
+
+:::caution DON'T FORGET TO SET EVM VERSION TO "PARIS"
+
+Please choose the EVM version "paris" from Advanced Configurations section.
+
+<figure>
+<img class="zoom" src="/img/deploy-smart-contract/19-select-evm-version.png#center"/>
+<figcaption align="center">Choose "paris" as the EVM version</figcaption>
+</figure>
+
+:::
 
 ## 8. Provide the Necessary Details and Deploy the Contract
 
