@@ -79,14 +79,14 @@ Partner configuration can be managed via the Camino Partner Configurator, which 
 1. Partner Request gives you all active Camino Network Partners that are selling their products and services. It specifies the messages they support, the Supplier Fee for each message to be paid (if any) and whether the partner support on-chain payment, off-chain payment or both.
 2. The Network Fee Request gives you the cost of a Message to the Camino Network for operating the Camino Messenger Servers. This fee goes towards the Partners operating a Messenger Server.
 
-Because this information is stored on the blockchain, the changes since a certain date/time can be requested using a block-height parameter. This is required as not every node on the blockchain is updated at the exact same timestamp. Conclusively, if this information is used in the distribution system, store the block height of the last block you visited. Use the Partner Request to query the T-Chain for blocks that have a higher block height than the last block height you visited. The MessageType filters the transactions to only include those that interact with the ones defined in Partner Configuration. You filter for just the suppliers you are interested in. Process the transaction and update your application state accordingly. Finally update the last block height that you visited to the block height of the last block you processed. The same in case you store the NetworkFee externally.
+Because this information is stored on the blockchain, the changes since a certain date/time can be requested using a block-height parameter. This is required as not every node on the blockchain is updated at the exact same timestamp. Conclusively, if this information is used in the distribution system, store the block height of the last block you visited. Use the Partner Request to query the C-Chain for blocks that have a higher block height than the last block height you visited. The MessageType filters the transactions to only include those that interact with the ones defined in Partner Configuration. You filter for just the suppliers you are interested in. Process the transaction and update your application state accordingly. Finally update the last block height that you visited to the block height of the last block you processed. The same in case you store the NetworkFee externally.
 
 Figure 2: supplier fee and network fee
 
 ```mermaid
 flowchart LR
     A[Camino Application Suite] -->|Will contain| B[Camino Partner Configurator]
-    B -->|Stored on| C[T-Chain]
+    B -->|Stored on| C[C-Chain]
     C -.-> D[Partner Request]
     D -->|Returns| H[SupplierFee]
     D -->|Returns| I[Payment Support]
@@ -94,7 +94,7 @@ flowchart LR
     I -->|Allows| K[Off-chain Payment]
 
     L[Network fee set by the Consortium]
-    L -->|Stored on| C[T-Chain]
+    L -->|Stored on| C[C-Chain]
     C -.-> M[NetworkFee Message]
     M -->|Returns| N[NetworkFee]
 ```
