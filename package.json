@@ -22,7 +22,7 @@
   "dependencies": {
     "@algolia/autocomplete-plugin-algolia-insights": "1.15.1",
     "@algolia/client-search": "^4.20.0",
-    "@babel/runtime": "^7.23.5",
+    "@babel/runtime": "^7.24.7",
     "@docusaurus/core": "3.1.1",
     "@docusaurus/preset-classic": "3.1.1",
     "@docusaurus/theme-classic": "3.1.1",
