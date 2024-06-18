@@ -10,8 +10,7 @@ In this guide, we will walk you through the process of setting up Camino Node on
 
 Whether you're new to blockchain technology or an experienced Huawei Cloud user, this guide is designed to be accessible and easy to follow. It provides step-by-step instructions to help you get Camino Node up and running smoothly on Huawei KooGallery.
 
-Let's get started with the setup process of Camino Node on Huawei KooGallery. 
-
+Let's get started with the setup process of Camino Node on Huawei KooGallery.
 
 ### Create Security Group: Configuring Access Permissions
 
@@ -37,13 +36,13 @@ Let's proceed with creating the Security Group and configuring the access permis
 
 2. Go to **"Network & Security" >> "Security Groups"**. This will open new browser tab.
 
-2. Click on **"Create Security Group"**.
+3. Click on **"Create Security Group"**.
 
-3. Write a name for the security group, e.g., "camino-security-group".
+4. Write a name for the security group, e.g., "camino-security-group".
 
-4. Choose **"Fast-add-rule"** from the templates. 
+5. Choose **"Fast-add-rule"** from the templates.
 
-5. Write a description, e.g., "Allow inbound traffic for SSH port and Camino TCP ports". Then click on **"Ok"**.
+6. Write a description, e.g., "Allow inbound traffic for SSH port and Camino TCP ports". Then click on **"Ok"**.
 
 <figure>
 <img class="zoom" src="/img/huawei/huawei_sg_2.png#center"/>
@@ -58,7 +57,6 @@ Let's proceed with creating the Security Group and configuring the access permis
 </figure>
 
 7. click on **"Add Rule"**, add the following inbound rules, then click **"Ok"**:
-
 
    - **Rule 1**:
      - **Priority**: 1
@@ -138,11 +136,9 @@ Let's proceed with creating the Key Pair to ensure secure access to your Camino 
 <figcaption align = "center"><b>Fig.4:</b> Key Pair Creation</figcaption>
 </figure>
 
-
-
 ### Create ECS instance: Launching Your Camino Node Machine
 
-In this step, we'll create an Elastic Cloud Server (ECS) instance, which will serve as your Camino Node machine. You will find Camino Node image in Huawei Cloud KooGallery 
+In this step, we'll create an Elastic Cloud Server (ECS) instance, which will serve as your Camino Node machine. You will find Camino Node image in Huawei Cloud KooGallery
 
 During the ECS instance creation, you'll select the instance type, operating system, and other configurations to suit your Camino Node requirements. We'll also associate the previously created Key Pair and Security Group to ensure secure access and communication.
 
@@ -171,7 +167,7 @@ Let's proceed with creating the ECS instance and get your Camino Node machine up
 <figcaption align = "center"><b>Fig.9:</b> ECS Specifications</figcaption>
 </figure>
 
-4. Choose the preferred **Network VPC**. Choose the **Security Group: camino-security-group**. Set **EIP** to  **Auto assign**. Then click on **"Next: Configure Advanced Settings"**
+4. Choose the preferred **Network VPC**. Choose the **Security Group: camino-security-group**. Set **EIP** to **Auto assign**. Then click on **"Next: Configure Advanced Settings"**
 
 <figure>
 <img class="zoom" src="/img/huawei/huawei_instance_4.png#center"/>
