@@ -44,6 +44,7 @@ A great benefit of blockchain technology is that the payment can happen in the s
 
 The Camino Messenger is a decentralized network of messenger servers hosted by the validators of the Camino Network. The distribution and supply partners install a messenger client we call the Messenger Bot. A development is requited to install the gRPC SDK in the programming language each partner prefers to connect their system to the Messenger Bot. Onboarding, Search and Validate messages are sent encrypted between partners. Several suppliers can be requested in the same format for one product or different travel products can be requested where a large portion of the message is the same, no matter whether a flight, rent a car, accommodation, train, transfer or activity is packaged to a multi product trip.
 
+
 <figure>
 <img class="zoom" src="/img/messenger/technical_infrastructure_messenger.png" alt="This image displays the Messenger bots installed in the partner's systems and the decentralized Messenger Server"/>
 <figcaption align = "center"><b>Fig.1:</b> Camino Messenger Technical Infrastructure</figcaption>
@@ -216,7 +217,26 @@ In the Camino Messenger Protocol, there is no static data inclusion in any of th
 
 ## Versioning and releases
 
-We are currently in the V1Alpha version and the first release was done on 18 January 2023. Feedback and reviews will lead improvements of a Message Type, as suggested by our partners. A partner working with a specific Message Type to implement a connection to their system discovers errors or finds a concept is missing in the Camino MessageType. Conclusively one Message Type can be mature and and have only non-breaking improvements, while another Message Type is actively being developed. While "Accommodation" might be in a productive V1, we might have "Car Rental" in a V2Beta. As all message formats are released together, we simply have numeric releases that contain updates on one or more messages from one or more feature branches and PRs. Unless a partner is working together with us to develop a new message or new features in an existing message, the c4t (main) branch should be used.
+The V1Alpha version first release was done on 18 January 2023. Feedback and reviews with Camino Network Partners are leading to improvements of Message Types. A partner working with a specific Message Type to implement a connection to their system discovers errors or finds a concept is missing in the Camino MessageType. Conclusively one Message Type can be mature and and have only non-breaking improvements, while another Message Type is actively being developed. While "Accommodation" might be in a productive V1, we might have "Car Rental" in a V2Beta. As all message formats are released together, we simply have numeric releases that contain updates on one or more messages from one or more feature branches and PRs. Unless a partner is working together with us to develop a new message or new features in an existing message, the c4t (main) branch should be used.
+
+### Version of each Message Type
+
+The version of each Message Type is specified in the package name stored on [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/docs) . The package name and conclusively the version is included in the gRPC header. To define the supported capabilities for the partner configuration, we can use this package name as a whole to refer to a service as a capability. For example: cmp.services.accommodation.v1alpha.AccommodationSearchService
+
+We have decided to step away from semantic versioning and consider all changes in the protocol a breaking change. Conclusively, partners can only trade using the exact same message version.
+
+### Camino Messenger Bot releases and number of versions supported
+
+Every time a new version is released of any of the message types a new version of the bot is released. The latest version of the Camino Messenger bot can be downloaded from our [github](https://github.com/chain4travel/camino-messenger-bot).
+
+The bot will always support the latest version of a message type and the previous version of that same message type. The version before the previous version will still be in the SDK on buf.build, so that in the transition phase after the release of a new version for a specific Message Type, for example Partners A and B can still be trading on version 3 (for example using Bot release 10), while partners C and D are trading on version 4 (using the same bot release 10) and partners E and F are already trading on version 5 of that message type using the most recent bot release 11. Upon release of the new Bot R11, partners trading on version 3 of the message type will receive an "obsolete" warning with each message.
+
+Schematic representation of a version upgrade for a specific message type
+
+<figure>
+<img class="zoom" src="/img/messenger/version_transition.png" alt="This image displays the scenario to upgrade to a new Camino Message Type Version"/>
+<figcaption align = "center"><b>Fig.7:</b> Version transition</figcaption>
+</figure>
 
 ## Why Protobuf
 
