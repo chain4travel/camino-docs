@@ -189,3 +189,15 @@ Let's proceed with creating the ECS instance and get your Camino Node machine up
 </figure>
 
 7. Now the ECS instance will start and Camino Node service will run inside it. You can go back to the **ECS Console** to chekc the instance status and connect to it.
+
+### Troubleshooting:
+
+If something goes wrong, please log into the machine and check if camino node docker container is running.
+
+If it is not running, then run the following command:
+
+For Mainnet
+`docker run -d -v /home/camino-data:/root/.caminogo -p 9650:9650 -p 9651:9651 --restart always c4tplatform/camino-node:latest ./camino-node --networkid=camino --http-host=0.0.0.0 --public-ip-resolution-service=ifconfigme --configfile=/root/.caminogo/configs/node.json`
+
+For Testnet
+`docker run -d -v /home/camino-data:/root/.caminogo -p 9650:9650 -p 9651:9651 --restart always c4tplatform/camino-node:latest ./camino-node --networkid=columbus --http-host=0.0.0.0 --public-ip-resolution-service=ifconfigme --configfile=/root/.caminogo/configs/node.json`
