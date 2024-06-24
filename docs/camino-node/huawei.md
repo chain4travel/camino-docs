@@ -146,7 +146,7 @@ Once the ECS instance is up and running, you'll be ready to start the Camino Nod
 
 Let's proceed with creating the ECS instance and get your Camino Node machine up and running on Huawei Cloud.
 
-1. Open KooGallery and serch for "Camino Node" or you can directly use this [LINK](https://marketplace.eu.huaweicloud.com/hidden/contents/8939f076-027e-4cd6-a8c6-170fedccda51)
+1. Open KooGallery and serch for "Camino Node" or you can directly use this [LINK](https://marketplace.eu.huaweicloud.com/contents/8939f076-027e-4cd6-a8c6-170fedccda51)
 
 <figure>
 <img class="zoom" src="/img/huawei/huawei_instance_1.png#center"/>
