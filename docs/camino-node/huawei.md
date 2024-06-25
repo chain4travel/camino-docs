@@ -1,7 +1,7 @@
 ---
 sidebar_position: 13
 title: Run Camino Node with Huawei Cloud KooGallery
-description: Learn how to set up Camino Node on Huawei Cloud KooGallery once it's released.
+description: Learn how to set up Camino Node on Huawei Cloud KooGallery.
 ---
 
 # Setting Up Camino Node on Huawei Cloud KooGallery
@@ -27,14 +27,14 @@ and protected from unauthorized access.
 
 Let's proceed with creating the Security Group and configuring the access permissions to run Camino Node securely.
 
-1. Select **Elastic Cloud Server Console** to access the ECS section in Huawei Cloud Console. This is where you'll create and manage your virtual machine instances.
+1. Select **Elastic Cloud Server Console** to access the ECS section in Huawei Cloud Console. This is where you will create and manage your virtual machine instances.
 
 <figure>
 <img class="zoom" src="/img/huawei/huawei_sg_1.png#center"/>
 <figcaption align = "center"><b>Fig.1:</b> Go to ECS Section</figcaption>
 </figure>
 
-2. Go to **"Network & Security" >> "Security Groups"**. This will open new browser tab.
+2. Go to **"Network & Security" >> "Security Groups"**. This will open a new browser tab.
 
 3. Click on **"Create Security Group"**.
 
@@ -56,7 +56,7 @@ Let's proceed with creating the Security Group and configuring the access permis
 <figcaption align = "center"><b>Fig.3:</b> Manage Rules</figcaption>
 </figure>
 
-7. click on **"Add Rule"**, add the following inbound rules, then click **"Ok"**:
+7. Click on **"Add Rule"**, add the following inbound rules, then click **"Ok"**:
 
    - **Rule 1**:
      - **Priority**: 1
@@ -65,7 +65,7 @@ Let's proceed with creating the Security Group and configuring the access permis
      - **Protocol**: Protocols/TCP (Custom ports)
      - **Port**: 22
      - **Source**: IP Address
-     - **IP Range**: Your IP Range (to allow SSH port access from your IP Range)
+     - **IP Range**: Your IP Range (to allow SSH port access from your IP range)
      - **Description**: SSH port
    - **Rule 2**:
      - **Priority**: 1
@@ -83,7 +83,7 @@ Let's proceed with creating the Security Group and configuring the access permis
      - **Protocol**: Protocols/TCP (Custom ports)
      - **Port**: 9650
      - **Source**: IP Address
-     - **IP Range**: Your IP Range (to allow HTTP port access from your IP Range)
+     - **IP Range**: Your IP Range (to allow HTTP port access from your IP range)
      - **Description**: API HTTP port
 
 <figure>
@@ -108,12 +108,12 @@ documentation.
 ### Create Key Pair: Secure Access to Your Machine
 
 Creating a Key Pair is an essential step that will grant you secure access to your newly created machine. With the Key Pair,
-you'll be able to log in to the machine securely via SSH (Secure Shell) and manage it effectively.
+you will be able to log in to the machine securely via SSH (Secure Shell) and manage it effectively.
 
 During the Key Pair creation process, you will generate a public and private key pair. The private key will be used to
 authenticate yourself when connecting to the machine, while the public key will be associated with the machine and enable secure access.
 
-Keep your private key safe and do not share it with others. With this Key Pair, you'll have the necessary credentials to access
+Keep your private key safe and do not share it with others. With this Key Pair, you will have the necessary credentials to access
 your machine securely and carry out the required configurations.
 
 Let's proceed with creating the Key Pair to ensure secure access to your Camino Node machine.
@@ -133,31 +133,31 @@ Let's proceed with creating the Key Pair to ensure secure access to your Camino 
 
 <figure>
 <img class="zoom" src="/img/huawei/huawei_kp_2.png#center"/>
-<figcaption align = "center"><b>Fig.4:</b> Key Pair Creation</figcaption>
+<figcaption align = "center"><b>Fig.6:</b> Key Pair Creation</figcaption>
 </figure>
 
 ### Create ECS instance: Launching Your Camino Node Machine
 
 In this step, we'll create an Elastic Cloud Server (ECS) instance, which will serve as your Camino Node machine. You will find Camino Node image in Huawei Cloud KooGallery
 
-During the ECS instance creation, you'll select the instance type, operating system, and other configurations to suit your Camino Node requirements. We'll also associate the previously created Key Pair and Security Group to ensure secure access and communication.
+During the ECS instance creation, you will select the instance type, operating system, and other configurations to suit your Camino Node requirements. We'll also associate the previously created Key Pair and Security Group to ensure secure access and communication.
 
-Once the ECS instance is up and running, you'll be ready to start the Camino Node setup process. The instance will be equipped with the necessary resources to run Camino Node efficiently.
+Once the ECS instance is up and running, you will be ready to start the Camino Node setup process. The instance will be equipped with the necessary resources to run Camino Node efficiently.
 
 Let's proceed with creating the ECS instance and get your Camino Node machine up and running on Huawei Cloud.
 
-1. Open KooGallery and serch for "Camino Node" or you can directly use this [LINK](https://marketplace.eu.huaweicloud.com/contents/8939f076-027e-4cd6-a8c6-170fedccda51)
+1. Open KooGallery and serch for the "Camino Node" or you can directly use this [LINK](https://marketplace.eu.huaweicloud.com/contents/8939f076-027e-4cd6-a8c6-170fedccda51)
 
 <figure>
 <img class="zoom" src="/img/huawei/huawei_instance_1.png#center"/>
-<figcaption align = "center"><b>Fig.9:</b> Camino Node in KooGallery</figcaption>
+<figcaption align = "center"><b>Fig.7:</b> Camino Node in KooGallery</figcaption>
 </figure>
 
-2. Scroll down and choose suitable **Region, Image and ECS Flabour**, then click on **"Continue to Submit"**
+2. Scroll down and choose suitable **Region, Image and ECS Flavour**, then click on **"Continue to Submit"**
 
 <figure>
 <img class="zoom" src="/img/huawei/huawei_instance_2.png#center"/>
-<figcaption align = "center"><b>Fig.9:</b> Camino Node Configurations</figcaption>
+<figcaption align = "center"><b>Fig.8:</b> Camino Node Configurations</figcaption>
 </figure>
 
 3. It will open a new browser tab to create ECS instance. Configure **Region, Billin Mode, Specifications, Image and System Disk**. Note that System Disk must have at least **128 GB**. Then click on **"Next: Configure Network"**
@@ -167,18 +167,18 @@ Let's proceed with creating the ECS instance and get your Camino Node machine up
 <figcaption align = "center"><b>Fig.9:</b> ECS Specifications</figcaption>
 </figure>
 
-4. Choose the preferred **Network VPC**. Choose the **Security Group: camino-security-group**. Set **EIP** to **Auto assign**. Then click on **"Next: Configure Advanced Settings"**
+4. Choose the preferred **Network VPC**. Choose the **Security Group: camino-security-group**. Set **EIP** to **Auto assign**. Then click on **"Next: Configure Advanced Settings"**.
 
 <figure>
 <img class="zoom" src="/img/huawei/huawei_instance_4.png#center"/>
-<figcaption align = "center"><b>Fig.11:</b> Netwrok Configurations</figcaption>
+<figcaption align = "center"><b>Fig.10:</b> Network Configurations</figcaption>
 </figure>
 
-5. Write a name for your instance. Choose **Key Pair** as Login method and select the Key Pair which was created previously. check the **Auto Recovery** Box. Then click on **"Next: Confirm"**
+5. Write a name for your instance. Choose **Key Pair** as Login method and select the Key Pair which was created previously. Check the **Auto Recovery** Box. Then click on **"Next: Confirm"**.
 
 <figure>
 <img class="zoom" src="/img/huawei/huawei_instance_5.png#center"/>
-<figcaption align = "center"><b>Fig.12:</b> Advanced Settings Configurations</figcaption>
+<figcaption align = "center"><b>Fig.11:</b> Advanced Settings Configurations</figcaption>
 </figure>
 
 6. Review the instance configurations and agree to the Image Disclaimer. Then click on **"Submit"**
@@ -188,16 +188,22 @@ Let's proceed with creating the ECS instance and get your Camino Node machine up
 <figcaption align = "center"><b>Fig.12:</b> Review and Submit</figcaption>
 </figure>
 
-7. Now the ECS instance will start and Camino Node service will run inside it. You can go back to the **ECS Console** to chekc the instance status and connect to it.
+7. Now the ECS instance will start and Camino Node service will run inside it. You can go back to the **ECS Console** to check the instance status and connect to it.
 
 ### Troubleshooting:
 
-If something goes wrong, please log into the machine and check if camino node docker container is running.
+If something goes wrong, please log into the machine and check if Camino Node Docker container is running.
 
 If it is not running, then run the following command:
 
-For Mainnet
-`docker run -d -v /home/camino-data:/root/.caminogo -p 9650:9650 -p 9651:9651 --restart always c4tplatform/camino-node:latest ./camino-node --networkid=camino --http-host=0.0.0.0 --public-ip-resolution-service=ifconfigme --configfile=/root/.caminogo/configs/node.json`
+**For Mainnet:**
 
-For Testnet
-`docker run -d -v /home/camino-data:/root/.caminogo -p 9650:9650 -p 9651:9651 --restart always c4tplatform/camino-node:latest ./camino-node --networkid=columbus --http-host=0.0.0.0 --public-ip-resolution-service=ifconfigme --configfile=/root/.caminogo/configs/node.json`
+```
+docker run -d -v /home/camino-data:/root/.caminogo -p 9650:9650 -p 9651:9651 --restart always c4tplatform/camino-node:latest ./camino-node --networkid=camino --http-host=0.0.0.0 --public-ip-resolution-service=ifconfigme --configfile=/root/.caminogo/configs/node.json
+```
+
+**For Testnet:**
+
+```
+docker run -d -v /home/camino-data:/root/.caminogo -p 9650:9650 -p 9651:9651 --restart always c4tplatform/camino-node:latest ./camino-node --networkid=columbus --http-host=0.0.0.0 --public-ip-resolution-service=ifconfigme --configfile=/root/.caminogo/configs/node.json
+```
