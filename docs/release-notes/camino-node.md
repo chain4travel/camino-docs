@@ -12,6 +12,18 @@ For more up-to-date information please check [Github Release](https://github.com
 
 :::
 
+## v1.0.0-rc1
+
+<p><span class="alert alert--secondary pill">Pre-Release</span></p>
+<p><span class="alert alert--warning pill">Current Testnet (Columbus) Version</span></p>
+
+[View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v1.0.1-rc1)
+
+- [Dependencies, Version] caminoethvm -> caminogo (Athens 1.0.1) by @evlekht
+- [[PVM] Returns pre-Athens rewardsImportTx logic for pre-Athens txs] by @evlekht
+- [[PVM, Spend] Allow spend to deposit unlocked tokens for different owner] by @evlekht
+- [[Dependency, fix] Fix state sync version (fork leftover)] by @evlekht
+
 ## v1.0.0
 
 <p><span class="alert alert--info pill">Athens Phase</span></p>
@@ -28,7 +40,6 @@ For more up-to-date information please check [Github Release](https://github.com
 
 <p><span class="alert alert--info pill">Athens Phase (Pre-Release)</span></p>
 <p><span class="alert alert--secondary pill">Pre-Release</span></p>
-<p><span class="alert alert--warning pill">Current Testnet (Columbus) Version</span></p>
 
 [View on GitHub](https://github.com/chain4travel/camino-node/releases/tag/v1.0.0-rc1)
 
