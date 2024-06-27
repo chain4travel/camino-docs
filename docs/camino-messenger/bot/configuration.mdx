@@ -127,6 +127,13 @@ booking_token_abi_file: abi/BookingTokenV0.abi
 # Supplier name to be used for registering to the BookingToken smart contract.
 # Should be a short name, it will be saved on-chain.
 supplier_name: SUPPLIER_NAME
+
+# Default expiration time (in seconds) for BookingToken mints.
+#
+# The supplier bot creates booking tokens and sets an expiration timestamp on each token.
+# Once this time has passed, the token is no longer available for purchase by the distributor.
+# The default value is 600 seconds.
+buyable_until_default: 600
 ```
 
 **Example Distributor Bot Config File:**
@@ -205,31 +212,45 @@ booking_token_abi_file: abi/BookingTokenV0.abi
 # Supplier name to be used for registering to the BookingToken smart contract.
 # Should be a short name, it will be saved on-chain. Not used with distributor bot.
 #supplier_name: SUPPLIER_NAME
+
+# Default expiration time (in seconds) for BookingToken mints.
+#
+# The supplier bot creates booking tokens and sets an expiration timestamp on each token.
+# Once this time has passed, the token is no longer available for purchase by the distributor.
+# The default value is 600 seconds.
+#buyable_until_default: 600
 ```
+
+:::info BOOKING TOKEN ADDRESS
+
+Please note that the BookingToken address is subject to change in upcoming releases.
+
+:::
 
 ## Configuration Options
 
-| Option                       | Description                                                                                      |
-| ---------------------------- | ------------------------------------------------------------------------------------------------ |
-| `developer_mode`             | Activates developer mode, enabling DEBUG level logging for troubleshooting.                      |
-| `matrix_key`                 | Specifies the private key for authenticating with the Matrix server.                             |
-| `matrix_host`                | Designates the host address of the Matrix server.                                                |
-| `matrix_store`               | Defines the path to the Matrix OLM data store (SQLite3 database path).                           |
-| `rpc_server_port`            | Specifies the port number for the RPC server; the bot listens for requests on this port.         |
-| `rpc_unencrypted`            | Indicates if the RPC server communication should remain unencrypted.                             |
-| `rpc_server_cert_file`       | File path to the server's TLS certificate for encrypted communication.                           |
-| `rpc_server_key_file`        | File path to the server's SSL key for encrypted communication.                                   |
-| `partner_plugin_host`        | Sets the host address for the partner plugin's RPC server.                                       |
-| `partner_plugin_port`        | Designates the port number for the partner plugin's RPC server.                                  |
-| `partner_plugin_unencrypted` | Determines if the Partner Plugin RPC should establish an unencrypted connection to the server.   |
-| `partner_plugin_ca_file`     | Path to the CA certificate file for the partner plugin RPC server.                               |
-| `response_timeout`           | Timeout in milliseconds for waiting for a response from the Matrix server.                       |
-| `supported_request_types`    | Lists the request types that the bot supports, as defined by the Camino Messenger Protocol.      |
-| `evm_private_key`            | Private key that is used for the operation on C-Chain like BookingToken mint and buy operations. |
-| `rpc_url`                    | RPC URL to interact with the EVM APIs                                                            |
-| `booking_token_address`      | BookingToken smart contract address                                                              |
-| `booking_token_abi_file`     | Path for the BookingToken smart contract ABI file                                                |
-| `supplier_name`              | Supplier name to be used for the registration on BookingToken. Provide a short name.             |
+| Option                       | Description                                                                                                            |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `developer_mode`             | Activates developer mode, enabling DEBUG level logging for troubleshooting.                                            |
+| `matrix_key`                 | Specifies the private key for authenticating with the Matrix server.                                                   |
+| `matrix_host`                | Designates the host address of the Matrix server.                                                                      |
+| `matrix_store`               | Defines the path to the Matrix OLM data store (SQLite3 database path).                                                 |
+| `rpc_server_port`            | Specifies the port number for the RPC server; the bot listens for requests on this port.                               |
+| `rpc_unencrypted`            | Indicates if the RPC server communication should remain unencrypted.                                                   |
+| `rpc_server_cert_file`       | File path to the server's TLS certificate for encrypted communication. Required only if `rpc_unencrypted=false`        |
+| `rpc_server_key_file`        | File path to the server's SSL key for encrypted communication. Required only if `rpc_unencrypted=false`                |
+| `partner_plugin_host`        | Sets the host address for the partner plugin's RPC server.                                                             |
+| `partner_plugin_port`        | Designates the port number for the partner plugin's RPC server.                                                        |
+| `partner_plugin_unencrypted` | Determines if the Partner Plugin RPC should establish an unencrypted connection to the server.                         |
+| `partner_plugin_ca_file`     | Path to the CA certificate file for the partner plugin RPC server. Required only if `partner_plugin_unencrypted=false` |
+| `response_timeout`           | Timeout in milliseconds for waiting for a response from the Matrix server.                                             |
+| `supported_request_types`    | Lists the request types that the bot supports, as defined by the Camino Messenger Protocol.                            |
+| `evm_private_key`            | Private key that is used for the operation on C-Chain like BookingToken mint and buy operations.                       |
+| `rpc_url`                    | RPC URL to interact with the EVM APIs                                                                                  |
+| `booking_token_address`      | BookingToken smart contract address                                                                                    |
+| `booking_token_abi_file`     | Path for the BookingToken smart contract ABI file                                                                      |
+| `supplier_name`              | Supplier name to be used for the registration on BookingToken. Provide a short name.                                   |
+| `buyable_until_default`      | Default expiration time (in seconds) for BookingToken mints. Default 600 seconds                                       |
 
 :::info SUPPORTED REQUEST TYPES
 
@@ -293,22 +314,42 @@ docker run --rm --env-file bot.env camino-messenger-bot
 
 Your `bot.env` file should contain the following settings:
 
+**Supplier Example:**
+
 ```sh
 CMB_DEVELOPER_MODE=true
-CMB_MATRIX_KEY=PrivateKey-qzCMkC3mbCD94pUTeQgufWLv9BPKc4qiDW9GzHWTcEDCRiSjU
+CMB_MATRIX_KEY=PrivateKey-REST_OF_THE_PRIVE_KEY
 CMB_MATRIX_HOST=matrix.camino.network
-CMB_MATRIX_STORE=mautrix-localhost.db
+CMB_MATRIX_STORE=supplier-matrix.db
 CMB_RPC_SERVER_PORT=9090
 CMB_RPC_UNENCRYPTED=true
-CMB_PARTNER_PLUGIN_HOST=distributor-plugin
+CMB_PARTNER_PLUGIN_HOST=supplier-plugin-host
 CMB_PARTNER_PLUGIN_PORT=50051
 CMB_PARTNER_PLUGIN_UNENCRYPTED=true
-CMB_RESPONSE_TIMEOUT=3000
-CMB_SUPPORTED_REQUEST_TYPES=ActivitySearchRequest,AccommodationSearchRequest,GetNetworkFeeRequest,GetPartnerConfigurationRequest,PingRequest,TransportSearchRequest
+CMB_RESPONSE_TIMEOUT=10000
+CMB_SUPPORTED_REQUEST_TYPES=ActivitySearchRequest,ActivityProductListRequest,AccommodationProductInfoRequest,AccommodationProductListRequest,AccommodationSearchRequest,GetNetworkFeeRequest,GetPartnerConfigurationRequest,MintRequest,ValidationRequest,PingRequest,TransportSearchRequest
 CMB_RPC_URL=https://columbus.camino.network/ext/bc/C/rpc
 CMB_BOOKING_TOKEN_ABI_FILE=abi/BookingTokenV0.abi
 CMB_BOOKING_TOKEN_ADDRESS=0xd4e2D76E656b5060F6f43317E8d89ea81eb5fF8D
 CMB_SUPPLIER_NAME=SUPPLIER_NAME
+CMB_EVM_PRIVATE_KEY=PrivateKey-THE_REST_OF_THE_KEY
+CMB_BUYABLE_UNTIL_DEFAULT=600
+```
+
+**Distributor Example:**
+
+```sh
+CMB_DEVELOPER_MODE=true
+CMB_MATRIX_KEY=PrivateKey-REST_OF_THE_PRIVE_KEY
+CMB_MATRIX_HOST=matrix.camino.network
+CMB_MATRIX_STORE=distributor-matrix.db
+CMB_RPC_SERVER_PORT=9090
+CMB_RPC_UNENCRYPTED=true
+CMB_RESPONSE_TIMEOUT=10000
+CMB_SUPPORTED_REQUEST_TYPES=GetNetworkFeeRequest,GetPartnerConfigurationRequest,PingRequest
+CMB_RPC_URL=https://columbus.camino.network/ext/bc/C/rpc
+CMB_BOOKING_TOKEN_ABI_FILE=abi/BookingTokenV0.abi
+CMB_BOOKING_TOKEN_ADDRESS=0xd4e2D76E656b5060F6f43317E8d89ea81eb5fF8D
 CMB_EVM_PRIVATE_KEY=PrivateKey-THE_REST_OF_THE_KEY
 ```
 
