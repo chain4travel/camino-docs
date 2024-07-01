@@ -13,7 +13,7 @@ The Columbus testnet is undergoing constant improvement and despite the fact tha
 
 ## On-Chain Development
 
-For on-chain development like deploying and testing solidity-based smart-contracts all you need is a RPC/HTTP endpoint to the Columbus network. Our main HTTP/RPC node is reachable via the URL https://columbus.camino.network. By default you don't need to specify a port as the HTTPS port `443`, as well as the default port of the node `9650` are both routed to our HTTP-Enabled Columbus testnet node.
+For on-chain development like deploying and testing solidity-based smart-contracts all you need is a RPC/HTTP endpoint to the Columbus network. Our main HTTP/RPC node is reachable via the URL **`https://columbus.camino.network`**. By default you don't need to specify a port as the HTTPS port `443`, as well as the default port of the node `9650` are both routed to our HTTP-Enabled Columbus testnet node.
 
 ## Metamask configuration
 
