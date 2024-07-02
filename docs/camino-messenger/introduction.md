@@ -225,7 +225,7 @@ The version of each Message Type is specified in the package name stored on [buf
 
 We have decided to step away from semantic versioning and consider all changes in the protocol a breaking change. Conclusively, partners can only trade using the exact same message version.
 
-### Camino Messenger Bot releases and number of versions supported
+### Releases & Supported Versions
 
 Every time a new version is released of any of the message types a new version of the bot is released. The latest version of the Camino Messenger bot can be downloaded from our [github](https://github.com/chain4travel/camino-messenger-bot). The main bot version is the same as the latest protocol version. Technical releases for the bot can result to a minor version increase (for example bot release 6.0.0 and 6.1.0 which both support latest protocol version 6, but bot release 6.1.0 has a technical enhancement without an update to the protocol).
 
