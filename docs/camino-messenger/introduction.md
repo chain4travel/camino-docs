@@ -230,16 +230,19 @@ Example: Partners A and B can still be trading on protocol version 4 (for exampl
 
 ### Service versions
 
-The version of each Message Type, _"service versions"_, are specified in the package name stored on [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/docs) . The package name and conclusively the version is included in the gRPC header. To define the supported capabilities for the partner configuration, we can use this package name as a whole to refer to a service as a capability. For example: cmp.services.accommodation.v1alpha.AccommodationSearchService.
+The version of each Message Type, _"service versions"_, are specified in the package name stored on [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/docs). To define the supported capabilities for the partner configuration, we can use this package name as a whole to refer to a service as a capability. For example: cmp.services.accommodation.v1alpha.AccommodationSearchService.
 
 In one Protocol release, each message type will be on its own service version. If many partners are actively collaborating on the Accommodation Service, this will lead to more updates for this message type then for another.
 
+**fix me, we need a call for this**
 Example: imaginary Bot release 18.0.0 holds protocol release 18, which has for each message types the following service versions:
 
 - accommodation version 6 and version 7 beta.
 - transport version 4, version 5 beta and version 6 alpha.
 - activity version 2.
 - insurance version 1 aplha.
+
+Conclusively, on buf.build partners will see cmp.services.accommodation.v4, cmp.services.accommodation.v5, cmp.services.accommodation.v6 and cmp.services.accommodation.v7Beta packages. Partners trying to trade on cmp.services.accommodation.v3
 
 We have decided to step away from semantic versioning and consider all changes in the protocol a breaking change. Conclusively, partners can only trade using the exact same message version.
 
