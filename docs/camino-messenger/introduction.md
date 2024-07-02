@@ -221,7 +221,7 @@ The `v1alpha` version first release was done on 18 January 2023. Feedback and re
 
 ### Version of each Message Type
 
-The version of each Message Type is specified in the package name stored on [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/docs) . The package name and conclusively the version is included in the gRPC header. To define the supported capabilities for the partner configuration, we can use this package name as a whole to refer to a service as a capability. For example: cmp.services.accommodation.v1alpha.AccommodationSearchService
+The version of each Message Type is specified in the package name stored on [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/docs) . The package name and conclusively the version is included in the gRPC header. To define the supported capabilities for the partner configuration, we can use this package name as a whole to refer to a service as a capability. For example: `cmp.services.accommodation.v1alpha.AccommodationSearchService`
 
 We have decided to step away from semantic versioning and consider all changes in the protocol a breaking change. Conclusively, partners can only trade using the exact same message version.
 
