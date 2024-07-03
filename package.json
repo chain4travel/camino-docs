@@ -16,6 +16,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "format": "prettier -w docs/**/*",
+    "wformat": "prettier -w --end-of-line crlf docs/**/*",
     "prettier-check": "prettier --check docs/**/*",
     "postinstall": "patch-package"
   },

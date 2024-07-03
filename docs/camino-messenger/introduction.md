@@ -235,6 +235,7 @@ The version of each Message Type, _"service versions"_, are specified in the pac
 In one Protocol release, each message type will be on its own service version. If many partners are actively collaborating on the Accommodation Service, this will lead to more updates for this message type then for another.
 
 **fix me, we need a call for this**
+Have a meeting for this
 Example: imaginary Bot release 18.0.0 holds protocol release 18, which has for each message types the following service versions:
 
 - accommodation version 6 and version 7 beta.
