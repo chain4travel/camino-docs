@@ -250,7 +250,7 @@ We have decided to step away from semantic versioning and consider all changes i
 Schematic representation of a version upgrade for a specific message type
 
 <figure>
-<img class="zoom" src="/img/messenger/version_transition.excalidraw.png" alt="This image displays the scenario to upgrade to a new Camino Message Type Version"/>
+<img class="zoom" src="/img/messenger/version_transition.excalidraw.svg" alt="This image displays the scenario to upgrade to a new Camino Message Type Version"/>
 <figcaption align="center"><b>Fig.7:</b> Version transition</figcaption>
 </figure>
 
