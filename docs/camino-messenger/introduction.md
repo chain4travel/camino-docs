@@ -223,10 +223,11 @@ The `v1alpha` version first release was done on 18 January 2023. Feedback and re
 Every time a new version is released of any of the message types a new version of the bot is released. The latest version of the Camino Messenger bot can be downloaded from our [github](https://github.com/chain4travel/camino-messenger-bot). The main bot version is the same as the latest protocol release. Technical releases for the bot can result to a minor version increase (for example bot release 6.0.0 and 6.1.0 which both support latest protocol version 6, but bot release 6.1.0 has a technical enhancement without an update to the protocol). The bot version is included in the matrix message header of each message.
 
 **Bot version update without an update to a specific messagetype**
+
 As an example in Bot v10.0.0 we have activity service version 1 and 2.
 We might have released several Bot versions updating transport and accommodation services, which leads to the current bot version being v13.0.0 but the activity service is still on version 1 and 2 (because it's stable and there is no need for an update there).
 
-Partners only using the activity service, might consider to remain on Bot version 10.0.0 and not upgrade to 11.0.0, ...13.0.0. This scenario is unlikely, as trading partners of the example partner that just uses the activity service will trade with other partners that might upgrade to use the enhancements in the transport and accommodation services. In addition, there most probably will be minor technical enhancements in most bot versions like for example performance, headers/logging, validation, etc. There could even be breaking changes like a change in encryption.
+Partners only using the activity service, might consider to remain on Bot version 10.0.0 and not upgrade to 11.0.0, ...13.0.0. This scenario is unlikely, as trading partners of the example partner that just uses the activity service, will trade with other partners that might upgrade to use the enhancements in the transport and accommodation services. In addition, there most probably will be minor technical enhancements in most bot versions like for example performance, headers/logging, validation, etc. There could even be breaking changes like a change in encryption or the underlying messaging protocol.
 
 ### Protocol release
 
@@ -236,17 +237,17 @@ Example: Partners A and B can still be trading on protocol version 4 (for exampl
 
 ### Service versions
 
-The version of each Message Type, _"service versions"_, are specified in the package name stored on [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/docs). To define the supported capabilities for the partner configuration, we can use this package name as a whole to refer to a service as a capability. For example: cmp.services.accommodation.v1alpha.AccommodationSearchService.
+The version of each Message Type, _"service versions"_, are specified in the package name stored on [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/docs). To define the supported capabilities for the partner configuration, we use this package name as a whole to refer to a service as a capability. For example: cmp.services.accommodation.v1alpha.AccommodationSearchService.
 
 In one Protocol release, each message type will be on its own service version. If many partners are actively collaborating on the Accommodation Service, this will lead to more updates for this message type then for another. We have decided to step away from semantic versioning and consider all changes in the protocol a breaking change.
 
 **version transition example**
-Have a meeting for this
+
 Example: imaginary Bot version 10.0.0 holds protocol release 10, which has for the example message types Accommodation the service versions available in the SDK: accommodation service version 2, 3 and 4.
 
 In the Partner Configuration up to 2 versions can be listed as being supported by the partner. The imaginary partner has specified to support both version 3 and 4. The Messenger Bot, reading the Partner Configuration, supports exactly those versions.
 
-Our partner decides to upgrade to Messenger Bot Release 11.0.0, which supports Protocol release 11. In this release of the protocol a new version of the accommodation service version 5 is introduced. The SDK now supports version 3, 4 and 5 and the Partner Configuration still holds accommodation service version 3 and 4, will allow the updated Messenger Bot to start. It also detects through a compare of the capabilities of the SDK with the partner-configuration that the current supported versions are accommodation service version 4 and 5. Conclusively each message transmitted using accommodation service version 3 will trigger a "deprecated version" warning, but still allows partners to trade.
+Our partner decides to upgrade to Messenger Bot Release 11.0.0, which supports Protocol release 11. In this release of the protocol a new version of the accommodation service version 5 is introduced. The SDK now supports version 3, 4 and 5 and the Partner Configuration still holds accommodation service version 3 and 4, which will allow the updated Messenger Bot to start. It also detects through a compare of the capabilities of the SDK with the partner-configuration that the current supported versions are accommodation service version 4 and 5. Conclusively each message transmitted using accommodation service version 3 will trigger a "deprecated version" warning, but still allows partners to trade.
 
 Trading partners that were already on version 4 do not need to immediately upgrade to version 5, if the example partner supports 2 versions. Once all trading partners of our example partner have upgraded from accommodation service version 3 to version 4 or 5, our example partner can adjust the Partner Configuration to specify support for accommodation service version 4 and 5.
 
