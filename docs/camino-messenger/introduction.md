@@ -226,7 +226,7 @@ Every time a new version is released of any of the message types a new version o
 
 #### Bot Version Update without an Update to a Specific Message Type
 
-As an example, in Bot v10.0.0, we have activity service versions 1 and 2. We might release several Bot versions updating transport and accommodation services, which leads to the current Bot version being v13.0.0, while the activity service remains on versions 1 and 2 (because it is stable and does not require an update).
+As an example, in Bot v10.0.0, we have activity service versions 1 and 2. We might release several Bot versions updating transport and accommodation services, which leads to the current Bot version being v13.0.0, while the activity service remained on versions 1 and 2 because there were no changes for this particular service.
 
 Partners using only the activity service might consider remaining on Bot version 10.0.0 and not upgrading to versions 11.0.0 through 13.0.0. However, this scenario is unlikely, as trading partners of an example partner using only the activity service will trade with other partners who may upgrade to use the enhancements in the transport and accommodation services. Additionally, most Bot versions will likely include minor technical enhancements such as performance improvements, headers/logging, validation, etc. There could even be breaking changes like a change in encryption or the underlying messaging protocol.
 
