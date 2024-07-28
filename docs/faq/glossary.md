@@ -44,7 +44,7 @@ uses hex.
 
 Application Service Bot (ASB) is a program that runs on [Camino Messenger
 Server](#camino-messenger-server) and validates the messenger fee cheques, mutes
-bots that do not adhere to the rules, like issueing invalid or bounced cheques.
+bots that do not adhere to the rules, like issuing invalid or bounced cheques.
 
 ## Blockchain
 
@@ -55,7 +55,7 @@ securely linked together via cryptographic hashes. See
 ## Booking Token
 
 The digital representation of a reservation or booking for travel-related services
-such as flights, hotels, tours or other activities. This has a specific
+such as flights, hotels, tours, or other activities. This has a specific
 implementation that is developed and managed by C4T.
 
 ## Builder
@@ -77,12 +77,12 @@ so-called [partner plugins](#partner-plugin).
 
 ## Camino Messenger server
 
-The backbone of the Camino Messenger infrastructure. Essentially it's a server
-relaying messages between bots. Currently Matrix messenger server is used.
+The backbone of the Camino Messenger infrastructure. Essentially, it's a server
+relaying messages between bots. Currently, Matrix messenger server is used.
 
 ## Camino Messenger Protocol
 
-Camino Messenger Protocol (CMP) is developed as the communication protocol for
+Camino Messenger Protocol (CMP) was developed as the communication protocol for
 Camino Messenger. It is used for (de)serializing messages between
 [bots](#camino-messenger-bot) and [partner plugins](#partner-plugin)
 
@@ -98,11 +98,11 @@ Validator and/or a Supporter
 
 ## Centralization
 
-Centralization: The process or result of concentrating decision-making power,
-authority, or functions within a single individual, group, or location. This
-organizational structure is commonly observed in governments, large corporations,
-and financial institutions, where control is exercised from a central point, often
-leading to a hierarchical system of management and administration.
+The process or result of concentrating decision-making power, authority, or
+functions within a single individual, group, or location. This organizational
+structure is commonly observed in governments, large corporations, and financial
+institutions, where control is exercised from a central point, often leading to a
+hierarchical system of management and administration.
 
 ## Centralized System
 
@@ -250,7 +250,7 @@ The digital signing process involves:
    - Extract the public key from the signature to identify the signer
    - Confirm the authenticity of the signature without prior knowledge of the public key
 
-In blockchain contexts, this is often used for "unsigned transactions", which contain:
+In blockchain contexts, this is often used for "unsigned transactions", which contains:
 
 - The intended action (what shall be done)
 - The digital signature
@@ -400,7 +400,7 @@ have their own unique id.
 ## Off chain data
 
 Not all data and transactions need to be stored directly on the blockchain itself.
-Off-chain data can be stored processed and managed using alternative methods or
+Off-chain data can be stored, processed, and managed using alternative methods or
 networks with only necessary information being recorded on the blockchain reducing
 transaction cost.
 
@@ -411,23 +411,23 @@ Data that is recorded and stored directly on a blockchain network via transactio
 A general rule is that the more complex the transaction or the bigger the data the
 higher the transaction fee and the slower the transaction.
 
-## On ramp
+## On-Ramp
 
-An on-ramp allows users to purchase cryptocurrencies using fiat money, typically
+An On-Ramp allows users to purchase cryptocurrencies using fiat money, typically
 through exchanges where users deposit fiat currency into their exchange account and
 use those funds to buy cryptocurrencies.
 
-## Off ramp
+## Off-Ramp
 
-An off-ramp enables users to sell their cryptocurrencies on an exchange, converting
+An Off-Ramp enables users to sell their cryptocurrencies on an exchange, converting
 the cryptocurrency to fiat money, and then withdrawing those funds to a bank
 account.
 
 ## Onboarding
 
-Process of introducing and integrating a new product into a company's offerings and
-ensuring that customers understand how to use and benefit from the product or
-service
+The process of introducing and integrating a new product into a company's offerings
+and ensuring that customers understand how to use and benefit from the product or
+service.
 
 ## OTA
 
@@ -448,13 +448,11 @@ Messenger Bot.
 Abbreviation of "persons approximate". Used to give a count of persons or referring
 to a single person/[Traveller](#traveller).
 
-## POI
+## Point of Interest
 
-Point of Interest.
-
-Point of Interest refer to specific locations or attractions that are of interest to
-travelers like landmarks, tourist attractions, historical sites, natural wonders,
-parks, museums, restaurants, shopping centers, etc.
+Point of Interest (POI) refer to specific locations or attractions that are of
+interest to travelers like landmarks, tourist attractions, historical sites, natural
+wonders, parks, museums, restaurants, shopping centers, etc.
 
 ## Protobuf
 
@@ -501,7 +499,7 @@ _(also mnemonic key phrase, mnemonic seed phrase, or mnemonic)_
 
 Serves as a human-readable representation of an associated cryptographic key or
 seed. In the case of the Camino Network, key phrases consist of a specific sequence
-of 24 words carefully selected from a predefined word list.
+of 24 words, carefully selected from a predefined word list.
 
 The purpose of a key phrase is to simplify the process of backing up, storing, and
 recovering cryptographic keys. It offers a user-friendly and easily understandable
@@ -526,9 +524,9 @@ Contract](https://en.wikipedia.org/wiki/Smart_contract)
 Cryptocurrency designed to maintain a stable value relative to a specific fiat
 currency like EUR, GBP or USD
 
-## Sub message
+## Submessage
 
-A specific message type that can be used in multiple message types. These are used
+A Protobuf message type that can be used in multiple message types. These are used
 heavily in the [CMP](#camino-messenger-protocol)
 
 ## Supplier
@@ -549,7 +547,7 @@ contracts](#smart-contract), recorded on a decentralized digital ledger.
 
 ## Travel Agency
 
-Travel Agencies (TA) are businesses that specialize in providing
+Travel Agencies (TAs) are businesses that specialize in providing
 travel-related services and products to individuals groups and organizations.
 
 Unlike online travel agencies (OTAs) which operate primarily through digital
@@ -587,8 +585,8 @@ transportation and overnight stay(s).
 
 ## UUID
 
-Universally Unique Identifier a 128-bit identifier standardized by the Open Software
-Foundation (OSF) as part of the Distributed Computing Environment (DCE)
+Universally Unique Identifier, a 128-bit identifier standardized by the Open
+Software Foundation (OSF) as part of the Distributed Computing Environment (DCE)
 specification and subsequently adopted by the Internet Engineering Task Force
 (IETF). UUIDs are designed to be globally unique across space and time.
 
@@ -596,8 +594,8 @@ specification and subsequently adopted by the Internet Engineering Task Force
 
 In the context of Camino Messenger, the process of checking whether a product or
 service is still bookable at the price advertised in the search results. As these
-are often provided from cached data or might have sold-out after a certain amount of
-time has passed.
+are often provided from cached data and might have sold-out after a certain amount
+of time has passed.
 
 This is a prerequisite for the [Mint](#mint) workflow.
 
@@ -606,7 +604,7 @@ This is a prerequisite for the [Mint](#mint) workflow.
 Partner responsible for verifying and validating transactions and maintaining the
 integrity of the blockchain.
 
-Also, depending on the context, it refers to the node (physical server) of the
+Also, depending on the context it refers to the node (physical server) of the
 Partner that runs the Camino Node application.
 
 ## Vertical
@@ -626,7 +624,7 @@ blockchain which holds the assets.
 
 Using a [seed phrase](#seed-phrase) or [private key](#private-key), one is able to
 locally create and sign transactions for a particular address or set of addresses
-before its sent to a blockchain to be executed.
+before it is sent to a blockchain to be executed.
 
 Usually a wallet also has some convenience functionality to see the tokens (funds,
 digital assets, collections) in possession and interact with them.
