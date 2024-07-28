@@ -37,7 +37,8 @@ that is used as an address to receive funds or interact with the smart contracts
 on-chain.
 
 Different representations are used by different chains. X and P chains use
-[CB58](https://support.avax.network/en/articles/4587395-what-is-cb58) and C-Chain uses hex.
+[CB58](https://support.avax.network/en/articles/4587395-what-is-cb58) and C-Chain
+uses hex.
 
 ## Application Service Bot
 
@@ -97,23 +98,36 @@ Validator and/or a Supporter
 
 ## Centralization
 
-Centralization: The process or result of concentrating decision-making power, authority, or functions within a single individual, group, or location. This organizational structure is commonly observed in governments, large corporations, and financial institutions, where control is exercised from a central point, often leading to a hierarchical system of management and administration.
+Centralization: The process or result of concentrating decision-making power,
+authority, or functions within a single individual, group, or location. This
+organizational structure is commonly observed in governments, large corporations,
+and financial institutions, where control is exercised from a central point, often
+leading to a hierarchical system of management and administration.
 
 ## Centralized System
 
-A centralized system is one in which a single entity or a small group of entities have control over the entire system. All data, processes, and controls are managed from a central point.
+A centralized system is one in which a single entity or a small group of entities
+have control over the entire system. All data, processes, and controls are managed
+from a central point.
 
 **Key Characteristics:**
 
 1. **Single Point of Control:** One central authority manages the system.
 2. **Data Centralization:** All data is stored in a central database.
-3. **Ease of Management:** Centralized systems are easier to manage because there is a single point of control.
-4. **Efficiency:** Centralized systems can be more efficient in decision-making and resource allocation since decisions are made by a central authority.
-5. **Security Risks:** If the central point is compromised, the entire system can be affected.
-6. **Scalability Issues:** Centralized systems can face challenges in scaling up as the central node can become a bottleneck.
-7. **Vulnerability to Failures:** Centralized systems are vulnerable to single points of failure, meaning if the central node fails, the entire system can be disrupted.
+3. **Ease of Management:** Centralized systems are easier to manage because there is
+   a single point of control.
+4. **Efficiency:** Centralized systems can be more efficient in decision-making and
+   resource allocation since decisions are made by a central authority.
+5. **Security Risks:** If the central point is compromised, the entire system can be
+   affected.
+6. **Scalability Issues:** Centralized systems can face challenges in scaling up as
+   the central node can become a bottleneck.
+7. **Vulnerability to Failures:** Centralized systems are vulnerable to single
+   points of failure, meaning if the central node fails, the entire system can be
+   disrupted.
 
-**Examples:** Traditional banking systems, social media platforms like Facebook and Twitter, and centralized cloud services like AWS and Google Cloud.
+**Examples:** Traditional banking systems, social media platforms like Facebook and
+Twitter, and centralized cloud services like AWS and Google Cloud.
 
 Comparison: Centralized Systems vs Decentralized
 
@@ -129,17 +143,22 @@ Comparison: Centralized Systems vs Decentralized
 
 ## Coin
 
-A coin, in cryptocurrency terminology, refers to the primary or native digital asset of a specific blockchain network. It serves as the foundational currency within that ecosystem, often used for transaction fees, rewards, and network operations.
-Coins are distinct from tokens, which are typically built on top of existing blockchain platforms.
+A coin, in cryptocurrency terminology, refers to the primary or native digital asset
+of a specific blockchain network. It serves as the foundational currency within that
+ecosystem, often used for transaction fees, rewards, and network operations. Coins
+are distinct from tokens, which are typically built on top of existing blockchain
+platforms.
 
 ## Cross-Chain
 
-A system designed to enable communication and asset transfers between different blockchain networks,
-allowing for a more connected and efficient blockchain ecosystem.
+A system designed to enable communication and asset transfers between different
+blockchain networks, allowing for a more connected and efficient blockchain
+ecosystem.
 
 ## Cryptocurrency
 
-Cryptocurrencies are digital or virtual currencies that operate on decentralized networks, typically using blockchain technology. Key features include:
+Cryptocurrencies are digital or virtual currencies that operate on decentralized
+networks, typically using blockchain technology. Key features include:
 
 1. Decentralization: No central authority controls or regulates them.
 2. Cryptography: Used to secure transactions and control the creation of new units.
@@ -157,16 +176,21 @@ for a business trip. Or a travel agency buying a ticket for a family holiday tri
 
 ## DApp (Decentralized Application)
 
-A DApp is a software application that operates on a distributed computing system, typically a blockchain network. Key characteristics include:
+A DApp is a software application that operates on a distributed computing system,
+typically a blockchain network. Key characteristics include:
 
-1. Decentralization: Runs on a peer-to-peer network of computers rather than a single centralized server.
+1. Decentralization: Runs on a peer-to-peer network of computers rather than a
+   single centralized server.
 2. Open-source: Usually has its entire codebase available for scrutiny.
-3. Blockchain integration: Utilizes a blockchain for data storage and smart contract execution.
-4. Cryptographic tokens: Often uses cryptocurrency tokens for access or functionality.
+3. Blockchain integration: Utilizes a blockchain for data storage and smart contract
+   execution.
+4. Cryptographic tokens: Often uses cryptocurrency tokens for access or
+   functionality.
 5. Consensus mechanism: Relies on network consensus to validate operations.
 6. Autonomy: Can operate without human intervention, guided by smart contracts.
 
-DApps aim to enhance transparency, reduce single points of failure, and minimize censorship risks compared to traditional centralized applications.
+DApps aim to enhance transparency, reduce single points of failure, and minimize
+censorship risks compared to traditional centralized applications.
 
 ## Decentralized
 
@@ -177,15 +201,17 @@ central authority or system
 ## Decentralized Autonomous Consortium
 
 Consortium in which all members participate in decision-making because there is no
-central governing body and whose members share a common goal of acting in the
-best interest of the Consortium. The Camino Consortium is a heterogeneous group of companies
-that might disagree or have different approaches in minor or major matters.
-Camino offers tools to solve disputes and reach a consensus on general topics.
+central governing body and whose members share a common goal of acting in the best
+interest of the Consortium. The Camino Consortium is a heterogeneous group of
+companies that might disagree or have different approaches in minor or major
+matters. Camino offers tools to solve disputes and reach a consensus on general
+topics.
 
 ## Deposit
 
-The act of transferring cryptocurrency or tokens from a personal wallet to a smart contract,
-exchange, or other platforms for various purposes such as staking, lending, or trading.
+The act of transferring cryptocurrency or tokens from a personal wallet to a smart
+contract, exchange, or other platforms for various purposes such as staking,
+lending, or trading.
 
 ## Digital Asset
 
@@ -229,7 +255,9 @@ In blockchain contexts, this is often used for "unsigned transactions", which co
 - The intended action (what shall be done)
 - The digital signature
 
-The signature verifies that the transaction is as intended by the sender and identifies the sender, allowing the network to execute the transaction in the context of the sender's account.
+The signature verifies that the transaction is as intended by the sender and
+identifies the sender, allowing the network to execute the transaction in the
+context of the sender's account.
 
 ## Dispute
 
@@ -248,13 +276,17 @@ key(s).
 
 ## ERC-20 Token
 
-**ERC-20** represents a standard for fungible tokens on Ethereum. Contracts that represent an ERC-20 token must implement specified functionality that allows for uniform usage/behavior of these tokens.
-For more info: [ERC-20 Token Standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)
+**ERC-20** represents a standard for fungible tokens on Ethereum. Contracts that
+represent an ERC-20 token must implement specified functionality that allows for
+uniform usage/behavior of these tokens. For more info: [ERC-20 Token
+Standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)
 
 ## ERC-721 Token
 
-**ERC-721** represents a standard for non-fungible tokens (NFTs) on Ethereum. Contracts that represent an ERC-721 token must implement specified functionality that allows for uniform usage/behavior of these tokens.
-For more info: [ERC-721 Token Standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/)
+**ERC-721** represents a standard for non-fungible tokens (NFTs) on Ethereum.
+Contracts that represent an ERC-721 token must implement specified functionality
+that allows for uniform usage/behavior of these tokens. For more info: [ERC-721
+Token Standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/)
 
 ## Ethereum Virtual Machine
 
@@ -268,18 +300,23 @@ Ethereum can run on the C-Chain.
 
 ## Externally Owned Account
 
-Externally owned account (EOA), is a regular address that has a [private key](#private-key). In EVM
-based chains, an address may be a smart contract, which is not an EOA because it
-doesn't have a private key, meaning smart contracts can not sign things. You need a
-private key to sign things, hence the distinction between accounts.
+Externally owned account (EOA), is a regular address that has a [private
+key](#private-key). In EVM based chains, an address may be a smart contract, which
+is not an EOA because it doesn't have a private key, meaning smart contracts can not
+sign things. You need a private key to sign things, hence the distinction between
+accounts.
 
 ## Fiat Currency
 
-Fiat currency is a government-issued currency that is not backed by a physical commodity like gold or silver. Examples of fiat currencies include the US Dollar, Canadian Dollar, and Euro. The value of fiat currency is derived from the trust and confidence that people have in the government that issues it.
+Fiat currency is a government-issued currency that is not backed by a physical
+commodity like gold or silver. Examples of fiat currencies include the US Dollar,
+Canadian Dollar, and Euro. The value of fiat currency is derived from the trust and
+confidence that people have in the government that issues it.
 
 ## Fungible
 
-**Fungible** refers to the ability to replace or to be replaced by another identical item. ERC-20 tokens are fungible tokens.
+**Fungible** refers to the ability to replace or to be replaced by another identical
+item. ERC-20 tokens are fungible tokens.
 
 ## Gas
 
@@ -336,8 +373,9 @@ often involving solving complex mathematical problems.
 
 _(also called multisig)_
 
-A concept of allowing the transaction to require to have one or more signatures before it can be executed.
-Multisig provides more security than single-signature transactions.
+A concept of allowing the transaction to require to have one or more signatures
+before it can be executed. Multisig provides more security than single-signature
+transactions.
 
 ## NDC
 
@@ -355,7 +393,9 @@ by relaying transactions and maintaining a copy of the blockchain.
 
 ## Non-Fungible
 
-**Non-Fungible** refers to something that is unique and cannot be replaced. Non-Fungible tokens (NFTs) are unique tokens that cannot be interchanged and all have their own unique id.
+**Non-Fungible** refers to something that is unique and cannot be replaced.
+Non-Fungible tokens (NFTs) are unique tokens that cannot be interchanged and all
+have their own unique id.
 
 ## Off chain data
 
@@ -425,10 +465,11 @@ It is used by Camino Messenger Protocol.
 
 ## Private Key
 
-A private key in the context of cryptocurrency is a confidential, unique, alphanumeric code that
-enables the holder to access and manage their digital assets. It functions as a password,
-allowing the owner to sign (authorize) transactions and prove ownership of the associated wallet address (EOA).
-A private key must be kept secure and confidential.
+A private key in the context of cryptocurrency is a confidential, unique,
+alphanumeric code that enables the holder to access and manage their digital assets.
+It functions as a password, allowing the owner to sign (authorize) transactions and
+prove ownership of the associated wallet address (EOA). A private key must be kept
+secure and confidential.
 
 ## Protocol
 
@@ -442,7 +483,12 @@ Synonym for [Supplier](#supplier). Only "supplier" shall be used
 
 ## Public Key
 
-A blockchain account's **public key** is derived from its [private key](#private-key) and is used to generate the account's identifier, known as an "address". The public key is extractable from signatures and can be used as an identifier and to encrypt data, which can only be decrypted by the corresponding private key. Nodes on the network can verify that transactions were properly signed using the associated private key by checking them against the account's public key.
+A blockchain account's **public key** is derived from its [private
+key](#private-key) and is used to generate the account's identifier, known as an
+"address". The public key is extractable from signatures and can be used as an
+identifier and to encrypt data, which can only be decrypted by the corresponding
+private key. Nodes on the network can verify that transactions were properly signed
+using the associated private key by checking them against the account's public key.
 
 ## Search
 
@@ -453,12 +499,15 @@ such as flights, hotels, car rentals or vacation packages
 
 _(also mnemonic key phrase, mnemonic seed phrase, or mnemonic)_
 
-Serves as a human-readable representation of an associated cryptographic key or seed. In the case of the Camino Network,
-key phrases consist of a specific sequence of 24 words carefully selected from a predefined word list.
+Serves as a human-readable representation of an associated cryptographic key or
+seed. In the case of the Camino Network, key phrases consist of a specific sequence
+of 24 words carefully selected from a predefined word list.
 
-The purpose of a key phrase is to simplify the process of backing up, storing, and recovering cryptographic keys.
-It offers a user-friendly and easily understandable approach to interact with and secure cryptographic systems.
-This accessibility empowers individuals to effectively manage their keys and retain control over their digital assets.
+The purpose of a key phrase is to simplify the process of backing up, storing, and
+recovering cryptographic keys. It offers a user-friendly and easily understandable
+approach to interact with and secure cryptographic systems. This accessibility
+empowers individuals to effectively manage their keys and retain control over their
+digital assets.
 
 ## Settlement
 
@@ -469,7 +518,8 @@ transfer of funds from the buyer to the seller
 
 A smart contract is a self-executing digital agreement with the terms directly
 written into code, which automatically enforces and executes actions on a blockchain
-when predefined conditions are met. See: [Wikipedia:Smart Contract](https://en.wikipedia.org/wiki/Smart_contract)
+when predefined conditions are met. See: [Wikipedia:Smart
+Contract](https://en.wikipedia.org/wiki/Smart_contract)
 
 ## Stable coin
 
@@ -494,8 +544,8 @@ action like a builder or a validator
 ## Transaction
 
 A transaction in blockchains is a secure, verified, and transparent transfer of
-digital assets or information, including interactions with [smart contracts](#smart-contract), recorded
-on a decentralized digital ledger.
+digital assets or information, including interactions with [smart
+contracts](#smart-contract), recorded on a decentralized digital ledger.
 
 ## Travel Agency
 
@@ -514,7 +564,8 @@ types of entities like persons, companies or persons acting on behalf of a compa
 
 ## Token
 
-A **token** is a digital asset that exists on a blockchain network and is created and managed by a smart contract.
+A **token** is a digital asset that exists on a blockchain network and is created
+and managed by a smart contract.
 
 ## Tour Operator
 
@@ -573,9 +624,9 @@ Unlike a physical wallet which holds physical assets, in the blockchain space a
 wallet is just an application to be able to interact with the address on the
 blockchain which holds the assets.
 
-Using a [seed phrase](#seed-phrase) or [private key](#private-key), one is able to locally create and sign
-transactions for a particular address or set of addresses before its sent to a
-blockchain to be executed.
+Using a [seed phrase](#seed-phrase) or [private key](#private-key), one is able to
+locally create and sign transactions for a particular address or set of addresses
+before its sent to a blockchain to be executed.
 
 Usually a wallet also has some convenience functionality to see the tokens (funds,
 digital assets, collections) in possession and interact with them.
