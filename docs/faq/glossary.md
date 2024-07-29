@@ -25,7 +25,7 @@ words, all closely meaning the same thing, and causing confusion.
 | MSIG    | [Multi-Signature](#multisignature)                                          |
 | OTA     | [Online Travel Agency](#ota)                                                |
 | PK      | [Private Key](#private-key)                                                 |
-| CS      | [Smart Contract](#smart-contract)                                           |
+| SC      | [Smart Contract](#smart-contract)                                           |
 | TA      | [Travel Agency](#travel-agency)                                             |
 | TO      | [Tour Operator](#tour-operator)                                             |
 | TX, TXN | [Transaction](#transaction)                                                 |
