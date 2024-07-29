@@ -60,7 +60,7 @@ implementation that is developed and managed by C4T.
 
 ## Builder
 
-Partner building dApps or an integration with the Camino Network.
+Partner building dApps or an integration with Camino Network.
 
 ## Camino Messenger
 
@@ -266,7 +266,7 @@ regarding a transaction or a series of transactions.
 
 ## Distributor
 
-An entity in the [Camino Network](#camino-network) engaged in the distribution of
+An entity in [Camino Network](#camino-network) engaged in the distribution of
 travel products or services from suppliers.
 
 ## Encryption
@@ -498,7 +498,7 @@ such as flights, hotels, car rentals or vacation packages
 _(also mnemonic key phrase, mnemonic seed phrase, or mnemonic)_
 
 Serves as a human-readable representation of an associated cryptographic key or
-seed. In the case of the Camino Network, key phrases consist of a specific sequence
+seed. In the case of Camino Network, key phrases consist of a specific sequence
 of 24 words, carefully selected from a predefined word list.
 
 The purpose of a key phrase is to simplify the process of backing up, storing, and
@@ -531,12 +531,12 @@ heavily in the [CMP](#camino-messenger-protocol)
 
 ## Supplier
 
-An entity in the Camino Network engaged in the supply of travel products or services
+An entity in Camino Network engaged in the supply of travel products or services
 to distributors or customers
 
 ## Supporter
 
-Partner supporting the Camino Network initiative but not (yet) undertaking concrete
+Partner supporting Camino Network initiative but not (yet) undertaking concrete
 action like a builder or a validator
 
 ## Transaction
@@ -556,7 +556,7 @@ can visit in person to plan and book their trips.
 
 ## (Travel) Entity
 
-Widely used term in the Camino Network which describes a travel related entity
+Widely used term in Camino Network which describes a travel related entity
 acting on the network. This term has been established as there can be different
 types of entities like persons, companies or persons acting on behalf of a company.
 
