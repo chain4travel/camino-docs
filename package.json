@@ -26,7 +26,7 @@
     "@babel/runtime": "^7.23.5",
     "@docusaurus/core": "3.1.1",
     "@docusaurus/preset-classic": "3.1.1",
-    "@docusaurus/theme-classic": "3.1.1",
+    "@docusaurus/theme-classic": "3.5.2",
     "@docusaurus/theme-common": "3.1.1",
     "@docusaurus/theme-mermaid": "^3.1.1",
     "@mdx-js/react": "^3.0.0",
