@@ -55,8 +55,8 @@ const config = {
       image: 'img/Camino-Image.png?force-reload-1',
       metadata: [
         {name: 'twitter:card', content: 'summary_large_image'},
-        {name: 'twitter:description', content: 'Camino is the first blockchain focussing on touristic market.'},
-        {name: 'twitter:title', content:'Documentation and Tutorials for Camino'}
+        {name: 'twitter:description', content: 'Access the complete Camino Network documentation for developers: setup, smart contracts, nodes, CAM token, Camino Messenger, and more. Start building today!'},
+        {name: 'twitter:title', content:'Camino Network Documentation | Comprehensive Guide for Developers'}
       ],
       zoom: {
         selector: '.markdown :not(em) > img, img.zoom',
