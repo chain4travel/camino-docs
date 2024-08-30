@@ -72,7 +72,7 @@ Partner configuration can be managed via the Camino Partner Configurator, which 
 
 - Supported Services (full package name including the version, rack-rate flag, fee, capabilities) -- for suppliers to specify which services they support, whether they have a rack-rate or public rate that any Camino Partner can book without prior agreement, what fee they charge to respond to (search) messages and to specify particularities of their integration in capabilities.
 - Wanted Services (full package name including the version) -- for distributors to specify which services they support and search for when matching with others
-- Payment info (supported currencies: Off-Chain, CAM, stable coins)
+- Payment info (supported currencies: Off-Chain, CAM, ERC20 tokens, stable coins)
 - Public-Keys for encrypting the private data of the booking tokens
 
 Two messages have been made available to enable automatic detection of changed partners, their settings and fees:
