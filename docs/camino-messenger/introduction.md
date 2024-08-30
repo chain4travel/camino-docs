@@ -8,13 +8,7 @@ description: Camino Messenger Introduction
 
 :::info DRAFT DOCUMENTATION NOTICE
 
-Please be aware that this document is currently a draft and is undergoing active development. Content, guidelines, and instructions may be subject to change.
-
-:::
-
-:::caution 🚧 ALPHA CODE NOTICE 🚧
-
-This protocol definition is in the alpha phase of development. It is important to note that during this stage, breaking changes may occur without advance notice. Users should proceed with caution.
+Although we released our first productive Message Types version, it is still early days and partners make substantial and frequent contributions to the Camino Message Types. Please be aware that this document is still a draft and is undergoing active development. Content, guidelines, and instructions may be subject to change.
 
 :::
 
@@ -74,7 +68,14 @@ Just like any API end-point from the web2 era, you can check the availability of
 
 #### Partners, Supplier Fee and Network Fee
 
-Partner configuration can be managed via the Camino Partner Configurator, which will form part of the Camino Application Suite. Two messages have been made available to enable automatic detection of changed partners, their settings and fees:
+Partner configuration can be managed via the Camino Partner Configurator, which will form part of the Camino Application Suite. The Partner Config stores into a smart contract CM Account:
+
+- Supported Services (full package name including the version, rack-rate flag, fee, capabilities) -- for suppliers to specify which services they support, whether they have a rack-rate or public rate that any Camino Partner can book without prior agreement, what fee they charge to respond to (search) messages and to specify particularities of their integration in capabilities.
+- Wanted Services (full package name including the version) -- for distributors to specify which services they support and search for when matching with others
+- Payment info (supported currencies: Off-Chain, CAM, ERC20 tokens, stable coins)
+- Public-Keys for encrypting the private data of the booking tokens
+
+Two messages have been made available to enable automatic detection of changed partners, their settings and fees:
 
 1. Partner Request gives you all active Camino Network Partners that are selling their products and services. It specifies the messages they support, the Supplier Fee for each message to be paid (if any) and whether the partner support on-chain payment, off-chain payment or both.
 2. The Network Fee Request gives you the cost of a Message to the Camino Network for operating the Camino Messenger Servers. This fee goes towards the Partners operating a Messenger Server.
@@ -214,9 +215,11 @@ Adding additional validation logic in our application code or parsers can help e
 
 In the Camino Messenger Protocol, there is no static data inclusion in any of the Search, Validate and Mint request/response messages to keep these messages as small and as efficient as possible. Static data can be pulled and kept up-to-date at the distributor side for mapping, product selection and descriptive content, but also to enrich search responses where required. Through an external schedule, suppliers can be requested for the list of new, changed and discontinued products on a daily or hourly basis, so that the details of these can be updated with the ProductDetails service in order to avoid the static data cache to lag behind. Front-ends and websites can complete the price and availability received in real-time with static data, descriptions, images, etc from this static data cache to keep the search response messages as small as possible.
 
+Together with the use of the serialized protobuf message format, the removal of static data from the realtime messages, will result to at least 50% less traffic, which has a substantial positive impact on the performance of your applications and traffic/rendering expenses.
+
 ## Versioning and Releases
 
-The `v1alpha` version first release was done on 18 January 2023. Feedback and reviews with Camino Network Partners are leading to improvements of Message Types. A partner working with a specific Message Type to implement a connection to their system discovers errors or finds a concept is missing in the Camino MessageType. Conclusively one Message Type can be mature and and have only non-breaking improvements, while another Message Type is actively being developed. While "Accommodation" might be in a productive `v1`, we might have "Car Rental" in a `v2beta`. As all message formats are released together, we simply have numeric releases that contain updates on one or more messages from one or more feature branches and PRs.
+The `v1alpha` version first release was done on 18 January 2023. Feedback and reviews with Camino Network Partners lead to improvements of Message Types and the release of the first productive version "v1". A partner working with a specific Message Type to implement a connection to their system discovers errors or finds a concept is missing in the Camino MessageType. Through our Discord Messenger Protocol channel suggestions can be made and if adopted deployed with a new Message Type release. Conclusively one Message Type can be mature and and have only non-breaking improvements, while another Message Type is actively being developed. While "Accommodation" might be in a productive `v1`, we might have "Car Rental" in a `v2beta`, actively working with one or more partners to establish a productive `v2` for "Car Rental". As all message formats are released together, we simply have numeric releases that contain updates on one or more messages from one or more feature branches and PRs.
 
 ### Bot Version
 
@@ -238,9 +241,9 @@ Example: Partners A and B can still be trading on protocol version 4 (for exampl
 
 ### Service Versions
 
-The version of each Message Type, referred to as _"service versions"_, is specified in the package name, with the last folder in the protobuf package name file structure indicating the version (e.g., `cmp/services/accommodation/v1alpha`). You can check out these package names on [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/docs).
+The version of each Message Type, referred to as _"service versions"_, is specified in the package name, with the last folder in the protobuf package name file structure indicating the version (e.g., `cmp/services/accommodation/v1`). You can check out these package names on [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/docs).
 
-To define the supported capabilities for the partner configuration, we use the entire package name to refer to a service as a capability. For example: `cmp.services.accommodation.v1alpha.AccommodationSearchService`.
+To define the supported capabilities for the partner configuration, we use the entire package name to refer to a service as a capability. For example: `cmp.services.accommodation.v1.AccommodationSearchService`.
 
 In one protocol release, each message type will be on its own service version. If many partners are actively collaborating on the Accommodation Service, this will lead to more updates for this message type then for others. We have decided to step away from semantic versioning and consider all changes in the protocol as breaking changes.
 
@@ -279,20 +282,21 @@ For most of the products and services there will also be downloadable static dat
 See above details in Message Type Standard for more generic details or at the introduction of each Message Type, where we go into more detail of this specific message.
 
 - **ping**: A simple utility Message Type, essential for health checks and service availability confirmations.
-- **partners**: discovery of all partners trading on the Camino Network
+- **partners**: discovery of all partners trading on the Camino Network.
 - **network_fee**: Contains specifications related to network transaction fees.
-- **product_list**: List of products or services available from a supplier for every product type
-- **product_info**: Description of products or services available from a supplier for every product type
+- **product_list**: List of products or services available from a supplier for every product type.
+- **product_info**: Description of products or services available from a supplier for every product type.
 - **accommodation**: Defines the Message Type for Accommodations like hotels and holiday homes.
 - **transport**: Defines the Message Type for Flights, Rail and Transfer.
-- **activity**: for Tickets & Excursions
-- **cruise**: Cruise (not started)
-- **vehicle**: Rent a bicycle, motorbike, car or camper (not started)
-- **insurance**: Insurances (not started)
-- **camping**: Camping (not started)
-- **package**: Packages, inherent format consisting of the above structures for the services/products included in the package
-- **flight_status**: Flight status information
-- **entry_destination**: Entry requirements & Destination information
+- **activity**: for Tickets & Excursions.
+- **seatmap**: a message to identify the lay-out of planes, trains, venues etc. to be able to provide availability and pricing for specific seats.
+- **info**: A group of messages to obtain travel information. The first message is Entry Requirements & Destination Information.
+- **insurance**: A set of messages to sell insurances and claim damages in a uniform manner.
+- **cruise**: Cruise (not started).
+- **vehicle**: Rent a bicycle, motorbike, car or camper (not started).
+- **insurance**: Insurances (not started).
+- **camping**: Camping (not started).
+- **package**: Packages, inherent format consisting of the above structures for the services/products included in the package (not started).
 
 ## Nested Messages - Data Types
 
@@ -315,25 +319,28 @@ Whether you are integrating the Camino Message Types into your platform, extendi
 
 Camino Messenger Protocol is published on [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/docs/dev). You can find below direct links to different packages in the Camino Messenger Protocol definition.
 
-:::info EARLY DRAFT OF PROTOCOL DEFINITION
+:::info NEXT STEPS
 
-The links provided below offer access to the preliminary draft of the protocol definition for Camino Messenger.
-This early version is made available for review and feedback as part of our transparent development process.
+The links provided below offer access to the protocol definition for Camino Messenger.
+Your review and feedback as part of our transparent development process is a fundamental part of our joint effort to create the best standard for the travel industry, created, maintained and supported by the travel industry. Your feedback is always welcome and appreciated.
 
 So after going through the technical documentation, ask (if any) questions or provide feedback on [Discord](https://discord.gg/camino). Install and tune the [gRPC SDK](https://buf.build/chain4travel/camino-messenger-protocol/sdks/main) to map the messages for onboarding, searching, and validating offers.
 
 :::
 
-|          Package          |                                                            Documentation Link                                                            |                                                                  Github Link                                                                   |
-| :-----------------------: | :--------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: |
-| Main Module Documentation |                       [Main API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main)                       |                              [Main Github Repository](https://github.com/chain4travel/camino-messenger-protocol)                               |
-|   Accommodation Service   | [Accommodation API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.accommodation.v1alpha) | [Accommodation Github Repository](https://github.com/chain4travel/camino-messenger-protocol/tree/c4t/proto/cmp/services/accommodation/v1alpha) |
-|     Activity Service      |      [Activity API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.activity.v1alpha)      |         [Activity Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.activity.v1alpha)         |
-|      Network Service      |       [Network API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.network.v1alpha)       |          [Network Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.network.v1alpha)          |
-|      Partner Service      |       [Partner API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.partner.v1alpha)       |          [Partner Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.partner.v1alpha)          |
-|       Ping Service        |          [Ping API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.ping.v1alpha)          |             [Ping Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.ping.v1alpha)             |
-|     Transport Service     |     [Transport API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.transport.v1alpha)     |        [Transport Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.transport.v1alpha)        |
-|  Nested Messages (types)  |          [Nested Messages Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.types.v1alpha)           |           [Nested Messages Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.types.v1alpha)            |
+|          Package          |                                                         Documentation Link                                                          |                                                                Github Link                                                                |
+| :-----------------------: | :---------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------: |
+| Main Module Documentation |                    [Main API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main)                     |                            [Main Github Repository](https://github.com/chain4travel/camino-messenger-protocol)                            |
+|   Accommodation Service   | [Accommodation API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.accommodation.v1) | [Accommodation Github Repository](https://github.com/chain4travel/camino-messenger-protocol/tree/c4t/proto/cmp/services/accommodation/v1) |
+|     Activity Service      |      [Activity API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.activity.v1)      |         [Activity Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.activity.v1)         |
+|       Book Service        |          [Book API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.book.v1)          |             [Book Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.book.v1)             |
+|       Info Service        |          [Info API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.info.v1)          |             [Info Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.info.v1)             |
+|      Network Service      |       [Network API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.network.v1)       |          [Network Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.network.v1)          |
+|      Partner Service      |       [Partner API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.partner.v1)       |          [Partner Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.partner.v1)          |
+|       Ping Service        |          [Ping API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.ping.v1)          |             [Ping Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.ping.v1)             |
+|      SeatMap Service      |      [SeatMap API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.seat_map.v1)       |         [SeatMap Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.seat_map.v1)          |
+|     Transport Service     |     [Transport API Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.transport.v1)     |        [Transport Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.services.transport.v1)        |
+|  Nested Messages (types)  |          [Nested Messages Documentation](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.types.v1)           |           [Nested Messages Github Repository](https://buf.build/chain4travel/camino-messenger-protocol/docs/main:cmp.types.v1)            |
 
 ## Branches
 
