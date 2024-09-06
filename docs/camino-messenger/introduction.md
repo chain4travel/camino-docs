@@ -20,6 +20,12 @@ An overview can be found at the [Camino Network](https://camino.network/) websit
 
 The Camino Messenger protocol is created together with Partners from each vertical (flights, hotels, holiday homes, transfers, car rental, cruise,..). The objective is to create a message standard for the Camino Messenger, that is considered simple, efficient, complete, robust and easy to integrate by all partners. And conclusively it will delightfully be implemented and used by partners. As all other Camino Network components, the Camino Messenger Protocol is open source. Free to be used anywhere, but of course targeted to be used with the Camino Messenger.
 
+The Camino Messenger is a client server solution to relay messages between Distribution and Supply partners. Just like WhatsApp, partners are required to install a client in their environment, which we call the messenger Bot.
+
+Partners are required to build a connection between the Bot and their distribution or inventory system. We call that the Partner Plugin. An example implementation is provided in our github for Go and Java. SDKs are provided one our [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/sdks) page, where the right libraries/plugins can be downloaded for your language and tools.
+
+At the booking step, the Bot abstracts all the blockchain interaction. Once partners have exchanged available products, price and availability and a specific choice has been made through the messenger and secured in the inventory of the supply partner, the Supplier Bot mints a Booking Token and the Distributor Bot buys the Booking Token. For more details see the paragraphs below.
+
 Please do not hesitate to communicate your observations on this documentation like uncertainties, mistakes or missing explanations, so that we can continuously improve this documentation. Everybody can also participate in official Message Type reviews to help improve the message format. There is a Messenger Protocol review channel in our [Discord Server](https://discord.gg/camino). The network partners decide through voting on proposed changes.
 
 ## Messenger
@@ -30,7 +36,7 @@ Not all interactions between a Supplier and a Distributor require to be stored f
 
 When the travel product has been booked by a distributor, we want to transact on-chain to have a single point of truth of the service booked and the price paid.
 
-It would not make sense to only transact the booking on the blockchain and maintain the current chaos of APIs for products, prices and availabilities. There is no uniformity and the cost of maintenance of at least 100 APIs for any mid-sized player in the travel industry has a serious impact on margins.
+It would not make sense to only transact the booking on the blockchain and maintain the current chaos of APIs for products, prices and availabilities. There is no uniformity and the cost of maintenance of at least 100 APIs for any mid-sized player in the travel industry has a substantial cost impact.
 
 The messenger brings one connection for all travel products, your B2B wallet is the single set of credentials you need for any connection and there is a Message Standard with sub messages that are only implemented once across every travel product, virtually creating one standard for any product. From discovery of suppliers and the products providers can offer, to the search for prices and availabilities and the booking, upselling and modification processes.
 
