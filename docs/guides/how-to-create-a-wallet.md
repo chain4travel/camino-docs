@@ -22,21 +22,21 @@ Confirm that the address in the address bar is: https://suite.camino.network/
 :::
 
 After verifying the website's authenticity, you will be greeted with a page similar
-to the one shown below. Click on the "Login" button located at the top right corner
-of the page to proceed with the wallet creation process.
+to the one shown below. Click on the "Go to Wallet" or the "Login" button located at
+the top right corner of the page to proceed with the wallet creation process.
 
 <figure>
 <img class="zoom" src="/img/create-wallet/0-suite-wallet.png"/>
-<figcaption align = "center"><b>Fig.1:</b> Click Login from top right</figcaption>
+<figcaption align = "center"><b>Fig.1:</b> Click on "Go to Wallet" or the "Login" from top right</figcaption>
 </figure>
 
 ## Create Wallet
 
-On the next page, click the **Crate A Wallet** button.
+On the next page, click the **Create A Wallet** button.
 
 <figure>
 <img class="zoom" src="/img/create-wallet/1-suite-wallet-login.png"/>
-<figcaption align = "center"><b>Fig.2:</b> Click Create A Wallet</figcaption>
+<figcaption align = "center"><b>Fig.2:</b> Click "Create A Wallet"</figcaption>
 </figure>
 
 ## Generate a Key Phrase
@@ -45,7 +45,7 @@ On the next page, click the **GENERATE KEY PHRASE** button to generate your wall
 
 <figure>
 <img class="zoom" src="/img/create-wallet/2-suite-wallet-create.png"/>
-<figcaption align = "center"><b>Fig.3:</b> Click GENERATE KEY PHRASE</figcaption>
+<figcaption align = "center"><b>Fig.3:</b> Click "Generate Key Phrase"</figcaption>
 </figure>
 
 ## Write Down Your Key Phrase
@@ -86,7 +86,7 @@ On the next page, click the **ACCESS WALLET** button to access your newly create
 
 <figure>
 <img class="zoom" src="/img/create-wallet/4-suite-wallet-wrote-down.png"/>
-<figcaption align = "center"><b>Fig.5:</b> Click the Access Wallet</figcaption>
+<figcaption align = "center"><b>Fig.5:</b> Click the "Access Wallet"</figcaption>
 </figure>
 
 ## Verify Your Key Phrase
@@ -117,27 +117,7 @@ Click on the "Access Wallet" button to access your Camino Wallet.
 
 <figure>
 <img class="zoom" src="/img/create-wallet/7-suite-wallet-verified.png"/>
-<figcaption align = "center"><b>Fig.8:</b> Click the Access Wallet</figcaption>
-</figure>
-
-## Switch to Wallet View
-
-Now that you are logged in with your newly created wallet, you can see your wallet
-address instead of the login button at the top right corner of the screen.
-
-To switch to the wallet view, click on the dropdown menu located at the top left
-corner of the screen.
-
-<figure>
-<img class="zoom" src="/img/create-wallet/8-suite-wallet-logged-in.png"/>
-<figcaption align = "center"><b>Fig.9:</b> Click dropdown from top left</figcaption>
-</figure>
-
-Then, from the dropdown menu, click on the "Wallet" option to access your Camino Wallet view.
-
-<figure>
-<img class="zoom" src="/img/create-wallet/9-suite-wallet-select-wallet.png"/>
-<figcaption align = "center"><b>Fig.10:</b> Click Wallet</figcaption>
+<figcaption align = "center"><b>Fig.8:</b> Click the "Access Wallet"</figcaption>
 </figure>
 
 ## Enjoy Your Wallet!
@@ -148,7 +128,7 @@ receiving funds on the Camino Network.
 Enjoy the benefits of secure and decentralized transactions with your new wallet.
 
 <figure>
-<img class="zoom" src="/img/create-wallet/10-suite-wallet-wallet-view.png"/>
+<img class="zoom" src="/img/create-wallet/8-suite-wallet-logged-in.png"/>
 <figcaption align = "center"><b>Fig.11:</b> Wallet View</figcaption>
 </figure>
 
