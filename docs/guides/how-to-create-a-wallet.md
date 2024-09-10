@@ -129,7 +129,7 @@ Enjoy the benefits of secure and decentralized transactions with your new wallet
 
 <figure>
 <img class="zoom" src="/img/create-wallet/8-suite-wallet-logged-in.png"/>
-<figcaption align = "center"><b>Fig.11:</b> Wallet View</figcaption>
+<figcaption align = "center"><b>Fig.9:</b> Wallet View</figcaption>
 </figure>
 
 :::tip Save Your Wallet
