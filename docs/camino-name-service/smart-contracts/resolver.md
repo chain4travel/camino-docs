@@ -7,16 +7,19 @@ description: The functionalities and structure of the CNS Resolver
 # Resolver
 
 ## Name Resolution
-The *Resolver* is a crucial component in the Camino Name Service (CNS) that handles the process of mapping human-readable domain names to their corresponding resources on the blockchain. 
+
+The _Resolver_ is a crucial component in the Camino Name Service (CNS) that handles the process of mapping human-readable domain names to their corresponding resources on the blockchain.
 This process is known as name resolution and is essential for translating domain names into addresses or other data types.
 
 ### Forward Resolution
-Forward Resolution is the process by which a domain name is translated into its corresponding blockchain address or resource. 
-This involves querying the *Resolver* associated with the domain, which returns the appropriate address or data linked to that name. 
+
+Forward Resolution is the process by which a domain name is translated into its corresponding blockchain address or resource.
+This involves querying the _Resolver_ associated with the domain, which returns the appropriate address or data linked to that name.
 
 <!-- MS2: Reverse Resolution -->
 
 ## Functions
+
 ```solidity
 // Returns if a wallet is authorized to be an operator for a domain
 function isApproved(string[] memory domain, address operator) external view returns (bool);
@@ -40,6 +43,7 @@ function setContentHash(string[] memory domain, bytes calldata data) external;
 ```
 
 ## Events
+
 ```solidity
 // Operator Approved Event
 event OperatorApproved(bytes32 indexed node, address indexed operator, bool approved);
@@ -52,8 +56,11 @@ event ContentHashSet(bytes32 indexed node, bytes data);
 ```
 
 ## Deployments
+
 ### Camino Mainnet
+
 `TBD`
 
 ### Columbus Test Network
+
 `0x6FD5BA2cD98D3E89E8912D7712e0C4ac9fD3fC2b`

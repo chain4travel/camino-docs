@@ -4,7 +4,8 @@ title: Registry
 description: The functionalities and structure of the CNS Registry
 ---
 
-# CNS Registry 
+# CNS Registry
+
 Its main functionalities include:
 
 - **Domain Ownership and Delegation:** It records domain ownership and allows owners to delegate control to others or smart contracts.
@@ -13,23 +14,26 @@ Its main functionalities include:
 
 ## Structure
 
-Given the hierarchical structure of CNS the parent domain always has authority over its children. 
+Given the hierarchical structure of CNS the parent domain always has authority over its children.
 
 The **root** is the starting point of CNS and responsible for controlling Top-Level Domains (TLDs).
 
-TLDs, like `.cam`, are managed (and owned) by [Registrar](./registrar.md) contracts. Domains, like `travel.cam`,  can be purchased with the *Registrar*. The purchasing conditions (price finding, payment type, registration time, etc.) can be set by each *Registrar* individually.
+TLDs, like `.cam`, are managed (and owned) by [Registrar](./registrar.md) contracts. Domains, like `travel.cam`, can be purchased with the _Registrar_. The purchasing conditions (price finding, payment type, registration time, etc.) can be set by each _Registrar_ individually.
 
-The owner of a domain, like `travel.cam` has the ability to register multiple subdomains, like `booking.travel.cam` by directly interacting with the *CNS Registry*. 
+The owner of a domain, like `travel.cam` has the ability to register multiple subdomains, like `booking.travel.cam` by directly interacting with the _CNS Registry_.
 
-Optionally the owner could also deploy their own *Registrar* for their domain and sell subdomains. 
+Optionally the owner could also deploy their own _Registrar_ for their domain and sell subdomains.
 
-An example use case could be setting up a *Registrar* contract for `ticket.travel.cam` on the Camino Netowrks' C-Chain and enabling customers to purchase tickets in form of sub-domains, e.g. `1.ticket.travel.cam`. These tickets could then be used to identify a customer and optionally could be populated with the necessary metadata for additional travel information.
+An example use case could be setting up a _Registrar_ contract for `ticket.travel.cam` on the Camino Netowrks' C-Chain and enabling customers to purchase tickets in form of sub-domains, e.g. `1.ticket.travel.cam`. These tickets could then be used to identify a customer and optionally could be populated with the necessary metadata for additional travel information.
 
 ## Deployments
+
 ### Camino Mainnet
+
 `TBD`
 
 ### Columbus Test Network
+
 `0xDc2BaEbA55f2Ba55c01a155003c432Bb871d4f75`
 
 ## Functions
