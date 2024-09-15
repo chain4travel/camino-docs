@@ -68,7 +68,7 @@ The public key of a wallet (can also be the public key of a multi-sig wallet) yo
 The public key can be used to derive C-,X-, and P-Chain addresses.
 
 ##### Content Hash
-Any information you want to store in bytes-form on-chain.
+A cryptographic fingerprint of data that ensures its integrity and allows decentralized storage systems like IPFS to retrieve the exact same data by referencing its unique hash.
 
 #### Expiration (Owner/Operator)
 Shows you when your domain will expire in the Registrar. 
@@ -86,7 +86,7 @@ This does not work for the subdomains.
 #### Roles (Owner)
 Here you can add or remove **Operators** and **Managers**.
 
-#### Settings (Owner)
+#### Settings (Owner/Operator)
 
 ##### TTL (in ms)
 This tells an off-chain client how often they need to query information associated with a domain.
