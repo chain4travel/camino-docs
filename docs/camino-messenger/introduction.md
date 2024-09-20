@@ -104,7 +104,7 @@ Each message, that means each request and each response, requires the network fe
 
 The Partner and Network messages will be made available to enable automatic detection of changed partners, their settings and fees.
 
-Figure 2: Camino Messenger Service Fee and Network Fee
+Figure 2: Service Fee and Network Fee
 
 ```mermaid
 flowchart LR
