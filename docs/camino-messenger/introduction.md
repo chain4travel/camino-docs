@@ -96,7 +96,7 @@ The following fees have to be paid to be able to exchange messages using the Cam
 
    The Network Fee goes towards the operators of the Messenger Server. Initially the fee is set to 0.01 CAM per message. The fee is the exact same on each server on the network and will be decided by the server operators through voting. The network fee is split between the operator (70%) and Chain4Travel (30% for further development). Instead of working with an anonymous messenger server, we encourage suppliers to host their own messenger server to earn the network fee themselves.
 
-Each message, that means each request and each response, requires the Network Fee. for example an OTA (distributor) sends a message request (0.01 CAM per message) to 10 Accommodation Suppliers. 7 send a respond message (each pay 0.01 CAM per message).
+Each message, that means each request and each response, requires the network fee. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.10 CAM (0.01 CAM per message). If seven of them send a response back, each will pay 0.01 CAM per message.
 
 2. Camino Messenger Service Fee
    The Service Fee is set by the supplier for each individual service. It is specified in CAM and can have any value including 0. It's purpose is an additional income stream, balancing out traffic/processing costs, replacement for booking fees or payment for providing information services. The Service Fee is split between the Supplier (70%) and Chain4Travel (30% for further development).
