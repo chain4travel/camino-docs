@@ -26,6 +26,8 @@ Partners are required to build a connection between the Bot and their distributi
 
 At the booking step, the Bot abstracts all the blockchain interaction. Once partners have exchanged available products, price and availability and a specific choice has been made through the messenger and secured in the inventory of the supply partner, the Supplier Bot mints a Booking Token and the Distributor Bot buys the Booking Token. For more details see the paragraphs below.
 
+In the Partner Showroom, each partner can configure the services offered or wanted. If desired a fee for a message can be configured by suppliers to be paid for information provision or to balance the cost of processing a large number of searches.
+
 Please do not hesitate to communicate your observations on this documentation like uncertainties, mistakes or missing explanations, so that we can continuously improve this documentation. Everybody can also participate in official Message Type reviews to help improve the message format. There is a Messenger Protocol review channel in our [Discord Server](https://discord.gg/camino). The network partners decide through voting on proposed changes.
 
 ## Messenger
@@ -49,7 +51,7 @@ The Camino Messenger is a decentralized network of messenger servers hosted by t
 <figcaption align = "center"><b>Fig.1:</b> Camino Messenger Technical Infrastructure</figcaption>
 </figure>
 
-#### Performance Indicators
+**Performance Indicators**
 
 In the gRPC metadata every hop and processing time is registered. There is a script to record this metadata of your requests and responses, which is gathered in a clear .csv format. This way you have full transparency of the performance of the Camino Messenger and your providers. More info on gRPC can be found [here](https://grpc.io/docs/what-is-grpc/introduction/).
 
@@ -72,39 +74,63 @@ A blockchain is product or service agnostic. Conclusively our strategy is to kee
 
 Just like any API end-point from the web2 era, you can check the availability of a supplier on the Camino network with a Ping Request
 
-#### Partners, Supplier Fee and Network Fee
+#### Partners
 
-Partner configuration can be managed via the Camino Partner Configurator, which will form part of the Camino Application Suite. The Partner Config stores into a smart contract CM Account:
+Partner configuration can be managed via the Camino Partner showroom, which forms part of the Camino Application Suite. The Partner Config stores into a smart contract CM Account (go-live end of September 2024).
+
+Partners create a Messenger Account through a wizard. Suppliers configure the services they offer and Distributors configure the services they want to obtain. The Messenger Bots can be registered so that Suppliers can identify the distributor requesting the services and personalize their offering. There is a matching service, where partners can easily search for suppliers offering a specific service, what message version(s) is/are supported. Suppliers can easily find Distributors that want their services and Distributors can easily find suppliers that provide the required services.
+
+In detail:
 
 - Supported Services (full package name including the version, rack-rate flag, fee, capabilities) -- for suppliers to specify which services they support, whether they have a rack-rate or public rate that any Camino Partner can book without prior agreement, what fee they charge to respond to (search) messages and to specify particularities of their integration in capabilities.
 - Wanted Services (full package name including the version) -- for distributors to specify which services they support and search for when matching with others
 - Payment info (supported currencies: Off-Chain, CAM, ERC20 tokens, stable coins)
 - Public-Keys for encrypting the private data of the booking tokens
+- Active Bots for identification
 
-Two messages have been made available to enable automatic detection of changed partners, their settings and fees:
+### Fees
 
-1. Partner Request gives you all active Camino Network Partners that are selling their products and services. It specifies the messages they support, the Supplier Fee for each message to be paid (if any) and whether the partner support on-chain payment, off-chain payment or both.
-2. The Network Fee Request gives you the cost of a Message to the Camino Network for operating the Camino Messenger Servers. This fee goes towards the Partners operating a Messenger Server.
+The following fees have to be paid to be able to exchange messages using the Camino Messenger:
 
-Because this information is stored on the blockchain, the changes since a certain date/time can be requested using a block-height parameter. This is required as not every node on the blockchain is updated at the exact same timestamp. Conclusively, if this information is used in the distribution system, store the block height of the last block you visited. Use the Partner Request to query the C-Chain for blocks that have a higher block height than the last block height you visited. The MessageType filters the transactions to only include those that interact with the ones defined in Partner Configuration. You filter for just the suppliers you are interested in. Process the transaction and update your application state accordingly. Finally update the last block height that you visited to the block height of the last block you processed. The same in case you store the NetworkFee externally.
+1. Camino Messenger Network Fee
 
-Figure 2: Supplier Fee and Network Fee
+   The Network Fee goes towards the operators of the Messenger Server. Initially the fee is set to 0.01 CAM per message. The fee is the exact same on each server on the network and will be decided by the server operators through voting. The network fee is split between the operator (70%) and Chain4Travel (30% for further development). Instead of working with an anonymous messenger server, we encourage suppliers to host their own messenger server to earn the network fee themselves.
+
+Each message, that means each request and each response, requires the network fee. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.10 CAM (0.01 CAM per message). If seven of them send a response back, each will pay 0.01 CAM per message.
+
+2. Camino Messenger Service Fee
+
+   The Service Fee is set by the supplier for each individual service. It is specified in CAM and can have any value including 0. It's purpose is an additional income stream, balancing out traffic/processing costs, replacement for booking fees or payment for providing information services. The Service Fee is split between the Supplier (70%) and Chain4Travel (30% for further development).
+
+The Partner and Network messages will be made available to enable automatic detection of changed partners, their settings and fees.
+
+Figure 2: Service Fee and Network Fee
 
 ```mermaid
 flowchart LR
     A[Camino Application Suite] -->|Will contain| B[Camino Partner Configurator]
     B -->|Stored on| C[C-Chain]
     C -.-> D[Partner Request]
-    D -->|Returns| H[SupplierFee]
+    D -->|Returns| H[ServiceFee]
     D -->|Returns| I[Payment Support]
     I -->|Allows| J[On-chain Payment]
     I -->|Allows| K[Off-chain Payment]
 
-    L[Network fee set by the Consortium]
+    L[Network fee set by the Operators]
     L -->|Stored on| C[C-Chain]
     C -.-> M[NetworkFee Message]
     M -->|Returns| N[NetworkFee]
 ```
+
+**Booking fee**
+When a booking is made, ahead of the Mint message one or more validate messages have been exchanged. The Network Fee is required for each, so for one cycle of validation and booking, the Distributor pays for 2 requests and the supplier for two responses. With the initial fee of 0.01 CAM par message a total of 0.04 CAM, 0.02 CAM each.
+
+The Supplier bot mints the booking token on-chain, which depends on the complexity of the operation and currently is around 0.1 CAM. The Distributor bot initiates a buy operation after the digital asset was checked if it represents the desired booking. This operation currently costs around 0.03 CAM.
+
+<figure>
+<img class="zoom" src="/img/messenger/total_booking_fees.png" alt="This image displays the total search and booking fees at a look to book of 800 searches to one booking"/>
+<figcaption align = "center">Fig.3: Total search and booking fees example at a look to book of 800 searches to one booking</figcaption>
+</figure>
 
 #### Onboarding
 
@@ -113,7 +139,7 @@ Any product or service that can be traded on the Camino Network requires an onbo
 1. ProductList Request: a Message Type to discover the products or services a supplier is offering with some basic information to decide to distribute the product or service or not and to map it to internal codes. It provides a LastModifiedTimestamp and a "deactivated" status.
 2. ProductDetails Request: download all the information related to the product or service being offered.
 
-Figure 3: Onboarding Workflow
+Figure 4: Onboarding Workflow
 
 ```mermaid
 graph TD
@@ -141,14 +167,14 @@ The stateful message flows only refers to a unique search_id and option_id from 
 
 <figure>
 <img class="zoom" src="/img/messenger/stateful_flow.png" alt="This image displays the Messenger Search, Validate and Mint workflow"/>
-<figcaption align = "center">Fig.4: Stateful message flow (RQ stands for request, RS stands for response)</figcaption>
+<figcaption align = "center">Fig.5: Stateful message flow (RQ stands for request, RS stands for response)</figcaption>
 </figure>
 
 1. Search: The first step is that a distribution partner submits a Search Request with a UUID search_id to one or more supply partners. The supply partners return a Search Response that includes a sequential option_id for each option. This represents all the possible products and options that can be bought.
 2. Check: to verify whether a search option is still available at the same price after some time has passed, the Validate Request refers to the search_id and option_id to be booked. The Validate Response returns a UUID validation_id, availability status and total price.
 3. Book: The Distributor submits a Mint Request that refers to the validation_id. After generating the booking in the Inventory System of the supplier and receiving a supplier reference, the messenger client creates a digital asset on the Camino blockchain and returns a digital_asset_id to the messenger client of the distributor. Which then initiates the transfer of funds to the supplier and the digital asset to the distributor in one transaction. If the transaction on chain fails or takes too long, an expiration time can be set, which triggers a roll-back of the booking in the suppliers inventory system.
 
-Figure 5: Workflow from Search to Validate and Mint messages
+Figure 6: Workflow from Search to Validate and Mint messages
 
 ```mermaid
 sequenceDiagram
@@ -166,7 +192,7 @@ sequenceDiagram
     Blockchain-->>-SupplyPartner: Transfer digital asset
 ```
 
-#### Retrieving, Modifying, and Cancelling a Booking
+#### Retrieving, Modifying, and Cancelling a Booking (pending implementation)
 
 After an initial booking is made, a number of events can happen in its lifecycle to full delivery of the service or product:
 
@@ -176,7 +202,7 @@ After an initial booking is made, a number of events can happen in its lifecycle
 3. **The BookingModification Request** allows for an already confirmed booking to be modified to alternative products or additional services or different dates, if they have previously been offered in a Search Request or Upselling Request.
 4. **The CancellationRequest:** is the standard procedure to cancel a product or service. As usual it includes a CancellationCheck Request to verify if cancellation is possible and what the cancellation cost would be.
 
-Figure 6: Upselling and Modification Workflow
+Figure 7: Upselling and Modification Workflow
 
 ```mermaid
 flowchart LR
@@ -267,7 +293,7 @@ Schematic representation of a version upgrade for a specific message type:
 
 <figure>
 <img class="zoom" src="/img/messenger/version_transition.excalidraw.svg" alt="This image displays the scenario to upgrade to a new Camino Message Type Version"/>
-<figcaption align="center"><b>Fig.7:</b> Version transition</figcaption>
+<figcaption align="center"><b>Fig.8:</b> Version transition</figcaption>
 </figure>
 
 ## Why Protobuf?
