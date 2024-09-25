@@ -94,9 +94,9 @@ The following fees have to be paid to be able to exchange messages using the Cam
 
 1. Camino Messenger Network Fee
 
-   The Network Fee goes towards the operators of the Messenger Server. Initially the fee is set to 0.01 CAM per message. The fee is the exact same on each server on the network and will be decided by the server operators through voting. The network fee is split between the operator (70%) and Chain4Travel (30% for further development). Instead of working with an anonymous messenger server, we encourage suppliers to host their own messenger server to earn the network fee themselves.
+   The Network Fee goes towards the operators of the Messenger Server. The initial fee per message has yet to be set by the opertors. The fee is the exact same on each server on the network and will be decided by the server operators through voting. The network fee is split between the operator (70%) and Chain4Travel (30% for further development). Instead of working with an anonymous messenger server, we encourage suppliers to host their own messenger server to earn the network fee themselves.
 
-Each message, that means each request and each response, requires the network fee. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.10 CAM (0.01 CAM per message). If seven of them send a response back, each will pay 0.01 CAM per message.
+Each message, that means each request and each response, requires the network fee. Let's use an imaginary fee of 0,01 CAM per message. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.10 CAM (0.01 CAM per message). If seven of them send a response back, each will pay 0.01 CAM per message.
 
 2. Camino Messenger Service Fee
 
@@ -123,13 +123,13 @@ flowchart LR
 ```
 
 **Booking fee**
-When a booking is made, ahead of the Mint message one or more validate messages have been exchanged. The Network Fee is required for each, so for one cycle of validation and booking, the Distributor pays for 2 requests and the supplier for two responses. With the initial fee of 0.01 CAM par message a total of 0.04 CAM, 0.02 CAM each.
+When a booking is made, ahead of the Mint message one or more validate messages have been exchanged. The Network Fee is required for each, so for one cycle of validation and booking, the Distributor pays for 2 requests and the supplier for two responses. With the imaginary fee of 0.01 CAM per message a total of 0.04 CAM, 0.02 CAM each.
 
 The Supplier bot mints the booking token on-chain, which depends on the complexity of the operation and currently is around 0.1 CAM. The Distributor bot initiates a buy operation after the digital asset was checked if it represents the desired booking. This operation currently costs around 0.03 CAM.
 
 <figure>
 <img class="zoom" src="/img/messenger/total_booking_fees.png" alt="This image displays the total search and booking fees at a look to book of 800 searches to one booking"/>
-<figcaption align = "center">Fig.3: Total search and booking fees example at a look to book of 800 searches to one booking</figcaption>
+<figcaption align = "center">Fig.3: Total search and booking fees idea at a look to book of 800 searches to one booking and a network fee of 0,01 CAM (tbc)</figcaption>
 </figure>
 
 #### Onboarding
