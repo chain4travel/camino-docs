@@ -96,7 +96,7 @@ The following fees have to be paid to be able to exchange messages using the Cam
 
    The Network Fee goes towards the operators of the Messenger Server. The initial fee per message has yet to be set by the opertors. The fee is the exact same on each server on the network and will be decided by the server operators through voting. The network fee is split between the operator (70%) and Chain4Travel (30% for further development). Instead of working with an anonymous messenger server, we encourage suppliers to host their own messenger server to earn the network fee themselves.
 
-Each message, that means each request and each response, requires the network fee. Let's use an imaginary fee of 0,01 CAM per message. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.10 CAM (0.01 CAM per message). If seven of them send a response back, each will pay 0.01 CAM per message.
+Each message, that means each request and each response, requires the network fee. Let's use an imaginary fee of 0.01 CAM per message. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.10 CAM (0.01 CAM per message). If seven of them send a response back, each will pay 0.01 CAM per message.
 
 2. Camino Messenger Service Fee
 
@@ -129,7 +129,7 @@ The Supplier bot mints the booking token on-chain, which depends on the complexi
 
 <figure>
 <img class="zoom" src="/img/messenger/total_booking_fees.png" alt="This image displays the total search and booking fees at a look to book of 800 searches to one booking"/>
-<figcaption align = "center">Fig.3: Total search and booking fees idea at a look to book of 800 searches to one booking and a network fee of 0,01 CAM (tbc)</figcaption>
+<figcaption align = "center">Fig.3: Total search and booking fees idea at a look to book of 800 searches to one booking and a network fee of 0.01 CAM (tbc)</figcaption>
 </figure>
 
 #### Onboarding
