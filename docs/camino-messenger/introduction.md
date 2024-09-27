@@ -76,7 +76,7 @@ Just like any API end-point from the web2 era, you can check the availability of
 
 #### Partners
 
-Partner configuration can be managed via the Camino Partner showroom, which forms part of the Camino Application Suite. The Partner Config stores into a smart contract CM Account (go-live end of September 2024).
+Partner configuration can be managed via the Camino Partner Showroom, which forms part of the Camino Application Suite. The Partner Config stores into a smart contract CM Account.
 
 Partners create a Messenger Account through a wizard. Suppliers configure the services they offer and Distributors configure the services they want to obtain. The Messenger Bots can be registered so that Suppliers can identify the distributor requesting the services and personalize their offering. There is a matching service, where partners can easily search for suppliers offering a specific service, what message version(s) is/are supported. Suppliers can easily find Distributors that want their services and Distributors can easily find suppliers that provide the required services.
 
@@ -94,9 +94,9 @@ The following fees have to be paid to be able to exchange messages using the Cam
 
 1. Camino Messenger Network Fee
 
-   The Network Fee goes towards the operators of the Messenger Server. The initial fee per message has yet to be set by the opertors. The fee is the exact same on each server on the network and will be decided by the server operators through voting. The network fee is split between the operator (70%) and Chain4Travel (30% for further development). Instead of working with an anonymous messenger server, we encourage suppliers to host their own messenger server to earn the network fee themselves.
+   The Network Fee goes towards the operators of the Messenger Server. The initial fee per message is 0.0003 CAM (which is currently 0.000045 CHF). The fee is the exact same on each server on the network and will be decided by the server operators through voting. The network fee is split between the operator (70%) and Chain4Travel (30% for further development). Instead of working with an anonymous messenger server, we encourage suppliers to host their own messenger server to earn the network fee themselves.
 
-Each message, that means each request and each response, requires the network fee. Let's use an imaginary fee of 0.01 CAM per message. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.10 CAM (0.01 CAM per message). If seven of them send a response back, each will pay 0.01 CAM per message.
+Each message, that means each request and each response, requires the network fee. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.003 CAM (0.0003 CAM per message). If seven of them send a response back, each will pay 0.0003 CAM per message.
 
 2. Camino Messenger Service Fee
 
@@ -108,7 +108,7 @@ Figure 2: Service Fee and Network Fee
 
 ```mermaid
 flowchart LR
-    A[Camino Application Suite] -->|Will contain| B[Camino Partner Configurator]
+    A[Camino Application Suite] -->|Contains| B[Camino Partner Showroom]
     B -->|Stored on| C[C-Chain]
     C -.-> D[Partner Request]
     D -->|Returns| H[ServiceFee]
@@ -123,13 +123,20 @@ flowchart LR
 ```
 
 **Booking fee**
-When a booking is made, ahead of the Mint message one or more validate messages have been exchanged. The Network Fee is required for each, so for one cycle of validation and booking, the Distributor pays for 2 requests and the supplier for two responses. With the imaginary fee of 0.01 CAM per message a total of 0.04 CAM, 0.02 CAM each.
+When a booking is made, ahead of the Mint message one or more validate messages have been exchanged. The Network Fee is required for each, so for one cycle of validation and booking, the Distributor pays for 2 requests and the supplier for two responses. With the 0.0003 CAM per message a total of 0.0012 CAM, 0.0006 CAM each.
 
 The Supplier bot mints the booking token on-chain, which depends on the complexity of the operation and currently is around 0.1 CAM. The Distributor bot initiates a buy operation after the digital asset was checked if it represents the desired booking. This operation currently costs around 0.03 CAM.
 
 <figure>
-<img class="zoom" src="/img/messenger/total_booking_fees.png" alt="This image displays the total search and booking fees at a look to book of 800 searches to one booking"/>
-<figcaption align = "center">Fig.3: Total search and booking fees idea at a look to book of 800 searches to one booking and a network fee of 0.01 CAM (tbc)</figcaption>
+<img class="zoom" src="/img/messenger/total_booking_fees_1K.png" alt="This image displays the total search and booking fees at a look to book of 1.000 searches to one booking"/>
+<figcaption align = "center">Fig.3: Total search and booking fees idea at a look to book of 1.000 searches to one booking</figcaption>
+</figure>
+
+In the following example we see an example of a partnership where more searches are required to create one booking. To compensate for the extra cost of processing, the supplier has set a Service Fee that is slightly higher, to compensate for internal costs. Setting such a Service does not impact partnerships with a healthy look to book ratio, but for less efficient partnerships, the incentive to optimize becomes important.
+
+<figure>
+<img class="zoom" src="/img/messenger/total_booking_fees_50K.png" alt="This image displays the total search and booking fees at a look to book of 50.000 searches to one booking"/>
+<figcaption align = "center">Fig.4: Total search and booking fees idea at a look to book of 50.000 searches to one booking</figcaption>
 </figure>
 
 #### Onboarding
@@ -139,7 +146,7 @@ Any product or service that can be traded on the Camino Network requires an onbo
 1. ProductList Request: a Message Type to discover the products or services a supplier is offering with some basic information to decide to distribute the product or service or not and to map it to internal codes. It provides a LastModifiedTimestamp and a "deactivated" status.
 2. ProductDetails Request: download all the information related to the product or service being offered.
 
-Figure 4: Onboarding Workflow
+Figure 5: Onboarding Workflow
 
 ```mermaid
 graph TD
@@ -167,14 +174,14 @@ The stateful message flows only refers to a unique search_id and option_id from 
 
 <figure>
 <img class="zoom" src="/img/messenger/stateful_flow.png" alt="This image displays the Messenger Search, Validate and Mint workflow"/>
-<figcaption align = "center">Fig.5: Stateful message flow (RQ stands for request, RS stands for response)</figcaption>
+<figcaption align = "center">Fig.6: Stateful message flow (RQ stands for request, RS stands for response)</figcaption>
 </figure>
 
 1. Search: The first step is that a distribution partner submits a Search Request with a UUID search_id to one or more supply partners. The supply partners return a Search Response that includes a sequential option_id for each option. This represents all the possible products and options that can be bought.
 2. Check: to verify whether a search option is still available at the same price after some time has passed, the Validate Request refers to the search_id and option_id to be booked. The Validate Response returns a UUID validation_id, availability status and total price.
 3. Book: The Distributor submits a Mint Request that refers to the validation_id. After generating the booking in the Inventory System of the supplier and receiving a supplier reference, the messenger client creates a digital asset on the Camino blockchain and returns a digital_asset_id to the messenger client of the distributor. Which then initiates the transfer of funds to the supplier and the digital asset to the distributor in one transaction. If the transaction on chain fails or takes too long, an expiration time can be set, which triggers a roll-back of the booking in the suppliers inventory system.
 
-Figure 6: Workflow from Search to Validate and Mint messages
+Figure 7: Workflow from Search to Validate and Mint messages
 
 ```mermaid
 sequenceDiagram
@@ -202,7 +209,7 @@ After an initial booking is made, a number of events can happen in its lifecycle
 3. **The BookingModification Request** allows for an already confirmed booking to be modified to alternative products or additional services or different dates, if they have previously been offered in a Search Request or Upselling Request.
 4. **The CancellationRequest:** is the standard procedure to cancel a product or service. As usual it includes a CancellationCheck Request to verify if cancellation is possible and what the cancellation cost would be.
 
-Figure 7: Upselling and Modification Workflow
+Figure 8: Upselling and Modification Workflow
 
 ```mermaid
 flowchart LR
@@ -293,7 +300,7 @@ Schematic representation of a version upgrade for a specific message type:
 
 <figure>
 <img class="zoom" src="/img/messenger/version_transition.excalidraw.svg" alt="This image displays the scenario to upgrade to a new Camino Message Type Version"/>
-<figcaption align="center"><b>Fig.8:</b> Version transition</figcaption>
+<figcaption align="center"><b>Fig.9:</b> Version transition</figcaption>
 </figure>
 
 ## Why Protobuf?
