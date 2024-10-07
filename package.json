@@ -32,7 +32,7 @@
     "@mdx-js/react": "^3.0.0",
     "@types/react": "^18.2.42",
     "add": "^2.0.6",
-    "algoliasearch": "^4.20.0",
+    "algoliasearch": "^5.7.0",
     "clsx": "2.1.0",
     "docusaurus-plugin-image-zoom": "^1.0.1",
     "docusaurus-theme-search-typesense": "^0.15.0",
