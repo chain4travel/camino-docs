@@ -234,37 +234,40 @@ rpc_server:
 
 ## Configuration Options
 
-| Option                                 | Description                                                                                                            |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `developer_mode`                       | Activates developer mode, enabling DEBUG level logging for troubleshooting.                                            |
-| `response_timeout`                     | Timeout in milliseconds for waiting for a response from the Matrix server.                                             |
-| `booking_token_address`                | BookingToken smart contract address                                                                                    |
-| `chain_rpc_url`                        | RPC URL to interact with the EVM APIs                                                                                  |
-| `bot_key`                              | Private key that is used for the operation on C-Chain like BookingToken mint and buy operations.                       |
-| `cm_account_address`                   | Address of the CM Account that the bot belongs to                                                                      |
-| `cheque_expiration_time`               | The time until when the check expires. Default: 18144000 # 7 months                                                    |
-| `min_cheque_duration_until_expiration` | The minimum time until when the check expires. Default: 5552000 # 6 months                                             |
-| `cash_in_period`                       | Frequency of initiating the cash-in of the cheques: Default 86400 # 1 day                                              |
-| `network_fee_recipient_bot_address`    | Fixed address: 0xbeb027D2f439805E17EAA16Da26c1FCa68a30232                                                              |
-| `network_fee_recipient_cm_account`     | Fixed address: 0x16DFfB3911BB0b1B53eF4d774804381f0B38B5d7                                                              |
-| `db:migrations_path`                   | Path to migrations dir with sql up/down scripts. Schema is mandatory.                                                  |
-| `db:name`                              | Database name, for example camino_messenger_bot                                                                        |
-| `db:path`                              | Path to database file, for example: distributor-bot.db                                                                 |
-| `matrix:host`                          | Designates the host address of the Matrix server.                                                                      |
-| `matrix:store`                         | Defines the path to the Matrix OLM data store (SQLite3 database path).                                                 |
-| `partner_plugin:host`                  | Sets the host address for the partner plugin's RPC server.                                                             |
-| `partner_plugin:unencrypted`           | Determines if the Partner Plugin RPC should establish an unencrypted connection to the server.                         |
-| `partner_plugin:ca_file`               | Path to the CA certificate file for the partner plugin RPC server. Required only if `partner_plugin_unencrypted=false` |
-| `rpc_server:port`                      | Specifies the port number for the RPC server; the bot listens for requests on this port.                               |
-| `rpc_server:unencrypted`               | Indicates if the RPC server communication should remain unencrypted.                                                   |
-| `rpc_server:cert_file`                 | File path to the server's TLS certificate for encrypted communication. Required only if `rpc_unencrypted=false`        |
-| `rpc_server:key_file`                  | File path to the server's SSL key for encrypted communication. Required only if `rpc_unencrypted=false`                |
+| Option                                 | Description                                                                                                                                       |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `developer_mode`                       | Activates developer mode, enabling DEBUG level logging for troubleshooting.                                                                       |
+| `response_timeout`                     | Timeout in milliseconds for waiting for a response from the Messaging server.                                                                     |
+| `booking_token_address`                | BookingToken smart contract address, fixed per environment.                                                                                       |
+| `chain_rpc_url`                        | RPC URL to interact with the EVM APIs                                                                                                             |
+| `bot_key`                              | Private key that is used to identify the bot in the messenger network and for the operation on C-Chain like BookingToken mint and buy operations. |
+| `cm_account_address`                   | Address of the CM Account that the bot belongs to                                                                                                 |
+| `cheque_expiration_time`               | The time until when the check expires. Default: 18144000 # 7 months                                                                               |
+| `min_cheque_duration_until_expiration` | The minimum time until when the check expires. Default: 5552000 # 6 months                                                                        |
+| `cash_in_period`                       | Frequency of initiating the cash-in of the cheques: Default 86400 # 1 day                                                                         |
+| `network_fee_recipient_bot_address`    | Fixed address per environment: for Camino 0xbeb027D2f439805E17EAA16Da26c1FCa68a30232                                                              |
+| `network_fee_recipient_cm_account`     | Fixed address per environment: for Camino 0x16DFfB3911BB0b1B53eF4d774804381f0B38B5d7                                                              |
+| `db:migrations_path`                   | Path to migrations dir with sql up/down scripts. Schema is mandatory.                                                                             |
+| `db:name`                              | Database name, for example camino_messenger_bot                                                                                                   |
+| `db:path`                              | Path to database file, for example: distributor-bot.db                                                                                            |
+| `matrix:host`                          | Designates the host address of the Matrix server.                                                                                                 |
+| `matrix:store`                         | Defines the path to the Matrix OLM data store (SQLite3 database path).                                                                            |
+| `partner_plugin:host`                  | Sets the host address for the partner plugin's RPC server.                                                                                        |
+| `partner_plugin:unencrypted`           | Determines if the Partner Plugin RPC should establish an unencrypted connection to the server.                                                    |
+| `partner_plugin:ca_file`               | Path to the CA certificate file for the partner plugin RPC server. Required only if `partner_plugin_unencrypted=false`                            |
+| `rpc_server:port`                      | Specifies the port number for the RPC server; the bot listens for requests on this port.                                                          |
+| `rpc_server:unencrypted`               | Indicates if the RPC server communication should remain unencrypted.                                                                              |
+| `rpc_server:cert_file`                 | File path to the server's TLS certificate for encrypted communication. Required only if `rpc_unencrypted=false`                                   |
+| `rpc_server:key_file`                  | File path to the server's SSL key for encrypted communication. Required only if `rpc_unencrypted=false`                                           |
 
 :::info SUPPORTED REQUEST TYPES
 
 The supported request types and the applicable service fee are taken from
-the CM account. 
-
+the CM account. The bot will not start-up when a message type is specified
+in the CM Account but not supported by the current version of the bot.
+Please make sure that the CM-Account and the running version of the bot
+are aligned with the supported versions of the services. The bot does
+always support the latest 3 versions of each service.
 
 :::
 
