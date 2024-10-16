@@ -331,21 +331,23 @@ For more detailed configuration, refer to the `docker-compose.yaml` file provide
 
 After launching the bot, you can expect to see an output similar to the following:
 
-Noel: example output file
-
 ```
-2024-02-06T01:03:03.218Z        INFO    app/app.go:50   Starting gRPC client...
-2024-02-06T01:03:03.218Z        INFO    app/app.go:62   Starting message receiver...
-2024-02-06T01:03:03.218Z        WARN    server/server.go:65     Running gRPC server without TLS!
-github.com/chain4travel/camino-messenger-bot/internal/rpc/server.NewServer
-        /camino-messenger-bot/internal/rpc/server/server.go:65
-github.com/chain4travel/camino-messenger-bot/internal/app.(*App).Run
-        /camino-messenger-bot/internal/app/app.go:82
-main.main
-        /camino-messenger-bot/cmd/camino-messenger-bot/main.go:22
-runtime.main
-        /usr/local/go/src/runtime/proc.go:250
-2024-02-06T01:03:03.219Z        INFO    app/app.go:84   Starting gRPC server...
-2024-02-06T01:03:03.570Z        INFO    matrix/matrix_messenger.go:126  Successfully logged in as: @t-kopernikus1uknuxrgqtxfd4yk08v24m9pn0j9gvt6wav8gc7:matrix.camino.network
-2024-02-06T01:03:03.570Z        INFO    app/app.go:77   Starting message processor...
+Starting: /Users/noel/go/bin/dlv dap --listen=127.0.0.1:63655 --log-dest=3 from /Users/noel/dev/camino/camino-messenger-bot
+time="2024-10-15T14:22:52+02:00" level=warning msg="CGO_CFLAGS already set, Cgo code could be optimized." layer=dlv
+DAP server listening at: 127.0.0.1:63655
+Type 'dlv help' for list of commands.
+{"level":"info","ts":1728994976.907558,"caller":"cmd/camino_messenger_bot.go:47","msg":"App version:  (git: )"}
+{"level":"info","ts":1728994976.90784,"caller":"config/config_reader.go:75","msg":"Config file not found"}
+{"level":"info","ts":1728994977.426847,"caller":"storage/storage.go:72","msg":"Performing db migrations..."}
+{"level":"info","ts":1728994977.436013,"caller":"storage/storage.go:94","msg":"Migration version: 0"}
+{"level":"info","ts":1728994977.440775,"caller":"storage/storage.go:112","msg":"New migration version: 1"}
+{"level":"info","ts":1728994977.440825,"caller":"storage/storage.go:115","msg":"Finished preforming db migrations"}
+{"level":"info","ts":1728994977.728545,"caller":"messaging/service_registry.go:60","msg":"\nSupported services:\ncmp.services.accommodation.v1.AccommodationProductInfoService\ncmp.services.accommodation.v1.AccommodationSearchService\ncmp.services.accommodation.v1.AccommodationProductListService\ncmp.services.book.v1.MintService\ncmp.services.book.v2.MintService\ncmp.services.accommodation.v2.AccommodationProductInfoService\ncmp.services.accommodation.v2.AccommodationSearchService\ncmp.services.accommodation.v2.AccommodationProductListService\n\n"}
+{"level":"warn","ts":1728994977.829681,"caller":"server/server.go:43","msg":"Running gRPC server without TLS!"}
+{"level":"info","ts":1728994977.830095,"caller":"app/app.go:216","msg":"Starting gRPC server..."}
+{"level":"info","ts":1728994977.830143,"caller":"app/app.go:252","msg":"Starting message processor..."}
+{"level":"info","ts":1728994977.830296,"caller":"app/app.go:221","msg":"Starting start-up cash-in status check..."}
+{"level":"info","ts":1728994977.8303108,"caller":"app/app.go:229","msg":"Starting scheduler..."}
+{"level":"info","ts":1728994977.830122,"caller":"app/app.go:240","msg":"Starting message receiver..."}
+{"level":"info","ts":1728994978.921134,"caller":"matrix/matrix_messenger.go:145","msg":"Successfully logged in as: @0xeb3d6560a5ecf3e00b68a4b2899fec93419f06b9:messenger.chain4travel.com"}
 ```
