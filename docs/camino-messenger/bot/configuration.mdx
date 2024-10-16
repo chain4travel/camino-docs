@@ -27,19 +27,20 @@ Users should proceed with caution.
 ## Copy the Example Configuration File
 
 After you've installed Camino Messenger Bot (CMB), copy the example
-configuration files `*.yaml.example`, removing the
-`.example` at the end.
+configuration files from https://github.com/chain4travel/camino-messenger-bot/tree/dev/examples/config
 
 **Supplier Example:**
 
 ```sh
-cp camino-messenger-bot-supplier.yaml.example camino-messenger-bot-supplier.yaml
+./examples/config/camino-messenger-bot-supplier-columbus.yaml
+./examples/config/camino-messenger-bot-supplier-camino.yaml
 ```
 
 **Distributor Example:**
 
 ```sh
-cp camino-messenger-bot-distributor.yaml.example camino-messenger-bot-distributor.yaml
+./examples/config/camino-messenger-bot-distributor-columbus.yaml
+./examples/config/camino-messenger-bot-distributor-camino.yaml
 ```
 
 **Example Supplier Bot Config File:**
@@ -314,11 +315,10 @@ Run the bot with the command below, change the config file name file accordingly
 
 ## Configuring the Docker Container
 
-For those utilizing Docker for bot installation, configure your environment
-variables as shown below.
+For those utilizing Docker for bot installation, load the configuration as shown below:
 
 ```sh
-docker run --rm --env-file bot.env camino-messenger-bot - change to mount config file
+docker run --config /test_config.yaml camino-messenger-bot
 ```
 
 :::tip CHECK DOCKER COMPOSE FILE
