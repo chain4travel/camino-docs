@@ -99,9 +99,6 @@ matrix:
   # Hostname of the Matrix server
   host: messenger.chain4travel.com
 
-  # Local DB file to store Matrix data
-  store: supplier-matrix.db
-
 ### Partner Plugin
 partner_plugin:
   # Partner Plugin hostname and port, should be reachable from this machine.
@@ -190,9 +187,6 @@ matrix:
   # Hostname of the Matrix server
   host: messenger.chain4travel.com
 
-  # Local DB file to store Matrix data
-  store: distributor-matrix.db
-
 ### Partner Plugin (NOT USED FOR DISTRIBUTOR BOT)
 # partner_plugin:
 #     # Partner Plugin hostname and port, should be reachable from this machine.
@@ -245,7 +239,6 @@ rpc_server:
 | `db:migrations_path`                   | Path to migrations dir with sql up/down scripts. Schema is mandatory.                                                                             |
 | `db:path`                              | Path to database file, for example: distributor-bot.db                                                                                            |
 | `matrix:host`                          | Designates the host address of the Matrix server.                                                                                                 |
-| `matrix:store`                         | Defines the path to the Matrix OLM data store (SQLite3 database path).                                                                            |
 | `partner_plugin:host`                  | Sets the host address for the partner plugin's RPC server.                                                                                        |
 | `partner_plugin:unencrypted`           | Determines if the Partner Plugin RPC should establish an unencrypted connection to the server.                                                    |
 | `partner_plugin:ca_file`               | Path to the CA certificate file for the partner plugin RPC server. Required only if `partner_plugin_unencrypted=false`                            |
