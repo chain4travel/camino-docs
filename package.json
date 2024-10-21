@@ -24,7 +24,7 @@
     "@algolia/autocomplete-plugin-algolia-insights": "1.15.1",
     "@algolia/client-search": "^4.20.0",
     "@babel/runtime": "^7.23.5",
-    "@docusaurus/core": "3.1.1",
+    "@docusaurus/core": "3.5.2",
     "@docusaurus/preset-classic": "3.1.1",
     "@docusaurus/theme-classic": "3.1.1",
     "@docusaurus/theme-common": "3.1.1",
