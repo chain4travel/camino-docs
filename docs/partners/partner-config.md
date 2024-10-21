@@ -183,18 +183,12 @@ Upon modification, click on "Save Changes" to persist your work on this tab.
 <figcaption align="center">Fig.5: Camino Messenger Account bot wallet management</figcaption>
 </figure>
 
-The "Manage Bots" screen allows partners to manage the bot wallets linked to this Camino Messenger Account. Here's a detailed breakdown of the functions that can be enabled on this tab:
-
-The "Manage Bots" screen allows partners to manage the bot addresses associated with their Messenger Account on the Camino Network. Here's a detailed breakdown of the functions available on this tab:
+The "Manage Bots" screen allows partners to manage the bot wallets linked to this Camino Messenger Account. Here's a detailed breakdown of the functions available on this tab:
 
 1. **Bot List**:
 
    - Displays the addresses of all bot wallets currently using this Messenger Account, e.g., "0xB21385af6bFD19d0E787d718FB83559e515412eB".
    - For each bot, the balance in CAM currently available in the wallet for the bot to operate is displayed (COMING SOON).
-
-   to operate the bot is
-
-   - A "Remove" button to delete the bot from the list
 
 2. **Add / Remove a Bot**:
    - Enter a new bot wallet address in the "Bot" field, then click the "Add" button.
