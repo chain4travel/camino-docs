@@ -31,11 +31,11 @@ A hospitality supplier, e.g. a hotel chain, might offer the same services for co
 
 A the same time, the tour operator might want to consume from an info provider:
 
-- DestinationInformationService [TODO]
+- DestinationInformationService
 
-Which also requires that the consumer exposes a callback method to actually receive events:
+Which also requires that the consumer exposes a callback method to actually receive events updates:
 
-- CallBackService [TODO]
+- DestinationInformationCallbackService (COMING SOON)
 
 And the information supplier has then to conversely offer / consume the respective services. It can become a bit intricated for partners wanting and offering multiple services: the Camino Foundation and the community are available to support with best practices for your specific case and addressing implementation on our [Discord](https://discord.gg/camino).
 
