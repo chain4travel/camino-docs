@@ -37,11 +37,11 @@ Which also requires that the consumer exposes a callback method to actually rece
 
 - DestinationInformationCallbackService (COMING SOON)
 
-And the information supplier has then to conversely offer / consume the respective services. It can become a bit intricated for partners wanting and offering multiple services: the Camino Foundation and the community are available to support with best practices for your specific case and addressing implementation on our [Discord](https://discord.gg/camino).
+And the information supplier has then to conversely offer / consume the respective services. It can become a bit intricate for partners wanting and offering multiple services: the Camino Foundation and the community are available to support with best practices for your specific case and addressing implementation on our [Discord](https://discord.gg/camino).
 
 ## Actors and components
 
-Before dwelwing into the details of how to configure a Partner, it is useful to go through an explanation of involved actors (human and software components, onchain and offchain) and their specific responsibilities in the Partner's operation on Camino Messenger.
+Before delving into the details of how to configure a Partner, it is useful to go through an explanation of involved actors (human and software components, onchain and offchain) and their specific responsibilities in the Partner's operation on Camino Messenger.
 
 ```mermaid
 graph TD
@@ -53,9 +53,9 @@ graph TD
     CTO --> |owns| Bot2Wallet
     FinanceWallet[<b>Finance wallet</b><br/>- Holds main org funds, allocates them to trading on Messenger] <-.-> CMAccount
     TechWallet[<b>Tech wallet</b><br/>- Creates and manages the CMA, paying gas fees<br/>- Can to withdraw money from CMA] --> CMAccount
-    CMAccount[<b>CMA smartcontract</b><br/>- Holds trading funds<br/>- Specifies services and fees<br/>- Specifies accepted currencies<br>- Registers bots] --> Bot1Wallet
+    CMAccount[<b>CMA smartcontract</b><br/>- Holds trading funds<br/>Pays / receives payment for bookings<br/>- Specifies services and fees<br/>- Specifies accepted currencies<br/>- Registers bots] --> Bot1Wallet
     CMAccount --> Bot2Wallet
-    Bot1(<i>Bot1</i>) --> |uses| Bot1Wallet[<b>Bot1 wallet</b><br/>- Can withdraw limited amounts from CMA<br/>- As <i>supplier</i>: cashes in service fee checks, pays gas fees for minting booking tokens<br/>- As <i>distributor</i>: pays for service fees and buying booking tokens]
+    Bot1(<i>Bot1</i>) --> |uses| Bot1Wallet[<b>Bot1 wallet</b><br/>- Can withdraw limited amounts from CMA<br/>- As <i>supplier</i>: cashes in service fee checks, pays gas fees for minting booking tokens<br/>- As <i>distributor</i>: pays for service fees checks, and gas fees to buy booking tokens]
     Bot2(<i>Bot2</i>) --> |uses| Bot2Wallet[<b>Bot2 wallet</b><br/>- Same as Bot1 wallet]
 ```
 
@@ -63,17 +63,17 @@ graph TD
 
 The Tech power user, on the other hand, is the responsible for the Tech Wallet, which receives funds from the CFO and utilizes them for Messenger operations. By logging in with the Tech Wallet, she is able to create and manage the Partner Configuration, pay for the gas fees involved with setting up and trading on the Camino Messenger, and withdraw funds, whether to her wallet or to the Finance Wallet.
 
-The Camino Messenger Account, or CMA, is a smartcontract (actually an ensemble of smartcontracts), acting as the financial backbone of the Partner Configuration, holding the funds designated for trading on behalf of the Partner on the Camino Messenger. It also stores all configuration settings such as the services offered and wanted (and their versions), the applicable service fees and the accepted currencies. It also maintains a list of the wallets of the offchain bots with which the Partner's systems interact with the Messenger.
+The Camino Messenger Account, or CMA, is a smartcontract (actually an ensemble of smartcontracts), acting as the financial backbone of the Partner Configuration, holding the funds designated for trading on behalf of the Partner on the Camino Messenger, and paying / receiving payment amounts for bookings. It also stores all configuration settings such as the services offered and wanted (and their versions), the applicable service fees and the accepted currencies. It also maintains a list of the wallets of the offchain bots with which the Partner's systems interact with the Messenger.
 
-The Tech power user (or the Partner's tech departnment) is responsible for the deployments of bots (for an in-depth explanation on bots and how to configure them please refer to [here](../camino-messenger/bot/configuration)). Bots are offchain components that are idenfified and operate on chain through respective wallets, thus having controlled access to the funds in the CMA, with limits on the amounts they can withdraw. The bot wallets facilitate bots' specific blockchain operations. In the case of a supplier's bot, the bot wallet cashes in service fee checks and covers the gas fees for minting booking tokens upon booking confirmation by the partner's systems. In the case of a distributor's bot, the bot wallet handles payments for service fees and the purchase of such booking tokens.
+The Tech power user (or the Partner's tech department) is responsible for the deployments of bots (for an in-depth explanation on bots and how to configure them please refer to [here](../camino-messenger/bot/configuration)). Bots are offchain components that are identified and operate on chain through respective wallets, thus having controlled access to the funds in the CMA, with limits on the amounts they can withdraw. The bot wallets facilitate bots' specific blockchain operations. In the case of a supplier's bot, the bot wallet cashes in service fee checks and covers the gas fees for minting booking tokens upon booking confirmation by the partner's systems (the actual booking amount is received by the supplier's CMA). In the case of a distributor's bot, the bot wallet handles payments for service fees and covers the gas fees spent during purchase of such booking tokens (the actual payment amount is spent by the distributor's CMA).
 
-This flow ensures that the offchain bots can operate within the constraints of the smartcontract, while enabling efficient management of funds and services onchain.
+This flow ensures that the offchain bots can operate within the constraints of the smartcontract, while enabling efficient management of funds and services onchain. (Functionality for bot auto-funding from the CMA is planned, see [here](#manage-bots-tab) COMING SOON).
 
 ## Step-by-Step Configuration Guide
 
 This playbook is designed to guide Tech power users through the configuration process for their Camino Messenger Accounts.
 
-1. Register as Partner in the Parter Showroom, or Claim your Partner if it is already listed, as described [here](../partners/introduction).
+1. Register as Partner in the Partner Showroom, or Claim your Partner if it is already listed, as described [here](../partners/introduction).
 
 2. Make sure that your Tech wallet linked to your Partner details:
 
@@ -107,7 +107,7 @@ This playbook is designed to guide Tech power users through the configuration pr
 
 11. Add each bot into the Manage Bots tab. You can find a detailed explanation on how this tab works below.
 
-12. Fund each bot by transfering a little sum (1 CAM for example) from your Tech wallet's C-Chain address to their addresses.
+12. Fund each bot by transferring a little sum (1 CAM for example) from your Tech wallet's C-Chain address to their addresses.
 
 ## Partner Configuration in detail
 
@@ -122,7 +122,7 @@ The "My Messenger Account" screen is where you can see an overview of your Camin
 
 1. **Detailed info**:
 
-   - **Camino Messenger Address**: This address (e.g., `0x97AD255Def722D1aeB06...136326E553e6`) is used to receive topups of supported currencies. Use the "Copy" button to copy the address to your clipboard for use in external wallets or other platforms.
+   - **Camino Messenger Address**: This address (e.g., `0x97AD255Def722D1aeB06...136326E553e6`) is used to receive top-ups of supported currencies. Use the "Copy" button to copy the address to your clipboard for use in external wallets or other platforms.
    - **Offered Services**: The list of services you are providing is displayed here (e.g., "AccommodationSearch").
    - **Wanted Services**: This shows services you are seeking from other partners (e.g., "CountryEntryRequirements").
    - **Configured Bots**: This indicates how many bot wallets are currently linked to your account (e.g., "You have 1 configured bot").
@@ -132,8 +132,8 @@ The "My Messenger Account" screen is where you can see an overview of your Camin
    - Manage the currencies you accept by selecting from the list below.
 
      - **CAM**: Displays the current balance (e.g., "105.0 CAM"). The "Withdraw" button allows you to transfer funds to another wallet by initiating a withdrawal form. In such form, you are able to: - Indicate the destination C-Chain address, and you have a button to easily set it to the logged in Tech power user. - Indicate the amount to withdraw, and you have a button to easily set it to the maximum available for withdrawal. - Instruct the transfer out.
-       To topup the CAM balance, you'd need to transfer from any C-Chain wallet to the Camino Messenger displayed above.
-       Note: ERC20 token support is coming soon. Please refrain for the time being from transfering in any non-CAM funds.
+       To top-up the CAM balance, you'd need to transfer from any C-Chain wallet to the Camino Messenger displayed above.
+       Note: ERC20 token support is coming soon. Please refrain for the time being from transferring in any non-CAM funds.
      - **USDC, EURC, EURe, EURSH** (coming soon): These are potential future currencies you can enable. The "Withdraw" option is currently disabled for these.
      - **Fiat (off-chain)**: This option can be selected to enable support for fiat-based transactions, which occur outside the blockchain.
 
@@ -194,4 +194,4 @@ The "Manage Bots" screen allows partners to manage the bot wallets linked to thi
    - Enter a new bot wallet address in the "Bot" field, then click the "Add" button.
    - Click on the "Remove" button to remove a bot.
 
-Note: upon adding a bot, a little amount needs to be tranfered to its wallet address to render this operational, and the amount needs to be reloaded so that it's never 0. A auto topup mechanism is being developed (COMING SOON).
+Note: upon adding a bot, a little amount needs to be transferred to its wallet address to render this operational, and the amount needs to be reloaded so that it's never 0. A automatic top-up mechanism is being developed (COMING SOON).
