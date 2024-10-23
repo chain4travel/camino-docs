@@ -53,7 +53,7 @@ graph TD
     CTO --> |owns| Bot2Wallet
     FinanceWallet[<b>Finance wallet</b><br/>- Holds main org funds, allocates them to trading on Messenger] <-.-> CMAccount
     TechWallet[<b>Tech wallet</b><br/>- Creates and manages the CMA, paying gas fees<br/>- Can to withdraw money from CMA] --> CMAccount
-    CMAccount[<b>CMA smartcontract</b><br/>- Holds trading funds<br/>Pays / receives payment for bookings<br/>- Specifies services and fees<br/>- Specifies accepted currencies<br/>- Registers bots] --> Bot1Wallet
+    CMAccount[<b>CMA smartcontract</b><br/>- Holds trading funds<br/>- Pays/receives payment for bookings<br/>- Specifies services and fees<br/>- Specifies accepted currencies<br/>- Registers bots] --> Bot1Wallet
     CMAccount --> Bot2Wallet
     Bot1(<i>Bot1</i>) --> |uses| Bot1Wallet[<b>Bot1 wallet</b><br/>- Can withdraw limited amounts from CMA<br/>- As <i>supplier</i>: cashes in service fee checks, pays gas fees for minting booking tokens<br/>- As <i>distributor</i>: pays for service fees checks, and gas fees to buy booking tokens]
     Bot2(<i>Bot2</i>) --> |uses| Bot2Wallet[<b>Bot2 wallet</b><br/>- Same as Bot1 wallet]
