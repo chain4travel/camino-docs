@@ -61,7 +61,7 @@ graph TD
 
 <br/>The two key roles at a Partner's involved are the Chief Financial Officer (CFO) and a Tech Power User. The CFO is responsible for the Finance Wallet, usually multi-sig, which holds the organization’s main funds. These funds are allocated for trading activities on the Messenger but the CFO never is involved in its operation.
 
-The Tech power user, on the other hand, is the responsible for the Tech Wallet, which receives funds from the CFO and utilizes them for Messenger operations. By logging in with the Tech Wallet, she is able to create and manage the Partner Configuration, pay for the gas fees involved with setting up and trading on the Camino Messenger, and widhtaw funds, wether to her wallet or to the Finance Wallet.
+The Tech power user, on the other hand, is the responsible for the Tech Wallet, which receives funds from the CFO and utilizes them for Messenger operations. By logging in with the Tech Wallet, she is able to create and manage the Partner Configuration, pay for the gas fees involved with setting up and trading on the Camino Messenger, and withdraw funds, whether to her wallet or to the Finance Wallet.
 
 The Camino Messenger Account, or CMA, is a smartcontract (actually an ensemble of smartcontracts), acting as the financial backbone of the Partner Configuration, holding the funds designated for trading on behalf of the Partner on the Camino Messenger. It also stores all configuration settings such as the services offered and wanted (and their versions), the applicable service fees and the accepted currencies. It also maintains a list of the wallets of the offchain bots with which the Partner's systems interact with the Messenger.
 
