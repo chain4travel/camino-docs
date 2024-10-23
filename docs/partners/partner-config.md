@@ -168,7 +168,7 @@ Upon modification, click on "Save Changes" to persist your work on this tab.
 <figcaption align="center">Fig.4: Camino Messenger Account wanted services</figcaption>
 </figure>
 
-The "Wanted Services" screen allows partners to configure and manage the services they ar looking for on the Camino Messenger. Here's a detailed breakdown of the functions that can be enabled on this tab by clicking on "Configure Services":
+The "Wanted Services" screen allows partners to configure and manage the services they are looking for on the Camino Messenger. Here's a detailed breakdown of the functions that can be enabled on this tab by clicking on "Configure Services":
 
 1. **Add / Remove a Service**:
    - A dropdown menu labeled "Select a service" allows you to choose from available services and versions, e.g. "cmp.services.accommodation.v2.CountryEntryRequirementsService".
