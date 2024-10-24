@@ -76,17 +76,7 @@ Just like any API end-point from the web2 era, you can check the availability of
 
 #### Partners
 
-Partner configuration can be managed via the Camino Partner Showroom, which forms part of the Camino Application Suite. The Partner Config stores into a smart contract CM Account.
-
-Partners create a Messenger Account through a wizard. Suppliers configure the services they offer and Distributors configure the services they want to obtain. The Messenger Bots can be registered so that Suppliers can identify the distributor requesting the services and personalize their offering. There is a matching service, where partners can easily search for suppliers offering a specific service, what message version(s) is/are supported. Suppliers can easily find Distributors that want their services and Distributors can easily find suppliers that provide the required services.
-
-In detail:
-
-- Supported Services (full package name including the version, rack-rate flag, fee, capabilities) -- for suppliers to specify which services they support, whether they have a rack-rate or public rate that any Camino Partner can book without prior agreement, what fee they charge to respond to (search) messages and to specify particularities of their integration in capabilities.
-- Wanted Services (full package name including the version) -- for distributors to specify which services they support and search for when matching with others
-- Payment info (supported currencies: Off-Chain, CAM, ERC20 tokens, stable coins)
-- Public-Keys for encrypting the private data of the booking tokens
-- Active Bots for identification
+Partner configuration can be managed via the Camino Partner Showroom, which forms part of the Camino Application Suite and is the section where partners can discover each other and initiate offline communication about the services they offer and want to obtain. Once the configuration has been set up for both partners as detailed [here](../partners/partner-config), the online communication can be started and happens as described in the following of this page.
 
 ### Fees
 
@@ -285,6 +275,8 @@ The version of each Message Type, referred to as _"service versions"_, is specif
 To define the supported capabilities for the partner configuration, we use the entire package name to refer to a service as a capability. For example: `cmp.services.accommodation.v1.AccommodationSearchService`.
 
 In one protocol release, each message type will be on its own service version. If many partners are actively collaborating on the Accommodation Service, this will lead to more updates for this message type then for others. We have decided to step away from semantic versioning and consider all changes in the protocol as breaking changes.
+
+All new files will be added to a new version of the package instead of versioning each service individually and consecutively. For instance if we have a brand new file in the types and there is already v1, v2 and v3 present in the c4t branch, the newly added file will be in v4. Same goes for the services - if we already have v1 and v2, newly added files and modified files go into v3, no matter if the particular service was already present in v2,v1 or not at all. This is done to prevent circular package dependencies, which would pose no problem to protobuf but would result in an unusable SDK for instance for golang.
 
 #### Version Transition Example
 
