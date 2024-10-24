@@ -29,7 +29,7 @@ A hospitality distributor, e.g. a tour operator, might want to consume:
 
 A hospitality supplier, e.g. a hotel chain, might offer the same services for consumption.
 
-A the same time, the tour operator might want to consume from an info provider:
+At the same time, the tour operator might want to consume from an info provider:
 
 - DestinationInformationService
 
