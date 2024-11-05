@@ -18,6 +18,37 @@ the supplier, with different flows depending on who initiates the cancellation. 
 flow includes safety checks, refund handling, and clear state transitions managed
 through smart contracts.
 
+The process is designed to have the distributor and the supplier agree on the
+cancellation cost during the process. Normally the cancellation conditions are fixed
+during the initial booking process in rules. These rules can be interpreted
+differently between distributor and supplier, which can lead to disputes.
+
+When a distributor has stored the cancellation conditions with the booking, the
+cancellation process can be started with the `InitiateCancellationRequest`.
+In case the cancellation conditions are not stored or the distributor wants to check
+the cancellation cost before initiating the process, the `CheckCancellationRequest`
+can be used.
+
+It is important to note that in all cases the refund amount must be specified and
+not the cancellation cost. This is because the originally (to be) paid amount for
+the initial booking (for example 1,000€) was already specified in a previous
+transaction, for the cancellation transaction, the reverse payment needs to be
+specified (assuming a cancellation cost of 200€, the refund amount will be 800€).
+
+The initiation of the cancellation is stored on-chain, which eliminates disputes
+regarding the moment of cancellation. If the service can be cancelled, the supplier
+cancels the service in their inventory system and the bot initiates the transfer
+of the refund amount and the booking token is burned.
+
+The supplier can also reject the cancellation using `RejectCancellation` for example
+when the service is already used or in case cancellation is not possible (for
+example in case of a non-refundable rateplan).
+
+In case the supplier does not agree to the proposed refund amount (cancellation cost)
+a `CounterCancellation`can be proposed by the supplier and if agreeable for the
+distributor, the cancellation can be finished with this new refund value by using
+`AcceptCounterCancellation`.
+
 ## Cancellation Flows
 
 ### Distributor-Initiated Cancellation
@@ -25,11 +56,104 @@ through smart contracts.
 When a distributor initiates a cancellation, the following options are available to
 the supplier:
 
-1. **Direct Acceptance**
+1. **Initiation**
 
-   - The supplier can accept the cancellation by providing the agreed refund amount
-   - Upon acceptance, the token is burned and the refund is transferred to the
-     distributor
+   - The distributor sends `InitiateCancellationRequest` with TokenID and proposed Refund amount
+   - The response is the transaction ID of the registration on the blockchain
+
+2. **Direct Acceptance**
+
+   - The supplier does a look-up from the TokenID in the `InitiateCancellationRequest`
+     to determine the inventory system booking reference to be cancelled
+   - The supplier can accept the cancellation by accepting the proposed refund amount
+   - Supplier partner plugin submits the `AcceptCancellationRequest` to the supplier bot
+   - Supplier bot submits `CancellationAccepted` event and initiates the refund transaction
+   - Distributor bot listens for on-chain events, submits the `AcceptCancellationRequest`
+     to the partner plugin, confirms the reception of the refund and burns the booking token.
+
+```mermaid
+sequenceDiagram
+  participant DistributorPlugin as Distributor Plugin
+  participant Distributor as Distributor Bot
+  participant Contract as Contract
+  participant Supplier as Supplier Bot
+  participant SupplierPlugin as Supplier Plugin
+  Note over DistributorPlugin, SupplierPlugin: Distributor-Initiated Cancellation Flow
+  DistributorPlugin ->> Distributor: InitiateCancellationRequest
+  Distributor ->> Contract: initiateCancellationProposal(tokenId, refundAmount)
+  Contract -->> Supplier: emits CancellationPending event
+  Supplier ->> SupplierPlugin: CancellationPending notification
+  Note over Contract: proposedBy == distributor
+  alt Supplier Accepts
+    Note over Supplier, Contract: Supplier sends refund payment
+    SupplierPlugin ->> Supplier: AcceptCancellationRequest
+    Supplier ->> Contract: acceptCancellationProposal(tokenId, checkRefundAmount, {value: refundAmount})
+    Contract ->> Contract: Validate & Update Status
+    Contract ->> Contract: Burn token
+    Contract ->> Distributor: Transfer refund
+    Contract -->> Distributor: emits CancellationAccepted event
+    Distributor ->> DistributorPlugin: CancellationAccepted notification
+  else Supplier Rejects
+    SupplierPlugin->> Supplier: RejectCancellationRequest
+    Supplier ->> Contract: rejectCancellationProposal(tokenId, reason)
+    Contract -->> Distributor: emits CancellationRejected event
+    Distributor ->> DistributorPlugin: CancellationRejected notification
+  else Supplier Counters
+    SupplierPlugin ->> Supplier: CounterCancellationRequest
+    Supplier ->> Contract: counterCancellationProposal(tokenId, newRefundAmount)
+    Contract -->> Distributor: emits CancellationCountered event
+    Distributor ->> DistributorPlugin: CancellationCountered notification
+    alt Distributor Accepts Counter
+      DistributorPlugin ->> Distributor: AcceptCounterCancellationRequest
+      Distributor ->> Contract: acceptCounteredCancellationProposal(tokenId, checkRefundAmount)
+      Contract -->> Supplier: emits CancellationPending event
+      Supplier ->> SupplierPlugin: CancellationPending notification
+      Note left of Supplier: Flow continues with Supplier Accept process above
+  else Distributor Cancels
+    DistributorPlugin ->> Distributor: CancelCancellationRequest
+    Distributor ->> Contract: cancelCancellationProposal(tokenId)
+    Contract -->> Supplier: emits CancellationProposalCancelled event
+    Supplier ->> SupplierPlugin: CancellationProposalCancelled notification
+    end
+  end
+```
+
+
+  Note over DistributorPlugin, SupplierPlugin: Supplier-Initiated Cancellation Flow
+  SupplierPlugin ->> Supplier: InitiateCancellationRequest
+  Supplier ->> Contract: initiateCancellationProposal(tokenId, refundAmount)
+  Contract -->> Distributor: emits CancellationPending event
+  Distributor ->> DistributorPlugin: CancellationPending notification
+  Note over Contract: proposedBy == supplier
+  alt Supplier Cancels Own Proposal
+    SupplierPlugin ->> Supplier: CancelCancellationRequest
+    Supplier ->> Contract: cancelCancellationProposal(tokenId)
+    Contract -->> Distributor: emits CancellationProposalCancelled event
+    Distributor ->> DistributorPlugin: CancellationProposalCancelled notification
+  else Distributor Accepts
+    DistributorPlugin ->> Distributor: AcceptCancellationRequest
+    Distributor ->> Contract: acceptCancellationProposal(tokenId, checkRefundAmount)
+    Contract -->> Supplier: emits CancellationProposalAcceptedByTheOwner event
+    Supplier ->> SupplierPlugin: CancellationProposalAcceptedByTheOwner notification
+    Note over Contract: proposedBy changes to distributor
+    alt Supplier Completes Cancellation
+      Note over Supplier, Contract: Supplier must send refund payment
+      SupplierPlugin ->> Supplier: AcceptCancellationRequest
+      Supplier ->> Contract: acceptCancellationProposal(tokenId, checkRefundAmount, {value: refundAmount})
+      Contract ->> Contract: Validate & Update Status
+      Contract ->> Contract: Burn token
+      Contract ->> Distributor: Transfer refund
+      Contract -->> Distributor: emits CancellationAccepted event
+      Distributor ->> DistributorPlugin: CancellationAccepted notification
+    else Distributor Cancels After Accepting
+      Distributor ->> Contract: cancelCancellationProposal(tokenId)
+      Contract -->> Supplier: emits CancellationProposalCancelled event
+    end
+  end
+
+
+# This is old text
+***
 
 2. **Rejection**
 
