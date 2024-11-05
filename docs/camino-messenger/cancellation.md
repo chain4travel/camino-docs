@@ -116,7 +116,7 @@ sequenceDiagram
     Supplier ->> SupplierPlugin: CancellationProposalCancelled notification
     end
   end
-```
+
 
 
   Note over DistributorPlugin, SupplierPlugin: Supplier-Initiated Cancellation Flow
@@ -150,7 +150,7 @@ sequenceDiagram
       Contract -->> Supplier: emits CancellationProposalCancelled event
     end
   end
-
+```
 
 # This is old text
 ***
