@@ -11,6 +11,17 @@ tokens that accommodates both distributor-initiated and supplier-initiated
 cancellations. The process is designed to allow negotiation between parties while
 maintaining security and clarity throughout the cancellation flow.
 
+The process consists of multiple steps, but the messages are small and the fields
+used are frequently the same, which results to only small additional complexity
+compared to a direct API call to check whether a booking is cancellable and what
+the cancellation cost is, followed by a finalization call for the cancellation.
+
+If the booking is paid off-chain and the cancellation is initiated, an ISO currency
+is specified in the refund_amount and the on-chain refund transaction is skipped.
+
+This way the process is uniform for on/off-chain payments and serves as a ledger
+to avoid disputes.
+
 ## Overview
 
 The cancellation process can be initiated by either the distributor (token owner) or
@@ -42,7 +53,7 @@ of the refund amount and the booking token is burned.
 
 The supplier can also reject the cancellation using `RejectCancellation` for example
 when the service is already used or in case cancellation is not possible (for
-example in case of a non-refundable rateplan).
+example in case of a non-refundable rate plan).
 
 In case the supplier does not agree to the proposed refund amount (cancellation cost)
 a `CounterCancellation`can be proposed by the supplier and if agreeable for the
@@ -63,13 +74,50 @@ the supplier:
 
 2. **Direct Acceptance**
 
-   - The supplier does a look-up from the TokenID in the `InitiateCancellationRequest`
-     to determine the inventory system booking reference to be cancelled
-   - The supplier can accept the cancellation by accepting the proposed refund amount
+   - The supplier does a look-up from the TokenID in the `CancellationPending notification`
+     to determine the inventory system booking reference to be cancelled.
+   - The supplier can accept the cancellation by accepting the proposed refund amount and
+     whether the booking can be cancelled.
    - Supplier partner plugin submits the `AcceptCancellationRequest` to the supplier bot
-   - Supplier bot submits `CancellationAccepted` event and initiates the refund transaction
-   - Distributor bot listens for on-chain events, submits the `AcceptCancellationRequest`
-     to the partner plugin, confirms the reception of the refund and burns the booking token.
+   - Supplier bot submits `CancellationAccepted` event, burns the booking token and initiates
+     the refund transaction.
+   - Distributor bot listens for on-chain events, receives the `CancellationAccepted notification`
+     and forwards the notification to the distributor partner plugin, confirms the reception of
+     the refund and burns the booking token.
+   - Supplier bot listens for on-chain events, receives the `CancellationAccepted notification`
+     and forwards the notification to the partner plugin. As the booking token is now burned,
+     the booking can definitively be cancelled in the inventory system.
+
+3. **Rejection**
+It is not always possible to cancel a booking. It might be that the service is already used
+or that the service has been partially used (for example the first couple of days of a ----------
+stay or car rental)
+
+   - Upon reception of the `CancellationPending notification`, the supplier checks whether the
+     booking can be cancelled.
+   - The supplier can reject the cancellation with a specific reason, using the `RejectCancellationRequest`
+     A reason must be given why the cancellation is not possible
+   - This terminates the cancellation process with a CancellationRejected notification
+
+4. **Counter-Proposal**
+In case the booking can be cancelled, but the refund amount provided by the distributor
+does not match the original cost minus the cancellation cost, the supplier can return
+a counter proposal with a corrected refund amount.
+
+   - Upon reception of the `CancellationPending notification`, the supplier checks whether the
+     booking can be cancelled and the proposed refund amount is correct.
+   - The supplier can counter with a different refund amount using the `CounterCancellationRequest`
+   - The distributor receives the `CancellationCountered notification` and can then either:
+     - Accept the counter-proposal, using the `AcceptCounterCancellationRequest`.
+     - Cancel the entire cancellation process using the `CancelCancellationRequest`.
+
+The CancelCancellation request can only be emitted by the initiator of the cancellation,
+which is the owner of the "Cancellation Proposal". For example if an employee has requested
+the cancellation of the wrong booking. As soon as the cancellation is accepted the
+CancelCancellation process will return an error. Once a CancelCancellation proposal is
+completed, the cancellation proposal is deleted.
+
+#### Sequence Diagram
 
 ```mermaid
 sequenceDiagram
@@ -93,6 +141,8 @@ sequenceDiagram
     Contract ->> Distributor: Transfer refund
     Contract -->> Distributor: emits CancellationAccepted event
     Distributor ->> DistributorPlugin: CancellationAccepted notification
+    Contract -->> Supplier: emits CancellationAccepted event
+    Supplier ->> SupplierPlugin: CancellationAccepted notification
   else Supplier Rejects
     SupplierPlugin->> Supplier: RejectCancellationRequest
     Supplier ->> Contract: rejectCancellationProposal(tokenId, reason)
@@ -116,27 +166,57 @@ sequenceDiagram
     Supplier ->> SupplierPlugin: CancellationProposalCancelled notification
     end
   end
+```
 
+### Supplier-Initiated Cancellation
+Supplier can initiate cancellations for example in case an excursion cannot take
+place due to weather conditions, etc. We will extend this section in the future
+to include alternatives, so that instead of cancelling the excursion a modification
+to tomorrow when the weather if fine can be offered.
 
+When a supplier initiates a cancellation, the process differs slightly:
 
+1. **Initial Proposal**
+
+   - The supplier proposes a cancellation with a specific refund amount using
+  SupplierPlugin ->> Supplier: InitiateCancellationRequest
+     `InitiateCancellationRequest`.
+   - The supplier can cancel their own proposal any time before distributor
+     acceptance
+   - The distributor receives the `CancellationPending notification`.
+
+2. **Distributor Acceptance**
+   - If the distributor accepts, the `AcceptCancellationRequest` is transmitted.
+     The proposal ownership transfers to the distributor.
+   - The supplier must then complete the cancellation by providing the refund
+     in exactly the same manner as the distributor initiated process.
+   - The distributor can still cancel after accepting but before the supplier
+     completes the process
+   - Theoretically it is possible that the distributor does not agree to the refund
+     proposed by the supplier, which can lead to the "CounterProposal" flow above.
+
+#### Sequence Diagram
+
+```mermaid
+sequenceDiagram
+  participant DistributorPlugin as Distributor Plugin
+  participant Distributor as Distributor Bot
+  participant Contract as Contract
+  participant Supplier as Supplier Bot
+  participant SupplierPlugin as Supplier Plugin
   Note over DistributorPlugin, SupplierPlugin: Supplier-Initiated Cancellation Flow
   SupplierPlugin ->> Supplier: InitiateCancellationRequest
   Supplier ->> Contract: initiateCancellationProposal(tokenId, refundAmount)
   Contract -->> Distributor: emits CancellationPending event
   Distributor ->> DistributorPlugin: CancellationPending notification
   Note over Contract: proposedBy == supplier
-  alt Supplier Cancels Own Proposal
-    SupplierPlugin ->> Supplier: CancelCancellationRequest
-    Supplier ->> Contract: cancelCancellationProposal(tokenId)
-    Contract -->> Distributor: emits CancellationProposalCancelled event
-    Distributor ->> DistributorPlugin: CancellationProposalCancelled notification
-  else Distributor Accepts
+  alt Distributor Accepts
     DistributorPlugin ->> Distributor: AcceptCancellationRequest
     Distributor ->> Contract: acceptCancellationProposal(tokenId, checkRefundAmount)
     Contract -->> Supplier: emits CancellationProposalAcceptedByTheOwner event
     Supplier ->> SupplierPlugin: CancellationProposalAcceptedByTheOwner notification
     Note over Contract: proposedBy changes to distributor
-    alt Supplier Completes Cancellation
+    else Supplier Completes Cancellation
       Note over Supplier, Contract: Supplier must send refund payment
       SupplierPlugin ->> Supplier: AcceptCancellationRequest
       Supplier ->> Contract: acceptCancellationProposal(tokenId, checkRefundAmount, {value: refundAmount})
@@ -145,42 +225,14 @@ sequenceDiagram
       Contract ->> Distributor: Transfer refund
       Contract -->> Distributor: emits CancellationAccepted event
       Distributor ->> DistributorPlugin: CancellationAccepted notification
-    else Distributor Cancels After Accepting
-      Distributor ->> Contract: cancelCancellationProposal(tokenId)
-      Contract -->> Supplier: emits CancellationProposalCancelled event
     end
+      alt Supplier Cancels Own Proposal
+    SupplierPlugin ->> Supplier: CancelCancellationRequest
+    Supplier ->> Contract: cancelCancellationProposal(tokenId)
+    Contract -->> Distributor: emits CancellationProposalCancelled event
+    Distributor ->> DistributorPlugin: CancellationProposalCancelled notification
   end
 ```
-
-# This is old text
-***
-
-2. **Rejection**
-
-   - The supplier can reject the cancellation with a specific reason
-   - This terminates the cancellation process
-
-3. **Counter-Proposal**
-   - The supplier can counter with a different refund amount
-   - The distributor can then either:
-     - Accept the counter-proposal, leading to the supplier's acceptance flow
-     - Cancel the entire cancellation process
-
-### Supplier-Initiated Cancellation
-
-When a supplier initiates a cancellation, the process differs slightly:
-
-1. **Initial Proposal**
-
-   - The supplier proposes a cancellation with a specific refund amount
-   - The supplier can cancel their own proposal at any time before distributor
-     acceptance
-
-2. **Distributor Acceptance**
-   - If the distributor accepts, the proposal ownership transfers to the distributor
-   - The supplier must then complete the cancellation by providing the refund
-   - The distributor can still cancel after accepting but before the supplier
-     completes the process
 
 ## Security and Validation
 
@@ -200,61 +252,3 @@ When a supplier initiates a cancellation, the process differs slightly:
 
 This process ensures a fair, secure, and flexible system for handling booking
 cancellations while maintaining the integrity of the booking token system.
-
-## Sequence Diagram
-
-```mermaid
-sequenceDiagram
-  participant Distributor as Distributor
-  participant Contract as Contract
-  participant Supplier as Supplier
-  Note over Distributor, Supplier: Distributor-Initiated Cancellation Flow
-  Distributor ->> Contract: initiateCancellationProposal(tokenId, refundAmount)
-  Contract -->> Supplier: emits CancellationPending event
-  Note over Contract: proposedBy == distributor
-  alt Supplier Accepts
-    Note over Supplier, Contract: Supplier sends refund payment
-    Supplier ->> Contract: acceptCancellationProposal(tokenId, checkRefundAmount, {value: refundAmount})
-    Contract ->> Contract: Validate & Update Status
-    Contract ->> Contract: Burn token
-    Contract ->> Distributor: Transfer refund
-    Contract -->> Distributor: emits CancellationAccepted event
-  else Supplier Rejects
-    Supplier ->> Contract: rejectCancellationProposal(tokenId, reason)
-    Contract -->> Distributor: emits CancellationRejected event
-  else Supplier Counters
-    Supplier ->> Contract: counterCancellationProposal(tokenId, newRefundAmount)
-    Contract -->> Distributor: emits CancellationCountered event
-    alt Distributor Accepts Counter
-      Distributor ->> Contract: acceptCounteredCancellationProposal(tokenId, checkRefundAmount)
-      Contract -->> Supplier: emits CancellationPending event
-      Note left of Supplier: Flow continues with Supplier Accept process above
-    else Distributor Cancels
-      Distributor ->> Contract: cancelCancellationProposal(tokenId)
-      Contract -->> Supplier: emits CancellationProposalCancelled event
-    end
-  end
-  Note over Distributor, Supplier: Supplier-Initiated Cancellation Flow
-  Supplier ->> Contract: initiateCancellationProposal(tokenId, refundAmount)
-  Contract -->> Distributor: emits CancellationPending event
-  Note over Contract: proposedBy == supplier
-  alt Supplier Cancels Own Proposal
-    Supplier ->> Contract: cancelCancellationProposal(tokenId)
-    Contract -->> Distributor: emits CancellationProposalCancelled event
-  else Distributor Accepts
-    Distributor ->> Contract: acceptCancellationProposal(tokenId, checkRefundAmount)
-    Contract -->> Supplier: emits CancellationProposalAcceptedByTheOwner event
-    Note over Contract: proposedBy changes to distributor
-    alt Supplier Completes Cancellation
-      Note over Supplier, Contract: Supplier must send refund payment
-      Supplier ->> Contract: acceptCancellationProposal(tokenId, checkRefundAmount, {value: refundAmount})
-      Contract ->> Contract: Validate & Update Status
-      Contract ->> Contract: Burn token
-      Contract ->> Distributor: Transfer refund
-      Contract -->> Distributor: emits CancellationAccepted event
-    else Distributor Cancels After Accepting
-      Distributor ->> Contract: cancelCancellationProposal(tokenId)
-      Contract -->> Supplier: emits CancellationProposalCancelled event
-    end
-  end
-```
