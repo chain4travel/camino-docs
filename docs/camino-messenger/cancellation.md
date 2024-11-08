@@ -22,6 +22,8 @@ is specified in the refund_amount and the on-chain refund transaction is skipped
 This way the process is uniform for on/off-chain payments and serves as a ledger
 to avoid disputes.
 
+>tbc: the cancellation does accept ISO currency in the message, but the contract cannot handle it
+
 ## Overview
 
 The cancellation process can be initiated by either the distributor (token owner) or
@@ -168,6 +170,9 @@ sequenceDiagram
   end
 ```
 
+>tbc: can the Distributor reject the supplier initiated cancellation? Or is it only possible to accept or not respond?
+>tbc: *enforced cancellation* for some edge cases
+
 ### Supplier-Initiated Cancellation
 Supplier can initiate cancellations for example in case an excursion cannot take
 place due to weather conditions, etc. We will extend this section in the future
@@ -193,7 +198,7 @@ When a supplier initiates a cancellation, the process differs slightly:
    - The distributor can still cancel after accepting but before the supplier
      completes the process
    - Theoretically it is possible that the distributor does not agree to the refund
-     proposed by the supplier, which can lead to the "CounterProposal" flow above.
+     proposed by the supplier, but a "CounterProposal" flow is not available.
 
 #### Sequence Diagram
 
