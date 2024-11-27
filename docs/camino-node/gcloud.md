@@ -137,7 +137,7 @@ For more information about APIs, please refer to the [Camino Node APIs](/develop
 
 4. Provide the following information for the container setup:
    - Docker image: `c4tplatform/camino-node:latest`
-   - Command: `/camino-node/build/camino-node`
+   - Command: `./camino-node`
    - Arguments: `--network-id=columbus` and `--public-ip-resolution-service=ifconfigme`
 
 :::note NETWORK ID

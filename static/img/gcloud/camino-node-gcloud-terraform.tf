@@ -72,7 +72,7 @@ module "gce-container" {
   container = {
     image = "${local.docker_image}"
     command = [
-      "/camino-node/build/camino-node"
+      "./camino-node"
     ]
     args = [
       "--network-id=${var.network}",

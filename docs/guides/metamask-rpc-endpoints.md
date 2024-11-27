@@ -21,12 +21,12 @@ Camino Network is on ChainList.org. You can automatically add Camino networks to
 
 #### Camino Mainnet
 
-|    Network Name: |               Camino (mainnet)                |
-| ---------------: | :-------------------------------------------: |
-|         RPC URL: |   `https://api.camino.network/ext/bc/C/rpc`   |
-|        Chain-ID: |                     `500`                     |
-| Currency Symbol: |                     `CAM`                     |
-|  Block Explorer: | https://suite.camino.network/explorer/c-chain |
+|    Network Name: |             Camino (mainnet)              |
+| ---------------: | :---------------------------------------: |
+|         RPC URL: | `https://api.camino.network/ext/bc/C/rpc` |
+|        Chain-ID: |                   `500`                   |
+| Currency Symbol: |                   `CAM`                   |
+|  Block Explorer: |          https://caminoscan.com           |
 
 #### Columbus Testnet
 
@@ -35,7 +35,7 @@ Camino Network is on ChainList.org. You can automatically add Camino networks to
 |         RPC URL: | `https://columbus.camino.network/ext/bc/C/rpc` |
 |        Chain-ID: |                     `501`                      |
 | Currency Symbol: |                     `CAM`                      |
-|  Block Explorer: | https://suite.camino.network/explorer/c-chain  |
+|  Block Explorer: |        https://columbus.caminoscan.com         |
 
 ### Add Network to MetaMask
 
