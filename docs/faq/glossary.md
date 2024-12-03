@@ -14,7 +14,7 @@ words, all closely meaning the same thing, and causing confusion.
 ## Acronyms
 
 | Short   | Long                                                                        |
-|---------| --------------------------------------------------------------------------- |
+| ------- | --------------------------------------------------------------------------- |
 | ASB     | [Application Service Bot](#application-service-bot)                         |
 | CM      | [Camino Messenger](#camino-messenger)                                       |
 | CMA     | [Camino Messenger Account](#camino-messenger-account)                       |
