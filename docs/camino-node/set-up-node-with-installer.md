@@ -78,9 +78,9 @@ So, now that you prepared your system and have the info ready, let's get to it.
 To download and run the script, enter the following in the terminal:
 
 ```bash
-wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/c4t/scripts/camino-node-installer.sh;\
-chmod 755 camino-node-installer.sh;\
-./camino-node-installer.sh
+wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/c4t/scripts/caminogo-installer.sh;\
+chmod 755 caminogo-installer.sh;\
+./caminogo-installer.sh
 ```
 
 And we're off! The output should look something like this:
@@ -235,7 +235,7 @@ It is recommended to always upgrade to the latest version, because new versions 
 To upgrade your node, just run the installer script again:
 
 ```bash
-./camino-node-installer.sh
+./caminogo-installer.sh
 ```
 
 It will detect that you already have Camino-Node installed:
@@ -278,7 +278,7 @@ The installer script can also be used to install a version of Camino-Node other 
 To see a list of available versions for installation, run:
 
 ```bash
-./camino-node-installer.sh --list
+./caminogo-installer.sh --list
 ```
 
 It will print out a list, something like:
@@ -294,7 +294,7 @@ v0.0.0
 To install a specific version, run the script with `--version` followed by the tag of the version. For example:
 
 ```bash
-./camino-node-installer.sh --version v0.1.0
+./caminogo-installer.sh --version v0.1.0
 ```
 
 :::danger
@@ -306,13 +306,13 @@ Note that not all Camino-Node versions are compatible. You should generally run 
 Installer script gets updated from time to time, with new features and capabilities added. To take advantage of new features or to recover from modifications that made the node fail, you may want to reinstall the node. To do that, fetch the latest version of the script from the web with:
 
 ```bash
-wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/camino-node-installer.sh
+wget -nd -m https://raw.githubusercontent.com/chain4travel/camino-docs/main/scripts/caminogo-installer.sh
 ```
 
 After the script has updated, run it again with the `--reinstall` config flag:
 
 ```bash
-./camino-node-installer.sh --reinstall
+./caminogo-installer.sh --reinstall
 ```
 
 This will delete the existing service file, and run the installer from scratch, like it was started for the first time. Note that the database and NodeID will be left intact.
