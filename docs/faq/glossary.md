@@ -14,9 +14,10 @@ words, all closely meaning the same thing, and causing confusion.
 ## Acronyms
 
 | Short   | Long                                                                        |
-| ------- | --------------------------------------------------------------------------- |
+|---------| --------------------------------------------------------------------------- |
 | ASB     | [Application Service Bot](#application-service-bot)                         |
 | CM      | [Camino Messenger](#camino-messenger)                                       |
+| CMA     | [Camino Messenger Account](#camino-messenger-account)                       |
 | CMP     | [Camino Messenger Protocol](#camino-messenger-protocol)                     |
 | CMB     | [Camino Messenger Bot](#camino-messenger-bot)                               |
 | DAC     | [Decentralized Autonomous Consortium](#decentralized-autonomous-consortium) |
@@ -79,6 +80,11 @@ so-called [partner plugins](#partner-plugin).
 
 The backbone of the Camino Messenger infrastructure. Essentially, it's a server
 relaying messages between bots. Currently, Matrix messenger server is used.
+
+## Camino Messenger Account
+
+The Camino Messenger Account is a smart contract (actually an ensemble of smart contracts), acting as the financial backbone of the [Partner Configuration](#partner-configuration), holding the funds designated for trading on behalf of the Partner on the Camino Messenger, and paying / receiving payment amounts for bookings.  
+It also stores all configuration settings such as the services offered and wanted (and their versions), the applicable service fees and the accepted currencies. It also maintains a list of the wallets of the off-chain bots with which the Partner's systems interact with the Messenger.
 
 ## Camino Messenger Protocol
 
@@ -434,6 +440,10 @@ service.
 Online Travel Agency. OTAs are online platforms or websites that allow consumers to
 research plan and book various travel-related services and products often offering a
 wide range of options and choices from different suppliers.
+
+## Partner Configuration
+
+The Partner Configuration allows Partners to make themselves known to the Camino Network as service providers, or as looking for services from other Partners in the Network. Upon matching between services wanted and offered by two parties, such services will be then traded on Camino Messenger.
 
 ## Partner plugin
 
