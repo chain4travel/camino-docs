@@ -32,8 +32,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.node_version }}
-          
-      - name: Install yarn dependencies        
+
+      - name: Install yarn dependencies
         run: yarn install
 
       - name: Set collection name for Docusaurus
@@ -55,13 +55,14 @@ jobs:
 
       - name: Cloud authentication
         id: auth
-        uses: 'google-github-actions/auth@v1'
+        uses: "google-github-actions/auth@v1"
         with:
-          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+          credentials_json: "${{ secrets.GOOGLE_CREDENTIALS }}"
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
 
       - name: Update bucket
         run: |
-          gsutil -m rsync -R -d build gs://${{ steps.prepareVariables.outputs.bucket }}
+          gcloud storage rm gs://${{ steps.prepareVariables.outputs.bucket }}/**
+          gcloud storage cp -z html,js,css,cast,svg,tf,woff,woff2 --recursive build/* gs://${{ steps.prepareVariables.outputs.bucket }}
