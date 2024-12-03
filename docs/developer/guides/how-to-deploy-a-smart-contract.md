@@ -78,7 +78,7 @@ To request funds from the Discord faucet, follow these steps:
 1. Copy and paste your X-Address from the Camino Wallet.
 1. Enter the amount of CAM you wish to request, separating the command, X-Address and the requested amount with spaces.
 
-Please note that there is a limit of 150 CAM that can be requested within a 24-hour period.
+Please note that there is a limit of 150 CAM that can be requested within a 1-week period.
 
 :::info FAUCET LIMIT
 
