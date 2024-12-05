@@ -438,8 +438,10 @@ service.
 ## OTA
 
 Online Travel Agency. OTAs are online platforms or websites that allow consumers to
-research plan and book various travel-related services and products often offering a
+planning and booking various travel-related services and products often offering a
 wide range of options and choices from different suppliers.
+
+More details can be found in our functional documentation: [Camino Messenger Protocol Documentation](https://docs.camino.network/camino-messenger/introduction)
 
 ## Partner Configuration
 
