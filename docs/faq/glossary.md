@@ -18,8 +18,8 @@ words, all closely meaning the same thing, and causing confusion.
 | ASB     | [Application Service Bot](#application-service-bot)                         |
 | CM      | [Camino Messenger](#camino-messenger)                                       |
 | CMA     | [Camino Messenger Account](#camino-messenger-account)                       |
-| CMP     | [Camino Messenger Protocol](#camino-messenger-protocol)                     |
 | CMB     | [Camino Messenger Bot](#camino-messenger-bot)                               |
+| CMP     | [Camino Messenger Protocol](#camino-messenger-protocol)                     |
 | DAC     | [Decentralized Autonomous Consortium](#decentralized-autonomous-consortium) |
 | EOA     | [Externally Owned Account](#externally-owned-account)                       |
 | EVM     | [Ethereum Virtual Machine](#ethereum-virtual-machine)                       |
@@ -86,7 +86,8 @@ relaying messages between bots. Currently, Matrix messenger server is used.
 The Camino Messenger Account is a smart contract (actually an ensemble of smart contracts), acting as the financial backbone of the [Partner Configuration](#partner-configuration), holding the funds designated for trading on behalf of the Partner on the Camino Messenger, and paying / receiving payment amounts for bookings.  
 It also stores all configuration settings such as the services offered and wanted (and their versions), the applicable service fees and the accepted currencies. It also maintains a list of the wallets of the off-chain bots with which the Partner's systems interact with the Messenger.
 
-The Camino Messenger Account can be created from the Partner Showroom of the [Camino Suite](https://suite.camino.network/partners)
+The Camino Messenger Account can be created from the Partner Showroom of the [Camino Suite](https://suite.camino.network/partners)  
+
 More details can be found in our functional documentation: [Camino Partner Showroom](https://docs.camino.network/partners/partner-showroom "Camino Partner Showroom")
 
 ## Camino Messenger Protocol
@@ -448,8 +449,10 @@ More details can be found in our functional documentation: [Camino Messenger Pro
 
 ## Partner Configuration
 
-The Partner Configuration allows Partners to make themselves known to the Camino Network as service providers, or as looking for services from other Partners in the Network. Upon matching between services wanted and offered by two parties, such services will be then traded on Camino Messenger.
+The Partner Configuration allows Partners to make themselves known to the Camino Network as service providers, or as looking for services from other Partners in the Network. Upon matching between services wanted and offered by two parties, such services will be then traded on Camino Messenger.  
+
 More details can be found in our functional documentation: [Camino Partner Configuration](https://docs.camino.network/partners/partner-config "Camino Partner Configuration")
+
 ## Partner plugin
 
 The Partner Plugin serves as a bridge enabling the Camino Messenger Bot to integrate
