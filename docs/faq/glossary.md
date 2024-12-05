@@ -455,11 +455,12 @@ More details can be found in our functional documentation: [Camino Partner Confi
 
 ## Partner plugin
 
-The Partner Plugin serves as a bridge enabling the Camino Messenger Bot to integrate
-seamlessly with distribution and supplier systems.
+The Partner Plugin serves as a bridge enabling the Camino Messenger Bot to integrate with the Partner distribution or inventory system.
 
 This is developed by the suppliers to link their inventory systems with the Camino
 Messenger Bot.
+
+More details can be found in our functional documentation: [Camino Messenger Bot Partner Plugin](https://docs.camino.network/camino-messenger/bot/partner-plugin "Camino Messenger Bot Partner Plugin")
 
 ## PAX
 
