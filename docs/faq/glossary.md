@@ -444,7 +444,7 @@ wide range of options and choices from different suppliers.
 ## Partner Configuration
 
 The Partner Configuration allows Partners to make themselves known to the Camino Network as service providers, or as looking for services from other Partners in the Network. Upon matching between services wanted and offered by two parties, such services will be then traded on Camino Messenger.
-
+More details can be found in our functional documentation: [Camino Partner Configuration](https://docs.camino.network/partners/partner-config "Camino Partner Configuration")
 ## Partner plugin
 
 The Partner Plugin serves as a bridge enabling the Camino Messenger Bot to integrate
