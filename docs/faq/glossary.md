@@ -86,6 +86,9 @@ relaying messages between bots. Currently, Matrix messenger server is used.
 The Camino Messenger Account is a smart contract (actually an ensemble of smart contracts), acting as the financial backbone of the [Partner Configuration](#partner-configuration), holding the funds designated for trading on behalf of the Partner on the Camino Messenger, and paying / receiving payment amounts for bookings.  
 It also stores all configuration settings such as the services offered and wanted (and their versions), the applicable service fees and the accepted currencies. It also maintains a list of the wallets of the off-chain bots with which the Partner's systems interact with the Messenger.
 
+The Camino Messenger Account can be created from the Partner Showroom of the [Camino Suite](https://suite.camino.network/partners)
+More details can be found in our functional documentation: [Camino Partner Showroom](https://docs.camino.network/partners/partner-showroom "Camino Partner Showroom")
+
 ## Camino Messenger Protocol
 
 Camino Messenger Protocol (CMP) was developed as the communication protocol for
