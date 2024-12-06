@@ -443,7 +443,7 @@ service.
 
 ## OTA
 
-Online Travel Agency. OTAs are online platforms or websites that allow consumers to
+Online Travel Agency. OTAs are online platforms or websites that allow consumers
 planning and booking various travel-related services and products often offering a
 wide range of options and choices from different suppliers.
 
