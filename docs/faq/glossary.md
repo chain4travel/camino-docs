@@ -96,6 +96,8 @@ Camino Messenger Protocol (CMP) was developed as the communication protocol for
 Camino Messenger. It is used for (de)serializing messages between
 [bots](#camino-messenger-bot) and [partner plugins](#partner-plugin)
 
+More details can be found in our functional documentation: [Camino Messenger Protocol Documentation](https://docs.camino.network/camino-messenger/introduction)
+
 ## Camino Network
 
 Comprehensive ecosystem with a vast amount of industry partners designed
@@ -444,8 +446,6 @@ service.
 Online Travel Agency. OTAs are online platforms or websites that allow consumers to
 planning and booking various travel-related services and products often offering a
 wide range of options and choices from different suppliers.
-
-More details can be found in our functional documentation: [Camino Messenger Protocol Documentation](https://docs.camino.network/camino-messenger/introduction)
 
 ## Partner Configuration
 
