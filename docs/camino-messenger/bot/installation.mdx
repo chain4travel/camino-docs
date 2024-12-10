@@ -32,6 +32,47 @@ software](#compiling-from-source) from its source code, while the second
 method [utilizes Docker](#building-docker-image) to create an image and run a
 container.
 
+## Known Issues
+
+The Camino Messenger Bot the following known issues should be considered:
+
+**Version: 10.2.0**
+
+- After start-up of a fresh bot installation takes 10 to 15 seconds before messages
+  can be sent or received. This period can be more depending on the network 
+  connections and if the bot receives messages before those 15 seconds.
+
+- Empty Message handling: In principle this is a bug in the Partner Plugin, 
+  an empty message should never be attempted to be sent to a partner. The
+  Partner Plugin should sanitize empty messages and we might implement validation
+  for empty messages once we start with the ProtoValidate project.
+
+- Only the first bot returned by the CM-Account will be contacted by other bots.
+  This will be addressed when  High-Availability and Fail-Over will be addressed
+  in the Camino Messenger architecture.
+
+- If the Partner Plugin is disconnected and the bot receives a message, the Bot
+  may crash. To workaround that, use --restart always when running the docker
+  container. 
+
+- Message response header, status field is mandatory and should hold success or
+  failure. This will be enforced when we implement ProtoValidate.
+
+## Networking
+For the bot to connect to other partners properly, allow all outbound ports
+(can connect to internet). Also allow inbound ports which are configured in the
+configuration file.
+
+Bot-Plugin connection scenarios:
+- In case the bot is running from docker container and plugin on localhost: In the
+  bot configuration of the plugin host we write "host.docker.internal".
+- In case the bot is running from docker container and plugin on docker container:
+  In the bot configuration of the plugin host we write service name of the plugin
+  which is used in docker compose.
+- In case the bot is running from the executable on localhost and plugin as well:
+  In the bot configuration of the plugin host we write "localhost".
+
+
 ## Compiling from Source
 
 ### Requirements
