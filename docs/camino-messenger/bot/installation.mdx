@@ -32,46 +32,56 @@ software](#compiling-from-source) from its source code, while the second
 method [utilizes Docker](#building-docker-image) to create an image and run a
 container.
 
-## Known Issues
+## Known Issues & Limitations
 
-The Camino Messenger Bot the following known issues should be considered:
+The following known issues should be considered when using the Camino Messenger Bot
+v10.1.0:
 
-**Version: 10.2.0**
+### Version: v10.1.0
 
-- After start-up of a fresh bot installation takes 10 to 15 seconds before messages
-  can be sent or received. This period can be more depending on the network 
-  connections and if the bot receives messages before those 15 seconds.
+- **Start-Up Delay:** After a fresh start, the bot requires 10 to 15 seconds to
+  initialize before it can send or receive messages on some systems. This delay may
+  increase depending on network conditions, especially if the bot receives messages
+  during this initialization period.
 
-- Empty Message handling: In principle this is a bug in the Partner Plugin, 
-  an empty message should never be attempted to be sent to a partner. The
-  Partner Plugin should sanitize empty messages and we might implement validation
-  for empty messages once we start with the ProtoValidate project.
+- **Crash on Empty Message:** The bot crashes if it receives an empty message, which
+  should never occur. The Partner Plugin is responsible for sanitizing such
+  messages. In the future, validation for empty messages and other relevant message
+  types will be implemented using the protovalidate library.
 
-- Only the first bot returned by the CM-Account will be contacted by other bots.
-  This will be addressed when  High-Availability and Fail-Over will be addressed
-  in the Camino Messenger architecture.
+- **Single Bot Contact Limitation:** Currently, only the first bot returned by the
+  CM-Account is contacted by other bots. This limitation will be addressed in future
+  updates to support High Availability and Failover within the Camino Messenger
+  architecture.
 
-- If the Partner Plugin is disconnected and the bot receives a message, the Bot
-  may crash. To workaround that, use --restart always when running the docker
-  container. 
+- **Crash on Plugin Disconnection:** If the Partner Plugin disconnects while the bot
+  receives a message, the bot may crash. As a workaround, use the `--restart always`
+  flag when running the bot in a Docker container.
 
-- Message response header, status field is mandatory and should hold success or
-  failure. This will be enforced when we implement ProtoValidate.
+- **Mandatory Response Header Field:** The status field in the message response header
+  is mandatory and should indicate either "success" or "failure." This requirement
+  will be enforced once the protovalidate library is implemented.
 
 ## Networking
-For the bot to connect to other partners properly, allow all outbound ports
-(can connect to internet). Also allow inbound ports which are configured in the
-configuration file.
 
-Bot-Plugin connection scenarios:
-- In case the bot is running from docker container and plugin on localhost: In the
-  bot configuration of the plugin host we write "host.docker.internal".
-- In case the bot is running from docker container and plugin on docker container:
-  In the bot configuration of the plugin host we write service name of the plugin
-  which is used in docker compose.
-- In case the bot is running from the executable on localhost and plugin as well:
-  In the bot configuration of the plugin host we write "localhost".
+To enable the bot to connect to the Camino Messenger server, ensure that the network
+infrastructure and firewall rules are properly configured. The host running the bot
+must be able to resolve DNS names and establish a connection with at least the
+configured Matrix server. For internal communication with the Partner Plugin, ensure
+that the hosts can reach each other and that firewall rules allow the necessary
+applications to communicate.
 
+### Bot-Plugin Connection Scenarios
+
+- **Bot in Docker Container, Plugin on Host Machine (localhost):**  
+  In the bot configuration for the plugin host, use `host.docker.internal`.
+
+- **Bot in Docker Container, Plugin in Another Docker Container:**  
+  In the bot configuration for the plugin host, use the service name of the plugin
+  as defined in the Docker Compose file.
+
+- **Bot Executable on Host Machine, Plugin on Host Machine:**  
+  In the bot configuration for the plugin host, use `localhost`.
 
 ## Compiling from Source
 
@@ -110,29 +120,70 @@ go mod download
 Compile the application using the following command:
 
 ```sh
-go build -o bot cmd/camino-messenger-bot/main.go
+./scripts/build.sh
 ```
 
-You can also use the `build.sh` script under the `scripts` directory. That will create a compiled binary under the `build` directory.
+This will create a compiled binary under the `build` directory.
 
 ### Verify
 
-To ensure the build was successful, check for the `bot` binary:
+To ensure the build was successful, check for the `camino-messenger-bot` binary:
 
 ```
-./bot -help
+./build/camino-messenger-bot --help
 ```
 
-Running bot -help should produce the following output:
+Running `camino-messenger-bot --help` should produce the following output:
 
 ```
-$ ./bot -help
-Usage of ./bot:
-  -config string
-    	Path to configuration file
+$ ./build/camino-messenger-bot --help
+starts camino messenger bot
+
+Usage:
+  camino-messenger-bot [flags]
+
+Flags:
+      --booking_token_address string                BookingToken address. (default "0xe55E387F5474a012D1b048155E25ea78C7DBfBBC")
+      --bot_key string                              Sets bot private key. Its used for the matrix server connection, cm account interaction and cheques signing.
+      --cash_in_period int                          Cash-in period (in seconds). (default 86400)
+      --chain_rpc_url string                        C-chain RPC URL.
+      --cheque_expiration_time uint                 Cheque expiration time (in seconds). (default 18144000)
+      --cm_account_address string                   Sets bot cm account address.
+      --config string                               path to config file dir (default "camino-messenger-bot.yaml")
+      --db.migrations_path string                   Path to migration scripts. (default "file://./migrations")
+      --db.path string                              Path to database dir. (default "cmb-db")
+      --developer_mode                              Sets developer mode.
+  -h, --help                                        help for camino-messenger-bot
+      --matrix.host string                          Sets the matrix host.
+      --min_cheque_duration_until_expiration uint   Minimum valid duration until cheque expiration (in seconds). (default 15552000)
+      --network_fee_recipient_bot_address string    Network fee recipient bot address.
+      --network_fee_recipient_cm_account string     Network fee recipient CMAccount address.
+      --partner_plugin.ca_file string               The partner plugin RPC server CA certificate file.
+      --partner_plugin.enabled                      Enable or disable the partner plugin rpc client. It must be enabled if bot's cm account supports at least one service.
+      --partner_plugin.host string                  partner plugin RPC server host. (default "localhost:50051")
+      --partner_plugin.unencrypted                  Whether the RPC client should initiate an unencrypted connection with the server.
+      --response_timeout int                        The messenger timeout (in milliseconds). (default 3000)
+      --rpc_server.cert_file string                 The server certificate file.
+      --rpc_server.enabled                          Enable or disable RPC server. It must be enabled if bot is expecting to receive RPC requests (e.g. its distributor bot).
+      --rpc_server.key_file string                  The server key file.
+      --rpc_server.port uint                        The RPC server port. (default 9090)
+      --rpc_server.unencrypted                      Whether the RPC server should be unencrypted.
+      --tracing.cert_file string                    The tracing certificate file.
+      --tracing.enabled                             Whether tracing is enabled.
+      --tracing.host string                         The tracing host. (default "localhost:4317")
+      --tracing.insecure                            Whether the tracing connection should be insecure. (default true)
+      --tracing.key_file string                     The tracing key file.
+  -v, --version                                     version for camino-messenger-bot
 ```
 
 Below is a screen capture of all the steps above done on Ubuntu 22.04.3 LTS:
+
+:::note OUTDATED
+
+The screencast below demonstrates an older version of the bot. It will be updated in
+the future, but for now, it is provided here for reference.
+
+:::
 
 <AsciinemaEmbed id="faCHXrLJcSOZQC2JLS4dhL8Ze" />
 
@@ -162,7 +213,7 @@ docker build --tag camino-messenger-bot .
 After a successful build, test the image with:
 
 ```sh
-docker run --rm camino-messenger-bot -help
+docker run --rm camino-messenger-bot --help
 ```
 
 The expected output should be:
@@ -174,5 +225,12 @@ Usage of ./camino-messenger-bot:
 ```
 
 Below is a screen capture of all the steps above done on Ubuntu 22.04.3 LTS:
+
+:::note OUTDATED
+
+The screencast below demonstrates an older version of the bot. It will be updated in
+the future, but for now, it is provided here for reference.
+
+:::
 
 <AsciinemaEmbed id="qYt6MhboIv9vyy94B1fwwpQpe" />
