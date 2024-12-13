@@ -32,57 +32,6 @@ software](#compiling-from-source) from its source code, while the second
 method [utilizes Docker](#building-docker-image) to create an image and run a
 container.
 
-## Known Issues & Limitations
-
-The following known issues should be considered when using the Camino Messenger Bot
-v10.1.0:
-
-### Version: v10.1.0
-
-- **Start-Up Delay:** After a fresh start, the bot requires 10 to 15 seconds to
-  initialize before it can send or receive messages on some systems. This delay may
-  increase depending on network conditions, especially if the bot receives messages
-  during this initialization period.
-
-- **Crash on Empty Message:** The bot crashes if it receives an empty message, which
-  should never occur. The Partner Plugin is responsible for sanitizing such
-  messages. In the future, validation for empty messages and other relevant message
-  types will be implemented using the protovalidate library.
-
-- **Single Bot Contact Limitation:** Currently, only the first bot returned by the
-  CM-Account is contacted by other bots. This limitation will be addressed in future
-  updates to support High Availability and Failover within the Camino Messenger
-  architecture.
-
-- **Crash on Plugin Disconnection:** If the Partner Plugin disconnects while the bot
-  receives a message, the bot may crash. As a workaround, use the `--restart always`
-  flag when running the bot in a Docker container.
-
-- **Mandatory Response Header Field:** The status field in the message response header
-  is mandatory and should indicate either "success" or "failure." This requirement
-  will be enforced once the protovalidate library is implemented.
-
-## Networking
-
-To enable the bot to connect to the Camino Messenger server, ensure that the network
-infrastructure and firewall rules are properly configured. The host running the bot
-must be able to resolve DNS names and establish a connection with at least the
-configured Matrix server. For internal communication with the Partner Plugin, ensure
-that the hosts can reach each other and that firewall rules allow the necessary
-applications to communicate.
-
-### Bot-Plugin Connection Scenarios
-
-- **Bot in Docker Container, Plugin on Host Machine (localhost):**  
-  In the bot configuration for the plugin host, use `host.docker.internal`.
-
-- **Bot in Docker Container, Plugin in Another Docker Container:**  
-  In the bot configuration for the plugin host, use the service name of the plugin
-  as defined in the Docker Compose file.
-
-- **Bot Executable on Host Machine, Plugin on Host Machine:**  
-  In the bot configuration for the plugin host, use `localhost`.
-
 ## Compiling from Source
 
 ### Requirements
@@ -234,3 +183,54 @@ the future, but for now, it is provided here for reference.
 :::
 
 <AsciinemaEmbed id="qYt6MhboIv9vyy94B1fwwpQpe" />
+
+## Networking
+
+To enable the bot to connect to the Camino Messenger server, ensure that the network
+infrastructure and firewall rules are properly configured. The host running the bot
+must be able to resolve DNS names and establish a connection with at least the
+configured Matrix server. For internal communication with the Partner Plugin, ensure
+that the hosts can reach each other and that firewall rules allow the necessary
+applications to communicate.
+
+### Bot-Plugin Connection Scenarios
+
+- **Bot in Docker Container, Plugin on Host Machine (localhost):**  
+  In the bot configuration for the plugin host, use `host.docker.internal`.
+
+- **Bot in Docker Container, Plugin in Another Docker Container:**  
+  In the bot configuration for the plugin host, use the service name of the plugin
+  as defined in the Docker Compose file.
+
+- **Bot Executable on Host Machine, Plugin on Host Machine:**  
+  In the bot configuration for the plugin host, use `localhost`.
+
+## Known Issues & Limitations
+
+The following known issues should be considered when using the Camino Messenger Bot
+v10.1.0:
+
+### Version: v10.1.0
+
+- **Start-Up Delay:** After a fresh start, the bot requires 10 to 15 seconds to
+  initialize before it can send or receive messages on some systems. This delay may
+  increase depending on network conditions, especially if the bot receives messages
+  during this initialization period.
+
+- **Crash on Empty Message:** The bot crashes if it receives an empty message, which
+  should never occur. The Partner Plugin is responsible for sanitizing such
+  messages. In the future, validation for empty messages and other relevant message
+  types will be implemented using the protovalidate library.
+
+- **Single Bot Contact Limitation:** Currently, only the first bot returned by the
+  CM-Account is contacted by other bots. This limitation will be addressed in future
+  updates to support High Availability and Failover within the Camino Messenger
+  architecture.
+
+- **Crash on Plugin Disconnection:** If the Partner Plugin disconnects while the bot
+  receives a message, the bot may crash. As a workaround, use the `--restart always`
+  flag when running the bot in a Docker container.
+
+- **Mandatory Response Header Field:** The status field in the message response header
+  is mandatory and should indicate either "success" or "failure." This requirement
+  will be enforced once the protovalidate library is implemented.
