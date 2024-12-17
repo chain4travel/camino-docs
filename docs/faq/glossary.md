@@ -456,7 +456,7 @@ service.
 ## OTA
 
 Online Travel Agency. OTAs are online platforms or websites that allow consumers
-planning and booking various travel-related services and products often offering a
+planning and booking various travel-related services and products, often offering a
 wide range of options and choices from different suppliers.
 
 ## Partner Configuration
@@ -467,12 +467,11 @@ Network. Upon matching between services wanted and offered by two parties, such
 services will be then traded on Camino Messenger.
 
 More details can be found in our functional documentation: [Camino Partner
-Configuration](/partners/partner-config "Camino Partner
-Configuration")
+Configuration](/partners/partner-config)
 
 ## Partner Plugin
 
-The Partner Plugin serves as a bridge enabling the Camino Messenger Bot to integrate
+The Partner Plugin serves as a bridge, enabling the Camino Messenger Bot to integrate
 with the Partner distribution or inventory system.
 
 This is developed by the suppliers to link their inventory systems with the Camino
