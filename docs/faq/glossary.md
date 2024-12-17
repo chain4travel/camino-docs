@@ -70,12 +70,24 @@ communication between suppliers and distributors.
 
 ## Camino Messenger Account
 
-The Camino Messenger Account is a smart contract (actually an ensemble of smart contracts), acting as the financial backbone of the [Partner Configuration](#partner-configuration), holding the funds designated for trading on behalf of the Partner on the Camino Messenger, and paying / receiving payment amounts for bookings.  
-It also stores all configuration settings such as the services offered and wanted (and their versions), the applicable service fees and the accepted currencies. It also maintains a list of the wallets of the off-chain bots with which the Partner's systems interact with the Messenger.
+The Camino Messenger Account is a smart contract (actually an ensemble of smart
+contracts), acting as the financial backbone of the [Partner
+Configuration](#partner-configuration), holding the funds designated for trading on
+behalf of the Partner on the Camino Messenger, and paying / receiving payment
+amounts for bookings.
 
-The Camino Messenger Account can be created from the Partner Showroom of the [Camino Suite](https://suite.camino.network/partners) or - for development purposes on Columbus only - by using a [cli tool](https://github.com/chain4travel/camino-messenger-bot?tab=readme-ov-file#camino-messenger-account-cm-account)
+It also stores all configuration settings such as the services offered and wanted
+(and their versions), the applicable service fees and the accepted currencies. It
+also maintains a list of the wallets of the off-chain bots with which the Partner's
+systems interact with the Messenger.
 
-More details can be found in our functional documentation: [Camino Partner Showroom](https://docs.camino.network/partners/partner-showroom "Camino Partner Showroom")
+The Camino Messenger Account can be created from the Partner Showroom of the [Camino
+Suite](https://suite.camino.network/partners) or - for development purposes on
+Columbus only - by using a [cli
+tool](https://github.com/chain4travel/camino-messenger-bot?tab=readme-ov-file#camino-messenger-account-cm-account)
+
+More details can be found in our functional documentation: [Camino Partner
+Showroom](/partners/partner-showroom)
 
 ## Camino Messenger Bot
 
@@ -85,7 +97,7 @@ underlying technology stack changes and evolves over time. It offers endpoints t
 communicate with the Camino Messenger network and can actively send requests to
 so-called [partner plugins](#partner-plugin).
 
-## Camino Messenger server
+## Camino Messenger Server
 
 The backbone of the Camino Messenger infrastructure. Essentially, it's a server
 relaying messages between bots. Currently, Matrix messenger server is used.
@@ -96,7 +108,7 @@ Camino Messenger Protocol (CMP) was developed as the communication protocol for
 Camino Messenger. It is used for (de)serializing messages between
 [bots](#camino-messenger-bot) and [partner plugins](#partner-plugin)
 
-More details can be found in our functional documentation: [Camino Messenger Protocol Documentation](https://docs.camino.network/camino-messenger/introduction)
+More details can be found in our functional documentation: [Camino Messenger Protocol Documentation](/camino-messenger/introduction)
 
 ## Camino Network
 
@@ -449,18 +461,25 @@ wide range of options and choices from different suppliers.
 
 ## Partner Configuration
 
-The Partner Configuration allows Partners to make themselves known to the Camino Network as service providers, or as looking for services from other Partners in the Network. Upon matching between services wanted and offered by two parties, such services will be then traded on Camino Messenger.
+The Partner Configuration allows Partners to make themselves known to the Camino
+Network as service providers, or as looking for services from other Partners in the
+Network. Upon matching between services wanted and offered by two parties, such
+services will be then traded on Camino Messenger.
 
-More details can be found in our functional documentation: [Camino Partner Configuration](https://docs.camino.network/partners/partner-config "Camino Partner Configuration")
+More details can be found in our functional documentation: [Camino Partner
+Configuration](/partners/partner-config "Camino Partner
+Configuration")
 
-## Partner plugin
+## Partner Plugin
 
-The Partner Plugin serves as a bridge enabling the Camino Messenger Bot to integrate with the Partner distribution or inventory system.
+The Partner Plugin serves as a bridge enabling the Camino Messenger Bot to integrate
+with the Partner distribution or inventory system.
 
 This is developed by the suppliers to link their inventory systems with the Camino
 Messenger Bot.
 
-More details can be found in our functional documentation: [Camino Messenger Bot Partner Plugin](https://docs.camino.network/camino-messenger/bot/partner-plugin "Camino Messenger Bot Partner Plugin")
+More details can be found in our functional documentation: [Camino Messenger Bot
+Partner Plugin](/camino-messenger/bot/partner-plugin)
 
 ## PAX
 
