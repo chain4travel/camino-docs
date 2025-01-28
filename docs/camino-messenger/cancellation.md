@@ -62,7 +62,156 @@ a `CounterCancellation`can be proposed by the supplier and if agreeable for the
 distributor, the cancellation can be finished with this new refund value by using
 `AcceptCounterCancellation`.
 
-## Cancellation Flows
+## On-Chain Cancellation Flows
+
+## Cancellation Messages
+
+## Messages and on-chain flow sequence diagram
+
+```mermaid
+sequenceDiagram
+    participant DistributorPlugin as Distributor<br>Plugin
+    participant DistributorCMA as Distributor<br>CMAccount/Bot
+    participant BookingToken as BookingToken<br>Contract
+    participant SupplierCMA as Supplier<br>CMAccount/Bot
+    participant SupplierPlugin as Supplier<br>Plugin
+
+    Note over DistributorPlugin,SupplierPlugin: Token must be in BOUGHT state and be cancellable
+
+    alt Distributor Initiates
+    DistributorPlugin->>DistributorCMA: InitiateCancellationRQ
+        DistributorCMA->>BookingToken: initiateCancellation<br>(tokenId, refundAmount, reason, reasonVersion)
+        Note over BookingToken: Sets status to PENDING<br/>Records distributor accepted=true<br/>Records currentProposer=distributor
+        DistributorCMA->>DistributorPlugin:InitiateCancellationRS
+        BookingToken-->>SupplierCMA: CancellationPending(...)
+        BookingToken-->>SupplierCMA: CancellationReasons(...)
+        par
+            SupplierCMA->>SupplierPlugin: CancellationPending<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationPending<br>Notification
+        end
+
+    else Supplier Initiates    
+        SupplierPlugin->>SupplierCMA: IntiateCancellationRQ
+        SupplierCMA->>BookingToken: initiateCancellation<br>(tokenId, refundAmount, reason, reasonVersion)
+        Note over BookingToken: Sets status to PENDING<br/>Records supplier accepted=true<br/>Records currentProposer=supplier
+        SupplierCMA->>SupplierPlugin: InitiateCancellationRS
+        BookingToken-->>DistributorCMA: CancellationPending(...)
+        BookingToken-->>DistributorCMA: CancellationReasons(...)
+        par
+            SupplierCMA->>SupplierPlugin: CancellationPending<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationPending<br>Notification
+        end
+    end
+
+    alt Other Party Accepts
+        alt Distributor Accepts
+            DistributorPlugin->>DistributorCMA: AcceptCancellationRQ
+            DistributorCMA->>BookingToken: acceptCancellation<br>(tokenId, refundAmount)
+            Note over BookingToken: Sets distributor accepted=true
+            DistributorCMA->>DistributorPlugin:AcceptCancellationRS
+            BookingToken-->>SupplierCMA: CancellationPending(...)
+            BookingToken-->>SupplierCMA: CancellationReasons(...)
+            par
+            SupplierCMA->>SupplierPlugin: CancellationPending<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationPending<br>Notification
+            end
+        else Supplier Accepts    
+            SupplierPlugin->>SupplierCMA: AcceptCancellationRQ
+            SupplierCMA->>BookingToken: acceptCancellation<br>(tokenId, refundAmount)
+            Note over BookingToken: Sets supplier accepted=true
+            SupplierCMA->>SupplierPlugin: AcceptCancellationRS
+            BookingToken-->>DistributorCMA: CancellationPending(...)
+            BookingToken-->>DistributorCMA: CancellationReasons(...)
+            par
+            SupplierCMA->>SupplierPlugin: CancellationPending<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationPending<br>Notification
+            end
+        end
+    else Other Party Counters
+        alt Distributor Counters
+            DistributorPlugin->>DistributorCMA: CounterCancellationRQ
+            DistributorCMA->>BookingToken: counterCancellation<br>(tokenId, newRefundAmount, reason, reasonVersion)
+            Note over BookingToken: Updates refundAmount<br/>Sets currentProposer=distributor<br/>Increments timesCountered
+            DistributorCMA->>DistributorPlugin:CounterCancellationRS
+            BookingToken-->>SupplierCMA: CancellationPending(...)
+            BookingToken-->>SupplierCMA: CancellationReasons(...)
+            par
+            SupplierCMA->>SupplierPlugin: CancellationPending<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationPending<br>Notification
+            end
+        else Supplier Counters  
+            SupplierPlugin->>SupplierCMA: CounterCancellationRQ
+            SupplierCMA->>BookingToken: counterCancellation<br>(tokenId, newRefundAmount, reason, reasonVersion)
+            Note over BookingToken: Updates refundAmount<br/>Sets currentProposer=supplier<br/>Increments timesCountered
+            SupplierCMA->>SupplierPlugin:CounterCancellationRS
+            BookingToken-->>DistributorCMA: CancellationPending(...)
+            BookingToken-->>DistributorCMA: CancellationReasons(...)
+            par
+            SupplierCMA->>SupplierPlugin: CancellationPending<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationPending<br>Notification
+            end
+        end
+    else Other Party Rejects
+        alt Distributor Rejects
+            DistributorPlugin->>DistributorCMA:RejectCancellationRQ
+            DistributorCMA->>BookingToken: rejectCancellation<br>(tokenId, reason, reasonVersion)
+            Note over BookingToken: Sets status to REJECTED<br/>Increments timesRejected
+            DistributorCMA->>DistributorPlugin:RejectCancellationRS
+            BookingToken-->>SupplierCMA: CancellationRejected(...)
+            par
+            SupplierCMA->>SupplierPlugin: CancellationRejected<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationRejected<br>Notification
+            end
+        else Supplier Rejects    
+            SupplierPlugin->>SupplierCMA:RejectCancellationRQ
+            SupplierCMA->>BookingToken: rejectCancellation<br>(tokenId, reason, reasonVersion)
+            Note over BookingToken: Sets status to REJECTED<br/>Increments timesRejected
+            SupplierCMA->>SupplierPlugin: RejectCancellationRS
+            BookingToken-->>DistributorCMA: CancellationRejected(...)
+            par
+            SupplierCMA->>SupplierPlugin: CancellationRejected<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationRejected<br>Notification
+            end
+    end
+    else Current Proposer Withdraws
+        alt Distributor Withdraws
+            DistributorPlugin->>DistributorCMA: WithdrawCancellationRQ
+            DistributorCMA->>BookingToken: withdrawCancellation<br>(tokenId, reason, reasonVersion)
+            Note over BookingToken: Sets status to WITHDRAWN
+            DistributorCMA->>DistributorPlugin: WithdrawCancellationRS
+            BookingToken-->>SupplierCMA: CancellationWithdrawn(...)
+            par
+            SupplierCMA->>SupplierPlugin: CancellationWithdrawn<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationWhithdrawn<br>Notification
+            end
+        else Supplier Withdraws  
+            SupplierPlugin->>SupplierCMA: WithdrawCancellationRQ  
+            SupplierCMA->>BookingToken: withdrawCancellation<br>(tokenId, reason, reasonVersion)
+            Note over BookingToken: Sets status to WITHDRAWN
+            SupplierCMA->>SupplierPlugin: WithdrawCancellationRS
+            BookingToken-->>DistributorCMA: CancellationWithdrawn(...)
+            par
+            SupplierCMA->>SupplierPlugin: CancellationWithdrawn<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationWhithdrawn<br>Notification
+            end
+        end
+    end
+
+    alt Successful Cancellation Path
+        SupplierPlugin->>SupplierCMA: FinalizeCancellationRQ
+        SupplierCMA->>BookingToken: finalizeCancellation<br>(tokenId, refundAmount)
+        Note over BookingToken: Requires distributor accepted=true<br/>Sets status to FINALIZED<br/>Updates token status to CANCELLED<br>Burn token<br>Supplier must send refund payment
+        SupplierCMA->>SupplierPlugin: FinalizeCancellationRS
+        BookingToken-->>DistributorCMA: CancellationFinalized(...)
+        BookingToken-->>DistributorCMA: Process refund payment
+        par
+        SupplierCMA->>SupplierPlugin: CancellationFinalized<br>Notification
+        DistributorCMA->>DistributorPlugin: CancellationFinalized<br>Notification
+        end
+    end
+```
+
+## OLD
 
 ### Distributor-Initiated Cancellation
 
@@ -121,54 +270,7 @@ completed, the cancellation proposal is deleted.
 
 #### Sequence Diagram
 
-```mermaid
-sequenceDiagram
-  participant DistributorPlugin as Distributor Plugin
-  participant Distributor as Distributor Bot
-  participant Contract as Contract
-  participant Supplier as Supplier Bot
-  participant SupplierPlugin as Supplier Plugin
-  Note over DistributorPlugin, SupplierPlugin: Distributor-Initiated Cancellation Flow
-  DistributorPlugin ->> Distributor: InitiateCancellationRequest
-  Distributor ->> Contract: initiateCancellationProposal(tokenId, refundAmount)
-  Contract -->> Supplier: emits CancellationPending event
-  Supplier ->> SupplierPlugin: CancellationPending notification
-  Note over Contract: proposedBy == distributor
-  alt Supplier Accepts
-    Note over Supplier, Contract: Supplier sends refund payment
-    SupplierPlugin ->> Supplier: AcceptCancellationRequest
-    Supplier ->> Contract: acceptCancellationProposal(tokenId, checkRefundAmount, {value: refundAmount})
-    Contract ->> Contract: Validate & Update Status
-    Contract ->> Contract: Burn token
-    Contract ->> Distributor: Transfer refund
-    Contract -->> Distributor: emits CancellationAccepted event
-    Distributor ->> DistributorPlugin: CancellationAccepted notification
-    Contract -->> Supplier: emits CancellationAccepted event
-    Supplier ->> SupplierPlugin: CancellationAccepted notification
-  else Supplier Rejects
-    SupplierPlugin->> Supplier: RejectCancellationRequest
-    Supplier ->> Contract: rejectCancellationProposal(tokenId, reason)
-    Contract -->> Distributor: emits CancellationRejected event
-    Distributor ->> DistributorPlugin: CancellationRejected notification
-  else Supplier Counters
-    SupplierPlugin ->> Supplier: CounterCancellationRequest
-    Supplier ->> Contract: counterCancellationProposal(tokenId, newRefundAmount)
-    Contract -->> Distributor: emits CancellationCountered event
-    Distributor ->> DistributorPlugin: CancellationCountered notification
-    alt Distributor Accepts Counter
-      DistributorPlugin ->> Distributor: AcceptCounterCancellationRequest
-      Distributor ->> Contract: acceptCounteredCancellationProposal(tokenId, checkRefundAmount)
-      Contract -->> Supplier: emits CancellationPending event
-      Supplier ->> SupplierPlugin: CancellationPending notification
-      Note left of Supplier: Flow continues with Supplier Accept process above
-  else Distributor Cancels
-    DistributorPlugin ->> Distributor: CancelCancellationRequest
-    Distributor ->> Contract: cancelCancellationProposal(tokenId)
-    Contract -->> Supplier: emits CancellationProposalCancelled event
-    Supplier ->> SupplierPlugin: CancellationProposalCancelled notification
-    end
-  end
-```
+
 
 ### Supplier-Initiated Cancellation
 Supplier can initiate cancellations for example in case an excursion cannot take
@@ -222,7 +324,7 @@ sequenceDiagram
     Supplier ->> SupplierPlugin: CancellationProposalAcceptedByTheOwner notification
     Note over Contract: proposedBy changes to distributor
     else Supplier Completes Cancellation
-      Note over Supplier, Contract: Supplier must send refund payment
+      Note over Supplier, Contract: Sluppier must send refund payment
       SupplierPlugin ->> Supplier: AcceptCancellationRequest
       Supplier ->> Contract: acceptCancellationProposal(tokenId, checkRefundAmount, {value: refundAmount})
       Contract ->> Contract: Validate & Update Status
