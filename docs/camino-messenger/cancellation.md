@@ -30,7 +30,7 @@ improvement.
 ## Overview
 
 The cancellation process can be initiated by either the distributor (token owner) or
-the supplier, with very similar flows. The flow includes safety checks, refund handling, 
+the supplier, with very similar flows. The flow includes safety checks, refund handling,
 and clear state transitions managed through smart contracts.
 
 The process is designed to have the distributor and the supplier agree on the
@@ -71,6 +71,7 @@ distributor, the cancellation can be finished with this new refund value by usin
 `AcceptCounterCancellation`.
 
 ## On-Chain Cancellation Flows and messages
+
 A cancellation is initiated through the Camino Messenger. The refund amount should
 be known and in case not stored with the booking, it can be requested from the
 supplier, by using the `CheckCancellationRequest`.
@@ -108,7 +109,7 @@ the supplier (see the below sequence diagram):
      Distributor CM Account, in the currency of the booking token.
    - The `CancellationFinalizedNotification` is transmitted to both partners.
    - Distributor bot listens for on-chain events, receives the `CancellationAcceptedNotification`
-     and forwards the notification to the distributor partner plugin, 
+     and forwards the notification to the distributor partner plugin,
    - The Distributor expects the reception of the `CancellationFinalizedNotification`,
      which should trigger a different workflow in case of on-chain or off-chain payment.
      - In case of on-chain payment the accountancy system should be advised of reception
@@ -116,7 +117,7 @@ the supplier (see the below sequence diagram):
      - In case of off-chain payment, the accountancy system should be triggered to receive
        the specified refund amount via credit-note, IBAN transfer or VCC refund.
    - Supplier bot listens for on-chain events, receives the first the `FinalizeCancellation
-     Response` and then the `CancellationFinalizedNotification`.
+Response` and then the `CancellationFinalizedNotification`.
      As the booking token is now set to CANCELLED, the booking can definitively be cancelled
      in the inventory system.
      - In case of on-chain payment the accountancy system should be advised of the transfer
@@ -130,16 +131,16 @@ the supplier (see the below sequence diagram):
      in the acceptance, as the supplier has to sign the refund transaction.
 
 3. **Counter-Proposal**
-In case the booking can be cancelled, but the refund amount provided by the proposer
-does not match the original cost minus the cancellation cost, the other party can return
-a counter proposal with a corrected refund amount. In case of a Distributor initiated
-cancellation, the proposer is the Distributor. In case of initiation by the Supplier,
-the proposer is the Supplier and the other party the Distributor.
+   In case the booking can be cancelled, but the refund amount provided by the proposer
+   does not match the original cost minus the cancellation cost, the other party can return
+   a counter proposal with a corrected refund amount. In case of a Distributor initiated
+   cancellation, the proposer is the Distributor. In case of initiation by the Supplier,
+   the proposer is the Supplier and the other party the Distributor.
 
    - Upon reception of the `CancellationPending notification`, the other party checks
-   whether the booking can be cancelled and the proposed refund amount is correct.
+     whether the booking can be cancelled and the proposed refund amount is correct.
    - The other party can counter with a different refund amount using the
-   `CounterCancellationRequest`.
+     `CounterCancellationRequest`.
    - The proposer receives the `CancellationCountered notification` and can then either:
      - Accept the counter-proposal, using the `AcceptCounterCancellationRequest`.
      - Cancel the entire cancellation process using the `WithdrawCancellationRequest`.
@@ -156,11 +157,10 @@ Under normal conditions, we do not expect a back and forth counter cancellation 
   responsible party, by using the `CounterCancellationRequest` to add the cost difference
   to the refund amount.
 
-
 4. **Rejection**
-It is not always possible to cancel a booking. It might be that the service is already used
-or that the service has been partially used (for example the first couple of days of a
-stay or car rental)
+   It is not always possible to cancel a booking. It might be that the service is already used
+   or that the service has been partially used (for example the first couple of days of a
+   stay or car rental)
 
    - Upon reception of the `CancellationPending notification`, the other party checks
      whether the booking can be cancelled.
@@ -170,14 +170,15 @@ stay or car rental)
    - This terminates the cancellation process with a CancellationRejected notification
 
 5. **Withdrawal**
-The CancelCancellation request can only be withdrawn by the initiator of the cancellation,
-which is the owner of the "Cancellation Proposal". For example if an employee has requested
-the cancellation of the wrong booking or in case of an unacceptable counter proposal.
-As soon as the cancellation is accepted the `WithdrawCancellationResponse` will return
-an error. Once a `withdrawCancellation`event is completed, the cancellation transaction
-status is set to `WITHDRAWN`.
+   The CancelCancellation request can only be withdrawn by the initiator of the cancellation,
+   which is the owner of the "Cancellation Proposal". For example if an employee has requested
+   the cancellation of the wrong booking or in case of an unacceptable counter proposal.
+   As soon as the cancellation is accepted the `WithdrawCancellationResponse` will return
+   an error. Once a `withdrawCancellation`event is completed, the cancellation transaction
+   status is set to `WITHDRAWN`.
 
 ### Supplier-Initiated Cancellation
+
 Supplier can initiate cancellations for example in case an excursion cannot take
 place due to weather conditions, a flight is cancelled, a hotel is overbooked or
 damaged due to disasters, etc. We will extend this section in the future to
@@ -212,7 +213,7 @@ sequenceDiagram
             DistributorCMA->>DistributorPlugin: CancellationPending<br>Notification
         end
 
-    else Supplier Initiates    
+    else Supplier Initiates
         SupplierPlugin->>SupplierCMA: IntiateCancellationRQ
         SupplierCMA->>BookingToken: initiateCancellation<br>(tokenId, refundAmount, reason, reasonVersion)
         Note over BookingToken: Sets status to PENDING<br/>Records supplier accepted=true<br/>Records currentProposer=supplier
@@ -226,7 +227,7 @@ sequenceDiagram
     end
 
     alt Other Party Accepts
-        alt Supplier Accepts    
+        alt Supplier Accepts
             SupplierPlugin->>SupplierCMA: AcceptCancellationRQ
             SupplierCMA->>BookingToken: acceptCancellation<br>(tokenId, refundAmount)
             Note over BookingToken: Sets supplier accepted=true
@@ -261,7 +262,7 @@ sequenceDiagram
             SupplierCMA->>SupplierPlugin: CancellationPending<br>Notification
             DistributorCMA->>DistributorPlugin: CancellationPending<br>Notification
             end
-        else Supplier Counters  
+        else Supplier Counters
             SupplierPlugin->>SupplierCMA: CounterCancellationRQ
             SupplierCMA->>BookingToken: counterCancellation<br>(tokenId, newRefundAmount, reason, reasonVersion)
             Note over BookingToken: Updates refundAmount<br/>Sets currentProposer=supplier<br/>Increments timesCountered
@@ -284,7 +285,7 @@ sequenceDiagram
             SupplierCMA->>SupplierPlugin: CancellationRejected<br>Notification
             DistributorCMA->>DistributorPlugin: CancellationRejected<br>Notification
             end
-        else Supplier Rejects    
+        else Supplier Rejects
             SupplierPlugin->>SupplierCMA:RejectCancellationRQ
             SupplierCMA->>BookingToken: rejectCancellation<br>(tokenId, reason, reasonVersion)
             Note over BookingToken: Sets status to REJECTED<br/>Increments timesRejected
@@ -306,8 +307,8 @@ sequenceDiagram
             SupplierCMA->>SupplierPlugin: CancellationWithdrawn<br>Notification
             DistributorCMA->>DistributorPlugin: CancellationWhithdrawn<br>Notification
             end
-        else Supplier Withdraws  
-            SupplierPlugin->>SupplierCMA: WithdrawCancellationRQ  
+        else Supplier Withdraws
+            SupplierPlugin->>SupplierCMA: WithdrawCancellationRQ
             SupplierCMA->>BookingToken: withdrawCancellation<br>(tokenId, reason, reasonVersion)
             Note over BookingToken: Sets status to WITHDRAWN
             SupplierCMA->>SupplierPlugin: WithdrawCancellationRS
