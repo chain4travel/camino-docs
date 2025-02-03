@@ -214,7 +214,7 @@ sequenceDiagram
         end
 
     else Supplier Initiates
-        SupplierPlugin->>SupplierCMA: IntiateCancellationRQ
+        SupplierPlugin->>SupplierCMA: InitiateCancellationRQ
         SupplierCMA->>BookingToken: initiateCancellation<br>(tokenId, refundAmount, reason, reasonVersion)
         Note over BookingToken: Sets status to PENDING<br/>Records supplier accepted=true<br/>Records currentProposer=supplier
         SupplierCMA->>SupplierPlugin: InitiateCancellationRS
@@ -305,7 +305,7 @@ sequenceDiagram
             BookingToken-->>SupplierCMA: CancellationWithdrawn(...)
             par
             SupplierCMA->>SupplierPlugin: CancellationWithdrawn<br>Notification
-            DistributorCMA->>DistributorPlugin: CancellationWhithdrawn<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationWithdrawn<br>Notification
             end
         else Supplier Withdraws
             SupplierPlugin->>SupplierCMA: WithdrawCancellationRQ
@@ -315,7 +315,7 @@ sequenceDiagram
             BookingToken-->>DistributorCMA: CancellationWithdrawn(...)
             par
             SupplierCMA->>SupplierPlugin: CancellationWithdrawn<br>Notification
-            DistributorCMA->>DistributorPlugin: CancellationWhithdrawn<br>Notification
+            DistributorCMA->>DistributorPlugin: CancellationWithdrawn<br>Notification
             end
         end
     end
