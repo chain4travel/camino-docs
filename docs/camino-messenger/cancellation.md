@@ -12,7 +12,7 @@ cancellations. The process is designed to allow negotiation between parties whil
 maintaining security and clarity throughout the cancellation flow.
 
 The process consists of multiple steps, but the messages are small and the fields
-used are frequently the same, which results to only small additional complexity
+used are frequently the same, which results in only a small additional complexity
 compared to a direct API call to check whether a booking is cancellable and what
 the cancellation cost is, followed by a finalization call for the cancellation.
 
@@ -22,7 +22,7 @@ is specified in the refund_amount and the on-chain refund transaction is skipped
 This way the process is uniform for on/off-chain payments and serves as a ledger
 to avoid disputes and allowing for automation in both cases.
 
-In cases where a Supplier has to cancel a booking, todays processes are fully manual
+In cases where a Supplier has to cancel a booking, today's processes are fully manual
 cumbersome and leading to disputes. Supplier driven cancellation, refund proposals
 and automated counter proposals based on rebooking cost, can be an important efficiency
 improvement.
@@ -66,7 +66,7 @@ when the service is already used or in case cancellation is not possible (for
 example in case of a non-refundable rate plan).
 
 In case the supplier does not agree to the proposed refund amount (cancellation cost)
-a `CounterCancellation` can be proposed by the supplier and if agreeable for the
+a `CounterCancellation` can be proposed by the supplier and if agreeable to the
 distributor, the cancellation can be finished with this new refund value by using
 `AcceptCounterCancellation`.
 
@@ -119,8 +119,10 @@ the supplier (see the below sequence diagram):
    - Supplier bot listens for on-chain events, receives the first the `FinalizeCancellation
 Response` and then the `CancellationFinalizedNotification`.
      As the booking token is now set to CANCELLED, the booking can definitively be cancelled
-     in the inventory system. - In case of on-chain payment the accountancy system should be advised of the transfer
-     of the refund from the CM Account, after the `CancellationFinalizedNotification`. - In case of off-chain payment, the accountancy system should be triggered to transfer
+     in the inventory system.
+     - In case of on-chain payment the accountancy system should be advised of the transfer
+     of the refund from the CM Account, after the `CancellationFinalizedNotification`.
+     - In case of off-chain payment, the accountancy system should be triggered to transfer
      the specified refund amount via credit-note, IBAN transfer or VCC refund, upon
      reception of the `FinalizeCancellation Response`.
    - The Supplier initiated Cancellation flow is the same, until after the acceptation of
@@ -156,9 +158,8 @@ Under normal conditions, we do not expect a back and forth counter cancellation 
   to the refund amount.
 
 4. **Rejection**
-   It is not always possible to cancel a booking. It might be that the service is already used
-   or that the service has been partially used (for example the first couple of days of a
-   stay or car rental)
+  Cancellation may not be possible if the service is already used or partially used
+  (e.g., the first couple of days of a stay or car rental)
 
    - Upon reception of the `CancellationPending notification`, the other party checks
      whether the booking can be cancelled.
@@ -169,7 +170,7 @@ Under normal conditions, we do not expect a back and forth counter cancellation 
 
 5. **Withdrawal**
    The CancelCancellation request can only be withdrawn by the initiator of the cancellation,
-   which is the owner of the "Cancellation Proposal". For example if an employee has requested
+   which is the owner of the "Cancellation Proposal". For example, if an employee has requested
    the cancellation of the wrong booking or in case of an unacceptable counter proposal.
    As soon as the cancellation is accepted the `WithdrawCancellationResponse` will return
    an error. Once a `withdrawCancellation`event is completed, the cancellation transaction
@@ -177,11 +178,11 @@ Under normal conditions, we do not expect a back and forth counter cancellation 
 
 ### Supplier-Initiated Cancellation
 
-Supplier can initiate cancellations for example in case an excursion cannot take
-place due to weather conditions, a flight is cancelled, a hotel is overbooked or
-damaged due to disasters, etc. We will extend this section in the future to
-include alternatives, so that instead of cancelling the service a modification
-to alternatives can be offered.
+Supplier-initiated cancellations can occur, for example, when an excursion cannot take place
+due to weather conditions, when a flight is cancelled, or when a hotel is overbooked or
+damaged by disasters.
+We will extend this section in the future to include alternatives, so that instead of
+cancelling the service a modification to alternatives can be offered.
 
 When a supplier initiates a cancellation, the process is completely mirrored,
 except for the finalization, which is always initiated by the supplier upon the
