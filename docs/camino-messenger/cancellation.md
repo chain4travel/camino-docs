@@ -116,15 +116,16 @@ the supplier (see the below sequence diagram):
        of the refund in the CM Account.
      - In case of off-chain payment, the accountancy system should be triggered to receive
        the specified refund amount via credit-note, IBAN transfer or VCC refund.
-   - Supplier bot listens for on-chain events, receives the first the `FinalizeCancellation
-Response` and then the `CancellationFinalizedNotification`.
-     As the booking token is now set to CANCELLED, the booking can definitively be cancelled
-     in the inventory system.
-     - In case of on-chain payment the accountancy system should be advised of the transfer
-     of the refund from the CM Account, after the `CancellationFinalizedNotification`.
-     - In case of off-chain payment, the accountancy system should be triggered to transfer
-     the specified refund amount via credit-note, IBAN transfer or VCC refund, upon
-     reception of the `FinalizeCancellation Response`.
+   - Supplier bot listens for on-chain events, receives the first the
+     `FinalizeCancellation Response` and then the
+     `CancellationFinalizedNotification`. As the booking token is now set to
+     CANCELLED, the booking can definitively be cancelled in the inventory system.
+     - In case of on-chain payment the accountancy system should be advised of the
+       transfer of the refund from the CM Account, after the
+       `CancellationFinalizedNotification`.
+     - In case of off-chain payment, the accountancy system should be triggered to
+       transfer the specified refund amount via credit-note, IBAN transfer or VCC
+       refund, upon reception of the `FinalizeCancellation Response`.
    - The Supplier initiated Cancellation flow is the same, until after the acceptation of
      the cancellation by the Distributor, in which case the Supplier continues the workflow
      with the FinalizeCancellationRQ. This is the reason the finalization is not included
@@ -158,8 +159,8 @@ Under normal conditions, we do not expect a back and forth counter cancellation 
   to the refund amount.
 
 4. **Rejection**
-  Cancellation may not be possible if the service is already used or partially used
-  (e.g., the first couple of days of a stay or car rental)
+   Cancellation may not be possible if the service is already used or partially used
+   (e.g., the first couple of days of a stay or car rental)
 
    - Upon reception of the `CancellationPending notification`, the other party checks
      whether the booking can be cancelled.
