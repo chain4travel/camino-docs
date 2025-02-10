@@ -17,12 +17,12 @@ compared to a direct API call to check whether a booking is cancellable and what
 the cancellation cost is, followed by a finalization call for the cancellation.
 
 If the booking is paid off-chain and the cancellation is initiated, an ISO currency
-is specified in the refund_amount and the on-chain refund transaction is skipped.
+is specified in the refund_amount and the on-chain refund operation is skipped.
 
 This way the process is uniform for on/off-chain payments and serves as a ledger
 to avoid disputes and allowing for automation in both cases.
 
-In cases where a Supplier has to cancel a booking, today's processes are fully manual
+In cases where a supplier has to cancel a booking, today's processes are fully manual,
 cumbersome and leading to disputes. Supplier driven cancellation, refund proposals
 and automated counter proposals based on rebooking cost, can be an important efficiency
 improvement.
@@ -30,7 +30,7 @@ improvement.
 ## Cancellation is not a service
 
 When travel products are bought, it is expected that they can be cancelled as well.
-Conclusively a supplier that implements the Mint request to seel a travel product or
+Conclusively a supplier that implements the Mint request to sell a travel product or
 service is expected to have implemented the cancellation as well. As such, cancellation
 is not a service that can be specified as such in the CM Account. Whether a minted
 booking can be cancelled is defined by the `cancellable` boolean in the MintRS.
@@ -84,131 +84,169 @@ The supplier can also reject the cancellation using `RejectCancellation` for exa
 when the service is already used or in case cancellation is not possible (for
 example in case of a non-refundable rate plan).
 
-In case the supplier does not agree to the proposed refund amount (cancellation cost)
-a `CounterCancellation` can be proposed by the supplier and if agreeable to the
-distributor, the cancellation can be finished with this new refund value by using
-`AcceptCancellation`, similar to when accepting an initial cancellation request.
+In case the supplier does not agree to the proposed refund amount (cancellation
+cost) a `CounterCancellation` can be proposed by the supplier and if agreeable to
+the distributor, the cancellation can be accepted with this new refund value by
+using `AcceptCancellation`, and then the supplier would finalize the cancellation by
+calling `FinalizeCancellation`.
 
-## On-Chain Cancellation Flows and messages
+## Cancellation Flow and Messages
 
-A cancellation is initiated through the Camino Messenger. The refund amount should
-be known and in case not stored with the booking, it can be requested from the
-supplier, by using the `CheckCancellationRequest`.
+A cancellation is initiated via the Camino Messenger. The refund amount should be
+predetermined; if not stored with the booking, it can be requested from the supplier
+using the `CheckCancellationRequest`.
 
-### Distributor-Initiated Cancellation
+Both parties have the following options regarding the cancellation of a booking
+token, with additional details provided if an option is exclusive to one party.
 
-When a distributor initiates a cancellation, the following options are available to
-the supplier (see the below sequence diagram):
+### Initiation
 
-1. **Initiation**
+- The distributor sends `InitiateCancellationRequest` with TokenID and proposed
+  Refund amount. A cancellation reason can be included.
+- The response is the transaction ID of the registration on the blockchain.
+  (Transaction ID of the `initiateCancellation()` call on-chain)
+- The cancellation is set to pending and the proposer and status are recorded on-chain
+- `CancellationPending` and `CancellationReasons` events are emitted, that both
+  the distributor and the supplier bots will pick-up. Bots will then notify the
+  partner plugins with a `CancellationPending` message, combining two events from
+  the chain into one message, via the `CancellationPendingNotification` method of
+  `NotificationService`.
+- Supplier initiated cancellation, follows the exact same steps upon submission of the
+  `InitiateCancellationRequest`.
 
-   - The distributor sends `InitiateCancellationRequest` with TokenID and proposed
-     Refund amount. A cancellation reason can be included.
-   - The response is the transaction ID of the registration on the blockchain
-   - The transaction is set to pending and the proposer and status are recorded on-chain
-   - A `CancellationPendingNotification` event is launched, that both the Distributor
-     and the Supplier Bots will pick-up.
-   - Supplier initiated cancellation, follows the exact same steps upon submission of the
-     `InitiateCancellationRequest`.
+### Acceptance
 
-2. **Direct Acceptance**
+- The supplier does a look-up from the TokenID in the `CancellationPendingNotification`
+  to determine the inventory system booking reference to be cancelled.
+- The supplier can accept the cancellation by accepting the proposed refund amount in
+  case the booking can be cancelled.
+- Supplier partner plugin then send the `FinalizeCancellationRequest` to the
+  supplier bot. (No need to call `AcceptCancellation` as finalize call implies
+  the acceptance)
+- The supplier bot then calls `finalizeCancellation` function on their CM Account
+  which sets the status of the cancellation to `FINALIZED` and updates the token
+  status to `CANCELLED`. (`finalizeCancellation` function on CM Accounts calls
+  the `finalizeCancellation` function on the BookingToken contract)
+- In case of the payment token address is not `OFFCHAIN_PAYMENT`, the
+  `finalizeCancellation` call also does the refund operation, transferring the
+  amount from the supplier's CM Account to the distributor's CM Account, in the
+  currency of the provided payment token address. (ERC20 or native coin if the
+  address is zero)
+- The `CancellationFinalized` event is emitted on-chain.
+- Distributor bot listens for on-chain events, receives the
+  `CancellationFinalized` event and forwards the
+  `CancellationFinalizedNotification` to the distributor partner plugin,
+- The Distributor expects the reception of the `CancellationFinalizedNotification`,
+  which should trigger a different workflow in case of on-chain or off-chain payment.
+  - In case of on-chain payment the accountancy system should be advised of reception
+    of the refund in the CM Account.
+  - In case of off-chain payment, the accountancy system should be triggered to receive
+    the specified refund amount via credit-note, IBAN transfer or VCC refund.
+- Supplier bot listens for on-chain events, receives the `CancellationFinalized`
+  event and then sends the `CancellationFinalizedNotification` to the partner
+  plugin. As the booking token is now set to `CANCELLED`, the booking can
+  definitively be cancelled in the inventory system.
+  - In case of on-chain payment the accountancy system should be advised of the
+    transfer of the refund from the CM Account, after the
+    `CancellationFinalizedNotification`.
+  - In case of off-chain payment, the accountancy system should be triggered to
+    transfer the specified refund amount via credit-note, IBAN transfer or VCC
+    refund, upon reception of the `CancellationFinalizedNotification`.
+- The Supplier initiated cancellation flow is the same, until after the acceptance of
+  the cancellation by the distributor, in which case the supplier continues the workflow
+  with the FinalizeCancellationRQ. This is the reason the finalization is not included
+  in the acceptance, as the supplier has to sign the refund transaction.
 
-   - The supplier does a look-up from the TokenID in the `CancellationPending notification`
-     to determine the inventory system booking reference to be cancelled.
-   - The supplier can accept the cancellation by accepting the proposed refund amount in
-     case the booking can be cancelled.
-   - Supplier partner plugin submits the `AcceptCancellationRequest` to the supplier bot
-   - Supplier bot submits `AcceptCancellation` event, which results to a status change and
-     a new `CancellationPending notification`.
-   - The supplier then follows-up with the `FinalizeCancellationRequest`, which triggers the
-     `finalizeCancellation` event that sets the status of the cancellation transaction to
-     `FINALIZED` and updates the token status to `CANCELLED`.
-   - In case of original on-chain payment, the `finalizeCancellation` event also triggers
-     the refund transaction of the refund amount from the Supplier CM Account to the
-     Distributor CM Account, in the currency of the booking token.
-   - The `CancellationFinalizedNotification` is transmitted to both partners.
-   - Distributor bot listens for on-chain events, receives the `CancellationAcceptedNotification`
-     and forwards the notification to the distributor partner plugin,
-   - The Distributor expects the reception of the `CancellationFinalizedNotification`,
-     which should trigger a different workflow in case of on-chain or off-chain payment.
-     - In case of on-chain payment the accountancy system should be advised of reception
-       of the refund in the CM Account.
-     - In case of off-chain payment, the accountancy system should be triggered to receive
-       the specified refund amount via credit-note, IBAN transfer or VCC refund.
-   - Supplier bot listens for on-chain events, receives the first the
-     `FinalizeCancellation Response` and then the
-     `CancellationFinalizedNotification`. As the booking token is now set to
-     CANCELLED, the booking can definitively be cancelled in the inventory system.
-     - In case of on-chain payment the accountancy system should be advised of the
-       transfer of the refund from the CM Account, after the
-       `CancellationFinalizedNotification`.
-     - In case of off-chain payment, the accountancy system should be triggered to
-       transfer the specified refund amount via credit-note, IBAN transfer or VCC
-       refund, upon reception of the `FinalizeCancellation Response`.
-   - The Supplier initiated Cancellation flow is the same, until after the acceptation of
-     the cancellation by the Distributor, in which case the Supplier continues the workflow
-     with the FinalizeCancellationRQ. This is the reason the finalization is not included
-     in the acceptance, as the supplier has to sign the refund transaction.
+### Counter-Proposal
 
-3. **Counter-Proposal**
-   In case the booking can be cancelled, but the refund amount provided by the proposer
-   does not match the original cost minus the cancellation cost, the other party can return
-   a counter proposal with a corrected refund amount. In case of a Distributor initiated
-   cancellation, the proposer is the Distributor. In case of initiation by the Supplier,
-   the proposer is the Supplier and the other party the Distributor.
+In case the booking can be cancelled, but the refund amount provided by the proposer
+does not match the original cost minus the cancellation cost, the other party can return
+a counter proposal with a corrected refund amount. In case of a distributor initiated
+cancellation, the proposer is the distributor. In case of initiation by the supplier,
+the proposer is the supplier and the other party the distributor.
 
-   - Upon reception of the `CancellationPending notification`, the other party checks
-     whether the booking can be cancelled and the proposed refund amount is correct.
-   - The other party can counter with a different refund amount using the
-     `CounterCancellationRequest`.
-   - The proposer receives the `CancellationCountered notification` and can then either:
-     - Accept the counter-proposal, using the `AcceptCancellationRequest`.
-     - Cancel the entire cancellation process using the `WithdrawCancellationRequest`.
-     - Counter the counter-proposal with another `CounterCancellationRequest`.
+- Upon reception of the `CancellationPendingNotification`, the other party checks
+  whether the booking can be cancelled and the proposed refund amount is correct.
+- The other party can counter with a different refund amount using the
+  `CounterCancellationRequest`.
+- The proposer receives a new `CancellationPendingNotification` and can then either:
+  - _(In case of distributor)_ Accept the counter-proposal, using the `AcceptCancellationRequest`.
+  - _(In case of supplier)_ Finalize the counter-proposal, using the `FinalizeCancellationRequest`.
+  - Counter the counter-proposal with another `CounterCancellationRequest`.
 
 Under normal conditions, we do not expect a back and forth counter cancellation proposal.
 
-- In case of a Distributor initiated cancellation, the refund amount should be matching
+- In case of a distributor initiated cancellation, the refund amount should be matching
   the cancellation conditions as agreed in the booking moment. A counter proposal could
   occur in case of an implementation error of the cancellation cost or refund calculations.
-- In case of a Supplier initiated cancellation, the Distributor might be faced with the
+- In case of a supplier initiated cancellation, the distributor might be faced with the
   obligation to provide the originally booked services at a higher cost. The rebooking
-  process at the Distributor side, can now automatically allocate the damage to the
+  process at the distributor side, can now automatically allocate the damage to the
   responsible party, by using the `CounterCancellationRequest` to add the cost difference
   to the refund amount.
 
-4. **Rejection**
-   Cancellation may not be possible if the service is already used or partially used
-   (e.g., the first couple of days of a stay or car rental)
+### Rejection
 
-   - Upon reception of the `CancellationPending notification`, the other party checks
-     whether the booking can be cancelled.
-   - The cancellation can be with a specific reason, using the `RejectCancellationRequest`
-     A reason must be given why the cancellation is not possible, which is registered
-     on-chain.
-   - This terminates the cancellation process with a CancellationRejected notification
+Cancellation may not be possible if the service is already used or partially used
+(e.g., the first couple of days of a stay or car rental)
 
-5. **Withdrawal**
-   The CancelCancellation request can only be withdrawn by the initiator of the cancellation,
-   which is the owner of the "Cancellation Proposal". For example, if an employee has requested
-   the cancellation of the wrong booking or in case of an unacceptable counter proposal.
-   As soon as the cancellation is accepted the `WithdrawCancellationResponse` will return
-   an error. Once a `withdrawCancellation`event is completed, the cancellation transaction
-   status is set to `WITHDRAWN`.
+- Upon reception of the `CancellationPendingNotification`, the other party checks
+  whether the booking can be cancelled.
+- If it is not, `RejectCancellationRequest` can be send to the bot, which will
+  call `rejectCancellation` on-chain.
+- The rejection can be with a specific reason, using the
+  `RejectCancellationRequest` A reason must be given why the cancellation is not
+  possible, which is registered on-chain.
+- This sets the cancellation proposal status to `REJECTED` and emits
+  `CancellationRejected` event.
 
-### Supplier-Initiated Cancellation
+### Withdrawal
+
+The cancellation can only be withdrawn by the current proposer of the cancellation
+proposal. For example, if an employee has requested the cancellation of the wrong
+booking or in case of an unacceptable counter proposal.
+
+During any time in the process, the `currentProposer` (who initiates or counters the
+proposal) can send a `WithdrawCancellationRequest` to their bot and the bot will
+call `withdrawCancellation` function on the contract. This sets the status of the
+cancellation proposal to `WITHDRAWN` and emits a `CancellationWithdrawn` event.
+
+### Finalization
+
+:::info ONLY SUPPLIER
+
+Only **supplier** can do the finalization.
+
+:::
+
+Finalization is the process of completing the cancellation proposal by sending the
+refund amount from supplier to the distributor. Because of this, it can only be done
+by the supplier.
+
+When a cancellation proposal is initiated by the distributor, or distributor
+counters a proposal (both means that distributor accepts the proposal terms) the
+supplier can send `FinalizeCancellationRequest` to their bot, which will follow up
+with a call to the `finalizeCancellation` function, that results in acceptance of
+the proposal and finalizes it by sending the refund amount to the distributor.
+
+## Supplier-Initiated Cancellation
 
 Supplier-initiated cancellations can occur, for example, when an excursion cannot take place
 due to weather conditions, when a flight is cancelled, or when a hotel is overbooked or
 damaged by disasters.
+
+:::note
+
 We will extend this section in the future to include alternatives, so that instead of
 cancelling the service a modification to alternatives can be offered.
 
-When a supplier initiates a cancellation, the process is completely mirrored,
-except for the finalization, which is always initiated by the supplier upon the
-acceptation of the cancellation.
+:::
 
-## Messages and on-chain flow sequence diagram
+When a supplier initiates a cancellation, the process is completely mirrored, except
+for the finalization, which is always done by the supplier upon the acceptance of
+the cancellation by the distributor.
+
+## Sequence Diagram of the Cancellation Flow
 
 ```mermaid
 sequenceDiagram
@@ -247,6 +285,7 @@ sequenceDiagram
 
     alt Other Party Accepts
         alt Supplier Accepts
+            Note over BookingToken: Used mainly for countered proposals.<br/>For other cases supplier can directly call finalizeCancellation
             SupplierPlugin->>SupplierCMA: AcceptCancellationRQ
             SupplierCMA->>BookingToken: acceptCancellation<br>(tokenId, refundAmount)
             Note over BookingToken: Sets supplier accepted=true
@@ -355,19 +394,19 @@ sequenceDiagram
 
 ## Security and Validation
 
-- All refund amounts are validated at multiple steps
-- Both parties must agree on the final refund amount
-- The token state is managed securely throughout the process
-- Events are emitted at each step to maintain transparency
-- Smart contract state transitions prevent invalid operation sequences
+- All refund amounts are validated at multiple steps.
+- Both parties must agree on the final refund amount.
+- The token state is managed securely throughout the process.
+- Events are emitted at each step to maintain transparency.
+- Smart contract state transitions prevent invalid operation sequences.
 
 ## Refund Processing
 
-- Refunds can be processed in native currency or ERC20 tokens
-- The supplier must provide the exact refund amount agreed upon
-- Refunds are automatically transferred to the distributor upon successful
-  cancellation
-- The token is burned only after successful refund transfer
+- Refunds can be processed in native currency (CAM) or ERC20 tokens.
+- The supplier must provide the exact refund amount agreed upon.
+- Refund amount is automatically transferred to the distributor upon successful
+  finalization of the cancellation.
+- The token is burned only after successful refund transfer.
 
 This process ensures a fair, secure, and flexible system for handling booking
 cancellations while maintaining the integrity of the booking token system.
