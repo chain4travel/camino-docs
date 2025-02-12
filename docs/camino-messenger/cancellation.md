@@ -27,6 +27,25 @@ cumbersome and leading to disputes. Supplier driven cancellation, refund proposa
 and automated counter proposals based on rebooking cost, can be an important efficiency
 improvement.
 
+## Cancellation is not a service
+
+When travel products are bought, it is expected that they can be cancelled as well.
+Conclusively a supplier that implements the Mint request to seel a travel product or
+service is expected to have implemented the cancellation as well. As such, cancellation
+is not a service that can be specified as such in the CM Account. Whether a minted
+booking can be cancelled is defined by the `cancellable` boolean in the MintRS.
+
+`CheckCancellation` is a service. It is an optional operation that might or might
+not be supported by suppliers to check if a booking is cancellable and what the
+refund amount would be if cancelled at this moment. This service has to be configured
+in the CM Account.
+
+Imagine a partner would not implement cancellation and allow cancellation via an
+extranet, email or telephone call, this would violate the single point of truth
+function of the blockchain ledger. Conclusively, cancellation of bookings minted
+on Camino and cancelled via other means, while leaving the minted booking active
+on the blockchain is strongly discouraged.
+
 ## Overview
 
 The cancellation process can be initiated by either the distributor (token owner) or
@@ -68,7 +87,7 @@ example in case of a non-refundable rate plan).
 In case the supplier does not agree to the proposed refund amount (cancellation cost)
 a `CounterCancellation` can be proposed by the supplier and if agreeable to the
 distributor, the cancellation can be finished with this new refund value by using
-`AcceptCounterCancellation`.
+`AcceptCancellation`, similar to when accepting an initial cancellation request.
 
 ## On-Chain Cancellation Flows and messages
 
@@ -143,7 +162,7 @@ the supplier (see the below sequence diagram):
    - The other party can counter with a different refund amount using the
      `CounterCancellationRequest`.
    - The proposer receives the `CancellationCountered notification` and can then either:
-     - Accept the counter-proposal, using the `AcceptCounterCancellationRequest`.
+     - Accept the counter-proposal, using the `AcceptCancellationRequest`.
      - Cancel the entire cancellation process using the `WithdrawCancellationRequest`.
      - Counter the counter-proposal with another `CounterCancellationRequest`.
 
