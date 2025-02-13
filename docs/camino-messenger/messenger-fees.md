@@ -10,7 +10,7 @@ The following fees have to be paid to be able to exchange messages using the Cam
 
 1. Camino Messenger Network Fee
 
-   The Network Fee goes towards the operators of the Messenger Server. The initial fee per message is 0.00005 EURe. The fee is the exact same on each server on the network and will be decided by  chain4travel. The network fee is split between the operator (70%) and Chain4Travel (30% for further development). Instead of working with an anonymous messenger server, we encourage suppliers to host their own messenger server to earn the network fee themselves.
+   The Network Fee goes towards the operators of the Messenger Server. The initial fee per message is 0.00005 EURe. The fee is the exact same on each server on the network and will be decided by chain4travel. The network fee is split between the operator (70%) and Chain4Travel (30% for further development). Instead of working with an anonymous messenger server, we encourage suppliers to host their own messenger server to earn the network fee themselves.
 
 Each message, that means each request and each response, requires the network fee. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.0005 EURe (0.00005 EURe per message). If seven of them send a response back, each will pay 0.00005 EURe per message.
 
@@ -21,6 +21,7 @@ Each message, that means each request and each response, requires the network fe
 The Partner and Network messages will be made available to enable automatic detection of changed partners, their settings and fees.
 
 examples for using a Service Fee for a specific message type:
+
 - Micropayments of services
 - Monetize searches as a compensation of poor look2book ratio
 - Monetize searches as a service for business models where no bookings are made (Caching/Metasearch)
@@ -46,6 +47,7 @@ flowchart LR
 ```
 
 ## Booking fee
+
 When a booking is made, ahead of the Mint message one or more validate messages have been exchanged. The Network Fee is required for each, so for one cycle of validation and booking, the Distributor pays for 2 requests and the supplier for two responses. With the 0.00005 EURe per message a total of 0.00020 EURe, 0.00010 EURe each.
 
 The Supplier bot mints the booking token on-chain, which depends on the complexity of the operation and currently is around 0.1 CAM, which is around 0.015€. The Distributor bot initiates a buy operation after the digital asset was checked if it represents the desired booking. This operation currently costs around 0.03 CAM, which is around 0.0045€.
@@ -82,7 +84,7 @@ Both cases substantially below avg cost to GDS or aggregators.
 
 In the following example we see an example of a partnership where more searches are required to create one booking. To compensate for the extra cost of processing of this slightly less healtier LTB, the supplier has set a Service Fee that is slightly higher that the network fee, to compensate for internal costs. Setting such a Service does not impact partnerships with a healthy look to book ratio, but for less efficient partnerships, the incentive to optimize becomes important and conclusively there is an incentive to look at ways to improve the LTB and reduce the cost for the supplier.
 
-Still the costs to the distributor and supplier are below GDS and aggregator fees even without  considering possible LTB penalties.
+Still the costs to the distributor and supplier are below GDS and aggregator fees even without considering possible LTB penalties.
 
 <figure>
 <img class="zoom" src="/img/messenger/fees_ltb_25000.png" alt="This image displays the total search and booking fees at a look to book of 25.000 searches to one booking"/>
@@ -96,12 +98,12 @@ Any partner can run a Messenger Server and earn 70% of the network fee. In below
 <figure>
 <img class="zoom" src="/img/messenger/fees_ltb_1000_w_server.png" alt="This image displays the total search and booking fees at a look to book of 1.000 searches to one booking, where the supplier hosts a messenger server"/>
 <figcaption align = "center">Fig.4: Search and booking fees idea at a look to book of 1.000 searches to one booking, where the supplier hosts a messenger server</figcaption>
-</figure> 
+</figure>
 
 ## How fees are paid and collected
 
 The bot automatically adds a network fee cheque to every message. Cheques are incremental and compute the total amount of network fee for sending all the messages, since installation of the messenger bot. Cheques are unique per CM Account and messenger bot. The cheques are collected by the messenger server and periodically cashed-in. Only the last cheque received will be cashed-in and the on-chain cash-in operation compares the current cash-in amount to the the last cash-in operation to compute the difference that is to be collected.
 
-The distributor bot also collects the Service Fee settings upon firstly sending a message to a supplier (and periodically afterwards). A Service Fee cheque is always attached, but the collectible value can be set to 0. The Service Fee cheque is also cumulative and sent to the supplier. These Cheques are unique per Bot, Distributor and Supplier CM Account. In a similar way the supplier periodically cashes-in the last check received and the on-chain operation pays-out the difference compared to the previous cash-in operation.
+The distributor bot also collects the Service Fee settings upon firstly sending a message to a supplier (and periodically afterwards). A Service Fee cheque is always attached, but thyarne collectible value can be set to 0. The Service Fee cheque is also cumulative and sent to the supplier. These Cheques are unique per Bot, Distributor and Supplier CM Account. In a similar way the supplier periodically cashes-in the last check received and the on-chain operation pays-out the difference compared to the previous cash-in operation.
 
 **Disclaimer**: in this explanation we assume an exchange rate of 1 CAM = 0.15€. As the CAM is a freely tradeable volatile crypto currency, it's value can change at any given moment.
