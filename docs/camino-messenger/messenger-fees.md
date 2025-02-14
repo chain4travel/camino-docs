@@ -6,7 +6,7 @@ description: Detailed explanation of Camino Messenger fees, including Network Fe
 
 # Camino Messenger Fees
 
-The following fees are designed to exchange messages using the Camino Messenger. Their purpose is remuneration for the operators of the messenger network, compensation for processing cost of ever worsening "Look to Book" (LTB) ratios and creating an incentive to make an effort to improve LTB ratios.
+The following fees are designed to exchange messages using the Camino Messenger. Their purpose is remuneration for the operators of the messenger network, compensation for processing costs of ever worsening "Look to Book" (LTB) ratios and creating an incentive to make an effort to improve LTB ratios.
 
 1. Camino Messenger Network Fee
 
@@ -18,7 +18,7 @@ The following fees are designed to exchange messages using the Camino Messenger.
 
    The Service Fee is set by the supplier for each individual service. It is specified in EURe and can have any value including 0. Its purpose is an additional income stream, balancing out traffic/processing costs, replacement for booking fees or payment for providing information services. The Service Fee is split between the Supplier (70%) and Chain4Travel (30% for further development).
 
-   examples for using a Service Fee for a specific message type:
+   Examples for using a Service Fee for a specific message type:
 
    - Micropayments of services
    - Monetize searches as a compensation of poor look2book ratio
@@ -36,7 +36,7 @@ Figure 1: Service Fee and Network Fee
 flowchart LR
     A[Camino Application Suite\nMain application platform] -->|Contains| B[Camino Partner Showroom\nPartner configuration interface]
     B -->|Stored on| C[C-Chain]
-    C -.-> D[Partner Request]
+    C -.->|Triggers| D[Partner Request]
     D -->|Returns| H[ServiceFee]
     D -->|Returns| I[Payment Support]
     I -->|Allows| J[On-chain Payment]
@@ -44,7 +44,7 @@ flowchart LR
 
     L[Network fee set by the Operators]
     L -->|Stored on| C[C-Chain]
-    C -.-> M[NetworkFee Message]
+    C -.->|Triggers| M[NetworkFee Message]
     M -->|Returns| N[NetworkFee]
 ```
 
@@ -108,6 +108,6 @@ Any partner can run a Messenger Server and earn 70% of the network fee. In below
 
 The bot automatically adds a network fee cheque to every message. Cheques are incremental and compute the total amount of network fee for sending all the messages, since installation of the messenger bot. Cheques are unique per sending and receiving CM Account and messenger bot. The cheques are collected by the messenger server and periodically cashed-in. Only the last cheque received will be cashed-in and the on-chain cash-in operation compares the current cash-in amount to the last cash-in operation to compute the difference that is to be collected.
 
-The distributor bot also collects the Service Fee settings upon firstly sending a message to a supplier (and periodically afterwards). A Service Fee cheque is always attached, but the collectible value can be set to 0. The Service Fee cheque is also cumulative and sent to the supplier. These Cheques are also unique per Bot, Distributor and Supplier CM Account. In a similar way the supplier periodically cashes-in the last check received and the on-chain operation pays-out the difference compared to the previous cash-in operation.
+The distributor bot also collects the Service Fee settings upon first sending of a message to a supplier (and periodically afterwards). A Service Fee cheque is always attached, but the collectible value can be set to 0. The Service Fee cheque is also cumulative and sent to the supplier. These Cheques are also unique per Bot, Distributor and Supplier CM Account. In a similar way the supplier periodically cashes-in the last check received and the on-chain operation pays-out the difference compared to the previous cash-in operation.
 
 **Disclaimer**: in this explanation we assume an exchange rate of 1 CAM = 0.15€. As the CAM is a freely tradeable volatile cryptocurrency, its value can change at any given moment.
