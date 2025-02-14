@@ -6,13 +6,13 @@ description: Detailed explanation of Camino Messenger fees, including Network Fe
 
 # Camino Messenger Fees
 
-The following fees are designed to exchange messages using the Camino Messenger. Their purpose is remuneration for the operators of the messenger network, compensation for processing cost of ever worsening "Look to Book" (LTB) ratios and creating an incentive to make an effort to improve LTB rations.
+The following fees are designed to exchange messages using the Camino Messenger. Their purpose is remuneration for the operators of the messenger network, compensation for processing cost of ever worsening "Look to Book" (LTB) ratios and creating an incentive to make an effort to improve LTB ratios.
 
 1. Camino Messenger Network Fee
 
    The Network Fee goes towards the operators of the Messenger Server. The initial fee per message is 0.00005 EURe. The fee is identical on each server on the network and will be decided by Chain4travel. The network fee is split between the operator (70%) and Chain4Travel (30% for further development). Instead of working with an anonymous messenger server, we encourage suppliers to host their own messenger server to earn the network fee themselves.
 
-   Each message, that means each request and each response, requires the network fee. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.0005 EURe (0.00005 EURe per message). If seven of them send a response back, each will pay 0.00005 EURe per message.
+   Each message, that means each request and each response, requires the network fee. For example, an OTA (distributor) sends a message request to 10 Accommodation Suppliers, paying 0.0005 EURe (10 x 0.00005 EURe per message). If seven of them send a response back, each will pay 0.00005 EURe per message.
 
 2. Camino Messenger Service Fee
 
@@ -101,13 +101,13 @@ Any partner can run a Messenger Server and earn 70% of the network fee. In below
 
 <figure>
 <img class="zoom" src="/img/messenger/fees_ltb_1000_w_server.png" alt="This image displays the total search and booking fees at a look to book of 1.000 searches to one booking, where the supplier hosts a messenger server"/>
-<figcaption align = "center">Fig.4: Search and booking fees idea at a look to book of 1.000 searches to one booking, where the supplier hosts a messenger server</figcaption>
+<figcaption align = "center">Fig.5: Search and booking fees idea at a look to book of 1.000 searches to one booking, where the supplier hosts a messenger server</figcaption>
 </figure>
 
 ## How fees are paid and collected
 
-The bot automatically adds a network fee cheque to every message. Cheques are incremental and compute the total amount of network fee for sending all the messages, since installation of the messenger bot. Cheques are unique per sending and receiving CM Account and messenger bot. The cheques are collected by the messenger server and periodically cashed-in. Only the last cheque received will be cashed-in and the on-chain cash-in operation compares the current cash-in amount to the the last cash-in operation to compute the difference that is to be collected.
+The bot automatically adds a network fee cheque to every message. Cheques are incremental and compute the total amount of network fee for sending all the messages, since installation of the messenger bot. Cheques are unique per sending and receiving CM Account and messenger bot. The cheques are collected by the messenger server and periodically cashed-in. Only the last cheque received will be cashed-in and the on-chain cash-in operation compares the current cash-in amount to the last cash-in operation to compute the difference that is to be collected.
 
 The distributor bot also collects the Service Fee settings upon firstly sending a message to a supplier (and periodically afterwards). A Service Fee cheque is always attached, but the collectible value can be set to 0. The Service Fee cheque is also cumulative and sent to the supplier. These Cheques are also unique per Bot, Distributor and Supplier CM Account. In a similar way the supplier periodically cashes-in the last check received and the on-chain operation pays-out the difference compared to the previous cash-in operation.
 
-**Disclaimer**: in this explanation we assume an exchange rate of 1 CAM = 0.15€. As the CAM is a freely tradeable volatile crypto currency, its value can change at any given moment.
+**Disclaimer**: in this explanation we assume an exchange rate of 1 CAM = 0.15€. As the CAM is a freely tradeable volatile cryptocurrency, its value can change at any given moment.
