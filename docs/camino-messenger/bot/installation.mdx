@@ -18,8 +18,8 @@ change.
 
 :::caution 🚧 TAGS 🚧
 
-When you access our github repository, the default branch is "dev". always
-switch to the latest version using the tags or using "latest".
+When accessing our GitHub repository, note that the default branch is dev. 
+Always switch to the latest version using the available tags or the latest reference.
 [Camino Messenger Bot Github repository](https://github.com/chain4travel/camino-messenger-bot)
 
 <figure>
@@ -152,7 +152,7 @@ the future, but for now, it is provided here for reference.
 To pull the latest released version:
 docker pull c4tplatform/camino-messenger-bot:latest
 
-to pull a certain version, replace latest with the version number eg: v10.1.0
+To pull a specific version, replace latest with the desired version tag (e.g., v10.1.0).
 
 ## Building Docker Image
 
@@ -238,9 +238,8 @@ The following known issues should be considered when using the Camino Messenger 
   increase depending on network conditions, especially if the bot receives messages
   during this initialization period.
 
-- **Cancellation is not yet implemented:** The bot Does not have the cancellation
-  messages implemented that are already released in V11 of the protocol. Cancellation
-  will be included in one of the next releases of the bot.
+- **Cancellation is not yet implemented:** The bot currently does not support cancellation
+  as specified in the V11 protocol. This functionality will be included in a future release.
 
 - **Camino Messenger Account upgrade:** The CM Account has to be upgraded to the
   latest version, when upgrading the bot to v11.0.0.
@@ -260,7 +259,7 @@ The following known issues should be considered when using the Camino Messenger 
 - **Crash on Empty Message:** The bot crashes if it receives an empty message, which
   should never occur. The Partner Plugin is responsible for sanitizing such
   messages. In the future, validation for empty messages and other relevant message
-  types will be implemented using the protovalidate library.
+  types will be implemented using the proto validate library.
 
 - **Single Bot Contact Limitation:** Currently, only the first bot returned by the
   CM-Account is contacted by other bots. This limitation will be addressed in future
