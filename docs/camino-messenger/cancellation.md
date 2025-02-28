@@ -27,7 +27,7 @@ cumbersome and leading to disputes. Supplier driven cancellation, refund proposa
 and automated counter proposals based on rebooking cost, can be an important efficiency
 improvement.
 
-## Cancellation is not a service
+:::info Cancellation is not a service
 
 When travel products are bought, it is expected that they can be cancelled as well.
 Conclusively a supplier that implements the Mint request to sell a travel product or
@@ -45,6 +45,8 @@ extranet, email or telephone call, this would violate the single point of truth
 function of the blockchain ledger. Conclusively, cancellation of bookings minted
 on Camino and cancelled via other means, while leaving the minted booking active
 on the blockchain is strongly discouraged.
+
+:::
 
 ## Overview
 
