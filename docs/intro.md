@@ -65,8 +65,6 @@ environment, such as the travel industry.
 3. **Energy efficiency:** Camino Network's consensus is not computationally intensive, promoting a sustainable blockchain environment.
 4. **Adaptive security:** The protocol is resilient against a multitude of attacks, such as Sybil attacks, DDoS attacks, and collusion attacks, thanks to its probabilistic nature. Even under adversarial conditions, consensus leans towards the desired state.
 
-Learn more technical components of the Camino consensus protocol from [the Whitepaper](https://camino.network/static/docs/Camino_Network_Whitepaper.pdf#view=fit).
-
 ## The Consortium: Validators & governance
 
 Camino Network is operated by a Consortium of travel industry-related
