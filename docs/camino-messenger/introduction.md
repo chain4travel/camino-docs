@@ -16,7 +16,7 @@ Although we released our first productive Message Types version, it is still ear
 
 Welcome to the official documentation for Camino Message Types. The protocol suite is crafted to cater to a broad range of functionalities for the new world of travel and the Camino Network Partners onboarding on that journey.
 
-An overview can be found at the [Camino Network](https://camino.network/) website and in depth information in the [whitepaper](https://camino.network/static/docs/Camino_Network_Whitepaper.pdf#view=fit).
+An overview can be found at the [Camino Network](https://camino.network/) website.
 
 The Camino Messenger protocol is created together with Partners from each vertical (flights, hotels, holiday homes, transfers, car rental, cruise,..). The objective is to create a message standard for the Camino Messenger, that is considered simple, efficient, complete, robust and easy to integrate by all partners. And conclusively it will delightfully be implemented and used by partners. As all other Camino Network components, the Camino Messenger Protocol is open source. Free to be used anywhere, but of course targeted to be used with the Camino Messenger.
 
