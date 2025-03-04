@@ -194,11 +194,10 @@ Cancellation may not be possible if the service is already used or partially use
 
 - Upon reception of the `CancellationPendingNotification`, the other party checks
   whether the booking can be cancelled.
-- If it is not, `RejectCancellationRequest` can be send to the bot, which will
+- If it is not, `RejectCancellationRequest` can be sent to the bot, which will
   call `rejectCancellation` on-chain.
-- The rejection can be with a specific reason, using the
-  `RejectCancellationRequest` A reason must be given why the cancellation is not
-  possible, which is registered on-chain.
+- The rejection must include the reason why the cancellation is not possible, which
+  is stored on-chain.
 - This sets the cancellation proposal status to `REJECTED` and emits
   `CancellationRejected` event.
 
