@@ -16,18 +16,15 @@ change.
 
 :::
 
-:::caution 🚧 TAGS 🚧
+:::caution USE STABLE VERSION
 
-When accessing our GitHub repository, note that the default branch is dev.
-Always switch to the latest version using the available tags or the latest reference.
-[Camino Messenger Bot Github repository](https://github.com/chain4travel/camino-messenger-bot)
+When using our [GitHub repository](https://github.com/chain4travel/camino-messenger-bot),
+please be aware that the default branch is `dev`.
+
+To prevent potential issues, always switch to the latest **stable version** by selecting the appropriate tag.
 
 <figure>
-  <img
-    class="zoom"
-    src="/img/messenger/tags.png"
-    alt="This image displays the Camino Messenger bot repo tags"
-  />
+  <img class="zoom" src="/img/messenger/tags.png" alt="This image displays the Camino Messenger bot repo tags" />
 </figure>
 
 :::
@@ -60,10 +57,9 @@ submodules:
 
 ```sh
 git clone -b c4t https://github.com/chain4travel/camino-messenger-bot.git
-
+cd camino-messenger-bot
 # Checkout a specific tag: replace <tag> with the desired version (e.g., v10.1.0)
 git checkout <tag>
-cd camino-messenger-bot
 git submodule update --init
 ```
 
@@ -150,9 +146,12 @@ the future, but for now, it is provided here for reference.
 ## Docker pull instructions:
 
 To pull the latest released version:
-docker pull c4tplatform/camino-messenger-bot:latest
 
-To pull a specific version, replace latest with the desired version tag (e.g., v10.1.0).
+```sh
+docker pull c4tplatform/camino-messenger-bot:latest
+```
+
+To pull a specific version, replace `latest` with the desired version tag (e.g., `v10.1.0`).
 
 ## Building Docker Image
 
@@ -165,11 +164,9 @@ submodules:
 
 ```sh
 git clone -b c4t https://github.com/chain4travel/camino-messenger-bot.git
-
+cd camino-messenger-bot
 #checkout certain tag. replace with the tag (eg: v10.1.0)
 git checkout
-
-cd camino-messenger-bot
 git submodule update --init
 ```
 
@@ -234,20 +231,21 @@ The following known issues should be considered when using the Camino Messenger 
 ### Version: v11.0.0
 
 - **Start-Up Delay:** After a fresh start, the bot requires 10 to 15 seconds to
-  initialize before it can send or receive messages on some systems. This delay may
-  increase depending on network conditions, especially if the bot receives messages
-  during this initialization period.
+  initialize before it can send or receive messages on **some systems**. This delay
+  may increase depending on network conditions, especially if the bot receives
+  messages during this initialization period.
 
-- **Cancellation is not yet implemented:** The bot currently does not support cancellation
-  as specified in the V11 protocol. This functionality will be included in a future release.
+- **Cancellation is not yet implemented:** The bot currently does not support
+  cancellation as specified in the `release-11` of the protocol. This functionality
+  will be included in a future release.
 
 - **Camino Messenger Account upgrade:** The CM Account has to be upgraded to the
   latest version, when upgrading the bot to v11.0.0.
 
 - **Listening to events:** The bot is not yet persisting subscriptions to blockchain
-  events. This means that if the bot is restarted after a mint operation, but before
-  the buy operation has finished, the supplier bot will not be notified of the successful
-  transfer of the NFT.
+  events. This means that if the bot is stopped after a mint operation and started
+  after the buy operation has finished, the supplier partner plugin might not get
+  notified of the successful transfer of the NFT.
 
 ### Version: v10.1.0
 
@@ -259,7 +257,7 @@ The following known issues should be considered when using the Camino Messenger 
 - **Crash on Empty Message:** The bot crashes if it receives an empty message, which
   should never occur. The Partner Plugin is responsible for sanitizing such
   messages. In the future, validation for empty messages and other relevant message
-  types will be implemented using the proto validate library.
+  types will be implemented using the `protovalidate` library.
 
 - **Single Bot Contact Limitation:** Currently, only the first bot returned by the
   CM-Account is contacted by other bots. This limitation will be addressed in future
@@ -272,4 +270,4 @@ The following known issues should be considered when using the Camino Messenger 
 
 - **Mandatory Response Header Field:** The status field in the message response header
   is mandatory and should indicate either "success" or "failure". This requirement
-  will be enforced once the protovalidate library is implemented.
+  will be enforced once the `protovalidate` library is implemented.
