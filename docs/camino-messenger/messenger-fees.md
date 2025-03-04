@@ -105,7 +105,7 @@ Both cases substantially below average cost to GDS or aggregators.
 <figcaption align = "center">Fig.3: Total search and booking fees idea at a look to book of 1.000 searches to one booking</figcaption>
 </figure>
 
-In the following example we see an example of a partnership where more searches are required to create one booking. To compensate for the extra cost of processing of this slightly less healthier LTB, the supplier has set a Service Fee that is higher that the network fee, to compensate for internal costs. Setting such a Service does not impact partnerships with a healthy look to book ratio, but for less efficient partnerships, the incentive to optimize becomes important and conclusively there is a reason to look at ways to improve the LTB and reduce the cost for the supplier.
+In the following figure, we see an example of a partnership where more searches are required to create one booking. To offset the increased processing cost of a slightly less healthy LTB, the supplier has set a service fee higher than the network fee. Setting such a service does not impact partnerships with a healthy look to book ratio, but for less efficient partnerships, the incentive to optimize becomes important and conclusively there is a reason to look at ways to improve the LTB and reduce the cost for the supplier.
 
 Still the costs to the distributor and supplier are below GDS and aggregator fees even without considering possible LTB penalties.
 
@@ -116,7 +116,7 @@ Still the costs to the distributor and supplier are below GDS and aggregator fee
 
 ## Running a Camino Messenger Server
 
-Any partner can run a Messenger Server and earn 70% of the network fee. In the example below, we compute the total cost of a booking for a supplier who also also host a Messenger Server. The conclusion that we draw from these examples is that it is attractive for suppliers to run a messenger server and with poorer LTBs it is not required to set high Service Fees to be able to support a larger number of searches per booking. However, the incentive remains to improve LTB for the distributor.
+Any partner can run a Messenger Server and earn 70% of the network fee. In the example below, we compute the total cost of a booking for a supplier who also host a Messenger Server. The conclusion that we draw from these examples is that it is attractive for suppliers to run a messenger server and with poorer LTBs it is not required to set high Service Fees to be able to support a larger number of searches per booking. However, the incentive remains to improve LTB for the distributor.
 
 <figure>
 <img class="zoom" src="/img/messenger/fees_ltb_1000_w_server.png" alt="This image displays the total search and booking fees at a look to book of 1.000 searches to one booking, where the supplier hosts a messenger server"/>
