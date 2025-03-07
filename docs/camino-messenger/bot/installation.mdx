@@ -62,7 +62,7 @@ submodules:
 ```sh
 git clone -b c4t https://github.com/chain4travel/camino-messenger-bot.git
 cd camino-messenger-bot
-# Checkout a specific tag: replace <tag> with the desired version (e.g., v10.1.0)
+# Checkout a specific tag: replace <tag> with the desired version (e.g., v11.0.0)
 git checkout <tag>
 git submodule update --init
 ```
@@ -136,6 +136,18 @@ Flags:
   -v, --version                                     version for camino-messenger-bot
 ```
 
+You can also check and verify the version as:
+
+```
+$ ./build/camino-messenger-bot --version
+camino-messenger-bot version v11.0.0 (git: 8555570)
+
+libs:
+  buf.build protocolbuffers : v1.36.5-20250307104026-ffe2c3741a33.1 (release-11)
+  buf.build grpc            : v1.5.1-20250307104026-ffe2c3741a33.2 (release-11)
+  camino-messenger-contracts: v0.0.0-20250129104547-90f8b12cd935
+```
+
 Below is a screen capture of all the steps above done on Ubuntu 22.04.3 LTS:
 
 :::note OUTDATED
@@ -155,7 +167,7 @@ To pull the latest released version:
 docker pull c4tplatform/camino-messenger-bot:latest
 ```
 
-To pull a specific version, replace `latest` with the desired version tag (e.g., `v10.1.0`).
+To pull a specific version, replace `latest` with the desired version tag (e.g., `v11.0.0`).
 
 ## Building Docker Image
 
@@ -169,7 +181,7 @@ submodules:
 ```sh
 git clone -b c4t https://github.com/chain4travel/camino-messenger-bot.git
 cd camino-messenger-bot
-#checkout certain tag. replace with the tag (eg: v10.1.0)
+#checkout certain tag. replace with the tag (eg: v11.0.0)
 git checkout
 git submodule update --init
 ```
@@ -191,9 +203,43 @@ docker run --rm camino-messenger-bot --help
 The expected output should be:
 
 ```
-Usage of ./camino-messenger-bot:
-  -config string
-    	Path to configuration file
+starts camino messenger bot
+
+Usage:
+  camino-messenger-bot [flags]
+
+Flags:
+      --booking_token_address string                BookingToken address. (default "0xe55E387F5474a012D1b048155E25ea78C7DBfBBC")
+      --bot_key string                              Sets bot private key. Its used for the matrix server connection, cm account interaction and cheques signing.
+      --cash_in_period int                          Cash-in period (in seconds). (default 86400)
+      --chain_rpc_url string                        C-chain RPC URL.
+      --cheque_expiration_time uint                 Cheque expiration time (in seconds). (default 18144000)
+      --cm_account_address string                   Sets bot cm account address.
+      --config string                               path to config file dir (default "camino-messenger-bot.yaml")
+      --db.migrations_path string                   Path to migration scripts. (default "file://./migrations")
+      --db.path string                              Path to database dir. (default "cmb-db")
+      --developer_mode                              Sets developer mode.
+  -h, --help                                        help for camino-messenger-bot
+      --matrix.host string                          Sets the matrix host.
+      --min_cheque_duration_until_expiration uint   Minimum valid duration until cheque expiration (in seconds). (default 15552000)
+      --network_fee_recipient_bot_address string    Network fee recipient bot address.
+      --network_fee_recipient_cm_account string     Network fee recipient CMAccount address.
+      --partner_plugin.ca_file string               The partner plugin RPC server CA certificate file.
+      --partner_plugin.enabled                      Enable or disable the partner plugin rpc client. It must be enabled if bot's cm account supports at least one service.
+      --partner_plugin.host string                  partner plugin RPC server host. (default "localhost:50051")
+      --partner_plugin.unencrypted                  Whether the RPC client should initiate an unencrypted connection with the server.
+      --response_timeout int                        The messenger timeout (in milliseconds). (default 3000)
+      --rpc_server.cert_file string                 The server certificate file.
+      --rpc_server.enabled                          Enable or disable RPC server. It must be enabled if bot is expecting to receive RPC requests (e.g. its distributor bot).
+      --rpc_server.key_file string                  The server key file.
+      --rpc_server.port uint                        The RPC server port. (default 9090)
+      --rpc_server.unencrypted                      Whether the RPC server should be unencrypted.
+      --tracing.cert_file string                    The tracing certificate file.
+      --tracing.enabled                             Whether tracing is enabled.
+      --tracing.host string                         The tracing host. (default "localhost:4317")
+      --tracing.insecure                            Whether the tracing connection should be insecure. (default true)
+      --tracing.key_file string                     The tracing key file.
+  -v, --version                                     version for camino-messenger-bot
 ```
 
 Below is a screen capture of all the steps above done on Ubuntu 22.04.3 LTS:
@@ -232,7 +278,7 @@ applications to communicate.
 
 The following known issues should be considered when using the Camino Messenger Bot:
 
-### Version: v11.0.0
+### v11.0.0
 
 - **Start-Up Delay:** After a fresh start, the bot requires 10 to 15 seconds to
   initialize before it can send or receive messages on **some systems**. This delay
@@ -251,7 +297,7 @@ The following known issues should be considered when using the Camino Messenger 
   after the buy operation has finished, the supplier partner plugin might not get
   notified of the successful transfer of the NFT.
 
-### Version: v10.1.0
+### v10.1.0
 
 - **Start-Up Delay:** After a fresh start, the bot requires 10 to 15 seconds to
   initialize before it can send or receive messages on some systems. This delay may
