@@ -16,11 +16,20 @@ change.
 
 :::
 
-:::caution 🚧 ALPHA CODE NOTICE 🚧
+:::caution USE STABLE VERSION
 
-This application is in the alpha phase of development. It is important to note
-that during this stage, breaking changes may occur without advance notice.
-Users should proceed with caution.
+When using our [GitHub repository](https://github.com/chain4travel/camino-messenger-bot),
+please be aware that the default branch is `dev`.
+
+To prevent potential issues, always switch to the latest **stable version** by selecting the appropriate tag.
+
+<figure>
+  <img
+    class="zoom"
+    src="/img/messenger/tags.png"
+    alt="This image displays the Camino Messenger bot repo tags"
+  />
+</figure>
 
 :::
 
@@ -51,8 +60,10 @@ To get started, clone the Camino Messenger Bot repository and initialize the
 submodules:
 
 ```sh
-git clone https://github.com/chain4travel/camino-messenger-bot.git
+git clone -b c4t https://github.com/chain4travel/camino-messenger-bot.git
 cd camino-messenger-bot
+# Checkout a specific tag: replace <tag> with the desired version (e.g., v11.0.0)
+git checkout <tag>
 git submodule update --init
 ```
 
@@ -125,6 +136,18 @@ Flags:
   -v, --version                                     version for camino-messenger-bot
 ```
 
+You can also check and verify the version as:
+
+```
+$ ./build/camino-messenger-bot --version
+camino-messenger-bot version v11.0.0 (git: 8555570)
+
+libs:
+  buf.build protocolbuffers : v1.36.5-20250307104026-ffe2c3741a33.1 (release-11)
+  buf.build grpc            : v1.5.1-20250307104026-ffe2c3741a33.2 (release-11)
+  camino-messenger-contracts: v0.0.0-20250129104547-90f8b12cd935
+```
+
 Below is a screen capture of all the steps above done on Ubuntu 22.04.3 LTS:
 
 :::note OUTDATED
@@ -136,6 +159,16 @@ the future, but for now, it is provided here for reference.
 
 <AsciinemaEmbed id="faCHXrLJcSOZQC2JLS4dhL8Ze" />
 
+## Docker pull instructions:
+
+To pull the latest released version:
+
+```sh
+docker pull c4tplatform/camino-messenger-bot:latest
+```
+
+To pull a specific version, replace `latest` with the desired version tag (e.g., `v11.0.0`).
+
 ## Building Docker Image
 
 Follow these steps to build the Docker image.
@@ -146,8 +179,10 @@ First, clone the Camino Messenger Bot repository and initialize the
 submodules:
 
 ```sh
-git clone https://github.com/chain4travel/camino-messenger-bot.git
+git clone -b c4t https://github.com/chain4travel/camino-messenger-bot.git
 cd camino-messenger-bot
+#checkout certain tag. replace with the tag (eg: v11.0.0)
+git checkout
 git submodule update --init
 ```
 
@@ -168,9 +203,43 @@ docker run --rm camino-messenger-bot --help
 The expected output should be:
 
 ```
-Usage of ./camino-messenger-bot:
-  -config string
-    	Path to configuration file
+starts camino messenger bot
+
+Usage:
+  camino-messenger-bot [flags]
+
+Flags:
+      --booking_token_address string                BookingToken address. (default "0xe55E387F5474a012D1b048155E25ea78C7DBfBBC")
+      --bot_key string                              Sets bot private key. Its used for the matrix server connection, cm account interaction and cheques signing.
+      --cash_in_period int                          Cash-in period (in seconds). (default 86400)
+      --chain_rpc_url string                        C-chain RPC URL.
+      --cheque_expiration_time uint                 Cheque expiration time (in seconds). (default 18144000)
+      --cm_account_address string                   Sets bot cm account address.
+      --config string                               path to config file dir (default "camino-messenger-bot.yaml")
+      --db.migrations_path string                   Path to migration scripts. (default "file://./migrations")
+      --db.path string                              Path to database dir. (default "cmb-db")
+      --developer_mode                              Sets developer mode.
+  -h, --help                                        help for camino-messenger-bot
+      --matrix.host string                          Sets the matrix host.
+      --min_cheque_duration_until_expiration uint   Minimum valid duration until cheque expiration (in seconds). (default 15552000)
+      --network_fee_recipient_bot_address string    Network fee recipient bot address.
+      --network_fee_recipient_cm_account string     Network fee recipient CMAccount address.
+      --partner_plugin.ca_file string               The partner plugin RPC server CA certificate file.
+      --partner_plugin.enabled                      Enable or disable the partner plugin rpc client. It must be enabled if bot's cm account supports at least one service.
+      --partner_plugin.host string                  partner plugin RPC server host. (default "localhost:50051")
+      --partner_plugin.unencrypted                  Whether the RPC client should initiate an unencrypted connection with the server.
+      --response_timeout int                        The messenger timeout (in milliseconds). (default 3000)
+      --rpc_server.cert_file string                 The server certificate file.
+      --rpc_server.enabled                          Enable or disable RPC server. It must be enabled if bot is expecting to receive RPC requests (e.g. its distributor bot).
+      --rpc_server.key_file string                  The server key file.
+      --rpc_server.port uint                        The RPC server port. (default 9090)
+      --rpc_server.unencrypted                      Whether the RPC server should be unencrypted.
+      --tracing.cert_file string                    The tracing certificate file.
+      --tracing.enabled                             Whether tracing is enabled.
+      --tracing.host string                         The tracing host. (default "localhost:4317")
+      --tracing.insecure                            Whether the tracing connection should be insecure. (default true)
+      --tracing.key_file string                     The tracing key file.
+  -v, --version                                     version for camino-messenger-bot
 ```
 
 Below is a screen capture of all the steps above done on Ubuntu 22.04.3 LTS:
@@ -207,10 +276,28 @@ applications to communicate.
 
 ## Known Issues & Limitations
 
-The following known issues should be considered when using the Camino Messenger Bot
-v10.2.0:
+The following known issues should be considered when using the Camino Messenger Bot:
 
-### Version: v10.2.0
+### v11.0.0
+
+- **Start-Up Delay:** After a fresh start, the bot requires 10 to 15 seconds to
+  initialize before it can send or receive messages on **some systems**. This delay
+  may increase depending on network conditions, especially if the bot receives
+  messages during this initialization period.
+
+- **Cancellation is not yet implemented:** The bot currently does not support
+  cancellation as specified in the `release-11` of the protocol. This functionality
+  will be included in a future release.
+
+- **Camino Messenger Account upgrade:** The CM Account has to be upgraded to the
+  latest version, when upgrading the bot to v11.0.0.
+
+- **Listening to events:** The bot is not yet persisting subscriptions to blockchain
+  events. This means that if the bot is stopped after a mint operation and started
+  after the buy operation has finished, the supplier partner plugin might not get
+  notified of the successful transfer of the NFT.
+
+### v10.1.0
 
 - **Start-Up Delay:** After a fresh start, the bot requires 10 to 15 seconds to
   initialize before it can send or receive messages on some systems. This delay may
@@ -220,7 +307,7 @@ v10.2.0:
 - **Crash on Empty Message:** The bot crashes if it receives an empty message, which
   should never occur. The Partner Plugin is responsible for sanitizing such
   messages. In the future, validation for empty messages and other relevant message
-  types will be implemented using the protovalidate library.
+  types will be implemented using the `protovalidate` library.
 
 - **Single Bot Contact Limitation:** Currently, only the first bot returned by the
   CM-Account is contacted by other bots. This limitation will be addressed in future
@@ -233,4 +320,4 @@ v10.2.0:
 
 - **Mandatory Response Header Field:** The status field in the message response header
   is mandatory and should indicate either "success" or "failure". This requirement
-  will be enforced once the protovalidate library is implemented.
+  will be enforced once the `protovalidate` library is implemented.
