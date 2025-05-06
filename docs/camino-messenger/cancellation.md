@@ -56,7 +56,7 @@ and clear state transitions managed through smart contracts.
 
 The process is designed to have the distributor and the supplier agree on the
 cancellation cost during the process. Normally the cancellation conditions are fixed
-during the initial booking process in rules. These rules can be interpreted
+during in rules during the initial booking process. These rules can be interpreted
 differently between distributor and supplier, which can lead to disputes.
 
 When a distributor has stored the cancellation conditions with the booking, the
