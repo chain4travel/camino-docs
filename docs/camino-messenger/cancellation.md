@@ -122,7 +122,7 @@ token, with additional details provided if an option is exclusive to one party.
   to determine the inventory system booking reference to be cancelled.
 - The supplier can accept the cancellation by accepting the proposed refund amount in
   case the booking can be cancelled.
-- Supplier partner plugin then send the `FinalizeCancellationRequest` to the
+- Supplier partner plugin then sends the `FinalizeCancellationRequest` to the
   supplier bot. (No need to call `AcceptCancellation` as finalize call implies
   the acceptance)
 - The supplier bot then calls `finalizeCancellation` function on their CM Account
