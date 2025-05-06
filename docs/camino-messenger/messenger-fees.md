@@ -116,7 +116,7 @@ Still the costs to the distributor and supplier are below GDS and aggregator fee
 
 ## Running a Camino Messenger Server
 
-Any partner can run a Messenger Server and earn 70% of the network fee. In the example below, we compute the total cost of a booking for a supplier who also host a Messenger Server. The conclusion that we draw from these examples is that it is attractive for suppliers to run a messenger server and with poorer LTBs it is not required to set high Service Fees to be able to support a larger number of searches per booking. However, the incentive remains to improve LTB for the distributor.
+Any partner can run a Messenger Server and earn 70% of the network fee. In the example below, we compute the total cost of a booking for a supplier who also hosts a Messenger Server. The conclusion that we draw from these examples is that it is attractive for suppliers to run a messenger server and with poorer LTBs it is not required to set high Service Fees to be able to support a larger number of searches per booking. However, the incentive remains to improve LTB for the distributor.
 
 <figure>
 <img class="zoom" src="/img/messenger/fees_ltb_1000_w_server.png" alt="This image displays the total search and booking fees at a look to book of 1.000 searches to one booking, where the supplier hosts a messenger server"/>
