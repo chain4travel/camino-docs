@@ -118,7 +118,7 @@ token, with additional details provided if an option is exclusive to one party.
 
 ### Acceptance
 
-- The supplier does a look-up from the TokenID in the `CancellationPendingNotification`
+- The supplier does a look-up with the TokenID in the `CancellationPendingNotification`
   to determine the inventory system booking reference to be cancelled.
 - The supplier can accept the cancellation by accepting the proposed refund amount in
   case the booking can be cancelled.
