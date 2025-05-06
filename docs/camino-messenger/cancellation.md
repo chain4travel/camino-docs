@@ -129,7 +129,7 @@ token, with additional details provided if an option is exclusive to one party.
   which sets the status of the cancellation to `FINALIZED` and updates the token
   status to `CANCELLED`. (`finalizeCancellation` function on CM Accounts calls
   the `finalizeCancellation` function on the BookingToken contract)
-- In case of the payment token address is not `OFFCHAIN_PAYMENT`, the
+- In case of the payment token address not being `OFFCHAIN_PAYMENT`, the
   `finalizeCancellation` call also does the refund operation, transferring the
   amount from the supplier's CM Account to the distributor's CM Account, in the
   currency of the provided payment token address. (ERC20 or native coin if the
