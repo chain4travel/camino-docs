@@ -164,8 +164,8 @@ token, with additional details provided if an option is exclusive to one party.
 In case the booking can be cancelled, but the refund amount provided by the proposer
 does not match the original cost minus the cancellation cost, the other party can return
 a counter proposal with a corrected refund amount. In case of a distributor initiated
-cancellation, the proposer is the distributor. In case of initiation by the supplier,
-the proposer is the supplier and the other party the distributor.
+cancellation, the proposer is the distributor. In case of a supplier initiated cancellation,
+the proposer is the supplier and the other party is the distributor.
 
 - Upon reception of the `CancellationPendingNotification`, the other party checks
   whether the booking can be cancelled and the proposed refund amount is correct.
