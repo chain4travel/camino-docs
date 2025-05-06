@@ -22,7 +22,7 @@ The Camino Messenger protocol is created together with Partners from each vertic
 
 The Camino Messenger is a client server solution to relay messages between Distribution and Supply partners. Just like WhatsApp, partners are required to install a client in their environment, which we call the messenger Bot.
 
-Partners are required to build a connection between the Bot and their distribution or inventory system. We call that the Partner Plugin. An example implementation is provided in our github for Go and Java. SDKs are provided one our [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/sdks) page, where the right libraries/plugins can be downloaded for your language and tools.
+Partners are required to build a connection between the Bot and their distribution or inventory system. We call that the Partner Plugin. An example implementation is provided in our github for Go and Java. SDKs are provided on our [buf.build](https://buf.build/chain4travel/camino-messenger-protocol/sdks) page, where the right libraries/plugins can be downloaded for your language and tools.
 
 At the booking step, the Bot abstracts all the blockchain interaction. Once partners have exchanged available products, price and availability and a specific choice has been made through the messenger and secured in the inventory of the supply partner, the Supplier Bot mints a Booking Token and the Distributor Bot buys the Booking Token. For more details see the paragraphs below.
 
