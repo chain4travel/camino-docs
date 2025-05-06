@@ -139,7 +139,7 @@ token, with additional details provided if an option is exclusive to one party.
   `CancellationFinalized` event and forwards the
   `CancellationFinalizedNotification` to the distributor partner plugin,
 - The Distributor expects the reception of the `CancellationFinalizedNotification`,
-  which should trigger a different workflow in case of on-chain or off-chain payment.
+  which should trigger a different workflow in case of on-chain vs off-chain payment.
   - In case of on-chain payment the accountancy system should be advised of reception
     of the refund in the CM Account.
   - In case of off-chain payment, the accountancy system should be triggered to receive
