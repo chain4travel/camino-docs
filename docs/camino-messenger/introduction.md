@@ -223,7 +223,7 @@ The version of each Message Type, referred to as _"service versions"_, is specif
 
 To define the supported capabilities for the partner configuration, we use the entire package name to refer to a service as a capability. For example: `cmp.services.accommodation.v1.AccommodationSearchService`.
 
-In one protocol release, each message type will be on its own service version. If many partners are actively collaborating on the Accommodation Service, this will lead to more updates for this message type then for others. We have decided to step away from semantic versioning and consider all changes in the protocol as breaking changes.
+In one protocol release, each message type will be on its own service version. If many partners are actively collaborating on the Accommodation Service, this will lead to more updates for this message type than for others. We have decided to step away from semantic versioning and consider all changes in the protocol as breaking changes.
 
 All new files will be added to a new version of the package instead of versioning each service individually and consecutively. For instance if we have a brand new file in the types and there is already v1, v2 and v3 present in the c4t branch, the newly added file will be in v4. Same goes for the services - if we already have v1 and v2, newly added files and modified files go into v3, no matter if the particular service was already present in v2,v1 or not at all. This is done to prevent circular package dependencies, which would pose no problem to protobuf but would result in an unusable SDK for instance for golang.
 
