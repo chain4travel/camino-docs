@@ -92,7 +92,7 @@ As the partners of the Camino Network also trade on the network, it is in their 
 
 Depending on the integration model and the quality of searches on a distribution platform, an average number of searches is required to achieve one booking. This is called "Look-to-Book" (LTB). It is nowadays mostly expressed as the average number of searches required to make a booking, but in the past it was also expressed as a percentage (1% of searches results to a booking, would be the same as 100 searches required for a booking).
 
-In the below calculation example we compare two scenarios where on average 1000 searches are required for each booking. This is a normal LTB in scenarios of qualified traffic, scenarios where the initial search is handles from cache or scenarios of dynamic packaging where a product is added later in the booking funnel.
+In the below calculation example we compare two scenarios where on average 1000 searches are required for each booking. This is a normal LTB in scenarios of qualified traffic, scenarios where the initial search is handled from cache or scenarios of dynamic packaging where a product is added later in the booking funnel.
 
 In case 1 on the left, only the network fee is considered. The supplier has set the fee for searches to 0 EURe. This is the normal situation in case of a sustainable LTB. In this example, we see that each booking has a cost of circa 0.05€ for the distributor and 0.06€ for the supplier.
 
