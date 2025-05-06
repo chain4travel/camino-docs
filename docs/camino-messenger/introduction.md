@@ -53,7 +53,7 @@ The Camino Messenger is a decentralized network of messenger servers hosted by t
 
 **Performance Indicators**
 
-In the gRPC metadata every hop and processing time is registered. There is a script to record this metadata of your requests and responses, which is gathered in a clear .csv format. This way you have full transparency of the performance of the Camino Messenger and your providers. More info on gRPC can be found [here](https://grpc.io/docs/what-is-grpc/introduction/).
+Every hop and processing time is registered in the gRPC metadata. There is a script to record this metadata of your requests and responses, which is gathered in a clear .csv format. This way you have full transparency of the performance of the Camino Messenger and your providers. More info on gRPC can be found [here](https://grpc.io/docs/what-is-grpc/introduction/).
 
 ## Message Type Standard
 
