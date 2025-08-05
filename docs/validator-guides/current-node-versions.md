@@ -19,12 +19,12 @@ release.
 
 # Mainnet - Camino
 
-| Recommended Node Version | `v1.1.0` | https://github.com/chain4travel/caminogo/releases/latest     |
+| Recommended Node Version | `v1.2.0` | https://github.com/chain4travel/caminogo/releases/latest     |
 | ------------------------ | -------- | ------------------------------------------------------------ |
-| Minimum Node Version     | `v1.1.0` | https://github.com/chain4travel/caminogo/releases/tag/v1.1.0 |
+| Minimum Node Version     | `v1.2.0` | https://github.com/chain4travel/caminogo/releases/tag/v1.2.0 |
 
 # Testnet - Columbus
 
-| Recommended Node Version | `v1.1.0`     | https://github.com/chain4travel/caminogo/releases/tag/v1.1.0     |
+| Recommended Node Version | `v1.2.0`     | https://github.com/chain4travel/caminogo/releases/tag/v1.2.0     |
 | ------------------------ | ------------ | ---------------------------------------------------------------- |
-| Minimum Node Version     | `v1.1.0-rc6` | https://github.com/chain4travel/caminogo/releases/tag/v1.1.0-rc6 |
+| Minimum Node Version     | `v1.2.0-rc6` | https://github.com/chain4travel/caminogo/releases/tag/v1.2.0-rc6 |
