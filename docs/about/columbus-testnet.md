@@ -7,7 +7,7 @@ description: All about the Columbus testnet, how to participate and what to expe
 
 The Columbus testnet is a full-fledged ready-to-use platform to both learn how to participate in the network and to develop and test on-chain applications.
 
-## What to expect
+## What to expect?
 
 The Columbus testnet is undergoing constant improvement and despite the fact that the development is always striving to have a working network at all time it's highly unlikely but in extreme cases it can happen that the testnet must be built up from scratch. So please be aware of the fact that everything on the testnet can be reset at any given time and no productive environment is dependent on the state of the network.
 
@@ -34,25 +34,29 @@ As this network is only for testing purposes the tokens (CAM) needed to test can
 
 ### Columbus Faucet Discord Bot
 
-You'll need tokens (CAM) to start testing on Columbus. To request them please join our [Discord](https://discord.gg/camino) and use the `/faucet <X-Address> <Amount>` command.
+You'll need tokens (CAM) to start testing on Columbus. To request them please join our [Discord](https://discord.gg/camino) and use the `/faucet <C-Address> <Token Type> <Amount>` command.
 
-Requesting tokens from the `Camino` Discord bot is both limited in amount per request and per time. The current limits are provided with the help text Discord automatically displays when using the command.
+Please follow the instructions given by discord when using the command:
 
-#### X-Address to Receive Tokens
+- The `<C-Address>` is your C-Chain address where the tokens will be sent to. You can simply copy the address from your Camino Wallet or MetaMask wallet once you've added the Columbus network to it.
+- The `<Token Type>` can be either `CAM` or `MessengerFeeToken`. A popup will help you to choose the right token type.
+- The `<Amount>` is the number of tokens you want to request.
 
-To be able to receive tokens via the faucet you'll need a valid X-Chain address for the Columbus network. There are multiple ways to create a X-Address where the easiest would be to simply create a wallet in the [Camino Wallet](https://suite.camino.network/). Please keep in mind to double-check that the Columbus network is selected in the top-right.
+:::info FAUCET LIMIT
 
-Another way to create a new X-Address would be to directly use the [X-Chain JSON API](../developer/apis/camino-node-apis/x-chain.mdx) which is now recommended for normal users or as long as you're not planning to fully use the API without any user-interaction.
+Requesting `CAM` tokens from the `Camino` Discord bot is both limited in amount per request and per time. The current limits are provided with the help text Discord automatically displays when using the command.
 
-#### But I need more tokens?
+:::
+
+#### But I need more tokens!?
 
 Don't panic!
 
 As the tokens are provided for free we are sure you'll understand, that we have to restrict the number of tokens a user can request in a specific time frame, to prevent that someone can run the faucet dry and claim a huge amount of tokens leaving everyone else without the chance to test properly. If you for some reason need more tokens, please contact us in the support channel on the [Discord](https://discord.gg/camino) server.
 
-### But I need the tokens on the C-Chain?
+### What if I need the tokens on other chains?
 
-When receiving tokens via the Discord bot they'll always be sent to the X-Address provided in the `/faucet` command. To transfer tokens between the X- and C-Chain, just login into the [Camino Wallet](https://suite.camino.network/) and transfer the tokens with the `Cross Chain` function.
+When receiving tokens via the Discord bot they'll always be sent to the C-Address provided in the `/faucet` command. To transfer tokens between the C- and P- or X-Chain, just login into the [Camino Wallet](https://suite.camino.network/) and transfer the tokens with the `Cross Chain` function.
 
 ## Running a RPC/HTTP Node
 

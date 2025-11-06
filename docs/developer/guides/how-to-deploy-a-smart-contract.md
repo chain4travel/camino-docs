@@ -28,7 +28,7 @@ Whether you're building the next travel industry innovation or learning blockcha
 development, Camino Builder provides all the tools and knowledge you need to get
 started.
 
-Repository: https://github.com/chain4travel/camino-builder
+Repository: [https://github.com/chain4travel/camino-builder](https://github.com/chain4travel/camino-builder)
 
 Get support on [Discord #tech-support](https://discord.com/channels/949247897688494150/959050296263323668) channel!
 
@@ -69,85 +69,16 @@ If your account is already KYC-verified, you can skip this step.
 ## 3. Request Funds from the Discord Faucet
 
 To request funds from the Discord faucet, visit the [**Camino Discord server**](https://discord.gg/camino)
-and follow the instructions below.
+and the steps explained in [Columbus Faucet Discord Bot](../../about/columbus-testnet.md#columbus-faucet-discord-bot).
 
-To request funds from the Discord faucet, follow these steps:
-
-1. Join the Camino Discord server and navigate to the Community > General channel.
-1. Type `/faucet` in the chat. The user interface will update to reflect the changes, similar to the screenshot provided.
-1. Copy and paste your X-Address from the Camino Wallet.
-1. Enter the amount of CAM you wish to request, separating the command, X-Address and the requested amount with spaces.
-
-Please note that there is a limit of 150 CAM that can be requested within a 1-week period.
-
-:::info FAUCET LIMIT
-
-The daily faucet limit is subject to change. Always check the faucet for the current
-limit. If your request exceeds the limit, the faucet will notify you.
-
-:::
-
-<figure>
-<img class="zoom" src="/img/deploy-smart-contract/1-deploy-sc-faucet.png"/>
-<figcaption align="center"><b>Fig.1:</b> Request funds from the faucet</figcaption>
-</figure>
-
-In approximately one to two minutes, you should receive the requested amount of CAM in your
-Camino Wallet. Verify this in your Camino Wallet interface.
-
-<figure>
-<img class="zoom" src="/img/deploy-smart-contract/2-deploy-sc-requested.png"/>
-<figcaption align="center"><b>Fig.2:</b> Funds requested!</figcaption>
-</figure>
-
-Once the funds are received in your Camino Wallet, they will be on the X-Chain and you will
-need to transfer them to the C-Chain in order to use them for smart contract deployment.
-
-<figure>
-<img class="zoom" src="/img/deploy-smart-contract/3-deploy-sc-received.png"/>
-<figcaption align="center"><b>Fig.3:</b> Funds received!</figcaption>
-</figure>
-
-## 4. Perform Cross-Chain Transfer
-
-1. Click on "Cross Chain" in the navigation bar of the Camino Wallet.
-1. Select "X" as the Source Chain and "C" as the Destination Chain.
-1. Enter the desired amount in the Transfer Amount field and click "Confirm".
-
-<figure>
-<img class="zoom" src="/img/deploy-smart-contract/4-deploy-sc-cross-chain.png"/>
-<figcaption align="center"><b>Fig.4:</b> Fill in the form and confirm</figcaption>
-</figure>
-
-Finally, click "Transfer" to initiate the cross-chain transfer.
-
-<figure>
-<img class="zoom" src="/img/deploy-smart-contract/5-deploy-sc-transfer.png"/>
-<figcaption align="center"><b>Fig.5:</b> Click Transfer</figcaption>
-</figure>
-
-:::tip
-
-If you wish to view detailed information about your balance on different chains, you
-can click the "Show Breakdown" button located on the right-hand side of the balance display.
-
-:::
-
-Transfer is successful.
-
-<figure>
-<img class="zoom" src="/img/deploy-smart-contract/6-deploy-sc-transfer-success.png"/>
-<figcaption align="center"><b>Fig.6:</b> Transfer is successful</figcaption>
-</figure>
-
-## 5. Add Your Account and the Columbus Network to the MetaMask Wallet
+## 4. Add Your Account and the Columbus Network to the MetaMask Wallet
 
 To add your account and the Columbus Network to your MetaMask wallet, please follow the instructions
 provided in the [MetaMask & RPC Endpoints](/guides/metamask-rpc-endpoints) documentation page.
 
-## 6. Access the Remix IDE & Import a Sample ERC20 Contract
+## 5. Access the Remix IDE & Import a Sample ERC20 Contract
 
-Go to the Remix IDE URL: https://remix.ethereum.org/
+Go to the [Remix IDE](https://remix.ethereum.org/).
 
 On the Remix IDE page, locate and click on the "OXPROJECT ERC20" to import the sample ERC20 contract.
 
@@ -156,7 +87,7 @@ On the Remix IDE page, locate and click on the "OXPROJECT ERC20" to import the s
 <figcaption align="center"><b>Fig.7:</b> Remix IDE</figcaption>
 </figure>
 
-## 7. Compile the Contract
+## 6. Compile the Contract
 
 After importing the necessary files into your workspace, select the "SampleERC20.sol" file.
 
@@ -186,7 +117,7 @@ Please choose the EVM version "paris" from Advanced Configurations section.
 
 :::
 
-## 8. Provide the Necessary Details and Deploy the Contract
+## 7. Provide the Necessary Details and Deploy the Contract
 
 - Choose "Injected Provider - MetaMask" from the Environment dropdown menu.
 - Click on the arrow on the right side of the "Deploy" button to expand the menu.
@@ -214,7 +145,7 @@ Please choose the EVM version "paris" from Advanced Configurations section.
 <figcaption align="center"><b>Fig.12:</b> Copy the contract address</figcaption>
 </figure>
 
-## 9. Add Your Newly Created Token to MetaMask and the Camino Wallet.
+## 8. Add Your Newly Created Token to MetaMask and the Camino Wallet
 
 Congratulations, you have your own token! Let's add your token to MetaMask and Camino Wallet.
 
