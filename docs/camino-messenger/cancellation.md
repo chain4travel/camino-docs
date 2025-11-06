@@ -56,7 +56,7 @@ and clear state transitions managed through smart contracts.
 
 The process is designed to have the distributor and the supplier agree on the
 cancellation cost during the process. Normally the cancellation conditions are fixed
-during the initial booking process in rules. These rules can be interpreted
+during in rules during the initial booking process. These rules can be interpreted
 differently between distributor and supplier, which can lead to disputes.
 
 When a distributor has stored the cancellation conditions with the booking, the
@@ -118,18 +118,18 @@ token, with additional details provided if an option is exclusive to one party.
 
 ### Acceptance
 
-- The supplier does a look-up from the TokenID in the `CancellationPendingNotification`
+- The supplier does a look-up with the TokenID in the `CancellationPendingNotification`
   to determine the inventory system booking reference to be cancelled.
 - The supplier can accept the cancellation by accepting the proposed refund amount in
   case the booking can be cancelled.
-- Supplier partner plugin then send the `FinalizeCancellationRequest` to the
+- Supplier partner plugin then sends the `FinalizeCancellationRequest` to the
   supplier bot. (No need to call `AcceptCancellation` as finalize call implies
   the acceptance)
 - The supplier bot then calls `finalizeCancellation` function on their CM Account
   which sets the status of the cancellation to `FINALIZED` and updates the token
   status to `CANCELLED`. (`finalizeCancellation` function on CM Accounts calls
   the `finalizeCancellation` function on the BookingToken contract)
-- In case of the payment token address is not `OFFCHAIN_PAYMENT`, the
+- In case of the payment token address not being `OFFCHAIN_PAYMENT`, the
   `finalizeCancellation` call also does the refund operation, transferring the
   amount from the supplier's CM Account to the distributor's CM Account, in the
   currency of the provided payment token address. (ERC20 or native coin if the
@@ -139,7 +139,7 @@ token, with additional details provided if an option is exclusive to one party.
   `CancellationFinalized` event and forwards the
   `CancellationFinalizedNotification` to the distributor partner plugin,
 - The Distributor expects the reception of the `CancellationFinalizedNotification`,
-  which should trigger a different workflow in case of on-chain or off-chain payment.
+  which should trigger a different workflow in case of on-chain vs off-chain payment.
   - In case of on-chain payment the accountancy system should be advised of reception
     of the refund in the CM Account.
   - In case of off-chain payment, the accountancy system should be triggered to receive
@@ -164,8 +164,8 @@ token, with additional details provided if an option is exclusive to one party.
 In case the booking can be cancelled, but the refund amount provided by the proposer
 does not match the original cost minus the cancellation cost, the other party can return
 a counter proposal with a corrected refund amount. In case of a distributor initiated
-cancellation, the proposer is the distributor. In case of initiation by the supplier,
-the proposer is the supplier and the other party the distributor.
+cancellation, the proposer is the distributor. In case of a supplier initiated cancellation,
+the proposer is the supplier and the other party is the distributor.
 
 - Upon reception of the `CancellationPendingNotification`, the other party checks
   whether the booking can be cancelled and the proposed refund amount is correct.
