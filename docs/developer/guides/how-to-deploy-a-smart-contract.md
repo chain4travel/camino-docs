@@ -78,7 +78,7 @@ provided in the [MetaMask & RPC Endpoints](/guides/metamask-rpc-endpoints) docum
 
 ## 5. Access the Remix IDE & Import a Sample ERC20 Contract
 
-Go to the Remix IDE URL: <https://remix.ethereum.org/>
+Go to the [Remix IDE](https://remix.ethereum.org/):
 
 On the Remix IDE page, locate and click on the "OXPROJECT ERC20" to import the sample ERC20 contract.
 
