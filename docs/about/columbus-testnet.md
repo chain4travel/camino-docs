@@ -7,7 +7,7 @@ description: All about the Columbus testnet, how to participate and what to expe
 
 The Columbus testnet is a full-fledged ready-to-use platform to both learn how to participate in the network and to develop and test on-chain applications.
 
-## What to expect
+## What to expect?
 
 The Columbus testnet is undergoing constant improvement and despite the fact that the development is always striving to have a working network at all time it's highly unlikely but in extreme cases it can happen that the testnet must be built up from scratch. So please be aware of the fact that everything on the testnet can be reset at any given time and no productive environment is dependent on the state of the network.
 
