@@ -69,7 +69,7 @@ If your account is already KYC-verified, you can skip this step.
 ## 3. Request Funds from the Discord Faucet
 
 To request funds from the Discord faucet, visit the [**Camino Discord server**](https://discord.gg/camino)
-and the steps explained in [Columbus Faucet Discord Bot](../about/columbus-testnet.md#columbus-faucet-discord-bot).
+and the steps explained in [Columbus Faucet Discord Bot](../../about/columbus-testnet.md#columbus-faucet-discord-bot).
 
 ## 4. Add Your Account and the Columbus Network to the MetaMask Wallet
 
