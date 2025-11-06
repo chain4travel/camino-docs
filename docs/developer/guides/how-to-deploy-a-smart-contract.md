@@ -28,7 +28,7 @@ Whether you're building the next travel industry innovation or learning blockcha
 development, Camino Builder provides all the tools and knowledge you need to get
 started.
 
-Repository: <https://github.com/chain4travel/camino-builder>
+Repository: [https://github.com/chain4travel/camino-builder](https://github.com/chain4travel/camino-builder)
 
 Get support on [Discord #tech-support](https://discord.com/channels/949247897688494150/959050296263323668) channel!
 
