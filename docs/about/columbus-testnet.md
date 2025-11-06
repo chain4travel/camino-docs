@@ -46,6 +46,8 @@ Please follow the instructions given by discord when using the command:
 
 Requesting `CAM` tokens from the `Camino` Discord bot is both limited in amount per request and per time. The current limits are provided with the help text Discord automatically displays when using the command.
 
+:::
+
 #### But I need more tokens!?
 
 Don't panic!
