@@ -24,7 +24,6 @@ jobs:
           echo "s3_bucket=camino-docs-dev-bucket" >> $GITHUB_OUTPUT
           echo "cloudfront_distribution_id=${{ secrets.AWS_CLOUDFRONT_DEV_DISTRIBUTION_ID }}" >> $GITHUB_OUTPUT
           echo "collection=camino-docs-dev-`date +%s`" >> $GITHUB_OUTPUT
-          echo "environment=dev" >> $GITHUB_OUTPUT
 
       - uses: actions/setup-node@v3
         with:
@@ -93,15 +92,4 @@ jobs:
           echo ""
           echo "ℹ️  Note: Invalidation will complete in 5-15 minutes."
           echo "    Changes will propagate to all edge locations automatically."
-
-      - name: Deployment summary
-        run: |
-          echo "================================================"
-          echo "🎉 Deployment completed successfully!"
-          echo "================================================"
-          echo "📦 S3 Bucket: ${{ steps.prepareVariables.outputs.s3_bucket }}"
-          echo "🌐 CloudFront Distribution: ${{ steps.prepareVariables.outputs.cloudfront_distribution_id }}"
-          echo "🔍 TypeSense Collection: ${{ steps.prepareVariables.outputs.collection }}"
-          echo "🔗 Access at: https://dev.docs.camino.network"
-          echo "================================================"
 
