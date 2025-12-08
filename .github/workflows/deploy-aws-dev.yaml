@@ -1,0 +1,109 @@
+name: deploy-aws-dev
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+      - aws-migration
+
+env:
+  node_version: 18
+  typesense_url: https://typesense.camino.network
+  default_collection_name: camino-docs-default
+
+jobs:
+  build_deploy_scrape:
+    if: ${{ github.ref == 'refs/heads/dev' }}
+    name: Build, Deploy & Scrape (AWS Dev)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Prepare variables
+        id: prepareVariables
+        run: |
+          echo "s3_bucket=camino-docs-dev-bucket" >> $GITHUB_OUTPUT
+          echo "cloudfront_distribution_id=${{ secrets.AWS_CLOUDFRONT_DEV_DISTRIBUTION_ID }}" >> $GITHUB_OUTPUT
+          echo "collection=camino-docs-dev-`date +%s`" >> $GITHUB_OUTPUT
+          echo "environment=dev" >> $GITHUB_OUTPUT
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
+
+      - name: Install yarn dependencies
+        run: yarn install
+
+      - name: Set collection name for Docusaurus
+        run: sed -i "s/camino-docs-default/${{ steps.prepareVariables.outputs.collection }}/g" docusaurus.config.js
+
+      - name: Build
+        run: yarn build
+
+      - name: Serve local site for the scraper
+        run: docker run -d -p80:80 -v$PWD/build:/usr/share/nginx/html nginx:stable-alpine
+
+      - name: Run local scraping and push to TypeSense
+        run: |
+          sed -i "s/https:\/\/docs.camino.network/http:\/\/host.docker.internal/" scraper/docsearch-config.json
+          sed -i "s/camino-docs-default/${{ steps.prepareVariables.outputs.collection }}/" scraper/docsearch-config.json
+          ENV_FILE=$(readlink -f scraper/env-file)
+          CONFIG=$(cat scraper/docsearch-config.json | jq -r tostring)
+          docker run -i --add-host=host.docker.internal:host-gateway -e"TYPESENSE_API_KEY=${{ secrets.TYPESENSE_ADMIN_KEY }}" --env-file=$ENV_FILE -e "CONFIG=$CONFIG" typesense/docsearch-scraper
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Sync build to S3 bucket
+        run: |
+          echo "📦 Syncing new build to S3 (zero-downtime deployment)..."
+          
+          # Upload static assets with long cache
+          aws s3 sync build/ s3://${{ steps.prepareVariables.outputs.s3_bucket }}/ \
+            --delete \
+            --cache-control "public, max-age=31536000, immutable" \
+            --exclude "*.html" \
+            --exclude "page-data/*" \
+            --exclude "*.json"
+          
+          # Upload HTML and JSON files without caching
+          aws s3 sync build/ s3://${{ steps.prepareVariables.outputs.s3_bucket }}/ \
+            --exclude "*" \
+            --include "*.html" \
+            --include "page-data/*" \
+            --include "*.json" \
+            --cache-control "public, max-age=0, must-revalidate"
+          
+          echo "✅ S3 sync completed with zero downtime!"
+
+      - name: Invalidate CloudFront cache
+        run: |
+          echo "🔄 Creating CloudFront invalidation..."
+          INVALIDATION_ID=$(aws cloudfront create-invalidation \
+            --distribution-id ${{ steps.prepareVariables.outputs.cloudfront_distribution_id }} \
+            --paths "/*" \
+            --query 'Invalidation.Id' \
+            --output text)
+          
+          echo "Invalidation ID: $INVALIDATION_ID"
+          echo "✅ CloudFront cache invalidation initiated!"
+          echo ""
+          echo "ℹ️  Note: Invalidation will complete in 5-15 minutes."
+          echo "    Changes will propagate to all edge locations automatically."
+
+      - name: Deployment summary
+        run: |
+          echo "================================================"
+          echo "🎉 Deployment completed successfully!"
+          echo "================================================"
+          echo "📦 S3 Bucket: ${{ steps.prepareVariables.outputs.s3_bucket }}"
+          echo "🌐 CloudFront Distribution: ${{ steps.prepareVariables.outputs.cloudfront_distribution_id }}"
+          echo "🔍 TypeSense Collection: ${{ steps.prepareVariables.outputs.collection }}"
+          echo "🔗 Access at: https://dev.docs.camino.network"
+          echo "================================================"
+
