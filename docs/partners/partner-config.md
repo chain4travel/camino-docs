@@ -189,6 +189,7 @@ The "Manage Bots" screen allows partners to manage the bot wallets linked to thi
 
    - Displays the addresses of all bot wallets currently using this Messenger Account, e.g., "0xB21385af6bFD19d0E787d718FB83559e515412eB".
    - For each bot, the balance in CAM currently available in the wallet for the bot to operate is displayed (COMING SOON).
+   - Multiple bots are supported from v12.0.0.
 
 2. **Add / Remove a Bot**:
    - Enter a new bot wallet address in the "Bot" field, then click the "Add" button.
